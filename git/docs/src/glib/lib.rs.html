@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib&#x2F;src&#x2F;lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg"><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib&#x2F;src&#x2F;lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -285,137 +285,12 @@
 <span id="212">212</span>
 <span id="213">213</span>
 <span id="214">214</span>
-<span id="215">215</span>
-<span id="216">216</span>
-<span id="217">217</span>
-<span id="218">218</span>
-<span id="219">219</span>
-<span id="220">220</span>
-<span id="221">221</span>
-<span id="222">222</span>
-<span id="223">223</span>
-<span id="224">224</span>
-<span id="225">225</span>
-<span id="226">226</span>
-<span id="227">227</span>
-<span id="228">228</span>
-<span id="229">229</span>
-<span id="230">230</span>
-<span id="231">231</span>
-<span id="232">232</span>
-<span id="233">233</span>
-<span id="234">234</span>
-<span id="235">235</span>
-<span id="236">236</span>
-<span id="237">237</span>
-<span id="238">238</span>
-<span id="239">239</span>
-<span id="240">240</span>
-<span id="241">241</span>
-<span id="242">242</span>
-<span id="243">243</span>
-<span id="244">244</span>
-<span id="245">245</span>
-<span id="246">246</span>
-<span id="247">247</span>
-<span id="248">248</span>
-<span id="249">249</span>
-<span id="250">250</span>
-<span id="251">251</span>
-<span id="252">252</span>
-<span id="253">253</span>
-<span id="254">254</span>
-<span id="255">255</span>
-<span id="256">256</span>
-<span id="257">257</span>
-<span id="258">258</span>
-<span id="259">259</span>
-<span id="260">260</span>
-<span id="261">261</span>
-<span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-<span id="274">274</span>
-<span id="275">275</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
-
-<span class="doccomment">//! # Rust GLib and GObject bindings</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This library contains bindings to GLib and GObject types and APIs as well as</span>
-<span class="doccomment">//! common building blocks used in both handmade and machine generated</span>
-<span class="doccomment">//! bindings to GTK and other GLib-based libraries.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! It is the foundation for higher level libraries with uniform Rusty (safe and</span>
-<span class="doccomment">//! strongly typed) APIs. It avoids exposing GLib-specific data types where</span>
-<span class="doccomment">//! possible and is not meant to provide comprehensive GLib bindings, which</span>
-<span class="doccomment">//! would often amount to duplicating the Rust Standard Library or other utility</span>
-<span class="doccomment">//! crates.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! GLib 2.48 is the lowest supported version for the underlying library.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Dynamic typing</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Most types in the GLib family have [`Type`] identifiers.</span>
-<span class="doccomment">//! Their corresponding Rust types implement the [`StaticType`] trait.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! A dynamically typed [`Value`] can carry values of any [`StaticType`].</span>
-<span class="doccomment">//! [`Variant`]s can carry values of [`StaticVariantType`].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Errors</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Errors are represented by [`Error`], which can</span>
-<span class="doccomment">//! carry values from various [error domains](error::ErrorDomain) such as</span>
-<span class="doccomment">//! [`FileError`].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Objects</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Each class and interface has a corresponding smart pointer struct</span>
-<span class="doccomment">//! representing an instance of that type (e.g. [`Object`] for `GObject` or</span>
-<span class="doccomment">//! `gtk::Widget` for `GtkWidget`). They are reference counted and feature</span>
-<span class="doccomment">//! interior mutability similarly to Rust&#39;s `Rc&lt;RefCell&lt;T&gt;&gt;` idiom.</span>
-<span class="doccomment">//! Consequently, cloning objects is cheap and their methods never require</span>
-<span class="doccomment">//! mutable borrows. Two smart pointers are equal if they point to the same</span>
-<span class="doccomment">//! object.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The root of the object hierarchy is [`Object`].</span>
-<span class="doccomment">//! Inheritance and subtyping is denoted with the [`IsA`]</span>
-<span class="doccomment">//! marker trait. The [`Cast`] trait enables upcasting</span>
-<span class="doccomment">//! and downcasting.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Interfaces and non-leaf classes also have corresponding traits (e.g.</span>
-<span class="doccomment">//! [`ObjectExt`] or `gtk::WidgetExt`), which are blanketly implemented for all</span>
-<span class="doccomment">//! their subtypes.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! You can create new subclasses of [`Object`] or other object types. Look at</span>
-<span class="doccomment">//! the module&#39;s documentation for further details and a code example.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Under the hood</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! GLib-based libraries largely operate on pointers to various boxed or</span>
-<span class="doccomment">//! reference counted structures so the bindings have to implement corresponding</span>
-<span class="doccomment">//! smart pointers (wrappers), which encapsulate resource management and safety</span>
-<span class="doccomment">//! checks. Such wrappers are defined via the</span>
-<span class="doccomment">//! [`macro@wrapper`] macro, which uses abstractions</span>
-<span class="doccomment">//! defined in the [`mod@wrapper`], [`mod@boxed`],</span>
-<span class="doccomment">//! [`mod@shared`] and [`mod@object`] modules.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`mod@translate`] module defines and partly implements</span>
-<span class="doccomment">//! conversions between high level Rust types (including the aforementioned</span>
-<span class="doccomment">//! wrappers) and their FFI counterparts.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">feature</span>(<span class="ident">doc_cfg</span>))]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::missing_safety_doc</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::wrong_self_convention</span>)]</span>
+<span class="attribute">#![<span class="ident">doc</span> <span class="op">=</span> <span class="macro">include_str!</span>(<span class="string">&quot;../README.md&quot;</span>)]</span>
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">ffi</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">gobject_ffi</span>;
@@ -431,30 +306,30 @@
     <span class="ident">GSharedBoxed</span>,
 };
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::array::Array</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::byte_array::ByteArray</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::bytes::Bytes</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::closure::Closure</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::error</span>::{<span class="ident">BoolError</span>, <span class="ident">Error</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::file_error::FileError</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::object</span>::{
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::array::Array</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::byte_array::ByteArray</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::bytes::Bytes</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::closure::Closure</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::error</span>::{<span class="ident">BoolError</span>, <span class="ident">Error</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::file_error::FileError</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::object</span>::{
     <span class="ident">Cast</span>, <span class="ident">Class</span>, <span class="ident">InitiallyUnowned</span>, <span class="ident">Interface</span>, <span class="ident">IsA</span>, <span class="ident">Object</span>, <span class="ident">ObjectExt</span>, <span class="ident">ObjectType</span>, <span class="ident">SendWeakRef</span>,
     <span class="ident">WeakRef</span>,
 };
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::signal</span>::{
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::signal</span>::{
     <span class="ident">signal_handler_block</span>, <span class="ident">signal_handler_disconnect</span>, <span class="ident">signal_handler_unblock</span>,
     <span class="ident">signal_stop_emission_by_name</span>, <span class="ident">SignalHandlerId</span>,
 };
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::string::String</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::string::String</span>;
 <span class="kw">use</span> <span class="ident">std::ffi::CStr</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::enums</span>::{<span class="ident">EnumClass</span>, <span class="ident">EnumValue</span>, <span class="ident">FlagsBuilder</span>, <span class="ident">FlagsClass</span>, <span class="ident">FlagsValue</span>, <span class="ident">UserDirectory</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::types</span>::{<span class="ident">ILong</span>, <span class="ident">StaticType</span>, <span class="ident">Type</span>, <span class="ident">ULong</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::value</span>::{<span class="ident">BoxedValue</span>, <span class="ident">SendValue</span>, <span class="ident">ToSendValue</span>, <span class="ident">ToValue</span>, <span class="ident">Value</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant</span>::{<span class="ident">FromVariant</span>, <span class="ident">StaticVariantType</span>, <span class="ident">ToVariant</span>, <span class="ident">Variant</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant_dict::VariantDict</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant_iter::VariantIter</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::variant_type</span>::{<span class="ident">VariantTy</span>, <span class="ident">VariantType</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums</span>::{<span class="ident">EnumClass</span>, <span class="ident">EnumValue</span>, <span class="ident">FlagsBuilder</span>, <span class="ident">FlagsClass</span>, <span class="ident">FlagsValue</span>, <span class="ident">UserDirectory</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::types</span>::{<span class="ident">ILong</span>, <span class="ident">StaticType</span>, <span class="ident">Type</span>, <span class="ident">ULong</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::value</span>::{<span class="ident">BoxedValue</span>, <span class="ident">SendValue</span>, <span class="ident">ToSendValue</span>, <span class="ident">ToValue</span>, <span class="ident">Value</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant</span>::{<span class="ident">FromVariant</span>, <span class="ident">StaticVariantType</span>, <span class="ident">ToVariant</span>, <span class="ident">Variant</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_dict::VariantDict</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_iter</span>::{<span class="ident">VariantIter</span>, <span class="ident">VariantStrIter</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_type</span>::{<span class="ident">VariantTy</span>, <span class="ident">VariantType</span>};
 
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">clone</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
@@ -468,15 +343,15 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">object</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::auto::functions</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::auto</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::auto::functions</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::auto</span>::<span class="kw-2">*</span>;
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_upper_case_globals</span>)]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::too_many_arguments</span>)]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::type_complexity</span>)]</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
 <span class="kw">mod</span> <span class="ident">auto</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::gobject</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::gobject</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">gobject</span>;
 
 <span class="kw">mod</span> <span class="ident">array</span>;
@@ -484,49 +359,51 @@
 <span class="kw">mod</span> <span class="ident">bytes</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">char</span>;
 <span class="kw">mod</span> <span class="ident">string</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::char</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::char</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">checksum</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">closure</span>;
 <span class="kw">mod</span> <span class="ident">enums</span>;
 <span class="kw">mod</span> <span class="ident">file_error</span>;
 <span class="kw">mod</span> <span class="ident">functions</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::functions</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::functions</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">key_file</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prelude</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">signal</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">source</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::source</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::source</span>::<span class="kw-2">*</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">translate</span>;
 <span class="kw">mod</span> <span class="ident">gstring</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::gstring::GString</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::gstring::GString</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">types</span>;
+<span class="kw">mod</span> <span class="ident">unicollate</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::unicollate</span>::{<span class="ident">CollationKey</span>, <span class="ident">FilenameCollationKey</span>};
 <span class="kw">mod</span> <span class="ident">utils</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::utils</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::utils</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">main_context</span>;
 <span class="kw">mod</span> <span class="ident">main_context_channel</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::main_context::MainContextAcquireGuard</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::main_context_channel</span>::{<span class="ident">Receiver</span>, <span class="ident">Sender</span>, <span class="ident">SyncSender</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::main_context::MainContextAcquireGuard</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::main_context_channel</span>::{<span class="ident">Receiver</span>, <span class="ident">Sender</span>, <span class="ident">SyncSender</span>};
 <span class="kw">mod</span> <span class="ident">date</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">value</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">variant</span>;
 <span class="kw">mod</span> <span class="ident">variant_dict</span>;
 <span class="kw">mod</span> <span class="ident">variant_iter</span>;
 <span class="kw">mod</span> <span class="ident">variant_type</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::date::Date</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::date::Date</span>;
 <span class="kw">mod</span> <span class="ident">value_array</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::value_array::ValueArray</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::value_array::ValueArray</span>;
 <span class="kw">mod</span> <span class="ident">param_spec</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::param_spec</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::param_spec</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">quark</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::quark::Quark</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::quark::Quark</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">mod</span> <span class="ident">log</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::log::log_set_handler</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::log::log_set_handler</span>;
 
 <span class="comment">// #[cfg(any(feature = &quot;v2_50&quot;, feature = &quot;dox&quot;))]</span>
 <span class="comment">// pub use log::log_variant;</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::log</span>::{
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::log</span>::{
     <span class="ident">log_default_handler</span>, <span class="ident">log_remove_handler</span>, <span class="ident">log_set_always_fatal</span>, <span class="ident">log_set_default_handler</span>,
     <span class="ident">log_set_fatal_mask</span>, <span class="ident">log_unset_default_handler</span>, <span class="ident">set_print_handler</span>, <span class="ident">set_printerr_handler</span>,
     <span class="ident">unset_print_handler</span>, <span class="ident">unset_printerr_handler</span>, <span class="ident">LogHandlerId</span>, <span class="ident">LogLevel</span>, <span class="ident">LogLevels</span>,
@@ -541,20 +418,20 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">mod</span> <span class="ident">bridged_logging</span>;
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;log&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::bridged_logging</span>::{<span class="ident">rust_log_handler</span>, <span class="ident">GlibLogger</span>, <span class="ident">GlibLoggerDomain</span>, <span class="ident">GlibLoggerFormat</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::bridged_logging</span>::{<span class="ident">rust_log_handler</span>, <span class="ident">GlibLogger</span>, <span class="ident">GlibLoggerDomain</span>, <span class="ident">GlibLoggerFormat</span>};
 
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">send_unique</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::send_unique</span>::{<span class="ident">SendUnique</span>, <span class="ident">SendUniqueCell</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::send_unique</span>::{<span class="ident">SendUnique</span>, <span class="ident">SendUniqueCell</span>};
 
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">subclass</span>;
 
 <span class="kw">mod</span> <span class="ident">main_context_futures</span>;
 <span class="kw">mod</span> <span class="ident">source_futures</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::source_futures</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::source_futures</span>::<span class="kw-2">*</span>;
 
 <span class="kw">mod</span> <span class="ident">thread_pool</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::thread_pool::ThreadPool</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::thread_pool::ThreadPool</span>;
 
 <span class="doccomment">/// This is the log domain used by the [`clone!`][crate::clone!] macro. If you want to use a custom</span>
 <span class="doccomment">/// logger (it prints to stdout by default), you can set your own logger using the corresponding</span>
@@ -621,8 +498,8 @@
 <span class="kw">mod</span> <span class="ident">win32</span>;
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_family</span> <span class="op">=</span> <span class="string">&quot;windows&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span><span class="ident">::win32</span>::<span class="kw-2">*</span>;
-</pre></div>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::win32</span>::<span class="kw-2">*</span>;
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
     <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script>
 </body></html>
