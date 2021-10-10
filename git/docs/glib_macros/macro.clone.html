@@ -83,7 +83,7 @@ returned.</p>
 import it because <code>clone!</code> is using it. For example:</p>
 
 <div class='information'><div class='tooltip ignore'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered ignore"><code><span class="kw">use</span> <span class="ident">gtk::glib</span>;</code></pre></div>
-<h3 id="debugging" class="section-header"><a href="#debugging">Debugging</a></h3>
+<h4 id="debugging" class="section-header"><a href="#debugging">Debugging</a></h4>
 <p>In case something goes wrong inside the <code>clone!</code> macro, we use the <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/macro.g_debug.html"><code>g_debug</code></a> macro. Meaning
 that if you want to see these debug messages, you’ll have to set the <code>G_MESSAGES_DEBUG</code>
 environment variable when running your code (either in the code directly or when running the
@@ -94,29 +94,29 @@ binary) to either “all” or <a href="https://gtk-rs.org/gtk-rs-core/stable/la
 <span class="ident">std::env::set_var</span>(<span class="string">&quot;G_MESSAGES_DEBUG&quot;</span>, <span class="ident">CLONE_MACRO_LOG_DOMAIN</span>);
 <span class="ident">std::env::set_var</span>(<span class="string">&quot;G_MESSAGES_DEBUG&quot;</span>, <span class="string">&quot;all&quot;</span>);</code></pre></div>
 <p>Or:</p>
-<div class="example-wrap"><pre class="language-bash"><code>$ G_MESSAGES_DEBUG=all ./binary</code></pre></div><h3 id="passing-a-strong-reference" class="section-header"><a href="#passing-a-strong-reference">Passing a strong reference</a></h3>
+<div class="example-wrap"><pre class="language-bash"><code>$ G_MESSAGES_DEBUG=all ./binary</code></pre></div><h4 id="passing-a-strong-reference" class="section-header"><a href="#passing-a-strong-reference">Passing a strong reference</a></h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">glib</span>;
 <span class="kw">use</span> <span class="ident">glib_macros::clone</span>;
 <span class="kw">use</span> <span class="ident">std::rc::Rc</span>;
 
 <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="number">1</span>);
-<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="ident">v</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="ident">v</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
     <span class="macro">println!</span>(<span class="string">&quot;v: {}, x: {}&quot;</span>, <span class="ident">v</span>, <span class="ident">x</span>);
 });
 
 <span class="ident">closure</span>(<span class="number">2</span>);</code></pre></div>
-<h3 id="passing-a-weak-reference" class="section-header"><a href="#passing-a-weak-reference">Passing a weak reference</a></h3>
+<h4 id="passing-a-weak-reference" class="section-header"><a href="#passing-a-weak-reference">Passing a weak reference</a></h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">glib</span>;
 <span class="kw">use</span> <span class="ident">glib_macros::clone</span>;
 <span class="kw">use</span> <span class="ident">std::rc::Rc</span>;
 
 <span class="kw">let</span> <span class="ident">u</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="number">2</span>);
-<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">u</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">u</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
     <span class="macro">println!</span>(<span class="string">&quot;u: {}, x: {}&quot;</span>, <span class="ident">u</span>, <span class="ident">x</span>);
 });
 
 <span class="ident">closure</span>(<span class="number">3</span>);</code></pre></div>
-<h4 id="allowing-a-nullable-weak-reference" class="section-header"><a href="#allowing-a-nullable-weak-reference">Allowing a nullable weak reference</a></h4>
+<h5 id="allowing-a-nullable-weak-reference" class="section-header"><a href="#allowing-a-nullable-weak-reference">Allowing a nullable weak reference</a></h5>
 <p>In some cases, even if the weak references can’t be retrieved, you might want to still have
 your closure called. In this case, you need to use <code>@weak-allow-none</code>:</p>
 
@@ -128,7 +128,7 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
     <span class="comment">// This `Rc` won&#39;t be available in the closure because it&#39;s dropped at the end of the</span>
     <span class="comment">// current block</span>
     <span class="kw">let</span> <span class="ident">u</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="number">2</span>);
-    <span class="macro">clone!</span>(@<span class="ident">weak</span><span class="op">-</span><span class="ident">allow</span><span class="op">-</span><span class="ident">none</span> <span class="ident">u</span> <span class="op">=</span><span class="op">&gt;</span> @<span class="ident">default</span><span class="op">-</span><span class="kw">return</span> <span class="bool-val">false</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+    <span class="macro">clone!</span>(@<span class="ident">weak</span><span class="op">-</span><span class="ident">allow</span><span class="op">-</span><span class="ident">none</span> <span class="ident">u</span> =&gt; @<span class="ident">default</span><span class="op">-</span><span class="kw">return</span> <span class="bool-val">false</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
         <span class="comment">// We need to use a Debug print for `u` because it&#39;ll be an `Option`.</span>
         <span class="macro">println!</span>(<span class="string">&quot;u: {:?}, x: {}&quot;</span>, <span class="ident">u</span>, <span class="ident">x</span>);
         <span class="bool-val">true</span>
@@ -136,19 +136,19 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
 };
 
 <span class="macro">assert_eq!</span>(<span class="ident">closure</span>(<span class="number">3</span>), <span class="bool-val">true</span>);</code></pre></div>
-<h3 id="renaming-variables" class="section-header"><a href="#renaming-variables">Renaming variables</a></h3>
+<h4 id="renaming-variables" class="section-header"><a href="#renaming-variables">Renaming variables</a></h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">glib</span>;
 <span class="kw">use</span> <span class="ident">glib_macros::clone</span>;
 <span class="kw">use</span> <span class="ident">std::rc::Rc</span>;
 
 <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="number">1</span>);
 <span class="kw">let</span> <span class="ident">u</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="number">2</span>);
-<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="ident">v</span> <span class="kw">as</span> <span class="ident">y</span>, @<span class="ident">weak</span> <span class="ident">u</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="ident">v</span> <span class="kw">as</span> <span class="ident">y</span>, @<span class="ident">weak</span> <span class="ident">u</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
     <span class="macro">println!</span>(<span class="string">&quot;v as y: {}, u: {}, x: {}&quot;</span>, <span class="ident">y</span>, <span class="ident">u</span>, <span class="ident">x</span>);
 });
 
 <span class="ident">closure</span>(<span class="number">3</span>);</code></pre></div>
-<h3 id="providing-a-default-return-value-if-upgrading-a-weak-reference-fails" class="section-header"><a href="#providing-a-default-return-value-if-upgrading-a-weak-reference-fails">Providing a default return value if upgrading a weak reference fails</a></h3>
+<h4 id="providing-a-default-return-value-if-upgrading-a-weak-reference-fails" class="section-header"><a href="#providing-a-default-return-value-if-upgrading-a-weak-reference-fails">Providing a default return value if upgrading a weak reference fails</a></h4>
 <p>You can do it in two different ways:</p>
 <p>Either by providing the value yourself using <code>@default-return</code>:</p>
 
@@ -157,7 +157,7 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
 <span class="kw">use</span> <span class="ident">std::rc::Rc</span>;
 
 <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="number">1</span>);
-<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">v</span> <span class="op">=</span><span class="op">&gt;</span> @<span class="ident">default</span><span class="op">-</span><span class="kw">return</span> <span class="bool-val">false</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">v</span> =&gt; @<span class="ident">default</span><span class="op">-</span><span class="kw">return</span> <span class="bool-val">false</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
     <span class="macro">println!</span>(<span class="string">&quot;v: {}, x: {}&quot;</span>, <span class="ident">v</span>, <span class="ident">x</span>);
     <span class="bool-val">true</span>
 });
@@ -168,17 +168,17 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
 <span class="macro">assert_eq!</span>(<span class="ident">closure</span>(<span class="number">2</span>), <span class="bool-val">false</span>);</code></pre></div>
 <p>Or by using <code>@default-panic</code> (if the value fails to get upgraded, it’ll panic):</p>
 
-<div class='information'><div class='tooltip should_panic'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered should_panic"><code><span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">v</span> <span class="op">=</span><span class="op">&gt;</span> @<span class="ident">default</span><span class="op">-</span><span class="ident">panic</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+<div class='information'><div class='tooltip should_panic'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered should_panic"><code><span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">weak</span> <span class="ident">v</span> =&gt; @<span class="ident">default</span><span class="op">-</span><span class="ident">panic</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
     <span class="macro">println!</span>(<span class="string">&quot;v: {}, x: {}&quot;</span>, <span class="ident">v</span>, <span class="ident">x</span>);
     <span class="bool-val">true</span>
 });</code></pre></div>
-<h3 id="errors" class="section-header"><a href="#errors">Errors</a></h3>
+<h4 id="errors" class="section-header"><a href="#errors">Errors</a></h4>
 <p>Here is a list of errors you might encounter:</p>
 <p><strong>Missing <code>@weak</code> or <code>@strong</code></strong>:</p>
 
 <div class='information'><div class='tooltip compile_fail'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered compile_fail"><code><span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="number">1</span>);
 
-<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(<span class="ident">v</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="macro">println!</span>(<span class="string">&quot;v: {}, x: {}&quot;</span>, <span class="ident">v</span>, <span class="ident">x</span>));</code></pre></div>
+<span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(<span class="ident">v</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="macro">println!</span>(<span class="string">&quot;v: {}, x: {}&quot;</span>, <span class="ident">v</span>, <span class="ident">x</span>));</code></pre></div>
 <p><strong>Passing <code>self</code> as an argument</strong>:</p>
 
 <div class='information'><div class='tooltip compile_fail'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered compile_fail"><code><span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
@@ -186,7 +186,7 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
 
 <span class="kw">impl</span> <span class="ident">Foo</span> {
     <span class="kw">fn</span> <span class="ident">foo</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
             <span class="macro">println!</span>(<span class="string">&quot;self: {:?}&quot;</span>, <span class="self">self</span>);
         });
     }
@@ -198,7 +198,7 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
 
 <span class="kw">impl</span> <span class="ident">Foo</span> {
     <span class="kw">fn</span> <span class="ident">foo</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span> <span class="kw">as</span> <span class="ident">this</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span> <span class="kw">as</span> <span class="ident">this</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
             <span class="macro">println!</span>(<span class="string">&quot;self: {:?}&quot;</span>, <span class="ident">this</span>);
         });
     }
@@ -212,7 +212,7 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
 
 <span class="kw">impl</span> <span class="ident">Foo</span> {
     <span class="kw">fn</span> <span class="ident">foo</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span>.<span class="ident">v</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span>.<span class="ident">v</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
             <span class="macro">println!</span>(<span class="string">&quot;self.v: {:?}&quot;</span>, <span class="ident">v</span>);
         });
     }
@@ -221,7 +221,7 @@ your closure called. In this case, you need to use <code>@weak-allow-none</code>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">impl</span> <span class="ident">Foo</span> {
     <span class="kw">fn</span> <span class="ident">foo</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span>.<span class="ident">v</span> <span class="kw">as</span> <span class="ident">v</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="macro">clone!</span>(@<span class="ident">strong</span> <span class="self">self</span>.<span class="ident">v</span> <span class="kw">as</span> <span class="ident">v</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
             <span class="macro">println!</span>(<span class="string">&quot;self.v: {}&quot;</span>, <span class="ident">v</span>);
         });
     }
