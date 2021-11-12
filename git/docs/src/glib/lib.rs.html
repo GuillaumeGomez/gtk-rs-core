@@ -297,6 +297,8 @@
 <span id="224">224</span>
 <span id="225">225</span>
 <span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">feature</span>(<span class="ident">doc_cfg</span>))]</span>
@@ -315,7 +317,7 @@
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">glib_macros</span>::{
     <span class="ident">clone</span>, <span class="ident">gflags</span>, <span class="ident">object_interface</span>, <span class="ident">object_subclass</span>, <span class="ident">Downgrade</span>, <span class="ident">GBoxed</span>, <span class="ident">GEnum</span>, <span class="ident">GErrorDomain</span>,
-    <span class="ident">GSharedBoxed</span>,
+    <span class="ident">GSharedBoxed</span>, <span class="ident">GVariant</span>,
 };
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::array::Array</span>;
@@ -332,13 +334,13 @@
     <span class="ident">signal_handler_block</span>, <span class="ident">signal_handler_disconnect</span>, <span class="ident">signal_handler_unblock</span>,
     <span class="ident">signal_stop_emission_by_name</span>, <span class="ident">SignalHandlerId</span>,
 };
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::string::String</span>;
-<span class="kw">use</span> <span class="ident">std::ffi::CStr</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums</span>::{<span class="ident">EnumClass</span>, <span class="ident">EnumValue</span>, <span class="ident">FlagsBuilder</span>, <span class="ident">FlagsClass</span>, <span class="ident">FlagsValue</span>, <span class="ident">UserDirectory</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::types</span>::{<span class="ident">ILong</span>, <span class="ident">StaticType</span>, <span class="ident">Type</span>, <span class="ident">ULong</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::value</span>::{<span class="ident">BoxedValue</span>, <span class="ident">SendValue</span>, <span class="ident">ToSendValue</span>, <span class="ident">ToValue</span>, <span class="ident">Value</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant</span>::{<span class="ident">FromVariant</span>, <span class="ident">StaticVariantType</span>, <span class="ident">ToVariant</span>, <span class="ident">Variant</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant</span>::{
+    <span class="ident">FixedSizeVariantArray</span>, <span class="ident">FixedSizeVariantType</span>, <span class="ident">FromVariant</span>, <span class="ident">StaticVariantType</span>, <span class="ident">ToVariant</span>, <span class="ident">Variant</span>,
+};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_dict::VariantDict</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_iter</span>::{<span class="ident">VariantIter</span>, <span class="ident">VariantStrIter</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::variant_type</span>::{<span class="ident">VariantTy</span>, <span class="ident">VariantType</span>};
@@ -357,6 +359,9 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">object</span>;
 
+<span class="kw">mod</span> <span class="ident">collections</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">collections</span>::{<span class="ident">GPtrSlice</span>, <span class="ident">GSlice</span>};
+
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::auto::functions</span>::<span class="kw-2">*</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::auto</span>::<span class="kw-2">*</span>;
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_upper_case_globals</span>)]</span>
@@ -372,7 +377,6 @@
 <span class="kw">mod</span> <span class="ident">byte_array</span>;
 <span class="kw">mod</span> <span class="ident">bytes</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">char</span>;
-<span class="kw">mod</span> <span class="ident">string</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::char</span>::<span class="kw-2">*</span>;
 <span class="kw">mod</span> <span class="ident">checksum</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">closure</span>;
