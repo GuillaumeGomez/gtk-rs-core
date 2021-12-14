@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango&#x2F;src&#x2F;auto&#x2F;layout_line.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>layout_line.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango&#x2F;src&#x2F;auto&#x2F;layout_line.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>layout_line.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../../pango/index.html'><img src='../../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -338,7 +339,7 @@
     <span class="doccomment">/// out a paragraph via [`Layout`][crate::Layout].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`LayoutLine`][crate::LayoutLine] structures are obtained by calling</span>
-    <span class="doccomment">/// [``Layout::line()``][crate::`Layout::line()`] and are only valid until the text,</span>
+    <span class="doccomment">/// [`Layout::line()`][crate::Layout::line()] and are only valid until the text,</span>
     <span class="doccomment">/// attributes, or settings of the parent [`Layout`][crate::Layout] are modified.</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LayoutLine</span>(<span class="ident">Shared</span><span class="op">&lt;</span><span class="ident">ffi::PangoLayoutLine</span><span class="op">&gt;</span>);
@@ -353,7 +354,7 @@
 <span class="kw">impl</span> <span class="ident">LayoutLine</span> {
     <span class="doccomment">/// Computes the logical and ink extents of a layout line.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``FontExt::glyph_extents()``][crate::prelude::`FontExt::glyph_extents()`] for details</span>
+    <span class="doccomment">/// See [`FontExt::glyph_extents()`][crate::prelude::FontExt::glyph_extents()] for details</span>
     <span class="doccomment">/// about the interpretation of the rectangles.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
@@ -361,11 +362,11 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
     <span class="doccomment">/// rectangle used to store the extents of</span>
-    <span class="doccomment">///  the glyph string as drawn</span>
+    <span class="doccomment">///   the glyph string as drawn</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
     <span class="doccomment">/// rectangle used to store the logical</span>
-    <span class="doccomment">///  extents of the glyph string</span>
+    <span class="doccomment">///   extents of the glyph string</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_extents&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
@@ -386,8 +387,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note that the actual baseline-to-baseline distance between lines</span>
     <span class="doccomment">/// of text is influenced by other factors, such as</span>
-    <span class="doccomment">/// [``Layout::set_spacing()``][crate::`Layout::set_spacing()`] and</span>
-    <span class="doccomment">/// [``Layout::set_line_spacing()``][crate::`Layout::set_line_spacing()`].</span>
+    <span class="doccomment">/// [`Layout::set_spacing()`][crate::Layout::set_spacing()] and</span>
+    <span class="doccomment">/// [`Layout::set_line_spacing()`][crate::Layout::set_line_spacing()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -420,23 +421,23 @@
         <span class="kw">unsafe</span> { <span class="ident">ffi::pango_layout_line_get_length</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Computes the logical and ink extents of `self` in device units.</span>
+    <span class="doccomment">/// Computes the logical and ink extents of @self in device units.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This function just calls [``extents()``][`Self::extents()`] followed by</span>
-    <span class="doccomment">/// two [``extents_to_pixels()``][`crate::extents_to_pixels()`] calls, rounding `ink_rect` and `logical_rect`</span>
+    <span class="doccomment">/// This function just calls [`extents()`][Self::extents()] followed by</span>
+    <span class="doccomment">/// two [`extents_to_pixels()`][crate::extents_to_pixels()] calls, rounding @ink_rect and @logical_rect</span>
     <span class="doccomment">/// such that the rounded rectangles fully contain the unrounded one (that is,</span>
-    <span class="doccomment">/// passes them as first argument to [``extents_to_pixels()``][`crate::extents_to_pixels()`]).</span>
+    <span class="doccomment">/// passes them as first argument to [`extents_to_pixels()`][crate::extents_to_pixels()]).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ink_rect`</span>
     <span class="doccomment">/// rectangle used to store the extents of</span>
-    <span class="doccomment">///  the glyph string as drawn</span>
+    <span class="doccomment">///   the glyph string as drawn</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `logical_rect`</span>
     <span class="doccomment">/// rectangle used to store the logical</span>
-    <span class="doccomment">///  extents of the glyph string</span>
+    <span class="doccomment">///   extents of the glyph string</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_pixel_extents&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_pixel_extents&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel_extents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">Rectangle</span>, <span class="ident">Rectangle</span>) {
@@ -491,25 +492,25 @@
     <span class="doccomment">/// layout, not with respect to the line.</span>
     <span class="doccomment">/// ## `start_index`</span>
     <span class="doccomment">/// Start byte index of the logical range. If this value</span>
-    <span class="doccomment">///  is less than the start index for the line, then the first range</span>
-    <span class="doccomment">///  will extend all the way to the leading edge of the layout. Otherwise,</span>
-    <span class="doccomment">///  it will start at the leading edge of the first character.</span>
+    <span class="doccomment">///   is less than the start index for the line, then the first range</span>
+    <span class="doccomment">///   will extend all the way to the leading edge of the layout. Otherwise,</span>
+    <span class="doccomment">///   it will start at the leading edge of the first character.</span>
     <span class="doccomment">/// ## `end_index`</span>
     <span class="doccomment">/// Ending byte index of the logical range. If this value is</span>
-    <span class="doccomment">///  greater than the end index for the line, then the last range will</span>
-    <span class="doccomment">///  extend all the way to the trailing edge of the layout. Otherwise,</span>
-    <span class="doccomment">///  it will end at the trailing edge of the last character.</span>
+    <span class="doccomment">///   greater than the end index for the line, then the last range will</span>
+    <span class="doccomment">///   extend all the way to the trailing edge of the layout. Otherwise,</span>
+    <span class="doccomment">///   it will end at the trailing edge of the last character.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `ranges`</span>
     <span class="doccomment">/// location to</span>
-    <span class="doccomment">///  store a pointer to an array of ranges. The array will be of length</span>
-    <span class="doccomment">///  `2*n_ranges`, with each range starting at `(*ranges)[2*n]` and of</span>
-    <span class="doccomment">///  width `(*ranges)[2*n + 1] - (*ranges)[2*n]`. This array must be freed</span>
-    <span class="doccomment">///  with `g_free()`. The coordinates are relative to the layout and are in</span>
-    <span class="doccomment">///  Pango units.</span>
+    <span class="doccomment">///   store a pointer to an array of ranges. The array will be of length</span>
+    <span class="doccomment">///   `2*n_ranges`, with each range starting at `(*ranges)[2*n]` and of</span>
+    <span class="doccomment">///   width `(*ranges)[2*n + 1] - (*ranges)[2*n]`. This array must be freed</span>
+    <span class="doccomment">///   with g_free(). The coordinates are relative to the layout and are in</span>
+    <span class="doccomment">///   Pango units.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_layout_line_get_x_ranges&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_x_ranges&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_ranges</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">start_index</span>: <span class="ident">i32</span>, <span class="ident">end_index</span>: <span class="ident">i32</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
@@ -532,8 +533,8 @@
     <span class="doccomment">/// byte offset of a grapheme within the layout</span>
     <span class="doccomment">/// ## `trailing`</span>
     <span class="doccomment">/// an integer indicating the edge of the grapheme to retrieve</span>
-    <span class="doccomment">///  the position of. If &gt; 0, the trailing edge of the grapheme,</span>
-    <span class="doccomment">///  if 0, the leading of the grapheme</span>
+    <span class="doccomment">///   the position of. If &gt; 0, the trailing edge of the grapheme,</span>
+    <span class="doccomment">///   if 0, the leading of the grapheme</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -572,6 +573,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>

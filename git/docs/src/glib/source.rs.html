@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib&#x2F;src&#x2F;source.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>source.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib&#x2F;src&#x2F;source.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>source.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../glib/index.html'><img src='../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1343,6 +1344,51 @@
 <span id="1270">1270</span>
 <span id="1271">1271</span>
 <span id="1272">1272</span>
+<span id="1273">1273</span>
+<span id="1274">1274</span>
+<span id="1275">1275</span>
+<span id="1276">1276</span>
+<span id="1277">1277</span>
+<span id="1278">1278</span>
+<span id="1279">1279</span>
+<span id="1280">1280</span>
+<span id="1281">1281</span>
+<span id="1282">1282</span>
+<span id="1283">1283</span>
+<span id="1284">1284</span>
+<span id="1285">1285</span>
+<span id="1286">1286</span>
+<span id="1287">1287</span>
+<span id="1288">1288</span>
+<span id="1289">1289</span>
+<span id="1290">1290</span>
+<span id="1291">1291</span>
+<span id="1292">1292</span>
+<span id="1293">1293</span>
+<span id="1294">1294</span>
+<span id="1295">1295</span>
+<span id="1296">1296</span>
+<span id="1297">1297</span>
+<span id="1298">1298</span>
+<span id="1299">1299</span>
+<span id="1300">1300</span>
+<span id="1301">1301</span>
+<span id="1302">1302</span>
+<span id="1303">1303</span>
+<span id="1304">1304</span>
+<span id="1305">1305</span>
+<span id="1306">1306</span>
+<span id="1307">1307</span>
+<span id="1308">1308</span>
+<span id="1309">1309</span>
+<span id="1310">1310</span>
+<span id="1311">1311</span>
+<span id="1312">1312</span>
+<span id="1313">1313</span>
+<span id="1314">1314</span>
+<span id="1315">1315</span>
+<span id="1316">1316</span>
+<span id="1317">1317</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::translate</span>::{<span class="ident">from_glib</span>, <span class="ident">from_glib_full</span>, <span class="ident">FromGlib</span>, <span class="ident">IntoGlib</span>, <span class="ident">ToGlibPtr</span>};
@@ -2288,12 +2334,14 @@
 <span class="doccomment">/// Use this for high priority event sources.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// It is not used within GLib or GTK+.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_HIGH&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_HIGH</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_HIGH</span>);
 <span class="doccomment">/// Use this for default priority event sources.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// In GLib this priority is used when adding timeout functions</span>
 <span class="doccomment">/// with `g_timeout_add()`. In GDK this priority is used for events</span>
 <span class="doccomment">/// from the X server.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_DEFAULT&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_DEFAULT</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_DEFAULT</span>);
 <span class="doccomment">/// Use this for high priority idle functions.</span>
 <span class="doccomment">///</span>
@@ -2301,15 +2349,18 @@
 <span class="doccomment">/// and `G_PRIORITY_HIGH_IDLE` + 20 for redrawing operations. (This is</span>
 <span class="doccomment">/// done to ensure that any pending resizes are processed before any</span>
 <span class="doccomment">/// pending redraws, so that widgets are not redrawn twice unnecessarily.)</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_HIGH_IDLE&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_HIGH_IDLE</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_HIGH_IDLE</span>);
 <span class="doccomment">/// Use this for default priority idle functions.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// In GLib this priority is used when adding idle functions with</span>
 <span class="doccomment">/// `g_idle_add()`.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_DEFAULT_IDLE&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_DEFAULT_IDLE</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_DEFAULT_IDLE</span>);
 <span class="doccomment">/// Use this for very low priority background tasks.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// It is not used within GLib or GTK+.</span>
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;G_PRIORITY_LOW&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRIORITY_LOW</span>: <span class="ident">Priority</span> <span class="op">=</span> <span class="ident">Priority</span>(<span class="ident">ffi::G_PRIORITY_LOW</span>);
 
 <span class="doccomment">/// Adds a closure to be called by the main loop the return `Source` is attached to when it&#39;s idle.</span>
@@ -2444,6 +2495,46 @@
 <span class="doccomment">/// process exits.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `func` will be called when `pid` exits</span>
+<span class="comment">// rustdoc-stripper-ignore-next-stop</span>
+<span class="doccomment">/// Creates a new child_watch source.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// The source will not initially be associated with any [`MainContext`][crate::MainContext]</span>
+<span class="doccomment">/// and must be added to one with `g_source_attach()` before it will be</span>
+<span class="doccomment">/// executed.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Note that child watch sources can only be used in conjunction with</span>
+<span class="doccomment">/// `g_spawn...` when the [`SpawnFlags::DO_NOT_REAP_CHILD`][crate::SpawnFlags::DO_NOT_REAP_CHILD] flag is used.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Note that on platforms where `GPid` must be explicitly closed</span>
+<span class="doccomment">/// (see `g_spawn_close_pid()`) `pid` must not be closed while the</span>
+<span class="doccomment">/// source is still active. Typically, you will want to call</span>
+<span class="doccomment">/// `g_spawn_close_pid()` in the callback function for the source.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// On POSIX platforms, the following restrictions apply to this API</span>
+<span class="doccomment">/// due to limitations in POSIX process interfaces:</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// * `pid` must be a child of this process</span>
+<span class="doccomment">/// * `pid` must be positive</span>
+<span class="doccomment">/// * the application must not call `waitpid` with a non-positive</span>
+<span class="doccomment">///  first argument, for instance in another thread</span>
+<span class="doccomment">/// * the application must not wait for `pid` to exit by any other</span>
+<span class="doccomment">///  mechanism, including `waitpid(pid, ...)` or a second child-watch</span>
+<span class="doccomment">///  source for the same `pid`</span>
+<span class="doccomment">/// * the application must not ignore `SIGCHLD`</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// If any of those conditions are not met, this and related APIs will</span>
+<span class="doccomment">/// not work correctly. This can often be diagnosed via a GLib warning</span>
+<span class="doccomment">/// stating that `ECHILD` was received by `waitpid`.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Calling `waitpid` for specific processes other than `pid` remains a</span>
+<span class="doccomment">/// valid thing to do.</span>
+<span class="doccomment">/// ## `pid`</span>
+<span class="doccomment">/// process to watch. On POSIX the positive pid of a child process. On</span>
+<span class="doccomment">/// Windows a handle for a process (which doesn&#39;t have to be a child).</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Returns</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// the newly-created child watch source</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_child_watch_source_new&quot;</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">child_watch_source_new</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(
     <span class="ident">pid</span>: <span class="ident">Pid</span>,
@@ -2616,6 +2707,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
-    <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>

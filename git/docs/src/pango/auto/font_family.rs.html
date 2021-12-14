@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango&#x2F;src&#x2F;auto&#x2F;font_family.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>font_family.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango&#x2F;src&#x2F;auto&#x2F;font_family.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>font_family.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../../pango/index.html'><img src='../../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -289,16 +290,16 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// [`FontFamily`][struct@crate::FontFamily]</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">FontFamilyExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Gets the [`FontFace`][crate::FontFace] of `self` with the given name.</span>
+    <span class="doccomment">/// Gets the [`FontFace`][crate::FontFace] of @self with the given name.</span>
     <span class="doccomment">/// ## `name`</span>
     <span class="doccomment">/// the name of a face. If the name is [`None`],</span>
-    <span class="doccomment">///  the family&#39;s default face (fontconfig calls it &quot;Regular&quot;)</span>
-    <span class="doccomment">///  will be returned.</span>
+    <span class="doccomment">///   the family&#39;s default face (fontconfig calls it &quot;Regular&quot;)</span>
+    <span class="doccomment">///   will be returned.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the [`FontFace`][crate::FontFace],</span>
-    <span class="doccomment">///  or [`None`] if no face with the given name exists.</span>
+    <span class="doccomment">///   or [`None`] if no face with the given name exists.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_46&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v1_46&quot;</span>)))]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_font_family_get_face&quot;</span>)]</span>
@@ -314,7 +315,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the name of the family. This string is owned</span>
-    <span class="doccomment">///  by the family object and must not be modified or freed.</span>
+    <span class="doccomment">///   by the family object and must not be modified or freed.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_font_family_get_name&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_name&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
@@ -326,12 +327,12 @@
     <span class="doccomment">/// mean that the advance width of all characters are the same, but</span>
     <span class="doccomment">/// this categorization also includes Asian fonts which include</span>
     <span class="doccomment">/// double-width characters: characters that occupy two grid cells.</span>
-    <span class="doccomment">/// `g_unichar_iswide()` returns a result that indicates whether a</span>
+    <span class="doccomment">/// g_unichar_iswide() returns a result that indicates whether a</span>
     <span class="doccomment">/// character is typically double-width in a monospace font.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The best way to find out the grid-cell size is to call</span>
-    <span class="doccomment">/// [``FontMetrics::approximate_digit_width()``][crate::`FontMetrics::approximate_digit_width()`], since the</span>
-    <span class="doccomment">/// results of [``FontMetrics::approximate_char_width()``][crate::`FontMetrics::approximate_char_width()`] may</span>
+    <span class="doccomment">/// [`FontMetrics::approximate_digit_width()`][crate::FontMetrics::approximate_digit_width()], since the</span>
+    <span class="doccomment">/// results of [`FontMetrics::approximate_char_width()`][crate::FontMetrics::approximate_char_width()] may</span>
     <span class="doccomment">/// be affected by double-width characters.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
@@ -351,7 +352,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_font_family_is_variable&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">is_variable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Lists the different font faces that make up `self`.</span>
+    <span class="doccomment">/// Lists the different font faces that make up @self.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The faces in a family share a common design, but differ in slant, weight,</span>
     <span class="doccomment">/// width and other aspects.</span>
@@ -361,9 +362,9 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `faces`</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">///  location to store an array of pointers to [`FontFace`][crate::FontFace] objects,</span>
-    <span class="doccomment">///  or [`None`]. This array should be freed with `g_free()` when it is no</span>
-    <span class="doccomment">///  longer needed.</span>
+    <span class="doccomment">///   location to store an array of pointers to [`FontFace`][crate::FontFace] objects,</span>
+    <span class="doccomment">///   or [`None`]. This array should be freed with g_free() when it is no</span>
+    <span class="doccomment">///   longer needed.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_font_family_list_faces&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">list_faces</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">FontFace</span><span class="op">&gt;</span>;
 }
@@ -426,6 +427,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>

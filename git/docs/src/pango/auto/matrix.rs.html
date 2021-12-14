@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango&#x2F;src&#x2F;auto&#x2F;matrix.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>matrix.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pango&#x2F;src&#x2F;auto&#x2F;matrix.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>matrix.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../../pango/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../../pango/index.html'><img src='../../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -265,9 +266,9 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Matrix</span> {
-    <span class="doccomment">/// Changes the transformation represented by `self` to be the</span>
+    <span class="doccomment">/// Changes the transformation represented by @self to be the</span>
     <span class="doccomment">/// transformation given by first applying transformation</span>
-    <span class="doccomment">/// given by `new_matrix` then applying the original transformation.</span>
+    <span class="doccomment">/// given by @new_matrix then applying the original transformation.</span>
     <span class="doccomment">/// ## `new_matrix`</span>
     <span class="doccomment">/// a [`Matrix`][crate::Matrix]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_matrix_concat&quot;</span>)]</span>
@@ -280,13 +281,13 @@
     <span class="doccomment">/// Returns the scale factor of a matrix on the height of the font.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// That is, the scale factor in the direction perpendicular to the</span>
-    <span class="doccomment">/// vector that the X coordinate is mapped to. If the scale in the X</span>
-    <span class="doccomment">/// coordinate is needed as well, use [``font_scale_factors()``][`Self::font_scale_factors()`].</span>
+    <span class="doccomment">/// vector that the X coordinate is mapped to.  If the scale in the X</span>
+    <span class="doccomment">/// coordinate is needed as well, use [`font_scale_factors()`][Self::font_scale_factors()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// the scale factor of `self` on the height of the font,</span>
-    <span class="doccomment">///  or 1.0 if `self` is [`None`].</span>
+    <span class="doccomment">/// the scale factor of @self on the height of the font,</span>
+    <span class="doccomment">///   or 1.0 if @self is [`None`].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;pango_matrix_get_font_scale_factor&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_font_scale_factor&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">font_scale_factor</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">f64</span> {
@@ -295,8 +296,8 @@
 
     <span class="doccomment">/// Calculates the scale factor of a matrix on the width and height of the font.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// That is, `xscale` is the scale factor in the direction of the X coordinate,</span>
-    <span class="doccomment">/// and `yscale` is the scale factor in the direction perpendicular to the</span>
+    <span class="doccomment">/// That is, @xscale is the scale factor in the direction of the X coordinate,</span>
+    <span class="doccomment">/// and @yscale is the scale factor in the direction perpendicular to the</span>
     <span class="doccomment">/// vector that the X coordinate is mapped to.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note that output numbers will always be non-negative.</span>
@@ -326,8 +327,8 @@
         }
     }
 
-    <span class="doccomment">/// Changes the transformation represented by `self` to be the</span>
-    <span class="doccomment">/// transformation given by first rotating by `degrees` degrees</span>
+    <span class="doccomment">/// Changes the transformation represented by @self to be the</span>
+    <span class="doccomment">/// transformation given by first rotating by @degrees degrees</span>
     <span class="doccomment">/// counter-clockwise then applying the original transformation.</span>
     <span class="doccomment">/// ## `degrees`</span>
     <span class="doccomment">/// degrees to rotate counter-clockwise</span>
@@ -338,9 +339,9 @@
         }
     }
 
-    <span class="doccomment">/// Changes the transformation represented by `self` to be the</span>
-    <span class="doccomment">/// transformation given by first scaling by `sx` in the X direction</span>
-    <span class="doccomment">/// and `sy` in the Y direction then applying the original</span>
+    <span class="doccomment">/// Changes the transformation represented by @self to be the</span>
+    <span class="doccomment">/// transformation given by first scaling by @sx in the X direction</span>
+    <span class="doccomment">/// and @sy in the Y direction then applying the original</span>
     <span class="doccomment">/// transformation.</span>
     <span class="doccomment">/// ## `scale_x`</span>
     <span class="doccomment">/// amount to scale by in X direction</span>
@@ -353,9 +354,9 @@
         }
     }
 
-    <span class="doccomment">/// Transforms the distance vector (`dx`,`dy`) by `self`.</span>
+    <span class="doccomment">/// Transforms the distance vector (@dx,@dy) by @self.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This is similar to [``transform_point()``][`Self::transform_point()`],</span>
+    <span class="doccomment">/// This is similar to [`transform_point()`][Self::transform_point()],</span>
     <span class="doccomment">/// except that the translation components of the transformation</span>
     <span class="doccomment">/// are ignored. The calculation of the returned vector is as follows:</span>
     <span class="doccomment">///</span>
@@ -365,9 +366,9 @@
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Affine transformations are position invariant, so the same vector</span>
-    <span class="doccomment">/// always transforms to the same vector. If (`x1`,`y1`) transforms</span>
-    <span class="doccomment">/// to (`x2`,`y2`) then (`x1`+`dx1`,`y1`+`dy1`) will transform to</span>
-    <span class="doccomment">/// (`x1`+`dx2`,`y1`+`dy2`) for all values of `x1` and `x2`.</span>
+    <span class="doccomment">/// always transforms to the same vector. If (@x1,@y1) transforms</span>
+    <span class="doccomment">/// to (@x2,@y2) then (@x1+@dx1,@y1+@dy1) will transform to</span>
+    <span class="doccomment">/// (@x1+@dx2,@y1+@dy2) for all values of @x1 and @x2.</span>
     <span class="doccomment">/// ## `dx`</span>
     <span class="doccomment">/// in/out X component of a distance vector</span>
     <span class="doccomment">/// ## `dy`</span>
@@ -379,7 +380,7 @@
         }
     }
 
-    <span class="doccomment">/// Transforms the point (`x`, `y`) by `self`.</span>
+    <span class="doccomment">/// Transforms the point (@x, @y) by @self.</span>
     <span class="doccomment">/// ## `x`</span>
     <span class="doccomment">/// in/out X position</span>
     <span class="doccomment">/// ## `y`</span>
@@ -391,8 +392,8 @@
         }
     }
 
-    <span class="doccomment">/// Changes the transformation represented by `self` to be the</span>
-    <span class="doccomment">/// transformation given by first translating by (`tx`, `ty`)</span>
+    <span class="doccomment">/// Changes the transformation represented by @self to be the</span>
+    <span class="doccomment">/// transformation given by first translating by (@tx, @ty)</span>
     <span class="doccomment">/// then applying the original transformation.</span>
     <span class="doccomment">/// ## `tx`</span>
     <span class="doccomment">/// amount to translate in the X direction</span>
@@ -406,6 +407,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>

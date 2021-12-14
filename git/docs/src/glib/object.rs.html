@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib&#x2F;src&#x2F;object.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>object.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib&#x2F;src&#x2F;object.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>object.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../glib/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../glib/index.html'><img src='../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -3757,12 +3758,295 @@
 <span id="3684">3684</span>
 <span id="3685">3685</span>
 <span id="3686">3686</span>
+<span id="3687">3687</span>
+<span id="3688">3688</span>
+<span id="3689">3689</span>
+<span id="3690">3690</span>
+<span id="3691">3691</span>
+<span id="3692">3692</span>
+<span id="3693">3693</span>
+<span id="3694">3694</span>
+<span id="3695">3695</span>
+<span id="3696">3696</span>
+<span id="3697">3697</span>
+<span id="3698">3698</span>
+<span id="3699">3699</span>
+<span id="3700">3700</span>
+<span id="3701">3701</span>
+<span id="3702">3702</span>
+<span id="3703">3703</span>
+<span id="3704">3704</span>
+<span id="3705">3705</span>
+<span id="3706">3706</span>
+<span id="3707">3707</span>
+<span id="3708">3708</span>
+<span id="3709">3709</span>
+<span id="3710">3710</span>
+<span id="3711">3711</span>
+<span id="3712">3712</span>
+<span id="3713">3713</span>
+<span id="3714">3714</span>
+<span id="3715">3715</span>
+<span id="3716">3716</span>
+<span id="3717">3717</span>
+<span id="3718">3718</span>
+<span id="3719">3719</span>
+<span id="3720">3720</span>
+<span id="3721">3721</span>
+<span id="3722">3722</span>
+<span id="3723">3723</span>
+<span id="3724">3724</span>
+<span id="3725">3725</span>
+<span id="3726">3726</span>
+<span id="3727">3727</span>
+<span id="3728">3728</span>
+<span id="3729">3729</span>
+<span id="3730">3730</span>
+<span id="3731">3731</span>
+<span id="3732">3732</span>
+<span id="3733">3733</span>
+<span id="3734">3734</span>
+<span id="3735">3735</span>
+<span id="3736">3736</span>
+<span id="3737">3737</span>
+<span id="3738">3738</span>
+<span id="3739">3739</span>
+<span id="3740">3740</span>
+<span id="3741">3741</span>
+<span id="3742">3742</span>
+<span id="3743">3743</span>
+<span id="3744">3744</span>
+<span id="3745">3745</span>
+<span id="3746">3746</span>
+<span id="3747">3747</span>
+<span id="3748">3748</span>
+<span id="3749">3749</span>
+<span id="3750">3750</span>
+<span id="3751">3751</span>
+<span id="3752">3752</span>
+<span id="3753">3753</span>
+<span id="3754">3754</span>
+<span id="3755">3755</span>
+<span id="3756">3756</span>
+<span id="3757">3757</span>
+<span id="3758">3758</span>
+<span id="3759">3759</span>
+<span id="3760">3760</span>
+<span id="3761">3761</span>
+<span id="3762">3762</span>
+<span id="3763">3763</span>
+<span id="3764">3764</span>
+<span id="3765">3765</span>
+<span id="3766">3766</span>
+<span id="3767">3767</span>
+<span id="3768">3768</span>
+<span id="3769">3769</span>
+<span id="3770">3770</span>
+<span id="3771">3771</span>
+<span id="3772">3772</span>
+<span id="3773">3773</span>
+<span id="3774">3774</span>
+<span id="3775">3775</span>
+<span id="3776">3776</span>
+<span id="3777">3777</span>
+<span id="3778">3778</span>
+<span id="3779">3779</span>
+<span id="3780">3780</span>
+<span id="3781">3781</span>
+<span id="3782">3782</span>
+<span id="3783">3783</span>
+<span id="3784">3784</span>
+<span id="3785">3785</span>
+<span id="3786">3786</span>
+<span id="3787">3787</span>
+<span id="3788">3788</span>
+<span id="3789">3789</span>
+<span id="3790">3790</span>
+<span id="3791">3791</span>
+<span id="3792">3792</span>
+<span id="3793">3793</span>
+<span id="3794">3794</span>
+<span id="3795">3795</span>
+<span id="3796">3796</span>
+<span id="3797">3797</span>
+<span id="3798">3798</span>
+<span id="3799">3799</span>
+<span id="3800">3800</span>
+<span id="3801">3801</span>
+<span id="3802">3802</span>
+<span id="3803">3803</span>
+<span id="3804">3804</span>
+<span id="3805">3805</span>
+<span id="3806">3806</span>
+<span id="3807">3807</span>
+<span id="3808">3808</span>
+<span id="3809">3809</span>
+<span id="3810">3810</span>
+<span id="3811">3811</span>
+<span id="3812">3812</span>
+<span id="3813">3813</span>
+<span id="3814">3814</span>
+<span id="3815">3815</span>
+<span id="3816">3816</span>
+<span id="3817">3817</span>
+<span id="3818">3818</span>
+<span id="3819">3819</span>
+<span id="3820">3820</span>
+<span id="3821">3821</span>
+<span id="3822">3822</span>
+<span id="3823">3823</span>
+<span id="3824">3824</span>
+<span id="3825">3825</span>
+<span id="3826">3826</span>
+<span id="3827">3827</span>
+<span id="3828">3828</span>
+<span id="3829">3829</span>
+<span id="3830">3830</span>
+<span id="3831">3831</span>
+<span id="3832">3832</span>
+<span id="3833">3833</span>
+<span id="3834">3834</span>
+<span id="3835">3835</span>
+<span id="3836">3836</span>
+<span id="3837">3837</span>
+<span id="3838">3838</span>
+<span id="3839">3839</span>
+<span id="3840">3840</span>
+<span id="3841">3841</span>
+<span id="3842">3842</span>
+<span id="3843">3843</span>
+<span id="3844">3844</span>
+<span id="3845">3845</span>
+<span id="3846">3846</span>
+<span id="3847">3847</span>
+<span id="3848">3848</span>
+<span id="3849">3849</span>
+<span id="3850">3850</span>
+<span id="3851">3851</span>
+<span id="3852">3852</span>
+<span id="3853">3853</span>
+<span id="3854">3854</span>
+<span id="3855">3855</span>
+<span id="3856">3856</span>
+<span id="3857">3857</span>
+<span id="3858">3858</span>
+<span id="3859">3859</span>
+<span id="3860">3860</span>
+<span id="3861">3861</span>
+<span id="3862">3862</span>
+<span id="3863">3863</span>
+<span id="3864">3864</span>
+<span id="3865">3865</span>
+<span id="3866">3866</span>
+<span id="3867">3867</span>
+<span id="3868">3868</span>
+<span id="3869">3869</span>
+<span id="3870">3870</span>
+<span id="3871">3871</span>
+<span id="3872">3872</span>
+<span id="3873">3873</span>
+<span id="3874">3874</span>
+<span id="3875">3875</span>
+<span id="3876">3876</span>
+<span id="3877">3877</span>
+<span id="3878">3878</span>
+<span id="3879">3879</span>
+<span id="3880">3880</span>
+<span id="3881">3881</span>
+<span id="3882">3882</span>
+<span id="3883">3883</span>
+<span id="3884">3884</span>
+<span id="3885">3885</span>
+<span id="3886">3886</span>
+<span id="3887">3887</span>
+<span id="3888">3888</span>
+<span id="3889">3889</span>
+<span id="3890">3890</span>
+<span id="3891">3891</span>
+<span id="3892">3892</span>
+<span id="3893">3893</span>
+<span id="3894">3894</span>
+<span id="3895">3895</span>
+<span id="3896">3896</span>
+<span id="3897">3897</span>
+<span id="3898">3898</span>
+<span id="3899">3899</span>
+<span id="3900">3900</span>
+<span id="3901">3901</span>
+<span id="3902">3902</span>
+<span id="3903">3903</span>
+<span id="3904">3904</span>
+<span id="3905">3905</span>
+<span id="3906">3906</span>
+<span id="3907">3907</span>
+<span id="3908">3908</span>
+<span id="3909">3909</span>
+<span id="3910">3910</span>
+<span id="3911">3911</span>
+<span id="3912">3912</span>
+<span id="3913">3913</span>
+<span id="3914">3914</span>
+<span id="3915">3915</span>
+<span id="3916">3916</span>
+<span id="3917">3917</span>
+<span id="3918">3918</span>
+<span id="3919">3919</span>
+<span id="3920">3920</span>
+<span id="3921">3921</span>
+<span id="3922">3922</span>
+<span id="3923">3923</span>
+<span id="3924">3924</span>
+<span id="3925">3925</span>
+<span id="3926">3926</span>
+<span id="3927">3927</span>
+<span id="3928">3928</span>
+<span id="3929">3929</span>
+<span id="3930">3930</span>
+<span id="3931">3931</span>
+<span id="3932">3932</span>
+<span id="3933">3933</span>
+<span id="3934">3934</span>
+<span id="3935">3935</span>
+<span id="3936">3936</span>
+<span id="3937">3937</span>
+<span id="3938">3938</span>
+<span id="3939">3939</span>
+<span id="3940">3940</span>
+<span id="3941">3941</span>
+<span id="3942">3942</span>
+<span id="3943">3943</span>
+<span id="3944">3944</span>
+<span id="3945">3945</span>
+<span id="3946">3946</span>
+<span id="3947">3947</span>
+<span id="3948">3948</span>
+<span id="3949">3949</span>
+<span id="3950">3950</span>
+<span id="3951">3951</span>
+<span id="3952">3952</span>
+<span id="3953">3953</span>
+<span id="3954">3954</span>
+<span id="3955">3955</span>
+<span id="3956">3956</span>
+<span id="3957">3957</span>
+<span id="3958">3958</span>
+<span id="3959">3959</span>
+<span id="3960">3960</span>
+<span id="3961">3961</span>
+<span id="3962">3962</span>
+<span id="3963">3963</span>
+<span id="3964">3964</span>
+<span id="3965">3965</span>
+<span id="3966">3966</span>
+<span id="3967">3967</span>
+<span id="3968">3968</span>
+<span id="3969">3969</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="doccomment">//! `IMPL` Object wrapper implementation and `Object` binding.</span>
 
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::types::StaticType</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::GPtrSlice</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::PtrSlice</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">quark::Quark</span>, <span class="ident">subclass::signal::SignalQuery</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">translate</span>::<span class="kw-2">*</span>, <span class="ident">value::FromValue</span>};
 <span class="kw">use</span> <span class="ident">std::cmp</span>;
@@ -3774,13 +4058,14 @@
 <span class="kw">use</span> <span class="ident">std::pin::Pin</span>;
 <span class="kw">use</span> <span class="ident">std::ptr</span>;
 
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::closure::TryFromClosureReturnValue</span>;
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::subclass</span>::{<span class="ident">prelude::ObjectSubclass</span>, <span class="ident">SignalId</span>};
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::value::ToValue</span>;
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::BoolError</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Closure</span>;
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::SignalHandlerId</span>;
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Type</span>;
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Value</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">Closure</span>, <span class="ident">RustClosure</span>};
 
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::thread_id</span>;
 
@@ -4684,6 +4969,20 @@
         }
 
         <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+        <span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::value::FromValue</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> {
+            <span class="kw">type</span> <span class="ident">Checker</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::value::GenericValueTypeOrNoneChecker</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>;
+
+            <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_value</span>(<span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::Value</span>) -&gt; <span class="self">Self</span> {
+                <span class="macro">assert_eq!</span>(<span class="ident">std::mem::size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&gt;</span>(), <span class="ident">std::mem::size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::ffi::gpointer</span><span class="op">&gt;</span>());
+                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::Value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::gobject_ffi::GValue</span>);
+                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">value</span>.<span class="ident">data</span>[<span class="number">0</span>].<span class="ident">v_pointer</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::ffi::gpointer</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw-2">*const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ffi_name</span>;
+                <span class="macro">assert!</span>(<span class="op">!</span>(<span class="kw-2">*</span><span class="ident">ptr</span>).<span class="ident">is_null</span>());
+                <span class="macro">assert_ne!</span>((<span class="kw-2">*</span><span class="kw-2">*</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw-2">*const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::gobject_ffi::GObject</span>)).<span class="ident">ref_count</span>, <span class="number">0</span>);
+                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)
+            }
+        }
+
+        <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
         <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::value::ToValue</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> {
             <span class="kw">fn</span> <span class="ident">to_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::Value</span> {
                 <span class="kw">unsafe</span> {
@@ -5139,7 +5438,7 @@
     <span class="kw">fn</span> <span class="ident">find_property</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">property_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Return all [`ParamSpec`](crate::ParamSpec) of the properties of this object.</span>
-    <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">GPtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">PtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Freeze all property notifications until the return guard object is dropped.</span>
     <span class="doccomment">///</span>
@@ -5318,7 +5617,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Panics</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This fails if the signal does not exist.</span>
+    <span class="doccomment">/// This panics if the signal does not exist.</span>
     <span class="kw">fn</span> <span class="ident">connect_local_id</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
@@ -5402,13 +5701,71 @@
     <span class="kw">where</span>
         <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span>[<span class="ident">Value</span>]) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>;
 
+    <span class="doccomment">/// Similar to [`Self::connect_closure`] but fails instead of panicking.</span>
+    <span class="kw">fn</span> <span class="ident">try_connect_closure</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">SignalHandlerId</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
+
+    <span class="doccomment">/// Connect a closure to the signal `signal_name` on this object.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `after` is set to `true` then the callback will be called after the default class</span>
+    <span class="doccomment">/// handler of the signal is emitted, otherwise before.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This panics if the signal does not exist.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Same as [`Self::connect`] but takes a [`Closure`](crate::Closure) instead of a `Fn`.</span>
+    <span class="kw">fn</span> <span class="ident">connect_closure</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="ident">SignalHandlerId</span>;
+
+    <span class="doccomment">/// Similar to [`Self::connect_closure_id`] but fails instead of panicking.</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_signal_connect_closure&quot;</span>)]</span>
+    <span class="kw">fn</span> <span class="ident">try_connect_closure_id</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
+        <span class="ident">details</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Quark</span><span class="op">&gt;</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">SignalHandlerId</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
+
+    <span class="doccomment">/// Connect a closure to the signal `signal_id` on this object.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If `after` is set to `true` then the callback will be called after the default class</span>
+    <span class="doccomment">/// handler of the signal is emitted, otherwise before.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This panics if the signal does not exist.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Same as [`Self::connect_closure`] but takes a</span>
+    <span class="doccomment">/// [`SignalId`](crate::subclass::signal::SignalId) instead of a signal name.</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_signal_connect_closure_by_id&quot;</span>)]</span>
+    <span class="kw">fn</span> <span class="ident">connect_closure_id</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
+        <span class="ident">details</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Quark</span><span class="op">&gt;</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="ident">SignalHandlerId</span>;
+
+    <span class="doccomment">/// Limits the lifetime of `closure` to the lifetime of the object. When</span>
+    <span class="doccomment">/// the object&#39;s reference count drops to zero, the closure will be</span>
+    <span class="doccomment">/// invalidated. An invalidated closure will ignore any calls to</span>
+    <span class="doccomment">/// [`Closure::invoke`](crate::Closure::invoke).</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_object_watch_closure&quot;</span>)]</span>
+    <span class="kw">fn</span> <span class="ident">watch_closure</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">closure</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Closure</span><span class="op">&gt;</span>);
+
     <span class="doccomment">/// Similar to [`Self::emit`] but fails instead of panicking.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_signal_emitv&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">try_emit</span>(
+    <span class="kw">fn</span> <span class="ident">try_emit</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">R</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Emit signal by signal id.</span>
     <span class="doccomment">///</span>
@@ -5419,7 +5776,7 @@
     <span class="doccomment">/// If the wrong number of arguments is provided, or arguments of the wrong types</span>
     <span class="doccomment">/// were provided.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_signal_emitv&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">emit</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signal_id</span>: <span class="ident">SignalId</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>]) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">emit</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signal_id</span>: <span class="ident">SignalId</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>]) -&gt; <span class="ident">R</span>;
 
     <span class="doccomment">/// Similar to [`Self::emit_with_values`] but fails instead of panicking.</span>
     <span class="kw">fn</span> <span class="ident">try_emit_with_values</span>(
@@ -5433,11 +5790,11 @@
 
     <span class="doccomment">/// Similar to [`Self::emit_by_name`] but fails instead of panicking.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_signal_emit_by_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">try_emit_by_name</span>(
+    <span class="kw">fn</span> <span class="ident">try_emit_by_name</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">R</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Emit signal by its name.</span>
     <span class="doccomment">///</span>
@@ -5448,7 +5805,11 @@
     <span class="doccomment">/// If the signal does not exist, the wrong number of arguments is provided, or</span>
     <span class="doccomment">/// arguments of the wrong types were provided.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_signal_emit_by_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">emit_by_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>]) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">emit_by_name</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
+        <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
+    ) -&gt; <span class="ident">R</span>;
 
     <span class="doccomment">/// Similar to [`Self::emit_by_name_with_values`] but fails instead of panicking.</span>
     <span class="kw">fn</span> <span class="ident">try_emit_by_name_with_values</span>(
@@ -5468,12 +5829,12 @@
     <span class="kw">fn</span> <span class="ident">emit_by_name_with_values</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="ident">Value</span>]) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Similar to [`Self::emit_with_details`] but fails instead of panicking.</span>
-    <span class="kw">fn</span> <span class="ident">try_emit_with_details</span>(
+    <span class="kw">fn</span> <span class="ident">try_emit_with_details</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
         <span class="ident">details</span>: <span class="ident">Quark</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">R</span>, <span class="ident">BoolError</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Emit signal by signal id with details.</span>
     <span class="doccomment">///</span>
@@ -5483,12 +5844,12 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the wrong number of arguments is provided, or arguments of the wrong types</span>
     <span class="doccomment">/// were provided.</span>
-    <span class="kw">fn</span> <span class="ident">emit_with_details</span>(
+    <span class="kw">fn</span> <span class="ident">emit_with_details</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
         <span class="ident">details</span>: <span class="ident">Quark</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>;
+    ) -&gt; <span class="ident">R</span>;
 
     <span class="doccomment">/// Similar to [`Self::emit_with_details_and_values`] but fails instead of panicking.</span>
     <span class="kw">fn</span> <span class="ident">try_emit_with_details_and_values</span>(
@@ -5839,7 +6200,7 @@
         <span class="self">self</span>.<span class="ident">object_class</span>().<span class="ident">find_property</span>(<span class="ident">property_name</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">GPtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">PtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">object_class</span>().<span class="ident">list_properties</span>()
     }
 
@@ -6081,15 +6442,6 @@
         <span class="kw">let</span> <span class="ident">return_type</span>: <span class="ident">Type</span> <span class="op">=</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into</span>();
         <span class="kw">let</span> <span class="ident">signal_name</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">name</span>();
 
-        <span class="kw">let</span> <span class="ident">signal_query_type</span> <span class="op">=</span> <span class="ident">signal_query</span>.<span class="ident">type_</span>();
-        <span class="macro">assert!</span>(
-            <span class="ident">type_</span>.<span class="ident">is_a</span>(<span class="ident">signal_query_type</span>),
-            <span class="string">&quot;Signal &#39;{}&#39; of type &#39;{}&#39; but got type &#39;{}&#39;&quot;</span>,
-            <span class="ident">signal_name</span>,
-            <span class="ident">type_</span>,
-            <span class="ident">signal_query_type</span>
-        );
-
         <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">return_type</span> <span class="op">==</span> <span class="ident">Type::UNIT</span> {
             <span class="ident">Closure::new_unsafe</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">values</span><span class="op">|</span> {
                 <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">callback</span>(<span class="ident">values</span>);
@@ -6150,11 +6502,25 @@
                 <span class="prelude-val">Some</span>(<span class="ident">ret</span>)
             })
         };
+
+        <span class="kw">let</span> <span class="ident">signal_query</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">query</span>();
+        <span class="kw">let</span> <span class="ident">type_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">type_</span>();
+        <span class="kw">let</span> <span class="ident">signal_name</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">name</span>();
+
+        <span class="kw">let</span> <span class="ident">signal_query_type</span> <span class="op">=</span> <span class="ident">signal_query</span>.<span class="ident">type_</span>();
+        <span class="macro">assert!</span>(
+            <span class="ident">type_</span>.<span class="ident">is_a</span>(<span class="ident">signal_query_type</span>),
+            <span class="string">&quot;Signal &#39;{}&#39; of type &#39;{}&#39; but got type &#39;{}&#39;&quot;</span>,
+            <span class="ident">signal_name</span>,
+            <span class="ident">type_</span>,
+            <span class="ident">signal_query_type</span>
+        );
+
         <span class="kw">let</span> <span class="ident">handler</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_signal_connect_closure_by_id</span>(
             <span class="self">self</span>.<span class="ident">as_object_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
             <span class="ident">signal_id</span>.<span class="ident">into_glib</span>(),
             <span class="ident">details</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">d</span><span class="op">|</span> <span class="ident">d</span>.<span class="ident">into_glib</span>()).<span class="ident">unwrap_or</span>(<span class="number">0</span>), <span class="comment">// 0 matches no detail</span>
-            <span class="ident">closure</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            <span class="ident">closure</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
             <span class="ident">after</span>.<span class="ident">into_glib</span>(),
         );
 
@@ -6166,6 +6532,90 @@
             ))
         } <span class="kw">else</span> {
             <span class="prelude-val">Ok</span>(<span class="ident">from_glib</span>(<span class="ident">handler</span>))
+        }
+    }
+
+    <span class="kw">fn</span> <span class="ident">try_connect_closure</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">SignalHandlerId</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="ident">type_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">type_</span>();
+        <span class="kw">let</span> (<span class="ident">signal_id</span>, <span class="ident">details</span>) <span class="op">=</span> <span class="ident">SignalId::parse_name</span>(<span class="ident">signal_name</span>, <span class="ident">type_</span>, <span class="bool-val">true</span>)
+            .<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="macro">bool_error!</span>(<span class="string">&quot;Signal &#39;{}&#39; of type &#39;{}&#39; not found&quot;</span>, <span class="ident">signal_name</span>, <span class="ident">type_</span>))<span class="question-mark">?</span>;
+        <span class="self">self</span>.<span class="ident">try_connect_closure_id</span>(<span class="ident">signal_id</span>, <span class="prelude-val">Some</span>(<span class="ident">details</span>), <span class="ident">after</span>, <span class="ident">closure</span>)
+    }
+
+    <span class="kw">fn</span> <span class="ident">connect_closure</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="ident">SignalHandlerId</span> {
+        <span class="self">self</span>.<span class="ident">try_connect_closure</span>(<span class="ident">signal_name</span>, <span class="ident">after</span>, <span class="ident">closure</span>)
+            .<span class="ident">unwrap</span>()
+    }
+
+    <span class="kw">fn</span> <span class="ident">try_connect_closure_id</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
+        <span class="ident">details</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Quark</span><span class="op">&gt;</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">SignalHandlerId</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="ident">signal_query</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">query</span>();
+        <span class="kw">let</span> <span class="ident">type_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">type_</span>();
+        <span class="kw">let</span> <span class="ident">signal_name</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">name</span>();
+
+        <span class="kw">let</span> <span class="ident">signal_query_type</span> <span class="op">=</span> <span class="ident">signal_query</span>.<span class="ident">type_</span>();
+        <span class="macro">assert!</span>(
+            <span class="ident">type_</span>.<span class="ident">is_a</span>(<span class="ident">signal_query_type</span>),
+            <span class="string">&quot;Signal &#39;{}&#39; of type &#39;{}&#39; but got type &#39;{}&#39;&quot;</span>,
+            <span class="ident">signal_name</span>,
+            <span class="ident">type_</span>,
+            <span class="ident">signal_query_type</span>
+        );
+
+        <span class="kw">unsafe</span> {
+            <span class="kw">let</span> <span class="ident">handler</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_signal_connect_closure_by_id</span>(
+                <span class="self">self</span>.<span class="ident">as_object_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">signal_id</span>.<span class="ident">into_glib</span>(),
+                <span class="ident">details</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">d</span><span class="op">|</span> <span class="ident">d</span>.<span class="ident">into_glib</span>()).<span class="ident">unwrap_or</span>(<span class="number">0</span>), <span class="comment">// 0 matches no detail</span>
+                <span class="ident">closure</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">after</span>.<span class="ident">into_glib</span>(),
+            );
+
+            <span class="kw">if</span> <span class="ident">handler</span> <span class="op">==</span> <span class="number">0</span> {
+                <span class="prelude-val">Err</span>(<span class="macro">bool_error!</span>(
+                    <span class="string">&quot;Failed to connect to signal &#39;{}&#39; of type &#39;{}&#39;&quot;</span>,
+                    <span class="ident">signal_name</span>,
+                    <span class="ident">type_</span>
+                ))
+            } <span class="kw">else</span> {
+                <span class="prelude-val">Ok</span>(<span class="ident">from_glib</span>(<span class="ident">handler</span>))
+            }
+        }
+    }
+
+    <span class="kw">fn</span> <span class="ident">connect_closure_id</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
+        <span class="ident">details</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Quark</span><span class="op">&gt;</span>,
+        <span class="ident">after</span>: <span class="ident">bool</span>,
+        <span class="ident">closure</span>: <span class="ident">RustClosure</span>,
+    ) -&gt; <span class="ident">SignalHandlerId</span> {
+        <span class="self">self</span>.<span class="ident">try_connect_closure_id</span>(<span class="ident">signal_id</span>, <span class="ident">details</span>, <span class="ident">after</span>, <span class="ident">closure</span>)
+            .<span class="ident">unwrap</span>()
+    }
+
+    <span class="kw">fn</span> <span class="ident">watch_closure</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">closure</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Closure</span><span class="op">&gt;</span>) {
+        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="ident">closure</span>.<span class="ident">as_ref</span>();
+        <span class="kw">unsafe</span> {
+            <span class="ident">gobject_ffi::g_object_watch_closure</span>(
+                <span class="self">self</span>.<span class="ident">as_object_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">closure</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            );
         }
     }
 
@@ -6183,11 +6633,11 @@
             .<span class="ident">unwrap</span>()
     }
 
-    <span class="kw">fn</span> <span class="ident">try_emit</span>(
+    <span class="kw">fn</span> <span class="ident">try_emit</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">R</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">signal_query</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">query</span>();
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">type_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">type_</span>();
@@ -6208,28 +6658,33 @@
             )
             .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">smallvec::SmallVec</span><span class="op">&lt;</span>[<span class="kw">_</span>; <span class="number">10</span>]<span class="op">&gt;</span><span class="op">&gt;</span>();
 
-            <span class="kw">let</span> <span class="ident">signal_detail</span> <span class="op">=</span> <span class="ident">validate_signal_arguments</span>(<span class="ident">type_</span>, <span class="kw-2">&amp;</span><span class="ident">signal_query</span>, <span class="kw-2">&amp;mut</span> <span class="ident">args</span>[<span class="number">1</span>..])<span class="question-mark">?</span>;
+            <span class="ident">validate_signal_arguments</span>(<span class="ident">type_</span>, <span class="kw-2">&amp;</span><span class="ident">signal_query</span>, <span class="kw-2">&amp;mut</span> <span class="ident">args</span>[<span class="number">1</span>..])<span class="question-mark">?</span>;
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="ident">Value::uninitialized</span>();
-            <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
-                <span class="ident">gobject_ffi::g_value_init</span>(
-                    <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
-                    <span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into_glib</span>(),
-                );
-            }
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">Value::from_type</span>(<span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into</span>())
+            } <span class="kw">else</span> {
+                <span class="ident">Value::uninitialized</span>()
+            };
+            <span class="kw">let</span> <span class="ident">return_value_ptr</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>
+            } <span class="kw">else</span> {
+                <span class="ident">ptr::null_mut</span>()
+            };
 
             <span class="ident">gobject_ffi::g_signal_emitv</span>(
                 <span class="ident">mut_override</span>(<span class="ident">args</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
                 <span class="ident">signal_id</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">signal_detail</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+                <span class="number">0</span>,
+                <span class="ident">return_value_ptr</span>,
             );
 
-            <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<span class="ident">return_value</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">r</span><span class="op">|</span> <span class="ident">r</span>.<span class="ident">type_</span>().<span class="ident">is_valid</span>() <span class="op">&amp;&amp;</span> <span class="ident">r</span>.<span class="ident">type_</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span>))
+            <span class="ident">R::try_from_closure_return_value</span>(
+                <span class="prelude-val">Some</span>(<span class="ident">return_value</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">r</span><span class="op">|</span> <span class="ident">r</span>.<span class="ident">type_</span>().<span class="ident">is_valid</span>() <span class="op">&amp;&amp;</span> <span class="ident">r</span>.<span class="ident">type_</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span>),
+            )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">emit</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signal_id</span>: <span class="ident">SignalId</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>]) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">emit</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signal_id</span>: <span class="ident">SignalId</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>]) -&gt; <span class="ident">R</span> {
         <span class="self">self</span>.<span class="ident">try_emit</span>(<span class="ident">signal_id</span>, <span class="ident">args</span>).<span class="ident">unwrap</span>()
     }
 
@@ -6256,21 +6711,24 @@
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">args</span> <span class="op">=</span> <span class="ident">Iterator::chain</span>(<span class="ident">std::iter::once</span>(<span class="ident">self_v</span>), <span class="ident">args</span>.<span class="ident">iter</span>().<span class="ident">cloned</span>())
                 .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">smallvec::SmallVec</span><span class="op">&lt;</span>[<span class="kw">_</span>; <span class="number">10</span>]<span class="op">&gt;</span><span class="op">&gt;</span>();
 
-            <span class="kw">let</span> <span class="ident">signal_detail</span> <span class="op">=</span> <span class="ident">validate_signal_arguments</span>(<span class="ident">type_</span>, <span class="kw-2">&amp;</span><span class="ident">signal_query</span>, <span class="kw-2">&amp;mut</span> <span class="ident">args</span>[<span class="number">1</span>..])<span class="question-mark">?</span>;
+            <span class="ident">validate_signal_arguments</span>(<span class="ident">type_</span>, <span class="kw-2">&amp;</span><span class="ident">signal_query</span>, <span class="kw-2">&amp;mut</span> <span class="ident">args</span>[<span class="number">1</span>..])<span class="question-mark">?</span>;
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="ident">Value::uninitialized</span>();
-            <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
-                <span class="ident">gobject_ffi::g_value_init</span>(
-                    <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
-                    <span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into_glib</span>(),
-                );
-            }
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">Value::from_type</span>(<span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into</span>())
+            } <span class="kw">else</span> {
+                <span class="ident">Value::uninitialized</span>()
+            };
+            <span class="kw">let</span> <span class="ident">return_value_ptr</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>
+            } <span class="kw">else</span> {
+                <span class="ident">ptr::null_mut</span>()
+            };
 
             <span class="ident">gobject_ffi::g_signal_emitv</span>(
                 <span class="ident">mut_override</span>(<span class="ident">args</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
                 <span class="ident">signal_id</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">signal_detail</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+                <span class="number">0</span>,
+                <span class="ident">return_value_ptr</span>,
             );
 
             <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<span class="ident">return_value</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">r</span><span class="op">|</span> <span class="ident">r</span>.<span class="ident">type_</span>().<span class="ident">is_valid</span>() <span class="op">&amp;&amp;</span> <span class="ident">r</span>.<span class="ident">type_</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span>))
@@ -6281,18 +6739,22 @@
         <span class="self">self</span>.<span class="ident">try_emit_with_values</span>(<span class="ident">signal_id</span>, <span class="ident">args</span>).<span class="ident">unwrap</span>()
     }
 
-    <span class="kw">fn</span> <span class="ident">try_emit_by_name</span>(
+    <span class="kw">fn</span> <span class="ident">try_emit_by_name</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">R</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">type_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">type_</span>();
         <span class="kw">let</span> <span class="ident">signal_id</span> <span class="op">=</span> <span class="ident">SignalId::lookup</span>(<span class="ident">signal_name</span>, <span class="ident">type_</span>)
             .<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="macro">bool_error!</span>(<span class="string">&quot;Signal &#39;{}&#39; of type &#39;{}&#39; not found&quot;</span>, <span class="ident">signal_name</span>, <span class="ident">type_</span>))<span class="question-mark">?</span>;
         <span class="self">self</span>.<span class="ident">try_emit</span>(<span class="ident">signal_id</span>, <span class="ident">args</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">emit_by_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>]) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">emit_by_name</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">signal_name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
+        <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
+    ) -&gt; <span class="ident">R</span> {
         <span class="self">self</span>.<span class="ident">try_emit_by_name</span>(<span class="ident">signal_name</span>, <span class="ident">args</span>).<span class="ident">unwrap</span>()
     }
 
@@ -6312,12 +6774,12 @@
             .<span class="ident">unwrap</span>()
     }
 
-    <span class="kw">fn</span> <span class="ident">try_emit_with_details</span>(
+    <span class="kw">fn</span> <span class="ident">try_emit_with_details</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
         <span class="ident">details</span>: <span class="ident">Quark</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">R</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">signal_query</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">query</span>();
         <span class="macro">assert!</span>(<span class="ident">signal_query</span>.<span class="ident">flags</span>().<span class="ident">contains</span>(<span class="ident"><span class="kw">crate</span>::SignalFlags::DETAILED</span>));
 
@@ -6342,31 +6804,36 @@
 
             <span class="ident">validate_signal_arguments</span>(<span class="ident">type_</span>, <span class="kw-2">&amp;</span><span class="ident">signal_query</span>, <span class="kw-2">&amp;mut</span> <span class="ident">args</span>)<span class="question-mark">?</span>;
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="ident">Value::uninitialized</span>();
-            <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
-                <span class="ident">gobject_ffi::g_value_init</span>(
-                    <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
-                    <span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into_glib</span>(),
-                );
-            }
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">Value::from_type</span>(<span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into</span>())
+            } <span class="kw">else</span> {
+                <span class="ident">Value::uninitialized</span>()
+            };
+            <span class="kw">let</span> <span class="ident">return_value_ptr</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>
+            } <span class="kw">else</span> {
+                <span class="ident">ptr::null_mut</span>()
+            };
 
             <span class="ident">gobject_ffi::g_signal_emitv</span>(
                 <span class="ident">mut_override</span>(<span class="ident">args</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
                 <span class="ident">signal_id</span>.<span class="ident">into_glib</span>(),
                 <span class="ident">details</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+                <span class="ident">return_value_ptr</span>,
             );
 
-            <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<span class="ident">return_value</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">r</span><span class="op">|</span> <span class="ident">r</span>.<span class="ident">type_</span>().<span class="ident">is_valid</span>() <span class="op">&amp;&amp;</span> <span class="ident">r</span>.<span class="ident">type_</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span>))
+            <span class="ident">R::try_from_closure_return_value</span>(
+                <span class="prelude-val">Some</span>(<span class="ident">return_value</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">r</span><span class="op">|</span> <span class="ident">r</span>.<span class="ident">type_</span>().<span class="ident">is_valid</span>() <span class="op">&amp;&amp;</span> <span class="ident">r</span>.<span class="ident">type_</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span>),
+            )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">emit_with_details</span>(
+    <span class="kw">fn</span> <span class="ident">emit_with_details</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">TryFromClosureReturnValue</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">signal_id</span>: <span class="ident">SignalId</span>,
         <span class="ident">details</span>: <span class="ident">Quark</span>,
         <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>],
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="ident">R</span> {
         <span class="self">self</span>.<span class="ident">try_emit_with_details</span>(<span class="ident">signal_id</span>, <span class="ident">details</span>, <span class="ident">args</span>)
             .<span class="ident">unwrap</span>()
     }
@@ -6398,19 +6865,22 @@
 
             <span class="ident">validate_signal_arguments</span>(<span class="ident">type_</span>, <span class="kw-2">&amp;</span><span class="ident">signal_query</span>, <span class="kw-2">&amp;mut</span> <span class="ident">args</span>)<span class="question-mark">?</span>;
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="ident">Value::uninitialized</span>();
-            <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
-                <span class="ident">gobject_ffi::g_value_init</span>(
-                    <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
-                    <span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into_glib</span>(),
-                );
-            }
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">return_value</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">Value::from_type</span>(<span class="ident">signal_query</span>.<span class="ident">return_type</span>().<span class="ident">into</span>())
+            } <span class="kw">else</span> {
+                <span class="ident">Value::uninitialized</span>()
+            };
+            <span class="kw">let</span> <span class="ident">return_value_ptr</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">return_type</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span> {
+                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>
+            } <span class="kw">else</span> {
+                <span class="ident">ptr::null_mut</span>()
+            };
 
             <span class="ident">gobject_ffi::g_signal_emitv</span>(
                 <span class="ident">mut_override</span>(<span class="ident">args</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
                 <span class="ident">signal_id</span>.<span class="ident">into_glib</span>(),
                 <span class="ident">details</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">return_value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
+                <span class="ident">return_value_ptr</span>,
             );
 
             <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<span class="ident">return_value</span>).<span class="ident">filter</span>(<span class="op">|</span><span class="ident">r</span><span class="op">|</span> <span class="ident">r</span>.<span class="ident">type_</span>().<span class="ident">is_valid</span>() <span class="op">&amp;&amp;</span> <span class="ident">r</span>.<span class="ident">type_</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">Type::UNIT</span>))
@@ -6626,12 +7096,8 @@
     <span class="ident">type_</span>: <span class="ident">Type</span>,
     <span class="ident">signal_query</span>: <span class="kw-2">&amp;</span><span class="ident">SignalQuery</span>,
     <span class="ident">args</span>: <span class="kw-2">&amp;mut</span> [<span class="ident">Value</span>],
-) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Quark</span>, <span class="ident">BoolError</span><span class="op">&gt;</span> {
+) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">BoolError</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">signal_name</span> <span class="op">=</span> <span class="ident">signal_query</span>.<span class="ident">signal_name</span>();
-    <span class="kw">let</span> (<span class="ident">signal_id</span>, <span class="ident">signal_detail</span>) <span class="op">=</span> <span class="ident">SignalId::parse_name</span>(<span class="ident">signal_name</span>, <span class="ident">type_</span>, <span class="bool-val">false</span>)
-        .<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="macro">bool_error!</span>(<span class="string">&quot;Signal &#39;{}&#39; of type &#39;{}&#39; not found&quot;</span>, <span class="ident">signal_name</span>, <span class="ident">type_</span>))<span class="question-mark">?</span>;
-
-    <span class="kw">let</span> <span class="ident">signal_query</span> <span class="op">=</span> <span class="ident">signal_id</span>.<span class="ident">query</span>();
 
     <span class="kw">if</span> <span class="ident">signal_query</span>.<span class="ident">n_params</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">args</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span> {
         <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="macro">bool_error!</span>(
@@ -6685,7 +7151,7 @@
         }
     }
 
-    <span class="prelude-val">Ok</span>(<span class="ident">signal_detail</span>)
+    <span class="prelude-val">Ok</span>(())
 }
 
 <span class="kw">impl</span> <span class="ident">ObjectClass</span> {
@@ -6726,7 +7192,7 @@
 
     <span class="doccomment">/// Return all [`ParamSpec`](crate::ParamSpec) of the properties of this object class.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_object_class_list_properties&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">GPtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">PtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">klass</span> <span class="op">=</span> <span class="self">self</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GObjectClass</span>;
 
@@ -6734,7 +7200,7 @@
 
             <span class="kw">let</span> <span class="ident">props</span> <span class="op">=</span>
                 <span class="ident">gobject_ffi::g_object_class_list_properties</span>(<span class="ident">klass</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>, <span class="kw-2">&amp;mut</span> <span class="ident">n_properties</span>);
-            <span class="ident">GPtrSlice::from_glib_container_num_static</span>(<span class="ident">props</span>, <span class="ident">n_properties</span> <span class="kw">as</span> <span class="ident">usize</span>)
+            <span class="ident">PtrSlice::from_glib_container_num_static</span>(<span class="ident">props</span>, <span class="ident">n_properties</span> <span class="kw">as</span> <span class="ident">usize</span>)
         }
     }
 }
@@ -6890,24 +7356,38 @@
 <span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">ObjectType</span><span class="op">&gt;</span> <span class="ident">Sync</span> <span class="kw">for</span> <span class="ident">SendWeakRef</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {}
 <span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">ObjectType</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">SendWeakRef</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {}
 
+<span class="kw">type</span> <span class="ident">TransformFn</span> <span class="op">=</span>
+    <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::Binding</span>, <span class="kw-2">&amp;</span><span class="ident">Value</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+
 <span class="doccomment">/// Builder for object property bindings.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
-<span class="attribute">#[<span class="ident">must_use</span>]</span>
+<span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;The builder must be built to be used&quot;</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BindingBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="ident">source</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ObjectRef</span>,
     <span class="ident">source_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
     <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ObjectRef</span>,
     <span class="ident">target_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
     <span class="ident">flags</span>: <span class="ident"><span class="kw">crate</span>::BindingFlags</span>,
-    <span class="ident">transform_to</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Closure</span><span class="op">&gt;</span>,
-    <span class="ident">transform_from</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Closure</span><span class="op">&gt;</span>,
+    <span class="ident">transform_to</span>: <span class="ident">TransformFn</span>,
+    <span class="ident">transform_from</span>: <span class="ident">TransformFn</span>,
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">BindingBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span> {
+        <span class="ident">f</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;BindingBuilder&quot;</span>)
+            .<span class="ident">field</span>(<span class="string">&quot;source&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">source</span>)
+            .<span class="ident">field</span>(<span class="string">&quot;source_property&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">source_property</span>)
+            .<span class="ident">field</span>(<span class="string">&quot;target&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">target</span>)
+            .<span class="ident">field</span>(<span class="string">&quot;target_property&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">target_property</span>)
+            .<span class="ident">field</span>(<span class="string">&quot;flags&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">flags</span>)
+            .<span class="ident">finish</span>()
+    }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">BindingBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">ObjectType</span>, <span class="ident">T</span>: <span class="ident">ObjectType</span><span class="op">&gt;</span>(
-        <span class="ident">source</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">S</span>,
+    <span class="kw">fn</span> <span class="ident">new</span>(
+        <span class="ident">source</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw">impl</span> <span class="ident">ObjectType</span>,
         <span class="ident">source_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-        <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">T</span>,
+        <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw">impl</span> <span class="ident">ObjectType</span>,
         <span class="ident">target_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
     ) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
@@ -6921,40 +7401,6 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">transform_closure</span><span class="op">&lt;</span>
-        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::Binding</span>, <span class="kw-2">&amp;</span><span class="ident">Value</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-    <span class="op">&gt;</span>(
-        <span class="ident">func</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident"><span class="kw">crate</span>::Closure</span> {
-        <span class="ident"><span class="kw">crate</span>::Closure::new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">values</span><span class="op">|</span> {
-            <span class="macro">assert_eq!</span>(<span class="ident">values</span>.<span class="ident">len</span>(), <span class="number">3</span>);
-            <span class="kw">let</span> <span class="ident">binding</span> <span class="op">=</span> <span class="ident">values</span>[<span class="number">0</span>]
-                .<span class="ident">get</span>::<span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Binding</span><span class="op">&gt;</span>()
-                .<span class="ident">expect</span>(<span class="string">&quot;Invalid GBinding argument&quot;</span>);
-            <span class="kw">let</span> <span class="ident">from</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">gobject_ffi::g_value_get_boxed</span>(<span class="ident">mut_override</span>(
-                    <span class="kw-2">&amp;</span><span class="ident">values</span>[<span class="number">1</span>] <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GValue</span>,
-                ));
-                <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">ptr</span>.<span class="ident">is_null</span>());
-                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GValue</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span>)
-            };
-
-            <span class="kw">match</span> <span class="ident">func</span>(<span class="kw-2">&amp;</span><span class="ident">binding</span>, <span class="ident">from</span>) {
-                <span class="prelude-val">None</span> =&gt; <span class="prelude-val">Some</span>(<span class="bool-val">false</span>.<span class="ident">to_value</span>()),
-                <span class="prelude-val">Some</span>(<span class="ident">value</span>) =&gt; {
-                    <span class="kw">unsafe</span> {
-                        <span class="ident">gobject_ffi::g_value_set_boxed</span>(
-                            <span class="ident">mut_override</span>(<span class="kw-2">&amp;</span><span class="ident">values</span>[<span class="number">2</span>] <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GValue</span>),
-                            <span class="kw-2">&amp;</span><span class="ident">value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                        );
-                    }
-
-                    <span class="prelude-val">Some</span>(<span class="bool-val">true</span>.<span class="ident">to_value</span>())
-                }
-            }
-        })
-    }
-
     <span class="doccomment">/// Transform changed property values from the target object to the source object with the given closure.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">transform_from</span><span class="op">&lt;</span>
         <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::Binding</span>, <span class="kw-2">&amp;</span><span class="ident">Value</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
@@ -6963,7 +7409,7 @@
         <span class="ident">func</span>: <span class="ident">F</span>,
     ) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
-            <span class="ident">transform_from</span>: <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::transform_closure</span>(<span class="ident">func</span>)),
+            <span class="ident">transform_from</span>: <span class="prelude-val">Some</span>(<span class="ident">Box::new</span>(<span class="ident">func</span>)),
             ..<span class="self">self</span>
         }
     }
@@ -6974,7 +7420,7 @@
         <span class="ident">func</span>: <span class="ident">F</span>,
     ) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
-            <span class="ident">transform_to</span>: <span class="prelude-val">Some</span>(<span class="ident"><span class="self">Self</span>::transform_closure</span>(<span class="ident">func</span>)),
+            <span class="ident">transform_to</span>: <span class="prelude-val">Some</span>(<span class="ident">Box::new</span>(<span class="ident">func</span>)),
             ..<span class="self">self</span>
         }
     }
@@ -6988,15 +7434,127 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This fails if the provided properties do not exist.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">try_build</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Binding</span>, <span class="ident"><span class="kw">crate</span>::BoolError</span><span class="op">&gt;</span> {
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">transform_to_trampoline</span>(
+            <span class="ident">binding</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GBinding</span>,
+            <span class="ident">from_value</span>: <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GValue</span>,
+            <span class="ident">to_value</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
+            <span class="ident">user_data</span>: <span class="ident">ffi::gpointer</span>,
+        ) -&gt; <span class="ident">ffi::gboolean</span> {
+            <span class="kw">let</span> <span class="ident">transform_data</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span>
+                <span class="kw">as</span> <span class="kw-2">*const</span> (<span class="ident">TransformFn</span>, <span class="ident">TransformFn</span>, <span class="ident"><span class="kw">crate</span>::ParamSpec</span>, <span class="ident"><span class="kw">crate</span>::ParamSpec</span>));
+
+            <span class="kw">match</span> (<span class="ident">transform_data</span>.<span class="number">0</span>.<span class="ident">as_ref</span>().<span class="ident">unwrap</span>())(
+                <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">binding</span>),
+                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">from_value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span>),
+            ) {
+                <span class="prelude-val">None</span> =&gt; <span class="bool-val">false</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">res</span>) =&gt; {
+                    <span class="macro">assert!</span>(
+                        <span class="ident">res</span>.<span class="ident">type_</span>().<span class="ident">is_a</span>(<span class="ident">transform_data</span>.<span class="number">3</span>.<span class="ident">value_type</span>()),
+                        <span class="string">&quot;Target property {} expected type {} but transform_to function returned {}&quot;</span>,
+                        <span class="ident">transform_data</span>.<span class="number">3</span>.<span class="ident">name</span>(),
+                        <span class="ident">transform_data</span>.<span class="number">3</span>.<span class="ident">value_type</span>(),
+                        <span class="ident">res</span>.<span class="ident">type_</span>()
+                    );
+                    <span class="kw-2">*</span><span class="ident">to_value</span> <span class="op">=</span> <span class="ident">res</span>.<span class="ident">into_raw</span>();
+                    <span class="bool-val">true</span>
+                }
+            }
+            .<span class="ident">into_glib</span>()
+        }
+
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">transform_from_trampoline</span>(
+            <span class="ident">binding</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GBinding</span>,
+            <span class="ident">from_value</span>: <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GValue</span>,
+            <span class="ident">to_value</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
+            <span class="ident">user_data</span>: <span class="ident">ffi::gpointer</span>,
+        ) -&gt; <span class="ident">ffi::gboolean</span> {
+            <span class="kw">let</span> <span class="ident">transform_data</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span>
+                <span class="kw">as</span> <span class="kw-2">*const</span> (<span class="ident">TransformFn</span>, <span class="ident">TransformFn</span>, <span class="ident"><span class="kw">crate</span>::ParamSpec</span>, <span class="ident"><span class="kw">crate</span>::ParamSpec</span>));
+
+            <span class="kw">match</span> (<span class="ident">transform_data</span>.<span class="number">1</span>.<span class="ident">as_ref</span>().<span class="ident">unwrap</span>())(
+                <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">binding</span>),
+                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">from_value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span>),
+            ) {
+                <span class="prelude-val">None</span> =&gt; <span class="bool-val">false</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">res</span>) =&gt; {
+                    <span class="macro">assert!</span>(
+                        <span class="ident">res</span>.<span class="ident">type_</span>().<span class="ident">is_a</span>(<span class="ident">transform_data</span>.<span class="number">2</span>.<span class="ident">value_type</span>()),
+                        <span class="string">&quot;Source property {} expected type {} but transform_from function returned {}&quot;</span>,
+                        <span class="ident">transform_data</span>.<span class="number">2</span>.<span class="ident">name</span>(),
+                        <span class="ident">transform_data</span>.<span class="number">2</span>.<span class="ident">value_type</span>(),
+                        <span class="ident">res</span>.<span class="ident">type_</span>()
+                    );
+                    <span class="kw-2">*</span><span class="ident">to_value</span> <span class="op">=</span> <span class="ident">res</span>.<span class="ident">into_raw</span>();
+                    <span class="bool-val">true</span>
+                }
+            }
+            .<span class="ident">into_glib</span>()
+        }
+
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">free_transform_data</span>(<span class="ident">data</span>: <span class="ident">ffi::gpointer</span>) {
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">Box::from_raw</span>(
+                <span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> (<span class="ident">TransformFn</span>, <span class="ident">TransformFn</span>, <span class="ident"><span class="kw">crate</span>::ParamSpec</span>, <span class="ident"><span class="kw">crate</span>::ParamSpec</span>),
+            );
+        }
+
         <span class="kw">unsafe</span> {
-            <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="ident">::from_glib_none</span>(<span class="ident">gobject_ffi::g_object_bind_property_with_closures</span>(
-                <span class="self">self</span>.<span class="ident">source</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="self">self</span>.<span class="ident">source_property</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="self">self</span>.<span class="ident">target</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="self">self</span>.<span class="ident">target_property</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">Object</span>(<span class="self">self</span>.<span class="ident">source</span>.<span class="ident">clone</span>());
+            <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">Object</span>(<span class="self">self</span>.<span class="ident">target</span>.<span class="ident">clone</span>());
+
+            <span class="kw">let</span> <span class="ident">source_property</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">find_property</span>(<span class="self">self</span>.<span class="ident">source_property</span>).<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> {
+                <span class="macro">bool_error!</span>(
+                    <span class="string">&quot;Source property {} on type {} not found&quot;</span>,
+                    <span class="self">self</span>.<span class="ident">source_property</span>,
+                    <span class="ident">source</span>.<span class="ident">type_</span>()
+                )
+            })<span class="question-mark">?</span>;
+            <span class="kw">let</span> <span class="ident">target_property</span> <span class="op">=</span> <span class="ident">target</span>.<span class="ident">find_property</span>(<span class="self">self</span>.<span class="ident">target_property</span>).<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> {
+                <span class="macro">bool_error!</span>(
+                    <span class="string">&quot;Target property {} on type {} not found&quot;</span>,
+                    <span class="self">self</span>.<span class="ident">target_property</span>,
+                    <span class="ident">target</span>.<span class="ident">type_</span>()
+                )
+            })<span class="question-mark">?</span>;
+
+            <span class="kw">let</span> <span class="ident">source_property_name</span> <span class="op">=</span> <span class="ident">source_property</span>.<span class="ident">name</span>().<span class="ident">as_ptr</span>();
+            <span class="kw">let</span> <span class="ident">target_property_name</span> <span class="op">=</span> <span class="ident">target_property</span>.<span class="ident">name</span>().<span class="ident">as_ptr</span>();
+
+            <span class="kw">let</span> <span class="ident">have_transform_to</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">transform_to</span>.<span class="ident">is_some</span>();
+            <span class="kw">let</span> <span class="ident">have_transform_from</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">transform_from</span>.<span class="ident">is_some</span>();
+            <span class="kw">let</span> <span class="ident">transform_data</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">have_transform_to</span> <span class="op">|</span><span class="op">|</span> <span class="ident">have_transform_from</span> {
+                <span class="ident">Box::into_raw</span>(<span class="ident">Box::new</span>((
+                    <span class="self">self</span>.<span class="ident">transform_to</span>,
+                    <span class="self">self</span>.<span class="ident">transform_from</span>,
+                    <span class="ident">source_property</span>,
+                    <span class="ident">target_property</span>,
+                )))
+            } <span class="kw">else</span> {
+                <span class="ident">ptr::null_mut</span>()
+            };
+
+            <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="ident">::from_glib_none</span>(<span class="ident">gobject_ffi::g_object_bind_property_full</span>(
+                <span class="ident">source</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">source_property_name</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
+                <span class="ident">target</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">target_property_name</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
                 <span class="self">self</span>.<span class="ident">flags</span>.<span class="ident">into_glib</span>(),
-                <span class="self">self</span>.<span class="ident">transform_to</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="self">self</span>.<span class="ident">transform_from</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="kw">if</span> <span class="ident">have_transform_to</span> {
+                    <span class="prelude-val">Some</span>(<span class="ident">transform_to_trampoline</span>)
+                } <span class="kw">else</span> {
+                    <span class="prelude-val">None</span>
+                },
+                <span class="kw">if</span> <span class="ident">have_transform_from</span> {
+                    <span class="prelude-val">Some</span>(<span class="ident">transform_from_trampoline</span>)
+                } <span class="kw">else</span> {
+                    <span class="prelude-val">None</span>
+                },
+                <span class="ident">transform_data</span> <span class="kw">as</span> <span class="ident">ffi::gpointer</span>,
+                <span class="kw">if</span> <span class="ident">transform_data</span>.<span class="ident">is_null</span>() {
+                    <span class="prelude-val">None</span>
+                } <span class="kw">else</span> {
+                    <span class="prelude-val">Some</span>(<span class="ident">free_transform_data</span>)
+                },
             ))
             .<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="macro">bool_error!</span>(<span class="string">&quot;Failed to create property bindings&quot;</span>))
         }
@@ -7345,7 +7903,7 @@
 
     <span class="doccomment">/// Return all [`ParamSpec`](crate::ParamSpec) of the properties of this interface.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_object_interface_list_properties&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">GPtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">list_properties</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">PtrSlice</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">interface</span> <span class="op">=</span> <span class="self">self</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GTypeInterface</span>;
 
@@ -7355,7 +7913,7 @@
                 <span class="ident">interface</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
                 <span class="kw-2">&amp;mut</span> <span class="ident">n_properties</span>,
             );
-            <span class="ident">GPtrSlice::from_glib_container_num_static</span>(<span class="ident">props</span>, <span class="ident">n_properties</span> <span class="kw">as</span> <span class="ident">usize</span>)
+            <span class="ident">PtrSlice::from_glib_container_num_static</span>(<span class="ident">props</span>, <span class="ident">n_properties</span> <span class="kw">as</span> <span class="ident">usize</span>)
         }
     }
 }
@@ -7442,8 +8000,16 @@
         <span class="ident">drop</span>(<span class="ident">obj</span>);
         <span class="macro">assert!</span>(<span class="ident">weakref</span>.<span class="ident">upgrade</span>().<span class="ident">is_none</span>());
     }
+
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">test_value</span>() {
+        <span class="kw">let</span> <span class="ident">obj1</span>: <span class="ident">Object</span> <span class="op">=</span> <span class="ident">Object::new</span>(<span class="kw-2">&amp;</span>[]).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="ident">obj1</span>.<span class="ident">to_value</span>();
+        <span class="kw">let</span> <span class="ident">obj2</span> <span class="op">=</span> <span class="ident">v</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Object</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
+
+        <span class="macro">assert_eq!</span>(<span class="ident">obj1</span>.<span class="ident">as_ptr</span>(), <span class="ident">obj2</span>.<span class="ident">as_ptr</span>());
+    }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
-    <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>
