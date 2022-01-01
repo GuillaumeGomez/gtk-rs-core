@@ -40,6 +40,7 @@ impl GlyphItem {
     //}
 
     #[doc(alias = "pango_glyph_item_split")]
+    #[must_use]
     pub fn split(&mut self, text: &str, split_index: i32) -> Option<GlyphItem> {
         unsafe {
             from_glib_full(ffi::pango_glyph_item_split(
