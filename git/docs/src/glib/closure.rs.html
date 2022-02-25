@@ -519,6 +519,9 @@
 <span id="441">441</span>
 <span id="442">442</span>
 <span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="comment">// TODO: support marshaller.</span>
@@ -558,7 +561,8 @@
     <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Creates a new closure around a Rust closure.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [`glib::closure!`] for a way to create a closure with concrete types.</span>
+    <span class="doccomment">/// See [`glib::closure!`](macro@crate::closure) for a way to create a closure with concrete</span>
+    <span class="doccomment">/// types.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Panics</span>
     <span class="doccomment">///</span>
@@ -588,7 +592,8 @@
     <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Creates a new closure around a Rust closure.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [`glib::closure_local!`] for a way to create a closure with concrete types.</span>
+    <span class="doccomment">/// See [`glib::closure_local!`](crate::closure_local) for a way to create a closure with</span>
+    <span class="doccomment">/// concrete types.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Panics</span>
     <span class="doccomment">///</span>
@@ -769,9 +774,10 @@
                         );
                         <span class="kw-2">*</span><span class="ident">return_value</span> <span class="op">=</span> <span class="ident">result</span>;
                     }
+                    <span class="prelude-val">None</span> <span class="kw">if</span> <span class="ident">return_value</span>.<span class="ident">type_</span>() <span class="op">==</span> <span class="ident">Type::INVALID</span> =&gt; (),
                     <span class="prelude-val">None</span> =&gt; {
                         <span class="macro">panic!</span>(
-                            <span class="string">&quot;Closure return no value but the caller expected a value of type {}&quot;</span>,
+                            <span class="string">&quot;Closure returned no value but the caller expected a value of type {}&quot;</span>,
                             <span class="ident">return_value</span>.<span class="ident">type_</span>()
                         );
                     }
@@ -963,5 +969,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (c5c610aad 2022-02-14)" ></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (4b043faba 2022-02-24)" ></div>
 </body></html>
