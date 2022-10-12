@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/input_stream.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/input_stream.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gio/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gio/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -442,431 +436,370 @@
 <span id="363">363</span>
 <span id="364">364</span>
 <span id="365">365</span>
-<span id="366">366</span>
-<span id="367">367</span>
-<span id="368">368</span>
-<span id="369">369</span>
-<span id="370">370</span>
-<span id="371">371</span>
-<span id="372">372</span>
-<span id="373">373</span>
-<span id="374">374</span>
-<span id="375">375</span>
-<span id="376">376</span>
-<span id="377">377</span>
-<span id="378">378</span>
-<span id="379">379</span>
-<span id="380">380</span>
-<span id="381">381</span>
-<span id="382">382</span>
-<span id="383">383</span>
-<span id="384">384</span>
-<span id="385">385</span>
-<span id="386">386</span>
-<span id="387">387</span>
-<span id="388">388</span>
-<span id="389">389</span>
-<span id="390">390</span>
-<span id="391">391</span>
-<span id="392">392</span>
-<span id="393">393</span>
-<span id="394">394</span>
-<span id="395">395</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident">glib::subclass::prelude</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
+</span><span class="kw">use </span>glib::subclass::prelude::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
 
-<span class="kw">use</span> <span class="ident">glib</span>::{<span class="ident">Cast</span>, <span class="ident">Error</span>};
+<span class="kw">use </span>glib::{Cast, Error};
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Cancellable</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::InputStream</span>;
+<span class="kw">use </span><span class="kw">crate</span>::Cancellable;
+<span class="kw">use </span><span class="kw">crate</span>::InputStream;
 
-<span class="kw">use</span> <span class="ident">std::ptr</span>;
+<span class="kw">use </span>std::ptr;
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">InputStreamImpl</span>: <span class="ident">ObjectImpl</span> <span class="op">+</span> <span class="ident">InputStreamImplExt</span> <span class="op">+</span> <span class="ident">Send</span> {
-    <span class="kw">fn</span> <span class="ident">read</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">buffer</span>: <span class="kw-2">&amp;mut</span> [<span class="ident">u8</span>],
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">Error</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">parent_read</span>(<span class="ident">stream</span>, <span class="ident">buffer</span>, <span class="ident">cancellable</span>)
+<span class="kw">pub trait </span>InputStreamImpl: ObjectImpl + InputStreamImplExt + Send {
+    <span class="kw">fn </span>read(<span class="kw-2">&amp;</span><span class="self">self</span>, buffer: <span class="kw-2">&amp;mut </span>[u8], cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt; {
+        <span class="self">self</span>.parent_read(buffer, cancellable)
     }
 
-    <span class="kw">fn</span> <span class="ident">close</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">parent_close</span>(<span class="ident">stream</span>, <span class="ident">cancellable</span>)
+    <span class="kw">fn </span>close(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), Error&gt; {
+        <span class="self">self</span>.parent_close(cancellable)
     }
 
-    <span class="kw">fn</span> <span class="ident">skip</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">count</span>: <span class="ident">usize</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">Error</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">parent_skip</span>(<span class="ident">stream</span>, <span class="ident">count</span>, <span class="ident">cancellable</span>)
+    <span class="kw">fn </span>skip(<span class="kw-2">&amp;</span><span class="self">self</span>, count: usize, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt; {
+        <span class="self">self</span>.parent_skip(count, cancellable)
     }
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">InputStreamImplExt</span>: <span class="ident">ObjectSubclass</span> {
-    <span class="kw">fn</span> <span class="ident">parent_read</span>(
+<span class="kw">pub trait </span>InputStreamImplExt: ObjectSubclass {
+    <span class="kw">fn </span>parent_read(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">buffer</span>: <span class="kw-2">&amp;mut</span> [<span class="ident">u8</span>],
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">Error</span><span class="op">&gt;</span>;
+        buffer: <span class="kw-2">&amp;mut </span>[u8],
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt;;
 
-    <span class="kw">fn</span> <span class="ident">parent_close</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span>;
+    <span class="kw">fn </span>parent_close(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), Error&gt;;
 
-    <span class="kw">fn</span> <span class="ident">parent_skip</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">count</span>: <span class="ident">usize</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">Error</span><span class="op">&gt;</span>;
+    <span class="kw">fn </span>parent_skip(<span class="kw-2">&amp;</span><span class="self">self</span>, count: usize, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">InputStreamImpl</span><span class="op">&gt;</span> <span class="ident">InputStreamImplExt</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">parent_read</span>(
+<span class="kw">impl</span>&lt;T: InputStreamImpl&gt; InputStreamImplExt <span class="kw">for </span>T {
+    <span class="kw">fn </span>parent_read(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">buffer</span>: <span class="kw-2">&amp;mut</span> [<span class="ident">u8</span>],
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">Error</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> <span class="ident">T::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_class</span> <span class="op">=</span> <span class="ident">data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_class</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ffi::GInputStreamClass</span>;
-            <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_class</span>)
-                .<span class="ident">read_fn</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;No parent class implementation for \&quot;read\&quot;&quot;</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">err</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">f</span>(
-                <span class="ident">stream</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">InputStream</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">buffer</span>.<span class="ident">as_mut_ptr</span>() <span class="kw">as</span> <span class="ident">glib::ffi::gpointer</span>,
-                <span class="ident">buffer</span>.<span class="ident">len</span>(),
-                <span class="ident">cancellable</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut</span> <span class="ident">err</span>,
+        buffer: <span class="kw-2">&amp;mut </span>[u8],
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>data = T::type_data();
+            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GInputStreamClass;
+            <span class="kw">let </span>f = (<span class="kw-2">*</span>parent_class)
+                .read_fn
+                .expect(<span class="string">&quot;No parent class implementation for \&quot;read\&quot;&quot;</span>);
+            <span class="kw">let </span><span class="kw-2">mut </span>err = ptr::null_mut();
+            <span class="kw">let </span>res = f(
+                <span class="self">self</span>.instance()
+                    .unsafe_cast_ref::&lt;InputStream&gt;()
+                    .to_glib_none()
+                    .<span class="number">0</span>,
+                buffer.as_mut_ptr() <span class="kw">as </span>glib::ffi::gpointer,
+                buffer.len(),
+                cancellable.to_glib_none().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span>err,
             );
-            <span class="kw">if</span> <span class="ident">res</span> <span class="op">==</span> <span class="op">-</span><span class="number">1</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">err</span>))
-            } <span class="kw">else</span> {
-                <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>);
-                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">res</span> <span class="kw">as</span> <span class="ident">usize</span>;
-                <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">buffer</span>.<span class="ident">len</span>());
-                <span class="prelude-val">Ok</span>(<span class="ident">res</span>)
+            <span class="kw">if </span>res == -<span class="number">1 </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(err))
+            } <span class="kw">else </span>{
+                <span class="macro">assert!</span>(res &gt;= <span class="number">0</span>);
+                <span class="kw">let </span>res = res <span class="kw">as </span>usize;
+                <span class="macro">assert!</span>(res &lt;= buffer.len());
+                <span class="prelude-val">Ok</span>(res)
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_close</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> <span class="ident">T::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_class</span> <span class="op">=</span> <span class="ident">data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_class</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ffi::GInputStreamClass</span>;
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">err</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">f</span>) <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_class</span>).<span class="ident">close_fn</span> {
-                <span class="kw">if</span> <span class="ident">from_glib</span>(<span class="ident">f</span>(
-                    <span class="ident">stream</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">InputStream</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cancellable</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="kw-2">&amp;mut</span> <span class="ident">err</span>,
+    <span class="kw">fn </span>parent_close(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>data = T::type_data();
+            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GInputStreamClass;
+            <span class="kw">let </span><span class="kw-2">mut </span>err = ptr::null_mut();
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).close_fn {
+                <span class="kw">if </span>from_glib(f(
+                    <span class="self">self</span>.instance()
+                        .unsafe_cast_ref::&lt;InputStream&gt;()
+                        .to_glib_none()
+                        .<span class="number">0</span>,
+                    cancellable.to_glib_none().<span class="number">0</span>,
+                    <span class="kw-2">&amp;mut </span>err,
                 )) {
                     <span class="prelude-val">Ok</span>(())
-                } <span class="kw">else</span> {
-                    <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">err</span>))
+                } <span class="kw">else </span>{
+                    <span class="prelude-val">Err</span>(from_glib_full(err))
                 }
-            } <span class="kw">else</span> {
+            } <span class="kw">else </span>{
                 <span class="prelude-val">Ok</span>(())
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_skip</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">count</span>: <span class="ident">usize</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">Error</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> <span class="ident">T::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_class</span> <span class="op">=</span> <span class="ident">data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_class</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">ffi::GInputStreamClass</span>;
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">err</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_class</span>)
-                .<span class="ident">skip</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;No parent class implementation for \&quot;skip\&quot;&quot;</span>);
-            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">f</span>(
-                <span class="ident">stream</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">InputStream</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">count</span>,
-                <span class="ident">cancellable</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut</span> <span class="ident">err</span>,
+    <span class="kw">fn </span>parent_skip(<span class="kw-2">&amp;</span><span class="self">self</span>, count: usize, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>data = T::type_data();
+            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GInputStreamClass;
+            <span class="kw">let </span><span class="kw-2">mut </span>err = ptr::null_mut();
+            <span class="kw">let </span>f = (<span class="kw-2">*</span>parent_class)
+                .skip
+                .expect(<span class="string">&quot;No parent class implementation for \&quot;skip\&quot;&quot;</span>);
+            <span class="kw">let </span>res = f(
+                <span class="self">self</span>.instance()
+                    .unsafe_cast_ref::&lt;InputStream&gt;()
+                    .to_glib_none()
+                    .<span class="number">0</span>,
+                count,
+                cancellable.to_glib_none().<span class="number">0</span>,
+                <span class="kw-2">&amp;mut </span>err,
             );
-            <span class="kw">if</span> <span class="ident">res</span> <span class="op">==</span> <span class="op">-</span><span class="number">1</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">err</span>))
-            } <span class="kw">else</span> {
-                <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>);
-                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">res</span> <span class="kw">as</span> <span class="ident">usize</span>;
-                <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">count</span>);
-                <span class="prelude-val">Ok</span>(<span class="ident">res</span>)
+            <span class="kw">if </span>res == -<span class="number">1 </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(err))
+            } <span class="kw">else </span>{
+                <span class="macro">assert!</span>(res &gt;= <span class="number">0</span>);
+                <span class="kw">let </span>res = res <span class="kw">as </span>usize;
+                <span class="macro">assert!</span>(res &lt;= count);
+                <span class="prelude-val">Ok</span>(res)
             }
         }
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">InputStreamImpl</span><span class="op">&gt;</span> <span class="ident">IsSubclassable</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">InputStream</span> {
-    <span class="kw">fn</span> <span class="ident">class_init</span>(<span class="ident">class</span>: <span class="kw-2">&amp;mut</span> <span class="ident">::glib::Class</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>) {
-        <span class="ident"><span class="self">Self</span>::parent_class_init</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">class</span>);
+<span class="kw">unsafe impl</span>&lt;T: InputStreamImpl&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span>InputStream {
+    <span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span>::glib::Class&lt;<span class="self">Self</span>&gt;) {
+        <span class="self">Self</span>::parent_class_init::&lt;T&gt;(class);
 
-        <span class="kw">let</span> <span class="ident">klass</span> <span class="op">=</span> <span class="ident">class</span>.<span class="ident">as_mut</span>();
-        <span class="ident">klass</span>.<span class="ident">read_fn</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">stream_read</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">klass</span>.<span class="ident">close_fn</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">stream_close</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">klass</span>.<span class="ident">skip</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">stream_skip</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
+        <span class="kw">let </span>klass = class.as_mut();
+        klass.read_fn = <span class="prelude-val">Some</span>(stream_read::&lt;T&gt;);
+        klass.close_fn = <span class="prelude-val">Some</span>(stream_close::&lt;T&gt;);
+        klass.skip = <span class="prelude-val">Some</span>(stream_skip::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">stream_read</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">InputStreamImpl</span><span class="op">&gt;</span>(
-    <span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GInputStream</span>,
-    <span class="ident">buffer</span>: <span class="ident">glib::ffi::gpointer</span>,
-    <span class="ident">count</span>: <span class="ident">usize</span>,
-    <span class="ident">cancellable</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GCancellable</span>,
-    <span class="ident">err</span>: <span class="kw-2">*mut</span> <span class="kw-2">*mut</span> <span class="ident">glib::ffi::GError</span>,
-) -&gt; <span class="ident">isize</span> {
-    <span class="kw">use</span> <span class="ident">std::isize</span>;
-    <span class="kw">use</span> <span class="ident">std::slice</span>;
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>stream_read&lt;T: InputStreamImpl&gt;(
+    ptr: <span class="kw-2">*mut </span>ffi::GInputStream,
+    buffer: glib::ffi::gpointer,
+    count: usize,
+    cancellable: <span class="kw-2">*mut </span>ffi::GCancellable,
+    err: <span class="kw-2">*mut *mut </span>glib::ffi::GError,
+) -&gt; isize {
+    <span class="kw">use </span>std::isize;
+    <span class="kw">use </span>std::slice;
 
-    <span class="macro">assert!</span>(<span class="ident">count</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">isize::MAX</span> <span class="kw">as</span> <span class="ident">usize</span>);
+    <span class="macro">assert!</span>(count &lt;= isize::MAX <span class="kw">as </span>usize);
 
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
-    <span class="kw">let</span> <span class="ident">wrap</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">InputStream</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">ptr</span>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">match</span> <span class="ident">imp</span>.<span class="ident">read</span>(
-        <span class="ident">wrap</span>.<span class="ident">unsafe_cast_ref</span>(),
-        <span class="kw">if</span> <span class="ident">count</span> <span class="op">==</span> <span class="number">0</span> {
-            <span class="kw-2">&amp;mut</span> []
-        } <span class="kw">else</span> {
-            <span class="ident">slice::from_raw_parts_mut</span>(<span class="ident">buffer</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">count</span>)
+    <span class="kw">match </span>imp.read(
+        <span class="kw">if </span>count == <span class="number">0 </span>{
+            <span class="kw-2">&amp;mut </span>[]
+        } <span class="kw">else </span>{
+            slice::from_raw_parts_mut(buffer <span class="kw">as </span><span class="kw-2">*mut </span>u8, count)
         },
-        <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span><span class="ident">::from_glib_borrow</span>(<span class="ident">cancellable</span>)
-            .<span class="ident">as_ref</span>()
-            .<span class="ident">as_ref</span>(),
+        <span class="prelude-ty">Option</span>::&lt;Cancellable&gt;::from_glib_borrow(cancellable)
+            .as_ref()
+            .as_ref(),
     ) {
-        <span class="prelude-val">Ok</span>(<span class="ident">res</span>) =&gt; {
-            <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">isize::MAX</span> <span class="kw">as</span> <span class="ident">usize</span>);
-            <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">count</span>);
-            <span class="ident">res</span> <span class="kw">as</span> <span class="ident">isize</span>
+        <span class="prelude-val">Ok</span>(res) =&gt; {
+            <span class="macro">assert!</span>(res &lt;= isize::MAX <span class="kw">as </span>usize);
+            <span class="macro">assert!</span>(res &lt;= count);
+            res <span class="kw">as </span>isize
         }
-        <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; {
-            <span class="kw">if</span> <span class="op">!</span><span class="ident">err</span>.<span class="ident">is_null</span>() {
-                <span class="kw-2">*</span><span class="ident">err</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_glib_ptr</span>();
+        <span class="prelude-val">Err</span>(e) =&gt; {
+            <span class="kw">if </span>!err.is_null() {
+                <span class="kw-2">*</span>err = e.into_glib_ptr();
             }
-            <span class="op">-</span><span class="number">1</span>
+            -<span class="number">1
+        </span>}
+    }
+}
+
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>stream_close&lt;T: InputStreamImpl&gt;(
+    ptr: <span class="kw-2">*mut </span>ffi::GInputStream,
+    cancellable: <span class="kw-2">*mut </span>ffi::GCancellable,
+    err: <span class="kw-2">*mut *mut </span>glib::ffi::GError,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
+
+    <span class="kw">match </span>imp.close(
+        <span class="prelude-ty">Option</span>::&lt;Cancellable&gt;::from_glib_borrow(cancellable)
+            .as_ref()
+            .as_ref(),
+    ) {
+        <span class="prelude-val">Ok</span>(<span class="kw">_</span>) =&gt; glib::ffi::GTRUE,
+        <span class="prelude-val">Err</span>(e) =&gt; {
+            <span class="kw">if </span>!err.is_null() {
+                <span class="kw-2">*</span>err = e.into_glib_ptr();
+            }
+            glib::ffi::GFALSE
         }
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">stream_close</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">InputStreamImpl</span><span class="op">&gt;</span>(
-    <span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GInputStream</span>,
-    <span class="ident">cancellable</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GCancellable</span>,
-    <span class="ident">err</span>: <span class="kw-2">*mut</span> <span class="kw-2">*mut</span> <span class="ident">glib::ffi::GError</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
-    <span class="kw">let</span> <span class="ident">wrap</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">InputStream</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">ptr</span>);
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>stream_skip&lt;T: InputStreamImpl&gt;(
+    ptr: <span class="kw-2">*mut </span>ffi::GInputStream,
+    count: usize,
+    cancellable: <span class="kw-2">*mut </span>ffi::GCancellable,
+    err: <span class="kw-2">*mut *mut </span>glib::ffi::GError,
+) -&gt; isize {
+    <span class="kw">use </span>std::isize;
 
-    <span class="kw">match</span> <span class="ident">imp</span>.<span class="ident">close</span>(
-        <span class="ident">wrap</span>.<span class="ident">unsafe_cast_ref</span>(),
-        <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span><span class="ident">::from_glib_borrow</span>(<span class="ident">cancellable</span>)
-            .<span class="ident">as_ref</span>()
-            .<span class="ident">as_ref</span>(),
+    <span class="macro">assert!</span>(count &lt;= isize::MAX <span class="kw">as </span>usize);
+
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
+
+    <span class="kw">match </span>imp.skip(
+        count,
+        <span class="prelude-ty">Option</span>::&lt;Cancellable&gt;::from_glib_borrow(cancellable)
+            .as_ref()
+            .as_ref(),
     ) {
-        <span class="prelude-val">Ok</span>(<span class="kw">_</span>) =&gt; <span class="ident">glib::ffi::GTRUE</span>,
-        <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; {
-            <span class="kw">if</span> <span class="op">!</span><span class="ident">err</span>.<span class="ident">is_null</span>() {
-                <span class="kw-2">*</span><span class="ident">err</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_glib_ptr</span>();
-            }
-            <span class="ident">glib::ffi::GFALSE</span>
+        <span class="prelude-val">Ok</span>(res) =&gt; {
+            <span class="macro">assert!</span>(res &lt;= isize::MAX <span class="kw">as </span>usize);
+            <span class="macro">assert!</span>(res &lt;= count);
+            res <span class="kw">as </span>isize
         }
+        <span class="prelude-val">Err</span>(e) =&gt; {
+            <span class="kw">if </span>!err.is_null() {
+                <span class="kw-2">*</span>err = e.into_glib_ptr();
+            }
+            -<span class="number">1
+        </span>}
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">stream_skip</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">InputStreamImpl</span><span class="op">&gt;</span>(
-    <span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GInputStream</span>,
-    <span class="ident">count</span>: <span class="ident">usize</span>,
-    <span class="ident">cancellable</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GCancellable</span>,
-    <span class="ident">err</span>: <span class="kw-2">*mut</span> <span class="kw-2">*mut</span> <span class="ident">glib::ffi::GError</span>,
-) -&gt; <span class="ident">isize</span> {
-    <span class="kw">use</span> <span class="ident">std::isize</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::subclass::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span>std::cell::RefCell;
 
-    <span class="macro">assert!</span>(<span class="ident">count</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">isize::MAX</span> <span class="kw">as</span> <span class="ident">usize</span>);
+    <span class="kw">mod </span>imp {
+        <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
-    <span class="kw">let</span> <span class="ident">wrap</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">InputStream</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">ptr</span>);
-
-    <span class="kw">match</span> <span class="ident">imp</span>.<span class="ident">skip</span>(
-        <span class="ident">wrap</span>.<span class="ident">unsafe_cast_ref</span>(),
-        <span class="ident">count</span>,
-        <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span><span class="ident">::from_glib_borrow</span>(<span class="ident">cancellable</span>)
-            .<span class="ident">as_ref</span>()
-            .<span class="ident">as_ref</span>(),
-    ) {
-        <span class="prelude-val">Ok</span>(<span class="ident">res</span>) =&gt; {
-            <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">isize::MAX</span> <span class="kw">as</span> <span class="ident">usize</span>);
-            <span class="macro">assert!</span>(<span class="ident">res</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">count</span>);
-            <span class="ident">res</span> <span class="kw">as</span> <span class="ident">isize</span>
-        }
-        <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; {
-            <span class="kw">if</span> <span class="op">!</span><span class="ident">err</span>.<span class="ident">is_null</span>() {
-                <span class="kw-2">*</span><span class="ident">err</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_glib_ptr</span>();
-            }
-            <span class="op">-</span><span class="number">1</span>
-        }
-    }
-}
-
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::subclass::prelude</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident">std::cell::RefCell</span>;
-
-    <span class="kw">mod</span> <span class="ident">imp</span> {
-        <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-
-        <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Default</span>)]</span>
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SimpleInputStream</span> {
-            <span class="kw">pub</span> <span class="ident">pos</span>: <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>,
+        <span class="attribute">#[derive(Default)]
+        </span><span class="kw">pub struct </span>SimpleInputStream {
+            <span class="kw">pub </span>pos: RefCell&lt;usize&gt;,
         }
 
-        <span class="attribute">#[<span class="ident">glib::object_subclass</span>]</span>
-        <span class="kw">impl</span> <span class="ident">ObjectSubclass</span> <span class="kw">for</span> <span class="ident">SimpleInputStream</span> {
-            <span class="kw">const</span> <span class="ident">NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;SimpleInputStream&quot;</span>;
-            <span class="kw">type</span> <span class="ident">Type</span> <span class="op">=</span> <span class="ident"><span class="kw">super</span>::SimpleInputStream</span>;
-            <span class="kw">type</span> <span class="ident">ParentType</span> <span class="op">=</span> <span class="ident">InputStream</span>;
-            <span class="kw">type</span> <span class="ident">Interfaces</span> <span class="op">=</span> (<span class="ident"><span class="kw">crate</span>::Seekable</span>,);
+        <span class="attribute">#[glib::object_subclass]
+        </span><span class="kw">impl </span>ObjectSubclass <span class="kw">for </span>SimpleInputStream {
+            <span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str = <span class="string">&quot;SimpleInputStream&quot;</span>;
+            <span class="kw">type </span>Type = <span class="kw">super</span>::SimpleInputStream;
+            <span class="kw">type </span>ParentType = InputStream;
+            <span class="kw">type </span>Interfaces = (<span class="kw">crate</span>::Seekable,);
         }
 
-        <span class="kw">impl</span> <span class="ident">ObjectImpl</span> <span class="kw">for</span> <span class="ident">SimpleInputStream</span> {}
+        <span class="kw">impl </span>ObjectImpl <span class="kw">for </span>SimpleInputStream {}
 
-        <span class="kw">impl</span> <span class="ident">InputStreamImpl</span> <span class="kw">for</span> <span class="ident">SimpleInputStream</span> {
-            <span class="kw">fn</span> <span class="ident">read</span>(
+        <span class="kw">impl </span>InputStreamImpl <span class="kw">for </span>SimpleInputStream {
+            <span class="kw">fn </span>read(
                 <span class="kw-2">&amp;</span><span class="self">self</span>,
-                <span class="ident">_stream</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-                <span class="ident">buffer</span>: <span class="kw-2">&amp;mut</span> [<span class="ident">u8</span>],
-                <span class="ident">_cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-            ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">Error</span><span class="op">&gt;</span> {
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pos</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">borrow_mut</span>();
-                <span class="kw">for</span> <span class="ident">b</span> <span class="kw">in</span> <span class="ident">buffer</span>.<span class="ident">iter_mut</span>() {
-                    <span class="kw-2">*</span><span class="ident">b</span> <span class="op">=</span> ((<span class="kw-2">*</span><span class="ident">pos</span>) <span class="op">%</span> <span class="number">255</span>) <span class="kw">as</span> <span class="ident">u8</span>;
-                    <span class="kw-2">*</span><span class="ident">pos</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+                buffer: <span class="kw-2">&amp;mut </span>[u8],
+                _cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;,
+            ) -&gt; <span class="prelude-ty">Result</span>&lt;usize, Error&gt; {
+                <span class="kw">let </span><span class="kw-2">mut </span>pos = <span class="self">self</span>.pos.borrow_mut();
+                <span class="kw">for </span>b <span class="kw">in </span>buffer.iter_mut() {
+                    <span class="kw-2">*</span>b = ((<span class="kw-2">*</span>pos) % <span class="number">255</span>) <span class="kw">as </span>u8;
+                    <span class="kw-2">*</span>pos += <span class="number">1</span>;
                 }
-                <span class="prelude-val">Ok</span>(<span class="ident">buffer</span>.<span class="ident">len</span>())
+                <span class="prelude-val">Ok</span>(buffer.len())
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">SeekableImpl</span> <span class="kw">for</span> <span class="ident">SimpleInputStream</span> {
-            <span class="kw">fn</span> <span class="ident">tell</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">_seekable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">i64</span> {
-                <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">borrow</span>() <span class="kw">as</span> <span class="ident">i64</span>
+        <span class="kw">impl </span>SeekableImpl <span class="kw">for </span>SimpleInputStream {
+            <span class="kw">fn </span>tell(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
+                <span class="kw-2">*</span><span class="self">self</span>.pos.borrow() <span class="kw">as </span>i64
             }
 
-            <span class="kw">fn</span> <span class="ident">can_seek</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">_seekable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span> {
-                <span class="bool-val">true</span>
-            }
+            <span class="kw">fn </span>can_seek(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+                <span class="bool-val">true
+            </span>}
 
-            <span class="kw">fn</span> <span class="ident">seek</span>(
+            <span class="kw">fn </span>seek(
                 <span class="kw-2">&amp;</span><span class="self">self</span>,
-                <span class="ident">_seekable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-                <span class="ident">offset</span>: <span class="ident">i64</span>,
-                <span class="ident">type_</span>: <span class="ident">glib::SeekType</span>,
-                <span class="ident">_cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-            ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span> {
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pos</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">borrow_mut</span>();
-                <span class="kw">match</span> <span class="ident">type_</span> {
-                    <span class="ident">glib::SeekType::Set</span> =&gt; {
-                        <span class="kw-2">*</span><span class="ident">pos</span> <span class="op">=</span> <span class="ident">offset</span> <span class="kw">as</span> <span class="ident">usize</span>;
+                offset: i64,
+                type_: glib::SeekType,
+                _cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;,
+            ) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
+                <span class="kw">let </span><span class="kw-2">mut </span>pos = <span class="self">self</span>.pos.borrow_mut();
+                <span class="kw">match </span>type_ {
+                    glib::SeekType::Set =&gt; {
+                        <span class="kw-2">*</span>pos = offset <span class="kw">as </span>usize;
                         <span class="prelude-val">Ok</span>(())
                     }
-                    <span class="ident">glib::SeekType::Cur</span> =&gt; {
-                        <span class="kw">if</span> <span class="ident">offset</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                            <span class="kw-2">*</span><span class="ident">pos</span> <span class="op">-</span><span class="op">=</span> (<span class="op">-</span><span class="ident">offset</span>) <span class="kw">as</span> <span class="ident">usize</span>;
-                        } <span class="kw">else</span> {
-                            <span class="kw-2">*</span><span class="ident">pos</span> <span class="op">+</span><span class="op">=</span> <span class="ident">offset</span> <span class="kw">as</span> <span class="ident">usize</span>;
+                    glib::SeekType::Cur =&gt; {
+                        <span class="kw">if </span>offset &lt; <span class="number">0 </span>{
+                            <span class="kw-2">*</span>pos -= (-offset) <span class="kw">as </span>usize;
+                        } <span class="kw">else </span>{
+                            <span class="kw-2">*</span>pos += offset <span class="kw">as </span>usize;
                         }
 
                         <span class="prelude-val">Ok</span>(())
                     }
-                    <span class="ident">glib::SeekType::End</span> =&gt; <span class="prelude-val">Err</span>(<span class="ident">glib::Error::new</span>(
-                        <span class="ident"><span class="kw">crate</span>::IOErrorEnum::NotSupported</span>,
+                    glib::SeekType::End =&gt; <span class="prelude-val">Err</span>(glib::Error::new(
+                        <span class="kw">crate</span>::IOErrorEnum::NotSupported,
                         <span class="string">&quot;Can&#39;t seek relative to end&quot;</span>,
                     )),
-                    <span class="kw">_</span> =&gt; <span class="macro">unreachable!</span>(),
+                    <span class="kw">_ </span>=&gt; <span class="macro">unreachable!</span>(),
                 }
             }
 
-            <span class="kw">fn</span> <span class="ident">can_truncate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">_seekable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span> {
-                <span class="bool-val">false</span>
-            }
-            <span class="kw">fn</span> <span class="ident">truncate</span>(
+            <span class="kw">fn </span>can_truncate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+                <span class="bool-val">false
+            </span>}
+            <span class="kw">fn </span>truncate(
                 <span class="kw-2">&amp;</span><span class="self">self</span>,
-                <span class="ident">_seekable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-                <span class="ident">_offset</span>: <span class="ident">i64</span>,
-                <span class="ident">_cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-            ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span> {
+                _offset: i64,
+                _cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;,
+            ) -&gt; <span class="prelude-ty">Result</span>&lt;(), Error&gt; {
                 <span class="macro">unimplemented!</span>()
             }
         }
     }
 
-    <span class="macro">glib::wrapper!</span> {
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SimpleInputStream</span>(<span class="ident">ObjectSubclass</span><span class="op">&lt;</span><span class="ident">imp::SimpleInputStream</span><span class="op">&gt;</span>)
-            @<span class="ident">extends</span> <span class="ident">InputStream</span>;
+    <span class="macro">glib::wrapper! </span>{
+        <span class="kw">pub struct </span>SimpleInputStream(ObjectSubclass&lt;imp::SimpleInputStream&gt;)
+            @extends InputStream;
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_simple_stream</span>() {
-        <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">SimpleInputStream</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span>[]).<span class="ident">unwrap</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_simple_stream() {
+        <span class="kw">let </span>stream = glib::Object::new::&lt;SimpleInputStream&gt;(<span class="kw-2">&amp;</span>[]);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">buf</span> <span class="op">=</span> [<span class="number">0</span>; <span class="number">16</span>];
-        <span class="macro">assert_eq!</span>(<span class="ident">stream</span>.<span class="ident">read</span>(<span class="kw-2">&amp;mut</span> <span class="ident">buf</span>, <span class="ident"><span class="kw">crate</span>::Cancellable::NONE</span>), <span class="prelude-val">Ok</span>(<span class="number">16</span>));
+        <span class="kw">let </span><span class="kw-2">mut </span>buf = [<span class="number">0</span>; <span class="number">16</span>];
+        <span class="macro">assert_eq!</span>(stream.read(<span class="kw-2">&amp;mut </span>buf, <span class="kw">crate</span>::Cancellable::NONE), <span class="prelude-val">Ok</span>(<span class="number">16</span>));
         <span class="macro">assert_eq!</span>(
-            <span class="kw-2">&amp;</span><span class="ident">buf</span>,
+            <span class="kw-2">&amp;</span>buf,
             <span class="kw-2">&amp;</span>[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]
         );
 
-        <span class="macro">assert_eq!</span>(<span class="ident">stream</span>.<span class="ident">skip</span>(<span class="number">2</span>, <span class="ident"><span class="kw">crate</span>::Cancellable::NONE</span>), <span class="prelude-val">Ok</span>(<span class="number">2</span>));
+        <span class="macro">assert_eq!</span>(stream.skip(<span class="number">2</span>, <span class="kw">crate</span>::Cancellable::NONE), <span class="prelude-val">Ok</span>(<span class="number">2</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">stream</span>.<span class="ident">read</span>(<span class="kw-2">&amp;mut</span> <span class="ident">buf</span>, <span class="ident"><span class="kw">crate</span>::Cancellable::NONE</span>), <span class="prelude-val">Ok</span>(<span class="number">16</span>));
+        <span class="macro">assert_eq!</span>(stream.read(<span class="kw-2">&amp;mut </span>buf, <span class="kw">crate</span>::Cancellable::NONE), <span class="prelude-val">Ok</span>(<span class="number">16</span>));
         <span class="macro">assert_eq!</span>(
-            <span class="kw-2">&amp;</span><span class="ident">buf</span>,
+            <span class="kw-2">&amp;</span>buf,
             <span class="kw-2">&amp;</span>[<span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>]
         );
 
-        <span class="kw">let</span> <span class="ident">seekable</span> <span class="op">=</span> <span class="ident">stream</span>.<span class="ident">dynamic_cast_ref</span>::<span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Seekable</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">seekable</span>.<span class="ident">tell</span>(), <span class="number">34</span>);
-        <span class="macro">assert!</span>(<span class="ident">seekable</span>.<span class="ident">can_seek</span>());
+        <span class="kw">let </span>seekable = stream.dynamic_cast_ref::&lt;<span class="kw">crate</span>::Seekable&gt;().unwrap();
+        <span class="macro">assert_eq!</span>(seekable.tell(), <span class="number">34</span>);
+        <span class="macro">assert!</span>(seekable.can_seek());
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">seekable</span>.<span class="ident">seek</span>(<span class="number">0</span>, <span class="ident">glib::SeekType::Set</span>, <span class="ident"><span class="kw">crate</span>::Cancellable::NONE</span>),
+            seekable.seek(<span class="number">0</span>, glib::SeekType::Set, <span class="kw">crate</span>::Cancellable::NONE),
             <span class="prelude-val">Ok</span>(())
         );
 
-        <span class="macro">assert_eq!</span>(<span class="ident">seekable</span>.<span class="ident">tell</span>(), <span class="number">0</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">stream</span>.<span class="ident">read</span>(<span class="kw-2">&amp;mut</span> <span class="ident">buf</span>, <span class="ident"><span class="kw">crate</span>::Cancellable::NONE</span>), <span class="prelude-val">Ok</span>(<span class="number">16</span>));
+        <span class="macro">assert_eq!</span>(seekable.tell(), <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(stream.read(<span class="kw-2">&amp;mut </span>buf, <span class="kw">crate</span>::Cancellable::NONE), <span class="prelude-val">Ok</span>(<span class="number">16</span>));
         <span class="macro">assert_eq!</span>(
-            <span class="kw-2">&amp;</span><span class="ident">buf</span>,
+            <span class="kw-2">&amp;</span>buf,
             <span class="kw-2">&amp;</span>[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]
         );
 
-        <span class="macro">assert_eq!</span>(<span class="ident">stream</span>.<span class="ident">close</span>(<span class="ident"><span class="kw">crate</span>::Cancellable::NONE</span>), <span class="prelude-val">Ok</span>(()));
+        <span class="macro">assert_eq!</span>(stream.close(<span class="kw">crate</span>::Cancellable::NONE), <span class="prelude-val">Ok</span>(()));
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

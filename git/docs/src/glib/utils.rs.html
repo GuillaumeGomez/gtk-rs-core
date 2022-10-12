@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/utils.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/utils.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -336,315 +330,264 @@
 <span id="257">257</span>
 <span id="258">258</span>
 <span id="259">259</span>
-<span id="260">260</span>
-<span id="261">261</span>
-<span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-<span id="274">274</span>
-<span id="275">275</span>
-<span id="276">276</span>
-<span id="277">277</span>
-<span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
-<span id="284">284</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::ffi</span>::{<span class="ident">OsStr</span>, <span class="ident">OsString</span>};
-<span class="kw">use</span> <span class="ident">std::mem</span>;
-<span class="kw">use</span> <span class="ident">std::ptr</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::ffi::{OsStr, OsString};
+<span class="kw">use </span>std::mem;
+<span class="kw">use </span>std::ptr;
 
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">/// Same as [`get_prgname()`].</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`get_prgname()`]: fn.get_prgname.html</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_program_name&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">program_name</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
-    <span class="ident">prgname</span>()
+<span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// Same as [`get_prgname()`].
+///
+/// [`get_prgname()`]: fn.get_prgname.html
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;get_program_name&quot;</span>)]
+</span><span class="kw">pub fn </span>program_name() -&gt; <span class="prelude-ty">Option</span>&lt;String&gt; {
+    prgname()
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_get_prgname&quot;</span>)]</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_prgname&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">prgname</span>() -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::g_get_prgname</span>()) }
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_get_prgname&quot;</span>)]
+#[doc(alias = <span class="string">&quot;get_prgname&quot;</span>)]
+</span><span class="kw">pub fn </span>prgname() -&gt; <span class="prelude-ty">Option</span>&lt;String&gt; {
+    <span class="kw">unsafe </span>{ from_glib_none(ffi::g_get_prgname()) }
 }
 
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">/// Same as [`set_prgname()`].</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`set_prgname()`]: fn.set_prgname.html</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_program_name</span>(<span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-    <span class="ident">set_prgname</span>(<span class="ident">name</span>)
+<span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// Same as [`set_prgname()`].
+///
+/// [`set_prgname()`]: fn.set_prgname.html
+</span><span class="kw">pub fn </span>set_program_name(name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+    set_prgname(name)
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_set_prgname&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_prgname</span>(<span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-    <span class="kw">unsafe</span> { <span class="ident">ffi::g_set_prgname</span>(<span class="ident">name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_set_prgname&quot;</span>)]
+</span><span class="kw">pub fn </span>set_prgname(name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+    <span class="kw">unsafe </span>{ ffi::g_set_prgname(name.to_glib_none().<span class="number">0</span>) }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_environ_getenv&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">environ_getenv</span><span class="op">&lt;</span><span class="ident">K</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">OsStr</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">envp</span>: <span class="kw-2">&amp;</span>[<span class="ident">OsString</span>], <span class="ident">variable</span>: <span class="ident">K</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">OsString</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> {
-        <span class="ident">from_glib_none</span>(<span class="ident">ffi::g_environ_getenv</span>(
-            <span class="ident">envp</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">variable</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_environ_getenv&quot;</span>)]
+</span><span class="kw">pub fn </span>environ_getenv&lt;K: AsRef&lt;OsStr&gt;&gt;(envp: <span class="kw-2">&amp;</span>[OsString], variable: K) -&gt; <span class="prelude-ty">Option</span>&lt;OsString&gt; {
+    <span class="kw">unsafe </span>{
+        from_glib_none(ffi::g_environ_getenv(
+            envp.to_glib_none().<span class="number">0</span>,
+            variable.as_ref().to_glib_none().<span class="number">0</span>,
         ))
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_mkstemp&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">mkstemp</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">tmpl</span>: <span class="ident">P</span>) -&gt; <span class="ident">i32</span> {
-    <span class="kw">unsafe</span> {
-        <span class="comment">// NOTE: This modifies the string in place, which is fine here because</span>
-        <span class="comment">// to_glib_none() will create a temporary, NUL-terminated copy of the string.</span>
-        <span class="ident">ffi::g_mkstemp</span>(<span class="ident">tmpl</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_mkstemp&quot;</span>)]
+</span><span class="kw">pub fn </span>mkstemp&lt;P: AsRef&lt;std::path::Path&gt;&gt;(tmpl: P) -&gt; i32 {
+    <span class="kw">unsafe </span>{
+        <span class="comment">// NOTE: This modifies the string in place, which is fine here because
+        // to_glib_none() will create a temporary, NUL-terminated copy of the string.
+        </span>ffi::g_mkstemp(tmpl.as_ref().to_glib_none().<span class="number">0</span>)
     }
 }
 
-<span class="doccomment">/// Opens a temporary file. See the `mkstemp()` documentation</span>
-<span class="doccomment">/// on most UNIX-like systems.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The parameter is a string that should follow the rules for</span>
-<span class="doccomment">/// `mkstemp()` templates, i.e. contain the string &quot;XXXXXX&quot;.</span>
-<span class="doccomment">/// [`mkstemp_full()`][crate::mkstemp_full()] is slightly more flexible than `mkstemp()`</span>
-<span class="doccomment">/// in that the sequence does not have to occur at the very end of the</span>
-<span class="doccomment">/// template and you can pass a `mode` and additional `flags`. The X</span>
-<span class="doccomment">/// string will be modified to form the name of a file that didn&#39;t exist.</span>
-<span class="doccomment">/// The string should be in the GLib file name encoding. Most importantly,</span>
-<span class="doccomment">/// on Windows it should be in UTF-8.</span>
-<span class="doccomment">/// ## `tmpl`</span>
-<span class="doccomment">/// template filename</span>
-<span class="doccomment">/// ## `flags`</span>
-<span class="doccomment">/// flags to pass to an `open()` call in addition to O_EXCL</span>
-<span class="doccomment">///  and O_CREAT, which are passed automatically</span>
-<span class="doccomment">/// ## `mode`</span>
-<span class="doccomment">/// permissions to create the temporary file with</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Returns</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// A file handle (as from `open()`) to the file</span>
-<span class="doccomment">///  opened for reading and writing. The file handle should be</span>
-<span class="doccomment">///  closed with `close()`. In case of errors, -1 is returned</span>
-<span class="doccomment">///  and `errno` will be set.</span>
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_mkstemp_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">mkstemp_full</span>(<span class="ident">tmpl</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>, <span class="ident">flags</span>: <span class="ident">i32</span>, <span class="ident">mode</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span> {
-    <span class="kw">unsafe</span> {
-        <span class="comment">// NOTE: This modifies the string in place, which is fine here because</span>
-        <span class="comment">// to_glib_none() will create a temporary, NUL-terminated copy of the string.</span>
-        <span class="ident">ffi::g_mkstemp_full</span>(<span class="ident">tmpl</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">flags</span>, <span class="ident">mode</span>)
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_mkstemp_full&quot;</span>)]
+</span><span class="kw">pub fn </span>mkstemp_full(tmpl: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;, flags: i32, mode: i32) -&gt; i32 {
+    <span class="kw">unsafe </span>{
+        <span class="comment">// NOTE: This modifies the string in place, which is fine here because
+        // to_glib_none() will create a temporary, NUL-terminated copy of the string.
+        </span>ffi::g_mkstemp_full(tmpl.as_ref().to_glib_none().<span class="number">0</span>, flags, mode)
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_mkdtemp&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">mkdtemp</span>(<span class="ident">tmpl</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::path::PathBuf</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> {
-        <span class="comment">// NOTE: This modifies the string in place and returns it but does not free it</span>
-        <span class="comment">// if it returns NULL.</span>
-        <span class="kw">let</span> <span class="ident">tmpl</span> <span class="op">=</span> <span class="ident">tmpl</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_full</span>();
-        <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">ffi::g_mkdtemp</span>(<span class="ident">tmpl</span>);
-        <span class="kw">if</span> <span class="ident">res</span>.<span class="ident">is_null</span>() {
-            <span class="ident">ffi::g_free</span>(<span class="ident">tmpl</span> <span class="kw">as</span> <span class="ident">ffi::gpointer</span>);
-            <span class="prelude-val">None</span>
-        } <span class="kw">else</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">res</span>)
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_mkdtemp&quot;</span>)]
+</span><span class="kw">pub fn </span>mkdtemp(tmpl: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;std::path::PathBuf&gt; {
+    <span class="kw">unsafe </span>{
+        <span class="comment">// NOTE: This modifies the string in place and returns it but does not free it
+        // if it returns NULL.
+        </span><span class="kw">let </span>tmpl = tmpl.as_ref().to_glib_full();
+        <span class="kw">let </span>res = ffi::g_mkdtemp(tmpl);
+        <span class="kw">if </span>res.is_null() {
+            ffi::g_free(tmpl <span class="kw">as </span>ffi::gpointer);
+            <span class="prelude-val">None
+        </span>} <span class="kw">else </span>{
+            from_glib_full(res)
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_mkdtemp_full&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">mkdtemp_full</span>(<span class="ident">tmpl</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>, <span class="ident">mode</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">std::path::PathBuf</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> {
-        <span class="comment">// NOTE: This modifies the string in place and returns it but does not free it</span>
-        <span class="comment">// if it returns NULL.</span>
-        <span class="kw">let</span> <span class="ident">tmpl</span> <span class="op">=</span> <span class="ident">tmpl</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_full</span>();
-        <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">ffi::g_mkdtemp_full</span>(<span class="ident">tmpl</span>, <span class="ident">mode</span>);
-        <span class="kw">if</span> <span class="ident">res</span>.<span class="ident">is_null</span>() {
-            <span class="ident">ffi::g_free</span>(<span class="ident">tmpl</span> <span class="kw">as</span> <span class="ident">ffi::gpointer</span>);
-            <span class="prelude-val">None</span>
-        } <span class="kw">else</span> {
-            <span class="ident">from_glib_full</span>(<span class="ident">res</span>)
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_mkdtemp_full&quot;</span>)]
+</span><span class="kw">pub fn </span>mkdtemp_full(tmpl: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;, mode: i32) -&gt; <span class="prelude-ty">Option</span>&lt;std::path::PathBuf&gt; {
+    <span class="kw">unsafe </span>{
+        <span class="comment">// NOTE: This modifies the string in place and returns it but does not free it
+        // if it returns NULL.
+        </span><span class="kw">let </span>tmpl = tmpl.as_ref().to_glib_full();
+        <span class="kw">let </span>res = ffi::g_mkdtemp_full(tmpl, mode);
+        <span class="kw">if </span>res.is_null() {
+            ffi::g_free(tmpl <span class="kw">as </span>ffi::gpointer);
+            <span class="prelude-val">None
+        </span>} <span class="kw">else </span>{
+            from_glib_full(res)
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_file_get_contents&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">file_get_contents</span>(
-    <span class="ident">filename</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std::path::Path</span><span class="op">&gt;</span>,
-) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Slice</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>, <span class="ident"><span class="kw">crate</span>::Error</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">contents</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">length</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">ffi::g_file_get_contents</span>(
-            <span class="ident">filename</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="kw-2">&amp;mut</span> <span class="ident">contents</span>,
-            <span class="ident">length</span>.<span class="ident">as_mut_ptr</span>(),
-            <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_file_get_contents&quot;</span>)]
+</span><span class="kw">pub fn </span>file_get_contents(
+    filename: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;,
+) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw">crate</span>::Slice&lt;u8&gt;, <span class="kw">crate</span>::Error&gt; {
+    <span class="kw">unsafe </span>{
+        <span class="kw">let </span><span class="kw-2">mut </span>contents = ptr::null_mut();
+        <span class="kw">let </span><span class="kw-2">mut </span>length = mem::MaybeUninit::uninit();
+        <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+        <span class="kw">let _ </span>= ffi::g_file_get_contents(
+            filename.as_ref().to_glib_none().<span class="number">0</span>,
+            <span class="kw-2">&amp;mut </span>contents,
+            length.as_mut_ptr(),
+            <span class="kw-2">&amp;mut </span>error,
         );
-        <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-            <span class="prelude-val">Ok</span>(<span class="ident"><span class="kw">crate</span>::Slice::from_glib_full_num_copy</span>(
-                <span class="ident">contents</span>,
-                <span class="ident">length</span>.<span class="ident">assume_init</span>() <span class="kw">as</span> <span class="ident">usize</span>,
+        <span class="kw">if </span>error.is_null() {
+            <span class="prelude-val">Ok</span>(<span class="kw">crate</span>::Slice::from_glib_full_num_copy(
+                contents,
+                length.assume_init() <span class="kw">as </span>usize,
             ))
-        } <span class="kw">else</span> {
-            <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+        } <span class="kw">else </span>{
+            <span class="prelude-val">Err</span>(from_glib_full(error))
         }
     }
 }
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_canonical_pspec_name</span>(<span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">bool</span> {
-    <span class="ident">name</span>.<span class="ident">as_bytes</span>().<span class="ident">iter</span>().<span class="ident">enumerate</span>().<span class="ident">all</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">c</span>)<span class="op">|</span> {
-        <span class="ident">i</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> (<span class="kw-2">*</span><span class="ident">c</span> <span class="op">&gt;</span><span class="op">=</span> <span class="string">b&#39;0&#39;</span> <span class="op">&amp;&amp;</span> <span class="kw-2">*</span><span class="ident">c</span> <span class="op">&lt;</span><span class="op">=</span> <span class="string">b&#39;9&#39;</span> <span class="op">|</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">c</span> <span class="op">==</span> <span class="string">b&#39;-&#39;</span>)
-            <span class="op">|</span><span class="op">|</span> (<span class="kw-2">*</span><span class="ident">c</span> <span class="op">&gt;</span><span class="op">=</span> <span class="string">b&#39;A&#39;</span> <span class="op">&amp;&amp;</span> <span class="kw-2">*</span><span class="ident">c</span> <span class="op">&lt;</span><span class="op">=</span> <span class="string">b&#39;Z&#39;</span>)
-            <span class="op">|</span><span class="op">|</span> (<span class="kw-2">*</span><span class="ident">c</span> <span class="op">&gt;</span><span class="op">=</span> <span class="string">b&#39;a&#39;</span> <span class="op">&amp;&amp;</span> <span class="kw-2">*</span><span class="ident">c</span> <span class="op">&lt;</span><span class="op">=</span> <span class="string">b&#39;z&#39;</span>)
+<span class="kw">pub fn </span>is_canonical_pspec_name(name: <span class="kw-2">&amp;</span>str) -&gt; bool {
+    name.as_bytes().iter().enumerate().all(|(i, c)| {
+        i != <span class="number">0 </span>&amp;&amp; (<span class="kw-2">*</span>c &gt;= <span class="string">b&#39;0&#39; </span>&amp;&amp; <span class="kw-2">*</span>c &lt;= <span class="string">b&#39;9&#39; </span>|| <span class="kw-2">*</span>c == <span class="string">b&#39;-&#39;</span>)
+            || (<span class="kw-2">*</span>c &gt;= <span class="string">b&#39;A&#39; </span>&amp;&amp; <span class="kw-2">*</span>c &lt;= <span class="string">b&#39;Z&#39;</span>)
+            || (<span class="kw-2">*</span>c &gt;= <span class="string">b&#39;a&#39; </span>&amp;&amp; <span class="kw-2">*</span>c &lt;= <span class="string">b&#39;z&#39;</span>)
     })
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_uri_escape_string&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uri_escape_string</span>(
-    <span class="ident">unescaped</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-    <span class="ident">reserved_chars_allowed</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-    <span class="ident">allow_utf8</span>: <span class="ident">bool</span>,
-) -&gt; <span class="ident"><span class="kw">crate</span>::GString</span> {
-    <span class="kw">unsafe</span> {
-        <span class="ident">from_glib_full</span>(<span class="ident">ffi::g_uri_escape_string</span>(
-            <span class="ident">unescaped</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">reserved_chars_allowed</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">allow_utf8</span>.<span class="ident">into_glib</span>(),
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_uri_escape_string&quot;</span>)]
+</span><span class="kw">pub fn </span>uri_escape_string(
+    unescaped: <span class="kw-2">&amp;</span>str,
+    reserved_chars_allowed: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+    allow_utf8: bool,
+) -&gt; <span class="kw">crate</span>::GString {
+    <span class="kw">unsafe </span>{
+        from_glib_full(ffi::g_uri_escape_string(
+            unescaped.to_glib_none().<span class="number">0</span>,
+            reserved_chars_allowed.to_glib_none().<span class="number">0</span>,
+            allow_utf8.into_glib(),
         ))
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_uri_unescape_string&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uri_unescape_string</span>(
-    <span class="ident">escaped_string</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-    <span class="ident">illegal_characters</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::GString</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> {
-        <span class="ident">from_glib_full</span>(<span class="ident">ffi::g_uri_unescape_string</span>(
-            <span class="ident">escaped_string</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">illegal_characters</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_uri_unescape_string&quot;</span>)]
+</span><span class="kw">pub fn </span>uri_unescape_string(
+    escaped_string: <span class="kw-2">&amp;</span>str,
+    illegal_characters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw">crate</span>::GString&gt; {
+    <span class="kw">unsafe </span>{
+        from_glib_full(ffi::g_uri_unescape_string(
+            escaped_string.to_glib_none().<span class="number">0</span>,
+            illegal_characters.to_glib_none().<span class="number">0</span>,
         ))
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_uri_parse_scheme&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uri_parse_scheme</span>(<span class="ident">uri</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::GString</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::g_uri_parse_scheme</span>(<span class="ident">uri</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_uri_parse_scheme&quot;</span>)]
+</span><span class="kw">pub fn </span>uri_parse_scheme(uri: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw">crate</span>::GString&gt; {
+    <span class="kw">unsafe </span>{ from_glib_full(ffi::g_uri_parse_scheme(uri.to_glib_none().<span class="number">0</span>)) }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_uri_unescape_segment&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uri_unescape_segment</span>(
-    <span class="ident">escaped_string</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-    <span class="ident">escaped_string_end</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-    <span class="ident">illegal_characters</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::GString</span><span class="op">&gt;</span> {
-    <span class="kw">unsafe</span> {
-        <span class="ident">from_glib_full</span>(<span class="ident">ffi::g_uri_unescape_segment</span>(
-            <span class="ident">escaped_string</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">escaped_string_end</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            <span class="ident">illegal_characters</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+<span class="attribute">#[doc(alias = <span class="string">&quot;g_uri_unescape_segment&quot;</span>)]
+</span><span class="kw">pub fn </span>uri_unescape_segment(
+    escaped_string: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+    escaped_string_end: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+    illegal_characters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
+) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw">crate</span>::GString&gt; {
+    <span class="kw">unsafe </span>{
+        from_glib_full(ffi::g_uri_unescape_segment(
+            escaped_string.to_glib_none().<span class="number">0</span>,
+            escaped_string_end.to_glib_none().<span class="number">0</span>,
+            illegal_characters.to_glib_none().<span class="number">0</span>,
         ))
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident">std::env</span>;
-    <span class="kw">use</span> <span class="ident">std::sync::Mutex</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use </span>std::env;
+    <span class="kw">use </span>std::sync::Mutex;
 
-    <span class="comment">//Mutex to prevent run environment tests parallel</span>
-    <span class="kw">static</span> <span class="ident">LOCK</span>: <span class="ident">once_cell::sync::Lazy</span><span class="op">&lt;</span><span class="ident">Mutex</span><span class="op">&lt;</span>()<span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">once_cell::sync::Lazy::new</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Mutex::new</span>(()));
+    <span class="comment">//Mutex to prevent run environment tests parallel
+    </span><span class="kw">static </span>LOCK: once_cell::sync::Lazy&lt;Mutex&lt;()&gt;&gt; = once_cell::sync::Lazy::new(|| Mutex::new(()));
 
-    <span class="kw">const</span> <span class="ident">VAR_NAME</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;function_environment_test&quot;</span>;
+    <span class="kw">const </span>VAR_NAME: <span class="kw-2">&amp;</span>str = <span class="string">&quot;function_environment_test&quot;</span>;
 
-    <span class="kw">fn</span> <span class="ident">check_getenv</span>(<span class="ident">val</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">let</span> <span class="ident">_data</span> <span class="op">=</span> <span class="ident">LOCK</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
+    <span class="kw">fn </span>check_getenv(val: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">let </span>_data = LOCK.lock().unwrap();
 
-        <span class="ident">env::set_var</span>(<span class="ident">VAR_NAME</span>, <span class="ident">val</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">env::var_os</span>(<span class="ident">VAR_NAME</span>), <span class="prelude-val">Some</span>(<span class="ident">val</span>.<span class="ident">into</span>()));
-        <span class="macro">assert_eq!</span>(<span class="ident"><span class="kw">crate</span>::getenv</span>(<span class="ident">VAR_NAME</span>), <span class="prelude-val">Some</span>(<span class="ident">val</span>.<span class="ident">into</span>()));
+        env::set_var(VAR_NAME, val);
+        <span class="macro">assert_eq!</span>(env::var_os(VAR_NAME), <span class="prelude-val">Some</span>(val.into()));
+        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::getenv(VAR_NAME), <span class="prelude-val">Some</span>(val.into()));
 
-        <span class="kw">let</span> <span class="ident">environ</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::environ</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident"><span class="kw">crate</span>::environ_getenv</span>(<span class="kw-2">&amp;</span><span class="ident">environ</span>, <span class="ident">VAR_NAME</span>), <span class="prelude-val">Some</span>(<span class="ident">val</span>.<span class="ident">into</span>()));
+        <span class="kw">let </span>environ = <span class="kw">crate</span>::environ();
+        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::environ_getenv(<span class="kw-2">&amp;</span>environ, VAR_NAME), <span class="prelude-val">Some</span>(val.into()));
     }
 
-    <span class="kw">fn</span> <span class="ident">check_setenv</span>(<span class="ident">val</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">let</span> <span class="ident">_data</span> <span class="op">=</span> <span class="ident">LOCK</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>();
+    <span class="kw">fn </span>check_setenv(val: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">let </span>_data = LOCK.lock().unwrap();
 
-        <span class="ident"><span class="kw">crate</span>::setenv</span>(<span class="ident">VAR_NAME</span>, <span class="ident">val</span>, <span class="bool-val">true</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">env::var_os</span>(<span class="ident">VAR_NAME</span>), <span class="prelude-val">Some</span>(<span class="ident">val</span>.<span class="ident">into</span>()));
+        <span class="kw">crate</span>::setenv(VAR_NAME, val, <span class="bool-val">true</span>).unwrap();
+        <span class="macro">assert_eq!</span>(env::var_os(VAR_NAME), <span class="prelude-val">Some</span>(val.into()));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">getenv</span>() {
-        <span class="ident">check_getenv</span>(<span class="string">&quot;Test&quot;</span>);
-        <span class="ident">check_getenv</span>(<span class="string">&quot;Тест&quot;</span>); <span class="comment">// &quot;Test&quot; in Russian</span>
-    }
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>getenv() {
+        check_getenv(<span class="string">&quot;Test&quot;</span>);
+        check_getenv(<span class="string">&quot;Тест&quot;</span>); <span class="comment">// &quot;Test&quot; in Russian
+    </span>}
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">setenv</span>() {
-        <span class="ident">check_setenv</span>(<span class="string">&quot;Test&quot;</span>);
-        <span class="ident">check_setenv</span>(<span class="string">&quot;Тест&quot;</span>); <span class="comment">// &quot;Test&quot; in Russian</span>
-    }
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>setenv() {
+        check_setenv(<span class="string">&quot;Test&quot;</span>);
+        check_setenv(<span class="string">&quot;Тест&quot;</span>); <span class="comment">// &quot;Test&quot; in Russian
+    </span>}
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_filename_from_uri</span>() {
-        <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::GString</span>;
-        <span class="kw">use</span> <span class="ident">std::path::PathBuf</span>;
-        <span class="kw">let</span> <span class="ident">uri</span>: <span class="ident">GString</span> <span class="op">=</span> <span class="string">&quot;file:///foo/bar.txt&quot;</span>.<span class="ident">into</span>();
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Ok</span>((<span class="ident">filename</span>, <span class="ident">hostname</span>)) <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::filename_from_uri</span>(<span class="kw-2">&amp;</span><span class="ident">uri</span>) {
-            <span class="macro">assert_eq!</span>(<span class="ident">filename</span>, <span class="ident">PathBuf::from</span>(<span class="string">r&quot;/foo/bar.txt&quot;</span>));
-            <span class="macro">assert_eq!</span>(<span class="ident">hostname</span>, <span class="prelude-val">None</span>);
-        } <span class="kw">else</span> {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_filename_from_uri() {
+        <span class="kw">use </span><span class="kw">crate</span>::GString;
+        <span class="kw">use </span>std::path::PathBuf;
+        <span class="kw">let </span>uri: GString = <span class="string">&quot;file:///foo/bar.txt&quot;</span>.into();
+        <span class="kw">if let </span><span class="prelude-val">Ok</span>((filename, hostname)) = <span class="kw">crate</span>::filename_from_uri(<span class="kw-2">&amp;</span>uri) {
+            <span class="macro">assert_eq!</span>(filename, PathBuf::from(<span class="string">r&quot;/foo/bar.txt&quot;</span>));
+            <span class="macro">assert_eq!</span>(hostname, <span class="prelude-val">None</span>);
+        } <span class="kw">else </span>{
             <span class="macro">unreachable!</span>();
         }
 
-        <span class="kw">let</span> <span class="ident">uri</span>: <span class="ident">GString</span> <span class="op">=</span> <span class="string">&quot;file://host/foo/bar.txt&quot;</span>.<span class="ident">into</span>();
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Ok</span>((<span class="ident">filename</span>, <span class="ident">hostname</span>)) <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::filename_from_uri</span>(<span class="kw-2">&amp;</span><span class="ident">uri</span>) {
-            <span class="macro">assert_eq!</span>(<span class="ident">filename</span>, <span class="ident">PathBuf::from</span>(<span class="string">r&quot;/foo/bar.txt&quot;</span>));
-            <span class="macro">assert_eq!</span>(<span class="ident">hostname</span>, <span class="prelude-val">Some</span>(<span class="ident">GString::from</span>(<span class="string">&quot;host&quot;</span>)));
-        } <span class="kw">else</span> {
+        <span class="kw">let </span>uri: GString = <span class="string">&quot;file://host/foo/bar.txt&quot;</span>.into();
+        <span class="kw">if let </span><span class="prelude-val">Ok</span>((filename, hostname)) = <span class="kw">crate</span>::filename_from_uri(<span class="kw-2">&amp;</span>uri) {
+            <span class="macro">assert_eq!</span>(filename, PathBuf::from(<span class="string">r&quot;/foo/bar.txt&quot;</span>));
+            <span class="macro">assert_eq!</span>(hostname, <span class="prelude-val">Some</span>(GString::from(<span class="string">&quot;host&quot;</span>)));
+        } <span class="kw">else </span>{
             <span class="macro">unreachable!</span>();
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_uri_parsing</span>() {
-        <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::GString</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_uri_parsing() {
+        <span class="kw">use </span><span class="kw">crate</span>::GString;
         <span class="macro">assert_eq!</span>(
-            <span class="ident"><span class="kw">crate</span>::uri_parse_scheme</span>(<span class="string">&quot;foo://bar&quot;</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">GString::from</span>(<span class="string">&quot;foo&quot;</span>))
+            <span class="kw">crate</span>::uri_parse_scheme(<span class="string">&quot;foo://bar&quot;</span>),
+            <span class="prelude-val">Some</span>(GString::from(<span class="string">&quot;foo&quot;</span>))
         );
-        <span class="macro">assert_eq!</span>(<span class="ident"><span class="kw">crate</span>::uri_parse_scheme</span>(<span class="string">&quot;foo&quot;</span>), <span class="prelude-val">None</span>);
+        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::uri_parse_scheme(<span class="string">&quot;foo&quot;</span>), <span class="prelude-val">None</span>);
 
-        <span class="kw">let</span> <span class="ident">escaped</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::uri_escape_string</span>(<span class="string">&quot;&amp;foo&quot;</span>, <span class="prelude-val">None</span>, <span class="bool-val">true</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">escaped</span>, <span class="ident">GString::from</span>(<span class="string">&quot;%26foo&quot;</span>));
+        <span class="kw">let </span>escaped = <span class="kw">crate</span>::uri_escape_string(<span class="string">&quot;&amp;foo&quot;</span>, <span class="prelude-val">None</span>, <span class="bool-val">true</span>);
+        <span class="macro">assert_eq!</span>(escaped, GString::from(<span class="string">&quot;%26foo&quot;</span>));
 
-        <span class="kw">let</span> <span class="ident">unescaped</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::uri_unescape_string</span>(<span class="ident">escaped</span>.<span class="ident">as_str</span>(), <span class="prelude-val">None</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">unescaped</span>, <span class="prelude-val">Some</span>(<span class="ident">GString::from</span>(<span class="string">&quot;&amp;foo&quot;</span>)));
+        <span class="kw">let </span>unescaped = <span class="kw">crate</span>::uri_unescape_string(escaped.as_str(), <span class="prelude-val">None</span>);
+        <span class="macro">assert_eq!</span>(unescaped, <span class="prelude-val">Some</span>(GString::from(<span class="string">&quot;&amp;foo&quot;</span>)));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident"><span class="kw">crate</span>::uri_unescape_segment</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;/foo&quot;</span>), <span class="prelude-val">None</span>, <span class="prelude-val">None</span>),
-            <span class="prelude-val">Some</span>(<span class="ident">GString::from</span>(<span class="string">&quot;/foo&quot;</span>))
+            <span class="kw">crate</span>::uri_unescape_segment(<span class="prelude-val">Some</span>(<span class="string">&quot;/foo&quot;</span>), <span class="prelude-val">None</span>, <span class="prelude-val">None</span>),
+            <span class="prelude-val">Some</span>(GString::from(<span class="string">&quot;/foo&quot;</span>))
         );
-        <span class="macro">assert_eq!</span>(<span class="ident"><span class="kw">crate</span>::uri_unescape_segment</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;/foo%&quot;</span>), <span class="prelude-val">None</span>, <span class="prelude-val">None</span>), <span class="prelude-val">None</span>);
+        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::uri_unescape_segment(<span class="prelude-val">Some</span>(<span class="string">&quot;/foo%&quot;</span>), <span class="prelude-val">None</span>, <span class="prelude-val">None</span>), <span class="prelude-val">None</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

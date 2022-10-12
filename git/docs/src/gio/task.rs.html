@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/task.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>task.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/task.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>task.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1130,1059 +1124,1058 @@
 <span id="1051">1051</span>
 <span id="1052">1052</span>
 <span id="1053">1053</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::AsyncResult</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Cancellable</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::object::ObjectType</span> <span class="kw">as</span> <span class="ident">ObjectType_</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::value::ValueType</span>;
-<span class="kw">use</span> <span class="ident">glib::Cast</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
-<span class="kw">use</span> <span class="ident">std::ptr</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::AsyncResult;
+<span class="kw">use </span><span class="kw">crate</span>::Cancellable;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::object::ObjectType <span class="kw">as </span>ObjectType_;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::value::ValueType;
+<span class="kw">use </span>glib::Cast;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::mem::transmute;
+<span class="kw">use </span>std::ptr;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// `LocalTask` provides idiomatic access to gio&#39;s `GTask` API, for</span>
-    <span class="doccomment">/// instance by being generic over their value type, while not completely departing</span>
-    <span class="doccomment">/// from the underlying C API. `LocalTask` does not require its value to be `Send`</span>
-    <span class="doccomment">/// and `Sync` and thus is useful to to implement gio style asynchronous</span>
-    <span class="doccomment">/// tasks that run in the glib main loop. If you need to run tasks in threads</span>
-    <span class="doccomment">/// see the `Task` type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The constructors of `LocalTask` and `Task` is marked as unsafe because this API does</span>
-    <span class="doccomment">/// not allow to automatically enforce all the invariants required to be a completely</span>
-    <span class="doccomment">/// safe abstraction. See the `Task` type for more details.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GTask&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LocalTask</span><span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">ValueType</span><span class="op">&gt;</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GTask</span>, <span class="ident">ffi::GTaskClass</span><span class="op">&gt;</span>) @<span class="ident">implements</span> <span class="ident">AsyncResult</span>;
+<span class="macro">glib::wrapper! </span>{
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// `LocalTask` provides idiomatic access to gio&#39;s `GTask` API, for
+    /// instance by being generic over their value type, while not completely departing
+    /// from the underlying C API. `LocalTask` does not require its value to be `Send`
+    /// and `Sync` and thus is useful to to implement gio style asynchronous
+    /// tasks that run in the glib main loop. If you need to run tasks in threads
+    /// see the `Task` type.
+    ///
+    /// The constructors of `LocalTask` and `Task` is marked as unsafe because this API does
+    /// not allow to automatically enforce all the invariants required to be a completely
+    /// safe abstraction. See the `Task` type for more details.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GTask&quot;</span>)]
+    </span><span class="kw">pub struct </span>LocalTask&lt;V: ValueType&gt;(Object&lt;ffi::GTask, ffi::GTaskClass&gt;) @implements AsyncResult;
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::g_task_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::g_task_get_type(),
     }
 }
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// `Task` provides idiomatic access to gio&#39;s `GTask` API, for</span>
-    <span class="doccomment">/// instance by being generic over their value type, while not completely departing</span>
-    <span class="doccomment">/// from the underlying C API. `Task` is `Send` and `Sync` and requires its value to</span>
-    <span class="doccomment">/// also be `Send` and `Sync`, thus is useful to to implement gio style asynchronous</span>
-    <span class="doccomment">/// tasks that run in threads. If you need to only run tasks in glib main loop</span>
-    <span class="doccomment">/// see the `LocalTask` type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The constructors of `LocalTask` and `Task` is marked as unsafe because this API does</span>
-    <span class="doccomment">/// not allow to automatically enforce all the invariants required to be a completely</span>
-    <span class="doccomment">/// safe abstraction. The caller is responsible to ensure the following requirements</span>
-    <span class="doccomment">/// are satisfied</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// * You should not create a `LocalTask`, upcast it to a `glib::Object` and then</span>
-    <span class="doccomment">///   downcast it to a `Task`, as this will bypass the thread safety requirements</span>
-    <span class="doccomment">/// * You should ensure that the `return_result`, `return_error_if_cancelled` and</span>
-    <span class="doccomment">///   `propagate()` methods are only called once.</span>
-    <span class="comment">// rustdoc-stripper-ignore-next-stop</span>
-    <span class="doccomment">/// A [`Task`][crate::Task] represents and manages a cancellable &quot;task&quot;.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Asynchronous operations</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The most common usage of [`Task`][crate::Task] is as a [`AsyncResult`][crate::AsyncResult], to</span>
-    <span class="doccomment">/// manage data during an asynchronous operation. You call</span>
-    <span class="doccomment">/// [`new()`][Self::new()] in the &quot;start&quot; method, followed by</span>
-    <span class="doccomment">/// [`set_task_data()`][Self::set_task_data()] and the like if you need to keep some</span>
-    <span class="doccomment">/// additional data associated with the task, and then pass the</span>
-    <span class="doccomment">/// task object around through your asynchronous operation.</span>
-    <span class="doccomment">/// Eventually, you will call a method such as</span>
-    <span class="doccomment">/// [`return_pointer()`][Self::return_pointer()] or [`return_error()`][Self::return_error()], which will</span>
-    <span class="doccomment">/// save the value you give it and then invoke the task&#39;s callback</span>
-    <span class="doccomment">/// function in the</span>
-    <span class="doccomment">/// [thread-default main context][g-main-context-push-thread-default]</span>
-    <span class="doccomment">/// where it was created (waiting until the next iteration of the main</span>
-    <span class="doccomment">/// loop first, if necessary). The caller will pass the [`Task`][crate::Task] back to</span>
-    <span class="doccomment">/// the operation&#39;s finish function (as a [`AsyncResult`][crate::AsyncResult]), and you can</span>
-    <span class="doccomment">/// use [`propagate_pointer()`][Self::propagate_pointer()] or the like to extract the</span>
-    <span class="doccomment">/// return value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Using [`Task`][crate::Task] requires the thread-default [`glib::MainContext`][crate::glib::MainContext] from when the</span>
-    <span class="doccomment">/// [`Task`][crate::Task] was constructed to be running at least until the task has completed</span>
-    <span class="doccomment">/// and its data has been freed.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Here is an example for using GTask as a GAsyncResult:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">///     typedef struct {</span>
-    <span class="doccomment">///       CakeFrostingType frosting;</span>
-    <span class="doccomment">///       char *message;</span>
-    <span class="doccomment">///     } DecorationData;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     decoration_data_free (DecorationData *decoration)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       g_free (decoration-&gt;message);</span>
-    <span class="doccomment">///       g_slice_free (DecorationData, decoration);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     baked_cb (Cake     *cake,</span>
-    <span class="doccomment">///               gpointer  user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       GTask *task = user_data;</span>
-    <span class="doccomment">///       DecorationData *decoration = g_task_get_task_data (task);</span>
-    <span class="doccomment">///       GError *error = NULL;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       if (cake == NULL)</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_NO_FLOUR,</span>
-    <span class="doccomment">///                                    &quot;Go to the supermarket&quot;);</span>
-    <span class="doccomment">///           g_object_unref (task);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       if (!cake_decorate (cake, decoration-&gt;frosting, decoration-&gt;message, &amp;error))</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           g_object_unref (cake);</span>
-    <span class="doccomment">///           // g_task_return_error() takes ownership of error</span>
-    <span class="doccomment">///           g_task_return_error (task, error);</span>
-    <span class="doccomment">///           g_object_unref (task);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       g_task_return_pointer (task, cake, g_object_unref);</span>
-    <span class="doccomment">///       g_object_unref (task);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     void</span>
-    <span class="doccomment">///     baker_bake_cake_async (Baker               *self,</span>
-    <span class="doccomment">///                            guint                radius,</span>
-    <span class="doccomment">///                            CakeFlavor           flavor,</span>
-    <span class="doccomment">///                            CakeFrostingType     frosting,</span>
-    <span class="doccomment">///                            const char          *message,</span>
-    <span class="doccomment">///                            GCancellable        *cancellable,</span>
-    <span class="doccomment">///                            GAsyncReadyCallback  callback,</span>
-    <span class="doccomment">///                            gpointer             user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       GTask *task;</span>
-    <span class="doccomment">///       DecorationData *decoration;</span>
-    <span class="doccomment">///       Cake  *cake;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       task = g_task_new (self, cancellable, callback, user_data);</span>
-    <span class="doccomment">///       if (radius &lt; 3)</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_TOO_SMALL,</span>
-    <span class="doccomment">///                                    &quot;%ucm radius cakes are silly&quot;,</span>
-    <span class="doccomment">///                                    radius);</span>
-    <span class="doccomment">///           g_object_unref (task);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake = _baker_get_cached_cake (self, radius, flavor, frosting, message);</span>
-    <span class="doccomment">///       if (cake != NULL)</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           // _baker_get_cached_cake() returns a reffed cake</span>
-    <span class="doccomment">///           g_task_return_pointer (task, cake, g_object_unref);</span>
-    <span class="doccomment">///           g_object_unref (task);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       decoration = g_slice_new (DecorationData);</span>
-    <span class="doccomment">///       decoration-&gt;frosting = frosting;</span>
-    <span class="doccomment">///       decoration-&gt;message = g_strdup (message);</span>
-    <span class="doccomment">///       g_task_set_task_data (task, decoration, (GDestroyNotify) decoration_data_free);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       _baker_begin_cake (self, radius, flavor, cancellable, baked_cb, task);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     Cake *</span>
-    <span class="doccomment">///     baker_bake_cake_finish (Baker         *self,</span>
-    <span class="doccomment">///                             GAsyncResult  *result,</span>
-    <span class="doccomment">///                             GError       **error)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       g_return_val_if_fail (g_task_is_valid (result, self), NULL);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       return g_task_propagate_pointer (G_TASK (result), error);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Chained asynchronous operations</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Task`][crate::Task] also tries to simplify asynchronous operations that</span>
-    <span class="doccomment">/// internally chain together several smaller asynchronous</span>
-    <span class="doccomment">/// operations. [`cancellable()`][Self::cancellable()], [`context()`][Self::context()],</span>
-    <span class="doccomment">/// and [`priority()`][Self::priority()] allow you to get back the task&#39;s</span>
-    <span class="doccomment">/// [`Cancellable`][crate::Cancellable], [`glib::MainContext`][crate::glib::MainContext], and [I/O priority][io-priority]</span>
-    <span class="doccomment">/// when starting a new subtask, so you don&#39;t have to keep track</span>
-    <span class="doccomment">/// of them yourself. [`attach_source()`][Self::attach_source()] simplifies the case</span>
-    <span class="doccomment">/// of waiting for a source to fire (automatically using the correct</span>
-    <span class="doccomment">/// [`glib::MainContext`][crate::glib::MainContext] and priority).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Here is an example for chained asynchronous operations:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">///     typedef struct {</span>
-    <span class="doccomment">///       Cake *cake;</span>
-    <span class="doccomment">///       CakeFrostingType frosting;</span>
-    <span class="doccomment">///       char *message;</span>
-    <span class="doccomment">///     } BakingData;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     decoration_data_free (BakingData *bd)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       if (bd-&gt;cake)</span>
-    <span class="doccomment">///         g_object_unref (bd-&gt;cake);</span>
-    <span class="doccomment">///       g_free (bd-&gt;message);</span>
-    <span class="doccomment">///       g_slice_free (BakingData, bd);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     decorated_cb (Cake         *cake,</span>
-    <span class="doccomment">///                   GAsyncResult *result,</span>
-    <span class="doccomment">///                   gpointer      user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       GTask *task = user_data;</span>
-    <span class="doccomment">///       GError *error = NULL;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       if (!cake_decorate_finish (cake, result, &amp;error))</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           g_object_unref (cake);</span>
-    <span class="doccomment">///           g_task_return_error (task, error);</span>
-    <span class="doccomment">///           g_object_unref (task);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       // baking_data_free() will drop its ref on the cake, so we have to</span>
-    <span class="doccomment">///       // take another here to give to the caller.</span>
-    <span class="doccomment">///       g_task_return_pointer (task, g_object_ref (cake), g_object_unref);</span>
-    <span class="doccomment">///       g_object_unref (task);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static gboolean</span>
-    <span class="doccomment">///     decorator_ready (gpointer user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       GTask *task = user_data;</span>
-    <span class="doccomment">///       BakingData *bd = g_task_get_task_data (task);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake_decorate_async (bd-&gt;cake, bd-&gt;frosting, bd-&gt;message,</span>
-    <span class="doccomment">///                            g_task_get_cancellable (task),</span>
-    <span class="doccomment">///                            decorated_cb, task);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       return G_SOURCE_REMOVE;</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     baked_cb (Cake     *cake,</span>
-    <span class="doccomment">///               gpointer  user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       GTask *task = user_data;</span>
-    <span class="doccomment">///       BakingData *bd = g_task_get_task_data (task);</span>
-    <span class="doccomment">///       GError *error = NULL;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       if (cake == NULL)</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_NO_FLOUR,</span>
-    <span class="doccomment">///                                    &quot;Go to the supermarket&quot;);</span>
-    <span class="doccomment">///           g_object_unref (task);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       bd-&gt;cake = cake;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       // Bail out now if the user has already cancelled</span>
-    <span class="doccomment">///       if (g_task_return_error_if_cancelled (task))</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           g_object_unref (task);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       if (cake_decorator_available (cake))</span>
-    <span class="doccomment">///         decorator_ready (task);</span>
-    <span class="doccomment">///       else</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           GSource *source;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///           source = cake_decorator_wait_source_new (cake);</span>
-    <span class="doccomment">///           // Attach @source to @task&#39;s GMainContext and have it call</span>
-    <span class="doccomment">///           // decorator_ready() when it is ready.</span>
-    <span class="doccomment">///           g_task_attach_source (task, source, decorator_ready);</span>
-    <span class="doccomment">///           g_source_unref (source);</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     void</span>
-    <span class="doccomment">///     baker_bake_cake_async (Baker               *self,</span>
-    <span class="doccomment">///                            guint                radius,</span>
-    <span class="doccomment">///                            CakeFlavor           flavor,</span>
-    <span class="doccomment">///                            CakeFrostingType     frosting,</span>
-    <span class="doccomment">///                            const char          *message,</span>
-    <span class="doccomment">///                            gint                 priority,</span>
-    <span class="doccomment">///                            GCancellable        *cancellable,</span>
-    <span class="doccomment">///                            GAsyncReadyCallback  callback,</span>
-    <span class="doccomment">///                            gpointer             user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       GTask *task;</span>
-    <span class="doccomment">///       BakingData *bd;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       task = g_task_new (self, cancellable, callback, user_data);</span>
-    <span class="doccomment">///       g_task_set_priority (task, priority);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       bd = g_slice_new0 (BakingData);</span>
-    <span class="doccomment">///       bd-&gt;frosting = frosting;</span>
-    <span class="doccomment">///       bd-&gt;message = g_strdup (message);</span>
-    <span class="doccomment">///       g_task_set_task_data (task, bd, (GDestroyNotify) baking_data_free);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       _baker_begin_cake (self, radius, flavor, cancellable, baked_cb, task);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     Cake *</span>
-    <span class="doccomment">///     baker_bake_cake_finish (Baker         *self,</span>
-    <span class="doccomment">///                             GAsyncResult  *result,</span>
-    <span class="doccomment">///                             GError       **error)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       g_return_val_if_fail (g_task_is_valid (result, self), NULL);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       return g_task_propagate_pointer (G_TASK (result), error);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Asynchronous operations from synchronous ones</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// You can use [`run_in_thread()`][Self::run_in_thread()] to turn a synchronous</span>
-    <span class="doccomment">/// operation into an asynchronous one, by running it in a thread.</span>
-    <span class="doccomment">/// When it completes, the result will be dispatched to the</span>
-    <span class="doccomment">/// [thread-default main context][g-main-context-push-thread-default]</span>
-    <span class="doccomment">/// where the [`Task`][crate::Task] was created.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Running a task in a thread:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">///     typedef struct {</span>
-    <span class="doccomment">///       guint radius;</span>
-    <span class="doccomment">///       CakeFlavor flavor;</span>
-    <span class="doccomment">///       CakeFrostingType frosting;</span>
-    <span class="doccomment">///       char *message;</span>
-    <span class="doccomment">///     } CakeData;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     cake_data_free (CakeData *cake_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       g_free (cake_data-&gt;message);</span>
-    <span class="doccomment">///       g_slice_free (CakeData, cake_data);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     bake_cake_thread (GTask         *task,</span>
-    <span class="doccomment">///                       gpointer       source_object,</span>
-    <span class="doccomment">///                       gpointer       task_data,</span>
-    <span class="doccomment">///                       GCancellable  *cancellable)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       Baker *self = source_object;</span>
-    <span class="doccomment">///       CakeData *cake_data = task_data;</span>
-    <span class="doccomment">///       Cake *cake;</span>
-    <span class="doccomment">///       GError *error = NULL;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake = bake_cake (baker, cake_data-&gt;radius, cake_data-&gt;flavor,</span>
-    <span class="doccomment">///                         cake_data-&gt;frosting, cake_data-&gt;message,</span>
-    <span class="doccomment">///                         cancellable, &amp;error);</span>
-    <span class="doccomment">///       if (cake)</span>
-    <span class="doccomment">///         g_task_return_pointer (task, cake, g_object_unref);</span>
-    <span class="doccomment">///       else</span>
-    <span class="doccomment">///         g_task_return_error (task, error);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     void</span>
-    <span class="doccomment">///     baker_bake_cake_async (Baker               *self,</span>
-    <span class="doccomment">///                            guint                radius,</span>
-    <span class="doccomment">///                            CakeFlavor           flavor,</span>
-    <span class="doccomment">///                            CakeFrostingType     frosting,</span>
-    <span class="doccomment">///                            const char          *message,</span>
-    <span class="doccomment">///                            GCancellable        *cancellable,</span>
-    <span class="doccomment">///                            GAsyncReadyCallback  callback,</span>
-    <span class="doccomment">///                            gpointer             user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       CakeData *cake_data;</span>
-    <span class="doccomment">///       GTask *task;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake_data = g_slice_new (CakeData);</span>
-    <span class="doccomment">///       cake_data-&gt;radius = radius;</span>
-    <span class="doccomment">///       cake_data-&gt;flavor = flavor;</span>
-    <span class="doccomment">///       cake_data-&gt;frosting = frosting;</span>
-    <span class="doccomment">///       cake_data-&gt;message = g_strdup (message);</span>
-    <span class="doccomment">///       task = g_task_new (self, cancellable, callback, user_data);</span>
-    <span class="doccomment">///       g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);</span>
-    <span class="doccomment">///       g_task_run_in_thread (task, bake_cake_thread);</span>
-    <span class="doccomment">///       g_object_unref (task);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     Cake *</span>
-    <span class="doccomment">///     baker_bake_cake_finish (Baker         *self,</span>
-    <span class="doccomment">///                             GAsyncResult  *result,</span>
-    <span class="doccomment">///                             GError       **error)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       g_return_val_if_fail (g_task_is_valid (result, self), NULL);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       return g_task_propagate_pointer (G_TASK (result), error);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Adding cancellability to uncancellable tasks</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Finally, [`run_in_thread()`][Self::run_in_thread()] and [`run_in_thread_sync()`][Self::run_in_thread_sync()]</span>
-    <span class="doccomment">/// can be used to turn an uncancellable operation into a</span>
-    <span class="doccomment">/// cancellable one. If you call [`set_return_on_cancel()`][Self::set_return_on_cancel()],</span>
-    <span class="doccomment">/// passing [`true`], then if the task&#39;s [`Cancellable`][crate::Cancellable] is cancelled,</span>
-    <span class="doccomment">/// it will return control back to the caller immediately, while</span>
-    <span class="doccomment">/// allowing the task thread to continue running in the background</span>
-    <span class="doccomment">/// (and simply discarding its result when it finally does finish).</span>
-    <span class="doccomment">/// Provided that the task thread is careful about how it uses</span>
-    <span class="doccomment">/// locks and other externally-visible resources, this allows you</span>
-    <span class="doccomment">/// to make &quot;GLib-friendly&quot; asynchronous and cancellable</span>
-    <span class="doccomment">/// synchronous variants of blocking APIs.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Cancelling a task:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// **⚠️ The following code is in C ⚠️**</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">///     static void</span>
-    <span class="doccomment">///     bake_cake_thread (GTask         *task,</span>
-    <span class="doccomment">///                       gpointer       source_object,</span>
-    <span class="doccomment">///                       gpointer       task_data,</span>
-    <span class="doccomment">///                       GCancellable  *cancellable)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       Baker *self = source_object;</span>
-    <span class="doccomment">///       CakeData *cake_data = task_data;</span>
-    <span class="doccomment">///       Cake *cake;</span>
-    <span class="doccomment">///       GError *error = NULL;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake = bake_cake (baker, cake_data-&gt;radius, cake_data-&gt;flavor,</span>
-    <span class="doccomment">///                         cake_data-&gt;frosting, cake_data-&gt;message,</span>
-    <span class="doccomment">///                         &amp;error);</span>
-    <span class="doccomment">///       if (error)</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           g_task_return_error (task, error);</span>
-    <span class="doccomment">///           return;</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       // If the task has already been cancelled, then we don&#39;t want to add</span>
-    <span class="doccomment">///       // the cake to the cake cache. Likewise, we don&#39;t  want to have the</span>
-    <span class="doccomment">///       // task get cancelled in the middle of updating the cache.</span>
-    <span class="doccomment">///       // g_task_set_return_on_cancel() will return %TRUE here if it managed</span>
-    <span class="doccomment">///       // to disable return-on-cancel, or %FALSE if the task was cancelled</span>
-    <span class="doccomment">///       // before it could.</span>
-    <span class="doccomment">///       if (g_task_set_return_on_cancel (task, FALSE))</span>
-    <span class="doccomment">///         {</span>
-    <span class="doccomment">///           // If the caller cancels at this point, their</span>
-    <span class="doccomment">///           // GAsyncReadyCallback won&#39;t be invoked until we return,</span>
-    <span class="doccomment">///           // so we don&#39;t have to worry that this code will run at</span>
-    <span class="doccomment">///           // the same time as that code does. But if there were</span>
-    <span class="doccomment">///           // other functions that might look at the cake cache,</span>
-    <span class="doccomment">///           // then we&#39;d probably need a GMutex here as well.</span>
-    <span class="doccomment">///           baker_add_cake_to_cache (baker, cake);</span>
-    <span class="doccomment">///           g_task_return_pointer (task, cake, g_object_unref);</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     void</span>
-    <span class="doccomment">///     baker_bake_cake_async (Baker               *self,</span>
-    <span class="doccomment">///                            guint                radius,</span>
-    <span class="doccomment">///                            CakeFlavor           flavor,</span>
-    <span class="doccomment">///                            CakeFrostingType     frosting,</span>
-    <span class="doccomment">///                            const char          *message,</span>
-    <span class="doccomment">///                            GCancellable        *cancellable,</span>
-    <span class="doccomment">///                            GAsyncReadyCallback  callback,</span>
-    <span class="doccomment">///                            gpointer             user_data)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       CakeData *cake_data;</span>
-    <span class="doccomment">///       GTask *task;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake_data = g_slice_new (CakeData);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       ...</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       task = g_task_new (self, cancellable, callback, user_data);</span>
-    <span class="doccomment">///       g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);</span>
-    <span class="doccomment">///       g_task_set_return_on_cancel (task, TRUE);</span>
-    <span class="doccomment">///       g_task_run_in_thread (task, bake_cake_thread);</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     Cake *</span>
-    <span class="doccomment">///     baker_bake_cake_sync (Baker               *self,</span>
-    <span class="doccomment">///                           guint                radius,</span>
-    <span class="doccomment">///                           CakeFlavor           flavor,</span>
-    <span class="doccomment">///                           CakeFrostingType     frosting,</span>
-    <span class="doccomment">///                           const char          *message,</span>
-    <span class="doccomment">///                           GCancellable        *cancellable,</span>
-    <span class="doccomment">///                           GError             **error)</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///       CakeData *cake_data;</span>
-    <span class="doccomment">///       GTask *task;</span>
-    <span class="doccomment">///       Cake *cake;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake_data = g_slice_new (CakeData);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       ...</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       task = g_task_new (self, cancellable, NULL, NULL);</span>
-    <span class="doccomment">///       g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);</span>
-    <span class="doccomment">///       g_task_set_return_on_cancel (task, TRUE);</span>
-    <span class="doccomment">///       g_task_run_in_thread_sync (task, bake_cake_thread);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///       cake = g_task_propagate_pointer (task, error);</span>
-    <span class="doccomment">///       g_object_unref (task);</span>
-    <span class="doccomment">///       return cake;</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Porting from GSimpleAsyncResult</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Task`][crate::Task]&#39;s API attempts to be simpler than `GSimpleAsyncResult`&#39;s</span>
-    <span class="doccomment">/// in several ways:</span>
-    <span class="doccomment">/// - You can save task-specific data with [`set_task_data()`][Self::set_task_data()], and</span>
-    <span class="doccomment">///  retrieve it later with [`task_data()`][Self::task_data()]. This replaces the</span>
-    <span class="doccomment">///  abuse of `g_simple_async_result_set_op_res_gpointer()` for the same</span>
-    <span class="doccomment">///  purpose with `GSimpleAsyncResult`.</span>
-    <span class="doccomment">/// - In addition to the task data, [`Task`][crate::Task] also keeps track of the</span>
-    <span class="doccomment">///  [priority][io-priority], [`Cancellable`][crate::Cancellable], and</span>
-    <span class="doccomment">///  [`glib::MainContext`][crate::glib::MainContext] associated with the task, so tasks that consist of</span>
-    <span class="doccomment">///  a chain of simpler asynchronous operations will have easy access</span>
-    <span class="doccomment">///  to those values when starting each sub-task.</span>
-    <span class="doccomment">/// - [`return_error_if_cancelled()`][Self::return_error_if_cancelled()] provides simplified</span>
-    <span class="doccomment">///  handling for cancellation. In addition, cancellation</span>
-    <span class="doccomment">///  overrides any other [`Task`][crate::Task] return value by default, like</span>
-    <span class="doccomment">///  `GSimpleAsyncResult` does when</span>
-    <span class="doccomment">///  `g_simple_async_result_set_check_cancellable()` is called.</span>
-    <span class="doccomment">///  (You can use [`set_check_cancellable()`][Self::set_check_cancellable()] to turn off that</span>
-    <span class="doccomment">///  behavior.) On the other hand, [`run_in_thread()`][Self::run_in_thread()]</span>
-    <span class="doccomment">///  guarantees that it will always run your</span>
-    <span class="doccomment">///  `task_func`, even if the task&#39;s [`Cancellable`][crate::Cancellable]</span>
-    <span class="doccomment">///  is already cancelled before the task gets a chance to run;</span>
-    <span class="doccomment">///  you can start your `task_func` with a</span>
-    <span class="doccomment">///  [`return_error_if_cancelled()`][Self::return_error_if_cancelled()] check if you need the</span>
-    <span class="doccomment">///  old behavior.</span>
-    <span class="doccomment">/// - The &quot;return&quot; methods (eg, [`return_pointer()`][Self::return_pointer()])</span>
-    <span class="doccomment">///  automatically cause the task to be &quot;completed&quot; as well, and</span>
-    <span class="doccomment">///  there is no need to worry about the &quot;complete&quot; vs &quot;complete</span>
-    <span class="doccomment">///  in idle&quot; distinction. ([`Task`][crate::Task] automatically figures out</span>
-    <span class="doccomment">///  whether the task&#39;s callback can be invoked directly, or</span>
-    <span class="doccomment">///  if it needs to be sent to another [`glib::MainContext`][crate::glib::MainContext], or delayed</span>
-    <span class="doccomment">///  until the next iteration of the current [`glib::MainContext`][crate::glib::MainContext].)</span>
-    <span class="doccomment">/// - The &quot;finish&quot; functions for [`Task`][crate::Task] based operations are generally</span>
-    <span class="doccomment">///  much simpler than `GSimpleAsyncResult` ones, normally consisting</span>
-    <span class="doccomment">///  of only a single call to [`propagate_pointer()`][Self::propagate_pointer()] or the like.</span>
-    <span class="doccomment">///  Since [`propagate_pointer()`][Self::propagate_pointer()] &quot;steals&quot; the return value from</span>
-    <span class="doccomment">///  the [`Task`][crate::Task], it is not necessary to juggle pointers around to</span>
-    <span class="doccomment">///  prevent it from being freed twice.</span>
-    <span class="doccomment">/// - With `GSimpleAsyncResult`, it was common to call</span>
-    <span class="doccomment">///  `g_simple_async_result_propagate_error()` from the</span>
-    <span class="doccomment">///  ``_finish()`` wrapper function, and have</span>
-    <span class="doccomment">///  virtual method implementations only deal with successful</span>
-    <span class="doccomment">///  returns. This behavior is deprecated, because it makes it</span>
-    <span class="doccomment">///  difficult for a subclass to chain to a parent class&#39;s async</span>
-    <span class="doccomment">///  methods. Instead, the wrapper function should just be a</span>
-    <span class="doccomment">///  simple wrapper, and the virtual method should call an</span>
-    <span class="doccomment">///  appropriate `g_task_propagate_` function.</span>
-    <span class="doccomment">///  Note that wrapper methods can now use</span>
-    <span class="doccomment">///  [`AsyncResultExt::legacy_propagate_error()`][crate::prelude::AsyncResultExt::legacy_propagate_error()] to do old-style</span>
-    <span class="doccomment">///  `GSimpleAsyncResult` error-returning behavior, and</span>
-    <span class="doccomment">///  `g_async_result_is_tagged()` to check if a result is tagged as</span>
-    <span class="doccomment">///  having come from the ``_async()`` wrapper</span>
-    <span class="doccomment">///  function (for &quot;short-circuit&quot; results, such as when passing</span>
-    <span class="doccomment">///  0 to [`InputStreamExtManual::read_async()`][crate::prelude::InputStreamExtManual::read_async()]).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`trait@glib::ObjectExt`], [`AsyncResultExt`][trait@crate::prelude::AsyncResultExt]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GTask&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Task</span><span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">ValueType</span> <span class="op">+</span> <span class="ident">Send</span><span class="op">&gt;</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GTask</span>, <span class="ident">ffi::GTaskClass</span><span class="op">&gt;</span>) @<span class="ident">implements</span> <span class="ident">AsyncResult</span>;
+<span class="macro">glib::wrapper! </span>{
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// `Task` provides idiomatic access to gio&#39;s `GTask` API, for
+    /// instance by being generic over their value type, while not completely departing
+    /// from the underlying C API. `Task` is `Send` and `Sync` and requires its value to
+    /// also be `Send` and `Sync`, thus is useful to to implement gio style asynchronous
+    /// tasks that run in threads. If you need to only run tasks in glib main loop
+    /// see the `LocalTask` type.
+    ///
+    /// The constructors of `LocalTask` and `Task` is marked as unsafe because this API does
+    /// not allow to automatically enforce all the invariants required to be a completely
+    /// safe abstraction. The caller is responsible to ensure the following requirements
+    /// are satisfied
+    ///
+    /// * You should not create a `LocalTask`, upcast it to a `glib::Object` and then
+    ///   downcast it to a `Task`, as this will bypass the thread safety requirements
+    /// * You should ensure that the `return_result`, `return_error_if_cancelled` and
+    ///   `propagate()` methods are only called once.
+    </span><span class="comment">// rustdoc-stripper-ignore-next-stop
+    </span><span class="doccomment">/// A [`Task`][crate::Task] represents and manages a cancellable &quot;task&quot;.
+    ///
+    /// ## Asynchronous operations
+    ///
+    /// The most common usage of [`Task`][crate::Task] is as a [`AsyncResult`][crate::AsyncResult], to
+    /// manage data during an asynchronous operation. You call
+    /// [`new()`][Self::new()] in the &quot;start&quot; method, followed by
+    /// [`set_task_data()`][Self::set_task_data()] and the like if you need to keep some
+    /// additional data associated with the task, and then pass the
+    /// task object around through your asynchronous operation.
+    /// Eventually, you will call a method such as
+    /// [`return_pointer()`][Self::return_pointer()] or [`return_error()`][Self::return_error()], which will
+    /// save the value you give it and then invoke the task&#39;s callback
+    /// function in the
+    /// [thread-default main context][g-main-context-push-thread-default]
+    /// where it was created (waiting until the next iteration of the main
+    /// loop first, if necessary). The caller will pass the [`Task`][crate::Task] back to
+    /// the operation&#39;s finish function (as a [`AsyncResult`][crate::AsyncResult]), and you can
+    /// use [`propagate_pointer()`][Self::propagate_pointer()] or the like to extract the
+    /// return value.
+    ///
+    /// Using [`Task`][crate::Task] requires the thread-default [`glib::MainContext`][crate::glib::MainContext] from when the
+    /// [`Task`][crate::Task] was constructed to be running at least until the task has completed
+    /// and its data has been freed.
+    ///
+    /// Here is an example for using GTask as a GAsyncResult:
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    ///     typedef struct {
+    ///       CakeFrostingType frosting;
+    ///       char *message;
+    ///     } DecorationData;
+    ///
+    ///     static void
+    ///     decoration_data_free (DecorationData *decoration)
+    ///     {
+    ///       g_free (decoration-&gt;message);
+    ///       g_slice_free (DecorationData, decoration);
+    ///     }
+    ///
+    ///     static void
+    ///     baked_cb (Cake     *cake,
+    ///               gpointer  user_data)
+    ///     {
+    ///       GTask *task = user_data;
+    ///       DecorationData *decoration = g_task_get_task_data (task);
+    ///       GError *error = NULL;
+    ///
+    ///       if (cake == NULL)
+    ///         {
+    ///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_NO_FLOUR,
+    ///                                    &quot;Go to the supermarket&quot;);
+    ///           g_object_unref (task);
+    ///           return;
+    ///         }
+    ///
+    ///       if (!cake_decorate (cake, decoration-&gt;frosting, decoration-&gt;message, &amp;error))
+    ///         {
+    ///           g_object_unref (cake);
+    ///           // g_task_return_error() takes ownership of error
+    ///           g_task_return_error (task, error);
+    ///           g_object_unref (task);
+    ///           return;
+    ///         }
+    ///
+    ///       g_task_return_pointer (task, cake, g_object_unref);
+    ///       g_object_unref (task);
+    ///     }
+    ///
+    ///     void
+    ///     baker_bake_cake_async (Baker               *self,
+    ///                            guint                radius,
+    ///                            CakeFlavor           flavor,
+    ///                            CakeFrostingType     frosting,
+    ///                            const char          *message,
+    ///                            GCancellable        *cancellable,
+    ///                            GAsyncReadyCallback  callback,
+    ///                            gpointer             user_data)
+    ///     {
+    ///       GTask *task;
+    ///       DecorationData *decoration;
+    ///       Cake  *cake;
+    ///
+    ///       task = g_task_new (self, cancellable, callback, user_data);
+    ///       if (radius &lt; 3)
+    ///         {
+    ///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_TOO_SMALL,
+    ///                                    &quot;%ucm radius cakes are silly&quot;,
+    ///                                    radius);
+    ///           g_object_unref (task);
+    ///           return;
+    ///         }
+    ///
+    ///       cake = _baker_get_cached_cake (self, radius, flavor, frosting, message);
+    ///       if (cake != NULL)
+    ///         {
+    ///           // _baker_get_cached_cake() returns a reffed cake
+    ///           g_task_return_pointer (task, cake, g_object_unref);
+    ///           g_object_unref (task);
+    ///           return;
+    ///         }
+    ///
+    ///       decoration = g_slice_new (DecorationData);
+    ///       decoration-&gt;frosting = frosting;
+    ///       decoration-&gt;message = g_strdup (message);
+    ///       g_task_set_task_data (task, decoration, (GDestroyNotify) decoration_data_free);
+    ///
+    ///       _baker_begin_cake (self, radius, flavor, cancellable, baked_cb, task);
+    ///     }
+    ///
+    ///     Cake *
+    ///     baker_bake_cake_finish (Baker         *self,
+    ///                             GAsyncResult  *result,
+    ///                             GError       **error)
+    ///     {
+    ///       g_return_val_if_fail (g_task_is_valid (result, self), NULL);
+    ///
+    ///       return g_task_propagate_pointer (G_TASK (result), error);
+    ///     }
+    /// ```
+    ///
+    /// ## Chained asynchronous operations
+    ///
+    /// [`Task`][crate::Task] also tries to simplify asynchronous operations that
+    /// internally chain together several smaller asynchronous
+    /// operations. [`cancellable()`][Self::cancellable()], [`context()`][Self::context()],
+    /// and [`priority()`][Self::priority()] allow you to get back the task&#39;s
+    /// [`Cancellable`][crate::Cancellable], [`glib::MainContext`][crate::glib::MainContext], and [I/O priority][io-priority]
+    /// when starting a new subtask, so you don&#39;t have to keep track
+    /// of them yourself. [`attach_source()`][Self::attach_source()] simplifies the case
+    /// of waiting for a source to fire (automatically using the correct
+    /// [`glib::MainContext`][crate::glib::MainContext] and priority).
+    ///
+    /// Here is an example for chained asynchronous operations:
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    ///     typedef struct {
+    ///       Cake *cake;
+    ///       CakeFrostingType frosting;
+    ///       char *message;
+    ///     } BakingData;
+    ///
+    ///     static void
+    ///     decoration_data_free (BakingData *bd)
+    ///     {
+    ///       if (bd-&gt;cake)
+    ///         g_object_unref (bd-&gt;cake);
+    ///       g_free (bd-&gt;message);
+    ///       g_slice_free (BakingData, bd);
+    ///     }
+    ///
+    ///     static void
+    ///     decorated_cb (Cake         *cake,
+    ///                   GAsyncResult *result,
+    ///                   gpointer      user_data)
+    ///     {
+    ///       GTask *task = user_data;
+    ///       GError *error = NULL;
+    ///
+    ///       if (!cake_decorate_finish (cake, result, &amp;error))
+    ///         {
+    ///           g_object_unref (cake);
+    ///           g_task_return_error (task, error);
+    ///           g_object_unref (task);
+    ///           return;
+    ///         }
+    ///
+    ///       // baking_data_free() will drop its ref on the cake, so we have to
+    ///       // take another here to give to the caller.
+    ///       g_task_return_pointer (task, g_object_ref (cake), g_object_unref);
+    ///       g_object_unref (task);
+    ///     }
+    ///
+    ///     static gboolean
+    ///     decorator_ready (gpointer user_data)
+    ///     {
+    ///       GTask *task = user_data;
+    ///       BakingData *bd = g_task_get_task_data (task);
+    ///
+    ///       cake_decorate_async (bd-&gt;cake, bd-&gt;frosting, bd-&gt;message,
+    ///                            g_task_get_cancellable (task),
+    ///                            decorated_cb, task);
+    ///
+    ///       return G_SOURCE_REMOVE;
+    ///     }
+    ///
+    ///     static void
+    ///     baked_cb (Cake     *cake,
+    ///               gpointer  user_data)
+    ///     {
+    ///       GTask *task = user_data;
+    ///       BakingData *bd = g_task_get_task_data (task);
+    ///       GError *error = NULL;
+    ///
+    ///       if (cake == NULL)
+    ///         {
+    ///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_NO_FLOUR,
+    ///                                    &quot;Go to the supermarket&quot;);
+    ///           g_object_unref (task);
+    ///           return;
+    ///         }
+    ///
+    ///       bd-&gt;cake = cake;
+    ///
+    ///       // Bail out now if the user has already cancelled
+    ///       if (g_task_return_error_if_cancelled (task))
+    ///         {
+    ///           g_object_unref (task);
+    ///           return;
+    ///         }
+    ///
+    ///       if (cake_decorator_available (cake))
+    ///         decorator_ready (task);
+    ///       else
+    ///         {
+    ///           GSource *source;
+    ///
+    ///           source = cake_decorator_wait_source_new (cake);
+    ///           // Attach @source to @task&#39;s GMainContext and have it call
+    ///           // decorator_ready() when it is ready.
+    ///           g_task_attach_source (task, source, decorator_ready);
+    ///           g_source_unref (source);
+    ///         }
+    ///     }
+    ///
+    ///     void
+    ///     baker_bake_cake_async (Baker               *self,
+    ///                            guint                radius,
+    ///                            CakeFlavor           flavor,
+    ///                            CakeFrostingType     frosting,
+    ///                            const char          *message,
+    ///                            gint                 priority,
+    ///                            GCancellable        *cancellable,
+    ///                            GAsyncReadyCallback  callback,
+    ///                            gpointer             user_data)
+    ///     {
+    ///       GTask *task;
+    ///       BakingData *bd;
+    ///
+    ///       task = g_task_new (self, cancellable, callback, user_data);
+    ///       g_task_set_priority (task, priority);
+    ///
+    ///       bd = g_slice_new0 (BakingData);
+    ///       bd-&gt;frosting = frosting;
+    ///       bd-&gt;message = g_strdup (message);
+    ///       g_task_set_task_data (task, bd, (GDestroyNotify) baking_data_free);
+    ///
+    ///       _baker_begin_cake (self, radius, flavor, cancellable, baked_cb, task);
+    ///     }
+    ///
+    ///     Cake *
+    ///     baker_bake_cake_finish (Baker         *self,
+    ///                             GAsyncResult  *result,
+    ///                             GError       **error)
+    ///     {
+    ///       g_return_val_if_fail (g_task_is_valid (result, self), NULL);
+    ///
+    ///       return g_task_propagate_pointer (G_TASK (result), error);
+    ///     }
+    /// ```
+    ///
+    /// ## Asynchronous operations from synchronous ones
+    ///
+    /// You can use [`run_in_thread()`][Self::run_in_thread()] to turn a synchronous
+    /// operation into an asynchronous one, by running it in a thread.
+    /// When it completes, the result will be dispatched to the
+    /// [thread-default main context][g-main-context-push-thread-default]
+    /// where the [`Task`][crate::Task] was created.
+    ///
+    /// Running a task in a thread:
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    ///     typedef struct {
+    ///       guint radius;
+    ///       CakeFlavor flavor;
+    ///       CakeFrostingType frosting;
+    ///       char *message;
+    ///     } CakeData;
+    ///
+    ///     static void
+    ///     cake_data_free (CakeData *cake_data)
+    ///     {
+    ///       g_free (cake_data-&gt;message);
+    ///       g_slice_free (CakeData, cake_data);
+    ///     }
+    ///
+    ///     static void
+    ///     bake_cake_thread (GTask         *task,
+    ///                       gpointer       source_object,
+    ///                       gpointer       task_data,
+    ///                       GCancellable  *cancellable)
+    ///     {
+    ///       Baker *self = source_object;
+    ///       CakeData *cake_data = task_data;
+    ///       Cake *cake;
+    ///       GError *error = NULL;
+    ///
+    ///       cake = bake_cake (baker, cake_data-&gt;radius, cake_data-&gt;flavor,
+    ///                         cake_data-&gt;frosting, cake_data-&gt;message,
+    ///                         cancellable, &amp;error);
+    ///       if (cake)
+    ///         g_task_return_pointer (task, cake, g_object_unref);
+    ///       else
+    ///         g_task_return_error (task, error);
+    ///     }
+    ///
+    ///     void
+    ///     baker_bake_cake_async (Baker               *self,
+    ///                            guint                radius,
+    ///                            CakeFlavor           flavor,
+    ///                            CakeFrostingType     frosting,
+    ///                            const char          *message,
+    ///                            GCancellable        *cancellable,
+    ///                            GAsyncReadyCallback  callback,
+    ///                            gpointer             user_data)
+    ///     {
+    ///       CakeData *cake_data;
+    ///       GTask *task;
+    ///
+    ///       cake_data = g_slice_new (CakeData);
+    ///       cake_data-&gt;radius = radius;
+    ///       cake_data-&gt;flavor = flavor;
+    ///       cake_data-&gt;frosting = frosting;
+    ///       cake_data-&gt;message = g_strdup (message);
+    ///       task = g_task_new (self, cancellable, callback, user_data);
+    ///       g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);
+    ///       g_task_run_in_thread (task, bake_cake_thread);
+    ///       g_object_unref (task);
+    ///     }
+    ///
+    ///     Cake *
+    ///     baker_bake_cake_finish (Baker         *self,
+    ///                             GAsyncResult  *result,
+    ///                             GError       **error)
+    ///     {
+    ///       g_return_val_if_fail (g_task_is_valid (result, self), NULL);
+    ///
+    ///       return g_task_propagate_pointer (G_TASK (result), error);
+    ///     }
+    /// ```
+    ///
+    /// ## Adding cancellability to uncancellable tasks
+    ///
+    /// Finally, [`run_in_thread()`][Self::run_in_thread()] and [`run_in_thread_sync()`][Self::run_in_thread_sync()]
+    /// can be used to turn an uncancellable operation into a
+    /// cancellable one. If you call [`set_return_on_cancel()`][Self::set_return_on_cancel()],
+    /// passing [`true`], then if the task&#39;s [`Cancellable`][crate::Cancellable] is cancelled,
+    /// it will return control back to the caller immediately, while
+    /// allowing the task thread to continue running in the background
+    /// (and simply discarding its result when it finally does finish).
+    /// Provided that the task thread is careful about how it uses
+    /// locks and other externally-visible resources, this allows you
+    /// to make &quot;GLib-friendly&quot; asynchronous and cancellable
+    /// synchronous variants of blocking APIs.
+    ///
+    /// Cancelling a task:
+    ///
+    ///
+    /// **⚠️ The following code is in C ⚠️**
+    ///
+    /// ```C
+    ///     static void
+    ///     bake_cake_thread (GTask         *task,
+    ///                       gpointer       source_object,
+    ///                       gpointer       task_data,
+    ///                       GCancellable  *cancellable)
+    ///     {
+    ///       Baker *self = source_object;
+    ///       CakeData *cake_data = task_data;
+    ///       Cake *cake;
+    ///       GError *error = NULL;
+    ///
+    ///       cake = bake_cake (baker, cake_data-&gt;radius, cake_data-&gt;flavor,
+    ///                         cake_data-&gt;frosting, cake_data-&gt;message,
+    ///                         &amp;error);
+    ///       if (error)
+    ///         {
+    ///           g_task_return_error (task, error);
+    ///           return;
+    ///         }
+    ///
+    ///       // If the task has already been cancelled, then we don&#39;t want to add
+    ///       // the cake to the cake cache. Likewise, we don&#39;t  want to have the
+    ///       // task get cancelled in the middle of updating the cache.
+    ///       // g_task_set_return_on_cancel() will return %TRUE here if it managed
+    ///       // to disable return-on-cancel, or %FALSE if the task was cancelled
+    ///       // before it could.
+    ///       if (g_task_set_return_on_cancel (task, FALSE))
+    ///         {
+    ///           // If the caller cancels at this point, their
+    ///           // GAsyncReadyCallback won&#39;t be invoked until we return,
+    ///           // so we don&#39;t have to worry that this code will run at
+    ///           // the same time as that code does. But if there were
+    ///           // other functions that might look at the cake cache,
+    ///           // then we&#39;d probably need a GMutex here as well.
+    ///           baker_add_cake_to_cache (baker, cake);
+    ///           g_task_return_pointer (task, cake, g_object_unref);
+    ///         }
+    ///     }
+    ///
+    ///     void
+    ///     baker_bake_cake_async (Baker               *self,
+    ///                            guint                radius,
+    ///                            CakeFlavor           flavor,
+    ///                            CakeFrostingType     frosting,
+    ///                            const char          *message,
+    ///                            GCancellable        *cancellable,
+    ///                            GAsyncReadyCallback  callback,
+    ///                            gpointer             user_data)
+    ///     {
+    ///       CakeData *cake_data;
+    ///       GTask *task;
+    ///
+    ///       cake_data = g_slice_new (CakeData);
+    ///
+    ///       ...
+    ///
+    ///       task = g_task_new (self, cancellable, callback, user_data);
+    ///       g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);
+    ///       g_task_set_return_on_cancel (task, TRUE);
+    ///       g_task_run_in_thread (task, bake_cake_thread);
+    ///     }
+    ///
+    ///     Cake *
+    ///     baker_bake_cake_sync (Baker               *self,
+    ///                           guint                radius,
+    ///                           CakeFlavor           flavor,
+    ///                           CakeFrostingType     frosting,
+    ///                           const char          *message,
+    ///                           GCancellable        *cancellable,
+    ///                           GError             **error)
+    ///     {
+    ///       CakeData *cake_data;
+    ///       GTask *task;
+    ///       Cake *cake;
+    ///
+    ///       cake_data = g_slice_new (CakeData);
+    ///
+    ///       ...
+    ///
+    ///       task = g_task_new (self, cancellable, NULL, NULL);
+    ///       g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);
+    ///       g_task_set_return_on_cancel (task, TRUE);
+    ///       g_task_run_in_thread_sync (task, bake_cake_thread);
+    ///
+    ///       cake = g_task_propagate_pointer (task, error);
+    ///       g_object_unref (task);
+    ///       return cake;
+    ///     }
+    /// ```
+    ///
+    /// ## Porting from GSimpleAsyncResult
+    ///
+    /// [`Task`][crate::Task]&#39;s API attempts to be simpler than `GSimpleAsyncResult`&#39;s
+    /// in several ways:
+    /// - You can save task-specific data with [`set_task_data()`][Self::set_task_data()], and
+    ///  retrieve it later with [`task_data()`][Self::task_data()]. This replaces the
+    ///  abuse of `g_simple_async_result_set_op_res_gpointer()` for the same
+    ///  purpose with `GSimpleAsyncResult`.
+    /// - In addition to the task data, [`Task`][crate::Task] also keeps track of the
+    ///  [priority][io-priority], [`Cancellable`][crate::Cancellable], and
+    ///  [`glib::MainContext`][crate::glib::MainContext] associated with the task, so tasks that consist of
+    ///  a chain of simpler asynchronous operations will have easy access
+    ///  to those values when starting each sub-task.
+    /// - [`return_error_if_cancelled()`][Self::return_error_if_cancelled()] provides simplified
+    ///  handling for cancellation. In addition, cancellation
+    ///  overrides any other [`Task`][crate::Task] return value by default, like
+    ///  `GSimpleAsyncResult` does when
+    ///  `g_simple_async_result_set_check_cancellable()` is called.
+    ///  (You can use [`set_check_cancellable()`][Self::set_check_cancellable()] to turn off that
+    ///  behavior.) On the other hand, [`run_in_thread()`][Self::run_in_thread()]
+    ///  guarantees that it will always run your
+    ///  `task_func`, even if the task&#39;s [`Cancellable`][crate::Cancellable]
+    ///  is already cancelled before the task gets a chance to run;
+    ///  you can start your `task_func` with a
+    ///  [`return_error_if_cancelled()`][Self::return_error_if_cancelled()] check if you need the
+    ///  old behavior.
+    /// - The &quot;return&quot; methods (eg, [`return_pointer()`][Self::return_pointer()])
+    ///  automatically cause the task to be &quot;completed&quot; as well, and
+    ///  there is no need to worry about the &quot;complete&quot; vs &quot;complete
+    ///  in idle&quot; distinction. ([`Task`][crate::Task] automatically figures out
+    ///  whether the task&#39;s callback can be invoked directly, or
+    ///  if it needs to be sent to another [`glib::MainContext`][crate::glib::MainContext], or delayed
+    ///  until the next iteration of the current [`glib::MainContext`][crate::glib::MainContext].)
+    /// - The &quot;finish&quot; functions for [`Task`][crate::Task] based operations are generally
+    ///  much simpler than `GSimpleAsyncResult` ones, normally consisting
+    ///  of only a single call to [`propagate_pointer()`][Self::propagate_pointer()] or the like.
+    ///  Since [`propagate_pointer()`][Self::propagate_pointer()] &quot;steals&quot; the return value from
+    ///  the [`Task`][crate::Task], it is not necessary to juggle pointers around to
+    ///  prevent it from being freed twice.
+    /// - With `GSimpleAsyncResult`, it was common to call
+    ///  `g_simple_async_result_propagate_error()` from the
+    ///  ``_finish()`` wrapper function, and have
+    ///  virtual method implementations only deal with successful
+    ///  returns. This behavior is deprecated, because it makes it
+    ///  difficult for a subclass to chain to a parent class&#39;s async
+    ///  methods. Instead, the wrapper function should just be a
+    ///  simple wrapper, and the virtual method should call an
+    ///  appropriate `g_task_propagate_` function.
+    ///  Note that wrapper methods can now use
+    ///  [`AsyncResultExt::legacy_propagate_error()`][crate::prelude::AsyncResultExt::legacy_propagate_error()] to do old-style
+    ///  `GSimpleAsyncResult` error-returning behavior, and
+    ///  `g_async_result_is_tagged()` to check if a result is tagged as
+    ///  having come from the ``_async()`` wrapper
+    ///  function (for &quot;short-circuit&quot; results, such as when passing
+    ///  0 to [`InputStreamExtManual::read_async()`][crate::prelude::InputStreamExtManual::read_async()]).
+    ///
+    /// # Implements
+    ///
+    /// [`trait@glib::ObjectExt`], [`AsyncResultExt`][trait@crate::prelude::AsyncResultExt]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GTask&quot;</span>)]
+    </span><span class="kw">pub struct </span>Task&lt;V: ValueType + Send&gt;(Object&lt;ffi::GTask, ffi::GTaskClass&gt;) @implements AsyncResult;
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::g_task_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::g_task_get_type(),
     }
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">task_impl</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> $(, @<span class="ident">bound</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>:<span class="ident">tt</span>)<span class="question-mark">?</span> $(, @<span class="ident">safety</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">safety</span>:<span class="ident">tt</span>)<span class="question-mark">?</span>) =&gt; {
-        <span class="kw">impl</span> <span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">ValueType</span> $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span><span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span> {
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_new&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_unsafe</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">new</span><span class="op">&lt;</span><span class="ident">S</span>, <span class="ident">P</span>, <span class="ident">Q</span><span class="op">&gt;</span>(
-                <span class="ident">source_object</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">S</span><span class="op">&gt;</span>,
-                <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>,
-                <span class="ident">callback</span>: <span class="ident">Q</span>,
-            ) -&gt; <span class="self">Self</span>
-            <span class="kw">where</span>
-                <span class="ident">S</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span> $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span>,
-                <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-                <span class="ident">Q</span>: <span class="ident">FnOnce</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">S</span><span class="op">&gt;</span>) $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+<span class="macro">macro_rules! </span>task_impl {
+    (<span class="macro-nonterminal">$name</span>:ident $(, @bound: <span class="macro-nonterminal">$bound</span>:tt)<span class="question-mark">? </span>$(, @safety: <span class="macro-nonterminal">$safety</span>:tt)<span class="question-mark">?</span>) =&gt; {
+        <span class="kw">impl </span>&lt;V: ValueType $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">?</span>&gt; <span class="macro-nonterminal">$name</span>&lt;V&gt; {
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_new&quot;</span>)]
+            #[allow(unused_unsafe)]
+            </span><span class="kw">pub unsafe fn </span>new&lt;S, P, Q&gt;(
+                source_object: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>S&gt;,
+                cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
+                callback: Q,
+            ) -&gt; <span class="self">Self
+            </span><span class="kw">where
+                </span>S: IsA&lt;glib::Object&gt; $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">?</span>,
+                P: IsA&lt;Cancellable&gt;,
+                Q: FnOnce(<span class="macro-nonterminal">$name</span>&lt;V&gt;, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>S&gt;) $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">? </span>+ <span class="lifetime">&#39;static</span>,
             {
-                <span class="kw">let</span> <span class="ident">callback_data</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">callback</span>);
-                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline</span><span class="op">&lt;</span>
-                    <span class="ident">S</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span> $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span>,
-                    <span class="ident">V</span>: <span class="ident">ValueType</span> $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span>,
-                    <span class="ident">Q</span>: <span class="ident">FnOnce</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">S</span><span class="op">&gt;</span>) $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-                <span class="op">&gt;</span>(
-                    <span class="ident">source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-                    <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GAsyncResult</span>,
-                    <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
+                <span class="kw">let </span>callback_data = Box_::new(callback);
+                <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>trampoline&lt;
+                    S: IsA&lt;glib::Object&gt; $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">?</span>,
+                    V: ValueType $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">?</span>,
+                    Q: FnOnce(<span class="macro-nonterminal">$name</span>&lt;V&gt;, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>S&gt;) $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">? </span>+ <span class="lifetime">&#39;static</span>,
+                &gt;(
+                    source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+                    res: <span class="kw-2">*mut </span>ffi::GAsyncResult,
+                    user_data: glib::ffi::gpointer,
                 ) {
-                    <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">Q</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-                    <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="ident">AsyncResult::from_glib_none</span>(<span class="ident">res</span>)
-                        .<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span><span class="op">&gt;</span>()
-                        .<span class="ident">unwrap</span>();
-                    <span class="kw">let</span> <span class="ident">source_object</span> <span class="op">=</span> <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="ident">::from_glib_borrow</span>(<span class="ident">source_object</span>);
-                    <span class="ident">callback</span>(
-                        <span class="ident">task</span>,
-                        <span class="ident">source_object</span>.<span class="ident">as_ref</span>().<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">s</span><span class="op">|</span> <span class="ident">s</span>.<span class="ident">unsafe_cast_ref</span>()),
+                    <span class="kw">let </span>callback: Box_&lt;Q&gt; = Box::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+                    <span class="kw">let </span>task = AsyncResult::from_glib_none(res)
+                        .downcast::&lt;<span class="macro-nonterminal">$name</span>&lt;V&gt;&gt;()
+                        .unwrap();
+                    <span class="kw">let </span>source_object = <span class="prelude-ty">Option</span>::&lt;glib::Object&gt;::from_glib_borrow(source_object);
+                    callback(
+                        task,
+                        source_object.as_ref().as_ref().map(|s| s.unsafe_cast_ref()),
                     );
                 }
-                <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="ident">trampoline</span>::<span class="op">&lt;</span><span class="ident">S</span>, <span class="ident">V</span>, <span class="ident">Q</span><span class="op">&gt;</span>;
-                <span class="kw">unsafe</span> {
-                    <span class="ident">from_glib_full</span>(<span class="ident">ffi::g_task_new</span>(
-                        <span class="ident">source_object</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="ident">cancellable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="prelude-val">Some</span>(<span class="ident">callback</span>),
-                        <span class="ident">Box_::into_raw</span>(<span class="ident">callback_data</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+                <span class="kw">let </span>callback = trampoline::&lt;S, V, Q&gt;;
+                <span class="kw">unsafe </span>{
+                    from_glib_full(ffi::g_task_new(
+                        source_object.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                        cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                        <span class="prelude-val">Some</span>(callback),
+                        Box_::into_raw(callback_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     ))
                 }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_get_cancellable&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_cancellable&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cancellable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Cancellable</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::g_task_get_cancellable</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_get_cancellable&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;get_cancellable&quot;</span>)]
+            </span><span class="kw">pub fn </span>cancellable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Cancellable&gt; {
+                <span class="kw">unsafe </span>{ from_glib_none(ffi::g_task_get_cancellable(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_get_check_cancellable&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_check_cancellable&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_check_cancellable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::g_task_get_check_cancellable</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_get_check_cancellable&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;get_check_cancellable&quot;</span>)]
+            </span><span class="kw">pub fn </span>is_check_cancellable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+                <span class="kw">unsafe </span>{ from_glib(ffi::g_task_get_check_cancellable(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_set_check_cancellable&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_check_cancellable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">check_cancellable</span>: <span class="ident">bool</span>) {
-                <span class="kw">unsafe</span> {
-                    <span class="ident">ffi::g_task_set_check_cancellable</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">check_cancellable</span>.<span class="ident">into_glib</span>());
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_set_check_cancellable&quot;</span>)]
+            </span><span class="kw">pub fn </span>set_check_cancellable(<span class="kw-2">&amp;</span><span class="self">self</span>, check_cancellable: bool) {
+                <span class="kw">unsafe </span>{
+                    ffi::g_task_set_check_cancellable(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, check_cancellable.into_glib());
                 }
             }
 
-            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_60&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_60&quot;</span>)))]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_set_name&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-                <span class="kw">unsafe</span> {
-                    <span class="ident">ffi::g_task_set_name</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+            <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_60&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+            #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+            #[doc(alias = <span class="string">&quot;g_task_set_name&quot;</span>)]
+            </span><span class="kw">pub fn </span>set_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+                <span class="kw">unsafe </span>{
+                    ffi::g_task_set_name(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, name.to_glib_none().<span class="number">0</span>);
                 }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_set_return_on_cancel&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_return_on_cancel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">return_on_cancel</span>: <span class="ident">bool</span>) -&gt; <span class="ident">bool</span> {
-                <span class="kw">unsafe</span> {
-                    <span class="ident">from_glib</span>(<span class="ident">ffi::g_task_set_return_on_cancel</span>(
-                        <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="ident">return_on_cancel</span>.<span class="ident">into_glib</span>(),
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_set_return_on_cancel&quot;</span>)]
+            </span><span class="kw">pub fn </span>set_return_on_cancel(<span class="kw-2">&amp;</span><span class="self">self</span>, return_on_cancel: bool) -&gt; bool {
+                <span class="kw">unsafe </span>{
+                    from_glib(ffi::g_task_set_return_on_cancel(
+                        <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                        return_on_cancel.into_glib(),
                     ))
                 }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_is_valid&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_valid</span>(
-                <span class="ident">result</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">AsyncResult</span><span class="op">&gt;</span>,
-                <span class="ident">source_object</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-            ) -&gt; <span class="ident">bool</span> {
-                <span class="kw">unsafe</span> {
-                    <span class="ident">from_glib</span>(<span class="ident">ffi::g_task_is_valid</span>(
-                        <span class="ident">result</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="ident">source_object</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_is_valid&quot;</span>)]
+            </span><span class="kw">pub fn </span>is_valid(
+                result: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;AsyncResult&gt;,
+                source_object: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;glib::Object&gt;&gt;,
+            ) -&gt; bool {
+                <span class="kw">unsafe </span>{
+                    from_glib(ffi::g_task_is_valid(
+                        result.as_ref().to_glib_none().<span class="number">0</span>,
+                        source_object.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
                     ))
                 }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_priority&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_get_priority&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">priority</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">glib::source::Priority</span> {
-                <span class="kw">unsafe</span> { <span class="ident">FromGlib::from_glib</span>(<span class="ident">ffi::g_task_get_priority</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[doc(alias = <span class="string">&quot;get_priority&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_get_priority&quot;</span>)]
+            </span><span class="kw">pub fn </span>priority(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::source::Priority {
+                <span class="kw">unsafe </span>{ FromGlib::from_glib(ffi::g_task_get_priority(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_set_priority&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_priority</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">priority</span>: <span class="ident">glib::source::Priority</span>) {
-                <span class="kw">unsafe</span> {
-                    <span class="ident">ffi::g_task_set_priority</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">priority</span>.<span class="ident">into_glib</span>());
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_set_priority&quot;</span>)]
+            </span><span class="kw">pub fn </span>set_priority(<span class="kw-2">&amp;</span><span class="self">self</span>, priority: glib::source::Priority) {
+                <span class="kw">unsafe </span>{
+                    ffi::g_task_set_priority(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, priority.into_glib());
                 }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_get_completed&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_completed&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_completed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::g_task_get_completed</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_get_completed&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;get_completed&quot;</span>)]
+            </span><span class="kw">pub fn </span>is_completed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+                <span class="kw">unsafe </span>{ from_glib(ffi::g_task_get_completed(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_get_context&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_context&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">context</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">glib::MainContext</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::g_task_get_context</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_get_context&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;get_context&quot;</span>)]
+            </span><span class="kw">pub fn </span>context(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::MainContext {
+                <span class="kw">unsafe </span>{ from_glib_none(ffi::g_task_get_context(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_60&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_60&quot;</span>)))]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_get_name&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_name&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::g_task_get_name</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_60&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+            #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+            #[doc(alias = <span class="string">&quot;g_task_get_name&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;get_name&quot;</span>)]
+            </span><span class="kw">pub fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+                <span class="kw">unsafe </span>{ from_glib_none(ffi::g_task_get_name(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_get_return_on_cancel&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_return_on_cancel&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_return_on_cancel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::g_task_get_return_on_cancel</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_get_return_on_cancel&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;get_return_on_cancel&quot;</span>)]
+            </span><span class="kw">pub fn </span>is_return_on_cancel(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+                <span class="kw">unsafe </span>{ from_glib(ffi::g_task_get_return_on_cancel(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_had_error&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">had_error</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::g_task_had_error</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_had_error&quot;</span>)]
+            </span><span class="kw">pub fn </span>had_error(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+                <span class="kw">unsafe </span>{ from_glib(ffi::g_task_had_error(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;completed&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_completed_notify</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>
-            <span class="kw">where</span>
-                <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>) $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+            <span class="attribute">#[doc(alias = <span class="string">&quot;completed&quot;</span>)]
+            </span><span class="kw">pub fn </span>connect_completed_notify&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId
+            <span class="kw">where
+                </span>F: Fn(<span class="kw-2">&amp;</span><span class="macro-nonterminal">$name</span>&lt;V&gt;) $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">? </span>+ <span class="lifetime">&#39;static</span>,
             {
-                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_completed_trampoline</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">F</span><span class="op">&gt;</span>(
-                    <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GTask</span>,
-                    <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
-                    <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-                ) <span class="kw">where</span>
-                    <span class="ident">V</span>: <span class="ident">ValueType</span> $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span>,
-                    <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+                <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_completed_trampoline&lt;V, F&gt;(
+                    this: <span class="kw-2">*mut </span>ffi::GTask,
+                    _param_spec: glib::ffi::gpointer,
+                    f: glib::ffi::gpointer,
+                ) <span class="kw">where
+                    </span>V: ValueType $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">?</span>,
+                    F: Fn(<span class="kw-2">&amp;</span><span class="macro-nonterminal">$name</span>&lt;V&gt;) + <span class="lifetime">&#39;static</span>,
                 {
-                    <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-                    <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+                    <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+                    f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
                 }
-                <span class="kw">unsafe</span> {
-                    <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-                    <span class="ident">connect_raw</span>(
-                        <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                        <span class="string">b&quot;notify::completed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                        <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                            <span class="ident">notify_completed_trampoline</span>::<span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+                <span class="kw">unsafe </span>{
+                    <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+                    connect_raw(
+                        <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                        <span class="string">b&quot;notify::completed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                        <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                            notify_completed_trampoline::&lt;V, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                         )),
-                        <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                        Box_::into_raw(f),
                     )
                 }
             }
 
-            <span class="comment">// the following functions are marked unsafe since they cannot be called</span>
-            <span class="comment">// more than once, but we have no way to enforce that since the task can be cloned</span>
+            <span class="comment">// the following functions are marked unsafe since they cannot be called
+            // more than once, but we have no way to enforce that since the task can be cloned
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_return_error_if_cancelled&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_unsafe</span>)]</span>
-            <span class="kw">pub</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">safety</span>)<span class="question-mark">?</span> <span class="kw">fn</span> <span class="ident">return_error_if_cancelled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-                <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::g_task_return_error_if_cancelled</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+            </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_task_return_error_if_cancelled&quot;</span>)]
+            #[allow(unused_unsafe)]
+            </span><span class="kw">pub </span>$(<span class="macro-nonterminal">$safety</span>)<span class="question-mark">? </span><span class="kw">fn </span>return_error_if_cancelled(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+                <span class="kw">unsafe </span>{ from_glib(ffi::g_task_return_error_if_cancelled(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_return_value&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_return_boolean&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_return_int&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_return_pointer&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_return_error&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_unsafe</span>)]</span>
-            <span class="kw">pub</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">safety</span>)<span class="question-mark">?</span> <span class="kw">fn</span> <span class="ident">return_result</span>(<span class="self">self</span>, <span class="ident">result</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>) {
-                <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_64&quot;</span>))]</span>
-                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">value_free</span>(<span class="ident">value</span>: <span class="kw-2">*mut</span> <span class="ident">libc::c_void</span>) {
-                    <span class="kw">let</span> <span class="kw">_</span>: <span class="ident">glib::Value</span> <span class="op">=</span> <span class="ident">from_glib_full</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GValue</span>);
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_return_value&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_return_boolean&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_return_int&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_return_pointer&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_return_error&quot;</span>)]
+            #[allow(unused_unsafe)]
+            </span><span class="kw">pub </span>$(<span class="macro-nonterminal">$safety</span>)<span class="question-mark">? </span><span class="kw">fn </span>return_result(<span class="self">self</span>, result: <span class="prelude-ty">Result</span>&lt;V, glib::Error&gt;) {
+                <span class="attribute">#[cfg(not(feature = <span class="string">&quot;v2_64&quot;</span>))]
+                </span><span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>value_free(value: <span class="kw-2">*mut </span>libc::c_void) {
+                    <span class="kw">let _</span>: glib::Value = from_glib_full(value <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GValue);
                 }
 
-                <span class="kw">match</span> <span class="ident">result</span> {
-                    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_64&quot;</span>)]</span>
-                    <span class="prelude-val">Ok</span>(<span class="ident">v</span>) =&gt; <span class="kw">unsafe</span> {
-                        <span class="ident">ffi::g_task_return_value</span>(
-                            <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                            <span class="ident">v</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+                <span class="kw">match </span>result {
+                    <span class="attribute">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
+                    </span><span class="prelude-val">Ok</span>(v) =&gt; <span class="kw">unsafe </span>{
+                        ffi::g_task_return_value(
+                            <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                            v.to_value().to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                         )
                     },
-                    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_64&quot;</span>))]</span>
-                    <span class="prelude-val">Ok</span>(<span class="ident">v</span>) =&gt; <span class="kw">unsafe</span> {
-                        <span class="ident">ffi::g_task_return_pointer</span>(
-                            <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                            <span class="ident">v</span>.<span class="ident">to_value</span>().<span class="ident">to_glib_full</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                            <span class="prelude-val">Some</span>(<span class="ident">value_free</span>),
+                    <span class="attribute">#[cfg(not(feature = <span class="string">&quot;v2_64&quot;</span>))]
+                    </span><span class="prelude-val">Ok</span>(v) =&gt; <span class="kw">unsafe </span>{
+                        ffi::g_task_return_pointer(
+                            <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                            v.to_value().to_glib_full() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                            <span class="prelude-val">Some</span>(value_free),
                         )
                     },
-                    <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">unsafe</span> {
-                        <span class="ident">ffi::g_task_return_error</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">e</span>.<span class="ident">to_glib_full</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
+                    <span class="prelude-val">Err</span>(e) =&gt; <span class="kw">unsafe </span>{
+                        ffi::g_task_return_error(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, e.to_glib_full() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
                     },
                 }
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_propagate_value&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_propagate_boolean&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_propagate_int&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_propagate_pointer&quot;</span>)]</span>
-            <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_unsafe</span>)]</span>
-            <span class="kw">pub</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">safety</span>)<span class="question-mark">?</span> <span class="kw">fn</span> <span class="ident">propagate</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span> {
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
+            <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_propagate_value&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_propagate_boolean&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_propagate_int&quot;</span>)]
+            #[doc(alias = <span class="string">&quot;g_task_propagate_pointer&quot;</span>)]
+            #[allow(unused_unsafe)]
+            </span><span class="kw">pub </span>$(<span class="macro-nonterminal">$safety</span>)<span class="question-mark">? </span><span class="kw">fn </span>propagate(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;V, glib::Error&gt; {
+                <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
 
-                <span class="kw">unsafe</span> {
-                    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_64&quot;</span>)]</span>
-                    {
-                        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::uninitialized</span>();
-                        <span class="ident">ffi::g_task_propagate_value</span>(
-                            <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                            <span class="ident">value</span>.<span class="ident">to_glib_none_mut</span>().<span class="number">0</span>,
-                            <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
+                <span class="kw">unsafe </span>{
+                    <span class="attribute">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
+                    </span>{
+                        <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::uninitialized();
+                        ffi::g_task_propagate_value(
+                            <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                            value.to_glib_none_mut().<span class="number">0</span>,
+                            <span class="kw-2">&amp;mut </span>error,
                         );
 
-                        <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                            <span class="prelude-val">Ok</span>(<span class="ident">V::from_value</span>(<span class="kw-2">&amp;</span><span class="ident">value</span>))
-                        } <span class="kw">else</span> {
-                            <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+                        <span class="kw">if </span>error.is_null() {
+                            <span class="prelude-val">Ok</span>(V::from_value(<span class="kw-2">&amp;</span>value))
+                        } <span class="kw">else </span>{
+                            <span class="prelude-val">Err</span>(from_glib_full(error))
                         }
                     }
 
-                    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_64&quot;</span>))]</span>
-                    {
-                        <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">ffi::g_task_propagate_pointer</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
+                    <span class="attribute">#[cfg(not(feature = <span class="string">&quot;v2_64&quot;</span>))]
+                    </span>{
+                        <span class="kw">let </span>value = ffi::g_task_propagate_pointer(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, <span class="kw-2">&amp;mut </span>error);
 
-                        <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                            <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="ident">glib::Value</span><span class="op">&gt;</span><span class="ident">::from_glib_full</span>(
-                                <span class="ident">value</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GValue</span>,
+                        <span class="kw">if </span>error.is_null() {
+                            <span class="kw">let </span>value = <span class="prelude-ty">Option</span>::&lt;glib::Value&gt;::from_glib_full(
+                                value <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GValue,
                             )
-                            .<span class="ident">expect</span>(<span class="string">&quot;Task::propagate() called before Task::return_result()&quot;</span>);
-                            <span class="prelude-val">Ok</span>(<span class="ident">V::from_value</span>(<span class="kw-2">&amp;</span><span class="ident">value</span>))
-                        } <span class="kw">else</span> {
-                            <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+                            .expect(<span class="string">&quot;Task::propagate() called before Task::return_result()&quot;</span>);
+                            <span class="prelude-val">Ok</span>(V::from_value(<span class="kw-2">&amp;</span>value))
+                        } <span class="kw">else </span>{
+                            <span class="prelude-val">Err</span>(from_glib_full(error))
                         }
                     }
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">ValueType</span> $(<span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bound</span>)<span class="question-mark">?</span><span class="op">&gt;</span> <span class="ident">std::fmt::Display</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span> {
-            <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">std::fmt::Formatter</span>) -&gt; <span class="ident">std::fmt::Result</span> {
-                <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>))
+        <span class="kw">impl </span>&lt;V: ValueType $(+ <span class="macro-nonterminal">$bound</span>)<span class="question-mark">?</span>&gt; std::fmt::Display <span class="kw">for </span><span class="macro-nonterminal">$name</span>&lt;V&gt; {
+            <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>std::fmt::Formatter) -&gt; std::fmt::Result {
+                f.write_str(<span class="macro">stringify!</span>(<span class="macro-nonterminal">$name</span>))
             }
         }
     }
 }
 
-<span class="macro">task_impl!</span>(<span class="ident">LocalTask</span>);
-<span class="macro">task_impl!</span>(<span class="ident">Task</span>, @<span class="ident">bound</span>: <span class="ident">Send</span>, @<span class="ident">safety</span>: <span class="kw">unsafe</span>);
+<span class="macro">task_impl!</span>(LocalTask);
+<span class="macro">task_impl!</span>(Task, @bound: Send, @safety: <span class="kw">unsafe</span>);
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">ValueType</span> <span class="op">+</span> <span class="ident">Send</span><span class="op">&gt;</span> <span class="ident">Task</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span> {
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_task_run_in_thread&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_in_thread</span><span class="op">&lt;</span><span class="ident">S</span>, <span class="ident">Q</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">task_func</span>: <span class="ident">Q</span>)
-    <span class="kw">where</span>
-        <span class="ident">S</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span>,
-        <span class="ident">Q</span>: <span class="ident">FnOnce</span>(<span class="self">Self</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">S</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+<span class="kw">impl</span>&lt;V: ValueType + Send&gt; Task&lt;V&gt; {
+    <span class="attribute">#[doc(alias = <span class="string">&quot;g_task_run_in_thread&quot;</span>)]
+    </span><span class="kw">pub fn </span>run_in_thread&lt;S, Q&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, task_func: Q)
+    <span class="kw">where
+        </span>S: IsA&lt;glib::Object&gt; + Send,
+        Q: FnOnce(<span class="self">Self</span>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>S&gt;, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) + Send + <span class="lifetime">&#39;static</span>,
     {
-        <span class="kw">let</span> <span class="ident">task_func_data</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">task_func</span>);
+        <span class="kw">let </span>task_func_data = Box_::new(task_func);
 
-        <span class="comment">// We store the func pointer into the task data.</span>
-        <span class="comment">// We intentionally do not expose a way to set the task data in the bindings.</span>
-        <span class="comment">// If we detect that the task data is set, there is not much we can do, so we panic.</span>
-        <span class="kw">unsafe</span> {
+        <span class="comment">// We store the func pointer into the task data.
+        // We intentionally do not expose a way to set the task data in the bindings.
+        // If we detect that the task data is set, there is not much we can do, so we panic.
+        </span><span class="kw">unsafe </span>{
             <span class="macro">assert!</span>(
-                <span class="ident">ffi::g_task_get_task_data</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>).<span class="ident">is_null</span>(),
-                <span class="string">&quot;Task data was manually set or the task was run thread multiple times&quot;</span>
-            );
+                ffi::g_task_get_task_data(<span class="self">self</span>.to_glib_none().<span class="number">0</span>).is_null(),
+                <span class="string">&quot;Task data was manually set or the task was run thread multiple times&quot;
+            </span>);
 
-            <span class="ident">ffi::g_task_set_task_data</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">Box_::into_raw</span>(<span class="ident">task_func_data</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+            ffi::g_task_set_task_data(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                Box_::into_raw(task_func_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 <span class="prelude-val">None</span>,
             );
         }
 
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">trampoline</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">S</span>, <span class="ident">Q</span><span class="op">&gt;</span>(
-            <span class="ident">task</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GTask</span>,
-            <span class="ident">source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-            <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
-            <span class="ident">cancellable</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GCancellable</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">V</span>: <span class="ident">ValueType</span> <span class="op">+</span> <span class="ident">Send</span>,
-            <span class="ident">S</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span>,
-            <span class="ident">Q</span>: <span class="ident">FnOnce</span>(<span class="ident">Task</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">S</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>trampoline&lt;V, S, Q&gt;(
+            task: <span class="kw-2">*mut </span>ffi::GTask,
+            source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+            user_data: glib::ffi::gpointer,
+            cancellable: <span class="kw-2">*mut </span>ffi::GCancellable,
+        ) <span class="kw">where
+            </span>V: ValueType + Send,
+            S: IsA&lt;glib::Object&gt; + Send,
+            Q: FnOnce(Task&lt;V&gt;, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>S&gt;, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Cancellable&gt;) + Send + <span class="lifetime">&#39;static</span>,
         {
-            <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="ident">Task::from_glib_none</span>(<span class="ident">task</span>);
-            <span class="kw">let</span> <span class="ident">source_object</span> <span class="op">=</span> <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="ident">::from_glib_borrow</span>(<span class="ident">source_object</span>);
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="prelude-ty">Option</span>::<span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span><span class="ident">::from_glib_borrow</span>(<span class="ident">cancellable</span>);
-            <span class="kw">let</span> <span class="ident">task_func</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">Q</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-            <span class="ident">task_func</span>(
-                <span class="ident">task</span>,
-                <span class="ident">source_object</span>.<span class="ident">as_ref</span>().<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">s</span><span class="op">|</span> <span class="ident">s</span>.<span class="ident">unsafe_cast_ref</span>()),
-                <span class="ident">cancellable</span>.<span class="ident">as_ref</span>().<span class="ident">as_ref</span>(),
+            <span class="kw">let </span>task = Task::from_glib_none(task);
+            <span class="kw">let </span>source_object = <span class="prelude-ty">Option</span>::&lt;glib::Object&gt;::from_glib_borrow(source_object);
+            <span class="kw">let </span>cancellable = <span class="prelude-ty">Option</span>::&lt;Cancellable&gt;::from_glib_borrow(cancellable);
+            <span class="kw">let </span>task_func: Box_&lt;Q&gt; = Box::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            task_func(
+                task,
+                source_object.as_ref().as_ref().map(|s| s.unsafe_cast_ref()),
+                cancellable.as_ref().as_ref(),
             );
         }
 
-        <span class="kw">let</span> <span class="ident">task_func</span> <span class="op">=</span> <span class="ident">trampoline</span>::<span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">S</span>, <span class="ident">Q</span><span class="op">&gt;</span>;
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::g_task_run_in_thread</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="prelude-val">Some</span>(<span class="ident">task_func</span>));
+        <span class="kw">let </span>task_func = trampoline::&lt;V, S, Q&gt;;
+        <span class="kw">unsafe </span>{
+            ffi::g_task_run_in_thread(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, <span class="prelude-val">Some</span>(task_func));
         }
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">ValueType</span> <span class="op">+</span> <span class="ident">Send</span><span class="op">&gt;</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Task</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span> {}
-<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">V</span>: <span class="ident">ValueType</span> <span class="op">+</span> <span class="ident">Send</span><span class="op">&gt;</span> <span class="ident">Sync</span> <span class="kw">for</span> <span class="ident">Task</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span> {}
+<span class="kw">unsafe impl</span>&lt;V: ValueType + Send&gt; Send <span class="kw">for </span>Task&lt;V&gt; {}
+<span class="kw">unsafe impl</span>&lt;V: ValueType + Send&gt; Sync <span class="kw">for </span>Task&lt;V&gt; {}
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">test</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::test_util::run_async_local</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>test {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::test_util::run_async_local;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_int_async_result</span>() {
-        <span class="kw">match</span> <span class="ident">run_async_local</span>(<span class="op">|</span><span class="ident">tx</span>, <span class="ident">l</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Cancellable::new</span>();
-            <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-                <span class="ident"><span class="kw">crate</span>::LocalTask::new</span>(
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_int_async_result() {
+        <span class="kw">match </span>run_async_local(|tx, l| {
+            <span class="kw">let </span>cancellable = <span class="kw">crate</span>::Cancellable::new();
+            <span class="kw">let </span>task = <span class="kw">unsafe </span>{
+                <span class="kw">crate</span>::LocalTask::new(
                     <span class="prelude-val">None</span>,
-                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>),
-                    <span class="kw">move</span> <span class="op">|</span><span class="ident">t</span>: <span class="ident">LocalTask</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">_b</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">|</span> {
-                        <span class="ident">tx</span>.<span class="ident">send</span>(<span class="ident">t</span>.<span class="ident">propagate</span>()).<span class="ident">unwrap</span>();
-                        <span class="ident">l</span>.<span class="ident">quit</span>();
+                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>cancellable),
+                    <span class="kw">move </span>|t: LocalTask&lt;i32&gt;, _b: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>glib::Object&gt;| {
+                        tx.send(t.propagate()).unwrap();
+                        l.quit();
                     },
                 )
             };
-            <span class="ident">task</span>.<span class="ident">return_result</span>(<span class="prelude-val">Ok</span>(<span class="number">100_i32</span>));
+            task.return_result(<span class="prelude-val">Ok</span>(<span class="number">100_i32</span>));
         }) {
             <span class="prelude-val">Err</span>(<span class="kw">_</span>) =&gt; <span class="macro">panic!</span>(),
-            <span class="prelude-val">Ok</span>(<span class="ident">i</span>) =&gt; <span class="macro">assert_eq!</span>(<span class="ident">i</span>, <span class="number">100</span>),
+            <span class="prelude-val">Ok</span>(i) =&gt; <span class="macro">assert_eq!</span>(i, <span class="number">100</span>),
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_object_async_result</span>() {
-        <span class="kw">use</span> <span class="ident">glib::subclass::prelude</span>::<span class="kw-2">*</span>;
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">MySimpleObjectPrivate</span> {
-            <span class="kw">pub</span> <span class="ident">size</span>: <span class="ident">std::cell::RefCell</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">i64</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_object_async_result() {
+        <span class="kw">use </span>glib::subclass::prelude::<span class="kw-2">*</span>;
+        <span class="kw">pub struct </span>MySimpleObjectPrivate {
+            <span class="kw">pub </span>size: std::cell::RefCell&lt;<span class="prelude-ty">Option</span>&lt;i64&gt;&gt;,
         }
 
-        <span class="attribute">#[<span class="ident">glib::object_subclass</span>]</span>
-        <span class="kw">impl</span> <span class="ident">ObjectSubclass</span> <span class="kw">for</span> <span class="ident">MySimpleObjectPrivate</span> {
-            <span class="kw">const</span> <span class="ident">NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;MySimpleObjectPrivate&quot;</span>;
-            <span class="kw">type</span> <span class="ident">Type</span> <span class="op">=</span> <span class="ident">MySimpleObject</span>;
+        <span class="attribute">#[glib::object_subclass]
+        </span><span class="kw">impl </span>ObjectSubclass <span class="kw">for </span>MySimpleObjectPrivate {
+            <span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str = <span class="string">&quot;MySimpleObjectPrivate&quot;</span>;
+            <span class="kw">type </span>Type = MySimpleObject;
 
-            <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-                <span class="self">Self</span> {
-                    <span class="ident">size</span>: <span class="ident">std::cell::RefCell::new</span>(<span class="prelude-val">Some</span>(<span class="number">100</span>)),
+            <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
+                <span class="self">Self </span>{
+                    size: std::cell::RefCell::new(<span class="prelude-val">Some</span>(<span class="number">100</span>)),
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">ObjectImpl</span> <span class="kw">for</span> <span class="ident">MySimpleObjectPrivate</span> {}
+        <span class="kw">impl </span>ObjectImpl <span class="kw">for </span>MySimpleObjectPrivate {}
 
-        <span class="macro">glib::wrapper!</span> {
-            <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">MySimpleObject</span>(<span class="ident">ObjectSubclass</span><span class="op">&lt;</span><span class="ident">MySimpleObjectPrivate</span><span class="op">&gt;</span>);
+        <span class="macro">glib::wrapper! </span>{
+            <span class="kw">pub struct </span>MySimpleObject(ObjectSubclass&lt;MySimpleObjectPrivate&gt;);
         }
 
-        <span class="kw">impl</span> <span class="ident">MySimpleObject</span> {
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-                <span class="ident">glib::Object::new</span>(<span class="kw-2">&amp;</span>[]).<span class="ident">expect</span>(<span class="string">&quot;Failed to create MySimpleObject&quot;</span>)
+        <span class="kw">impl </span>MySimpleObject {
+            <span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+                glib::Object::new(<span class="kw-2">&amp;</span>[])
             }
 
-            <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_size&quot;</span>)]</span>
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">i64</span><span class="op">&gt;</span> {
-                <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">imp</span>().<span class="ident">size</span>.<span class="ident">borrow</span>()
+            <span class="attribute">#[doc(alias = <span class="string">&quot;get_size&quot;</span>)]
+            </span><span class="kw">pub fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;i64&gt; {
+                <span class="kw-2">*</span><span class="self">self</span>.imp().size.borrow()
             }
 
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">size</span>: <span class="ident">i64</span>) {
-                <span class="self">self</span>.<span class="ident">imp</span>().<span class="ident">size</span>.<span class="ident">borrow_mut</span>().<span class="ident">replace</span>(<span class="ident">size</span>);
-            }
-        }
-
-        <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">MySimpleObject</span> {
-            <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-                <span class="ident"><span class="self">Self</span>::new</span>()
+            <span class="kw">pub fn </span>set_size(<span class="kw-2">&amp;</span><span class="self">self</span>, size: i64) {
+                <span class="self">self</span>.imp().size.borrow_mut().replace(size);
             }
         }
 
-        <span class="kw">match</span> <span class="ident">run_async_local</span>(<span class="op">|</span><span class="ident">tx</span>, <span class="ident">l</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Cancellable::new</span>();
-            <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-                <span class="ident"><span class="kw">crate</span>::LocalTask::new</span>(
+        <span class="kw">impl </span>Default <span class="kw">for </span>MySimpleObject {
+            <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+                <span class="self">Self</span>::new()
+            }
+        }
+
+        <span class="kw">match </span>run_async_local(|tx, l| {
+            <span class="kw">let </span>cancellable = <span class="kw">crate</span>::Cancellable::new();
+            <span class="kw">let </span>task = <span class="kw">unsafe </span>{
+                <span class="kw">crate</span>::LocalTask::new(
                     <span class="prelude-val">None</span>,
-                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>),
-                    <span class="kw">move</span> <span class="op">|</span><span class="ident">t</span>: <span class="ident">LocalTask</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>, <span class="ident">_b</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">|</span> {
-                        <span class="ident">tx</span>.<span class="ident">send</span>(<span class="ident">t</span>.<span class="ident">propagate</span>()).<span class="ident">unwrap</span>();
-                        <span class="ident">l</span>.<span class="ident">quit</span>();
+                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>cancellable),
+                    <span class="kw">move </span>|t: LocalTask&lt;glib::Object&gt;, _b: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>glib::Object&gt;| {
+                        tx.send(t.propagate()).unwrap();
+                        l.quit();
                     },
                 )
             };
-            <span class="kw">let</span> <span class="ident">my_object</span> <span class="op">=</span> <span class="ident">MySimpleObject::new</span>();
-            <span class="ident">my_object</span>.<span class="ident">set_size</span>(<span class="number">100</span>);
-            <span class="ident">task</span>.<span class="ident">return_result</span>(<span class="prelude-val">Ok</span>(<span class="ident">my_object</span>.<span class="ident">upcast</span>::<span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>()));
+            <span class="kw">let </span>my_object = MySimpleObject::new();
+            my_object.set_size(<span class="number">100</span>);
+            task.return_result(<span class="prelude-val">Ok</span>(my_object.upcast::&lt;glib::Object&gt;()));
         }) {
             <span class="prelude-val">Err</span>(<span class="kw">_</span>) =&gt; <span class="macro">panic!</span>(),
-            <span class="prelude-val">Ok</span>(<span class="ident">o</span>) =&gt; {
-                <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">o</span>.<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">MySimpleObject</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="macro">assert_eq!</span>(<span class="ident">o</span>.<span class="ident">size</span>(), <span class="prelude-val">Some</span>(<span class="number">100</span>));
+            <span class="prelude-val">Ok</span>(o) =&gt; {
+                <span class="kw">let </span>o = o.downcast::&lt;MySimpleObject&gt;().unwrap();
+                <span class="macro">assert_eq!</span>(o.size(), <span class="prelude-val">Some</span>(<span class="number">100</span>));
             }
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_error</span>() {
-        <span class="kw">match</span> <span class="ident">run_async_local</span>(<span class="op">|</span><span class="ident">tx</span>, <span class="ident">l</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Cancellable::new</span>();
-            <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-                <span class="ident"><span class="kw">crate</span>::LocalTask::new</span>(
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_error() {
+        <span class="kw">match </span>run_async_local(|tx, l| {
+            <span class="kw">let </span>cancellable = <span class="kw">crate</span>::Cancellable::new();
+            <span class="kw">let </span>task = <span class="kw">unsafe </span>{
+                <span class="kw">crate</span>::LocalTask::new(
                     <span class="prelude-val">None</span>,
-                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>),
-                    <span class="kw">move</span> <span class="op">|</span><span class="ident">t</span>: <span class="ident">LocalTask</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">_b</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">|</span> {
-                        <span class="ident">tx</span>.<span class="ident">send</span>(<span class="ident">t</span>.<span class="ident">propagate</span>()).<span class="ident">unwrap</span>();
-                        <span class="ident">l</span>.<span class="ident">quit</span>();
+                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>cancellable),
+                    <span class="kw">move </span>|t: LocalTask&lt;i32&gt;, _b: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>glib::Object&gt;| {
+                        tx.send(t.propagate()).unwrap();
+                        l.quit();
                     },
                 )
             };
-            <span class="ident">task</span>.<span class="ident">return_result</span>(<span class="prelude-val">Err</span>(<span class="ident">glib::Error::new</span>(
-                <span class="ident"><span class="kw">crate</span>::IOErrorEnum::WouldBlock</span>,
+            task.return_result(<span class="prelude-val">Err</span>(glib::Error::new(
+                <span class="kw">crate</span>::IOErrorEnum::WouldBlock,
                 <span class="string">&quot;WouldBlock&quot;</span>,
             )));
         }) {
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">match</span> <span class="ident">e</span>.<span class="ident">kind</span>().<span class="ident">unwrap</span>() {
-                <span class="ident"><span class="kw">crate</span>::IOErrorEnum::WouldBlock</span> =&gt; {}
-                <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(),
+            <span class="prelude-val">Err</span>(e) =&gt; <span class="kw">match </span>e.kind().unwrap() {
+                <span class="kw">crate</span>::IOErrorEnum::WouldBlock =&gt; {}
+                <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(),
             },
             <span class="prelude-val">Ok</span>(<span class="kw">_</span>) =&gt; <span class="macro">panic!</span>(),
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_cancelled</span>() {
-        <span class="kw">match</span> <span class="ident">run_async_local</span>(<span class="op">|</span><span class="ident">tx</span>, <span class="ident">l</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Cancellable::new</span>();
-            <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-                <span class="ident"><span class="kw">crate</span>::LocalTask::new</span>(
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_cancelled() {
+        <span class="kw">match </span>run_async_local(|tx, l| {
+            <span class="kw">let </span>cancellable = <span class="kw">crate</span>::Cancellable::new();
+            <span class="kw">let </span>task = <span class="kw">unsafe </span>{
+                <span class="kw">crate</span>::LocalTask::new(
                     <span class="prelude-val">None</span>,
-                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">cancellable</span>),
-                    <span class="kw">move</span> <span class="op">|</span><span class="ident">t</span>: <span class="ident">LocalTask</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">_b</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">|</span> {
-                        <span class="ident">tx</span>.<span class="ident">send</span>(<span class="ident">t</span>.<span class="ident">propagate</span>()).<span class="ident">unwrap</span>();
-                        <span class="ident">l</span>.<span class="ident">quit</span>();
+                    <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>cancellable),
+                    <span class="kw">move </span>|t: LocalTask&lt;i32&gt;, _b: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>glib::Object&gt;| {
+                        tx.send(t.propagate()).unwrap();
+                        l.quit();
                     },
                 )
             };
-            <span class="ident">cancellable</span>.<span class="ident">cancel</span>();
-            <span class="ident">task</span>.<span class="ident">return_error_if_cancelled</span>();
+            cancellable.cancel();
+            task.return_error_if_cancelled();
         }) {
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">match</span> <span class="ident">e</span>.<span class="ident">kind</span>().<span class="ident">unwrap</span>() {
-                <span class="ident"><span class="kw">crate</span>::IOErrorEnum::Cancelled</span> =&gt; {}
-                <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(),
+            <span class="prelude-val">Err</span>(e) =&gt; <span class="kw">match </span>e.kind().unwrap() {
+                <span class="kw">crate</span>::IOErrorEnum::Cancelled =&gt; {}
+                <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(),
             },
             <span class="prelude-val">Ok</span>(<span class="kw">_</span>) =&gt; <span class="macro">panic!</span>(),
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

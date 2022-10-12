@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/list_store.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>list_store.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/list_store.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>list_store.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -306,235 +300,234 @@
 <span id="227">227</span>
 <span id="228">228</span>
 <span id="229">229</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::auto::traits::ListModelExt</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ListModel</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ListStore</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib</span>::{<span class="ident">IsA</span>, <span class="ident">Object</span>};
-<span class="kw">use</span> <span class="ident">std::cmp::Ordering</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::auto::traits::ListModelExt;
+<span class="kw">use </span><span class="kw">crate</span>::ListModel;
+<span class="kw">use </span><span class="kw">crate</span>::ListStore;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::Cast;
+<span class="kw">use </span>glib::{IsA, Object};
+<span class="kw">use </span>std::cmp::Ordering;
 
-<span class="kw">impl</span> <span class="ident">ListStore</span> {
-    <span class="doccomment">/// Inserts `item` into `self` at a position to be determined by the</span>
-    <span class="doccomment">/// `compare_func`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The list must already be sorted before calling this function or the</span>
-    <span class="doccomment">/// result is undefined. Usually you would approach this by only ever</span>
-    <span class="doccomment">/// inserting items by way of this function.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function takes a ref on `item`.</span>
-    <span class="doccomment">/// ## `item`</span>
-    <span class="doccomment">/// the new item</span>
-    <span class="doccomment">/// ## `compare_func`</span>
-    <span class="doccomment">/// pairwise comparison function for sorting</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the position at which `item` was inserted</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_list_store_insert_sorted&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">insert_sorted</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>, <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>, <span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">Ordering</span><span class="op">&gt;</span>(
+<span class="kw">impl </span>ListStore {
+    <span class="doccomment">/// Inserts `item` into `self` at a position to be determined by the
+    /// `compare_func`.
+    ///
+    /// The list must already be sorted before calling this function or the
+    /// result is undefined. Usually you would approach this by only ever
+    /// inserting items by way of this function.
+    ///
+    /// This function takes a ref on `item`.
+    /// ## `item`
+    /// the new item
+    /// ## `compare_func`
+    /// pairwise comparison function for sorting
+    ///
+    /// # Returns
+    ///
+    /// the position at which `item` was inserted
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_list_store_insert_sorted&quot;</span>)]
+    </span><span class="kw">pub fn </span>insert_sorted&lt;P: IsA&lt;glib::Object&gt;, F: FnMut(<span class="kw-2">&amp;</span>Object, <span class="kw-2">&amp;</span>Object) -&gt; Ordering&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>,
-        <span class="ident">compare_func</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="ident">u32</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">func</span> <span class="op">=</span> <span class="ident">compare_func</span>;
-            <span class="kw">let</span> <span class="ident">func_obj</span>: <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>, <span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">Ordering</span>) <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="ident">func</span>;
-            <span class="kw">let</span> <span class="ident">func_ptr</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">func_obj</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>, <span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">Ordering</span>)
-                <span class="kw">as</span> <span class="ident">glib::ffi::gpointer</span>;
+        item: <span class="kw-2">&amp;</span>P,
+        compare_func: F,
+    ) -&gt; u32 {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>func = compare_func;
+            <span class="kw">let </span>func_obj: <span class="kw-2">&amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object, <span class="kw-2">&amp;</span>Object) -&gt; Ordering) = <span class="kw-2">&amp;mut </span>func;
+            <span class="kw">let </span>func_ptr = <span class="kw-2">&amp;</span>func_obj <span class="kw">as </span><span class="kw-2">*const &amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object, <span class="kw-2">&amp;</span>Object) -&gt; Ordering)
+                <span class="kw">as </span>glib::ffi::gpointer;
 
-            <span class="ident">ffi::g_list_store_insert_sorted</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">item</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">compare_func_trampoline</span>),
-                <span class="ident">func_ptr</span>,
+            ffi::g_list_store_insert_sorted(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                item.as_ref().to_glib_none().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(compare_func_trampoline),
+                func_ptr,
             )
         }
     }
 
-    <span class="doccomment">/// Sort the items in `self` according to `compare_func`.</span>
-    <span class="doccomment">/// ## `compare_func`</span>
-    <span class="doccomment">/// pairwise comparison function for sorting</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_list_store_sort&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sort</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>, <span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">Ordering</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">compare_func</span>: <span class="ident">F</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">func</span> <span class="op">=</span> <span class="ident">compare_func</span>;
-            <span class="kw">let</span> <span class="ident">func_obj</span>: <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>, <span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">Ordering</span>) <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="ident">func</span>;
-            <span class="kw">let</span> <span class="ident">func_ptr</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">func_obj</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>, <span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">Ordering</span>)
-                <span class="kw">as</span> <span class="ident">glib::ffi::gpointer</span>;
+    <span class="doccomment">/// Sort the items in `self` according to `compare_func`.
+    /// ## `compare_func`
+    /// pairwise comparison function for sorting
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_list_store_sort&quot;</span>)]
+    </span><span class="kw">pub fn </span>sort&lt;F: FnMut(<span class="kw-2">&amp;</span>Object, <span class="kw-2">&amp;</span>Object) -&gt; Ordering&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, compare_func: F) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>func = compare_func;
+            <span class="kw">let </span>func_obj: <span class="kw-2">&amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object, <span class="kw-2">&amp;</span>Object) -&gt; Ordering) = <span class="kw-2">&amp;mut </span>func;
+            <span class="kw">let </span>func_ptr = <span class="kw-2">&amp;</span>func_obj <span class="kw">as </span><span class="kw-2">*const &amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object, <span class="kw-2">&amp;</span>Object) -&gt; Ordering)
+                <span class="kw">as </span>glib::ffi::gpointer;
 
-            <span class="ident">ffi::g_list_store_sort</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">compare_func_trampoline</span>),
-                <span class="ident">func_ptr</span>,
+            ffi::g_list_store_sort(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(compare_func_trampoline),
+                func_ptr,
             )
         }
     }
 
-    <span class="doccomment">/// Changes `self` by removing `n_removals` items and adding `n_additions`</span>
-    <span class="doccomment">/// items to it. `additions` must contain `n_additions` items of type</span>
-    <span class="doccomment">/// `property::ListStore::item-type`. [`None`] is not permitted.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function is more efficient than [`insert()`][Self::insert()] and</span>
-    <span class="doccomment">/// [`remove()`][Self::remove()], because it only emits</span>
-    <span class="doccomment">/// `signal::ListModel::items-changed` once for the change.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function takes a ref on each item in `additions`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The parameters `position` and `n_removals` must be correct (ie:</span>
-    <span class="doccomment">/// `position` + `n_removals` must be less than or equal to the length of</span>
-    <span class="doccomment">/// the list at the time this function is called).</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// the position at which to make the change</span>
-    <span class="doccomment">/// ## `n_removals`</span>
-    <span class="doccomment">/// the number of items to remove</span>
-    <span class="doccomment">/// ## `additions`</span>
-    <span class="doccomment">/// the items to add</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_list_store_splice&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">splice</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_removals</span>: <span class="ident">u32</span>, <span class="ident">additions</span>: <span class="kw-2">&amp;</span>[<span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>]) {
-        <span class="kw">let</span> <span class="ident">n_additions</span> <span class="op">=</span> <span class="ident">additions</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>;
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">additions</span> <span class="op">=</span> <span class="ident">additions</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>;
+    <span class="doccomment">/// Changes `self` by removing `n_removals` items and adding `n_additions`
+    /// items to it. `additions` must contain `n_additions` items of type
+    /// `property::ListStore::item-type`. [`None`] is not permitted.
+    ///
+    /// This function is more efficient than [`insert()`][Self::insert()] and
+    /// [`remove()`][Self::remove()], because it only emits
+    /// `signal::ListModel::items-changed` once for the change.
+    ///
+    /// This function takes a ref on each item in `additions`.
+    ///
+    /// The parameters `position` and `n_removals` must be correct (ie:
+    /// `position` + `n_removals` must be less than or equal to the length of
+    /// the list at the time this function is called).
+    /// ## `position`
+    /// the position at which to make the change
+    /// ## `n_removals`
+    /// the number of items to remove
+    /// ## `additions`
+    /// the items to add
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_list_store_splice&quot;</span>)]
+    </span><span class="kw">pub fn </span>splice(<span class="kw-2">&amp;</span><span class="self">self</span>, position: u32, n_removals: u32, additions: <span class="kw-2">&amp;</span>[<span class="kw">impl </span>IsA&lt;glib::Object&gt;]) {
+        <span class="kw">let </span>n_additions = additions.len() <span class="kw">as </span>u32;
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>additions = additions.as_ptr() <span class="kw">as </span><span class="kw-2">*mut *mut </span>glib::gobject_ffi::GObject;
 
-            <span class="ident">ffi::g_list_store_splice</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
-                <span class="ident">n_removals</span>,
-                <span class="ident">additions</span>,
-                <span class="ident">n_additions</span>,
+            ffi::g_list_store_splice(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                position,
+                n_removals,
+                additions,
+                n_additions,
             );
         }
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Appends all elements in a slice to the `ListStore`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">extend_from_slice</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">additions</span>: <span class="kw-2">&amp;</span>[<span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>]) {
-        <span class="self">self</span>.<span class="ident">splice</span>(<span class="self">self</span>.<span class="ident">n_items</span>(), <span class="number">0</span>, <span class="ident">additions</span>)
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Appends all elements in a slice to the `ListStore`.
+    </span><span class="kw">pub fn </span>extend_from_slice(<span class="kw-2">&amp;</span><span class="self">self</span>, additions: <span class="kw-2">&amp;</span>[<span class="kw">impl </span>IsA&lt;glib::Object&gt;]) {
+        <span class="self">self</span>.splice(<span class="self">self</span>.n_items(), <span class="number">0</span>, additions)
     }
 
-    <span class="doccomment">/// Looks up the given `item` in the list store by looping over the items and</span>
-    <span class="doccomment">/// comparing them with `equal_func` until the first occurrence of `item` which</span>
-    <span class="doccomment">/// matches. If `item` was not found, then `position` will not be set, and this</span>
-    <span class="doccomment">/// method will return [`false`].</span>
-    <span class="doccomment">/// ## `item`</span>
-    <span class="doccomment">/// an item</span>
-    <span class="doccomment">/// ## `equal_func`</span>
-    <span class="doccomment">/// A custom equality check function</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Whether `self` contains `item`. If it was found, `position` will be</span>
-    <span class="doccomment">/// set to the position where `item` occurred for the first time.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// the first position of `item`, if it was found.</span>
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_74&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_74&quot;</span>)))]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_list_store_find_with_equal_func_full&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_list_store_find_with_equal_func&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">find_with_equal_func</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">glib::Object</span>) -&gt; <span class="ident">bool</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// Looks up the given `item` in the list store by looping over the items and
+    /// comparing them with `equal_func` until the first occurrence of `item` which
+    /// matches. If `item` was not found, then `position` will not be set, and this
+    /// method will return [`false`].
+    /// ## `item`
+    /// an item
+    /// ## `equal_func`
+    /// A custom equality check function
+    ///
+    /// # Returns
+    ///
+    /// Whether `self` contains `item`. If it was found, `position` will be
+    /// set to the position where `item` occurred for the first time.
+    ///
+    /// ## `position`
+    /// the first position of `item`, if it was found.
+    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_74&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
+    #[doc(alias = <span class="string">&quot;g_list_store_find_with_equal_func_full&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;g_list_store_find_with_equal_func&quot;</span>)]
+    </span><span class="kw">pub fn </span>find_with_equal_func&lt;F: FnMut(<span class="kw-2">&amp;</span>glib::Object) -&gt; bool&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">equal_func</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">equal_func_trampoline</span>(
-            <span class="ident">a</span>: <span class="ident">glib::ffi::gconstpointer</span>,
-            <span class="ident">_b</span>: <span class="ident">glib::ffi::gconstpointer</span>,
-            <span class="ident">func</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> <span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">bool</span>);
+        equal_func: F,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;u32&gt; {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>equal_func_trampoline(
+            a: glib::ffi::gconstpointer,
+            _b: glib::ffi::gconstpointer,
+            func: glib::ffi::gpointer,
+        ) -&gt; glib::ffi::gboolean {
+            <span class="kw">let </span>func = func <span class="kw">as </span><span class="kw-2">*mut &amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object) -&gt; bool);
 
-            <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">a</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>);
+            <span class="kw">let </span>a = from_glib_borrow(a <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GObject);
 
-            (<span class="kw-2">*</span><span class="ident">func</span>)(<span class="kw-2">&amp;</span><span class="ident">a</span>).<span class="ident">into_glib</span>()
+            (<span class="kw-2">*</span>func)(<span class="kw-2">&amp;</span>a).into_glib()
         }
 
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">func</span> <span class="op">=</span> <span class="ident">equal_func</span>;
-            <span class="kw">let</span> <span class="ident">func_obj</span>: <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">bool</span>) <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="ident">func</span>;
-            <span class="kw">let</span> <span class="ident">func_ptr</span> <span class="op">=</span>
-                <span class="kw-2">&amp;</span><span class="ident">func_obj</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">bool</span>) <span class="kw">as</span> <span class="ident">glib::ffi::gpointer</span>;
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>func = equal_func;
+            <span class="kw">let </span>func_obj: <span class="kw-2">&amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object) -&gt; bool) = <span class="kw-2">&amp;mut </span>func;
+            <span class="kw">let </span>func_ptr =
+                <span class="kw-2">&amp;</span>func_obj <span class="kw">as </span><span class="kw-2">*const &amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object) -&gt; bool) <span class="kw">as </span>glib::ffi::gpointer;
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">position</span> <span class="op">=</span> <span class="ident">std::mem::MaybeUninit::uninit</span>();
+            <span class="kw">let </span><span class="kw-2">mut </span>position = std::mem::MaybeUninit::uninit();
 
-            <span class="kw">let</span> <span class="ident">found</span> <span class="op">=</span> <span class="ident">bool::from_glib</span>(<span class="ident">ffi::g_list_store_find_with_equal_func_full</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">std::ptr::null_mut</span>(),
-                <span class="prelude-val">Some</span>(<span class="ident">equal_func_trampoline</span>),
-                <span class="ident">func_ptr</span>,
-                <span class="ident">position</span>.<span class="ident">as_mut_ptr</span>(),
+            <span class="kw">let </span>found = bool::from_glib(ffi::g_list_store_find_with_equal_func_full(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                std::ptr::null_mut(),
+                <span class="prelude-val">Some</span>(equal_func_trampoline),
+                func_ptr,
+                position.as_mut_ptr(),
             ));
 
-            <span class="ident">found</span>.<span class="ident">then</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">position</span>.<span class="ident">assume_init</span>())
+            found.then(|| position.assume_init())
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">std::iter::IntoIterator</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ListStore</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ListModel</span> <span class="kw">as</span> <span class="ident">IntoIterator</span><span class="op">&gt;</span><span class="ident">::Item</span>;
-    <span class="kw">type</span> <span class="ident">IntoIter</span> <span class="op">=</span> <span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ListModel</span> <span class="kw">as</span> <span class="ident">IntoIterator</span><span class="op">&gt;</span><span class="ident">::IntoIter</span>;
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; std::iter::IntoIterator <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>ListStore {
+    <span class="kw">type </span>Item = &lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>ListModel <span class="kw">as </span>IntoIterator&gt;::Item;
+    <span class="kw">type </span>IntoIter = &lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>ListModel <span class="kw">as </span>IntoIterator&gt;::IntoIter;
 
-    <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
-        <span class="self">self</span>.<span class="ident">upcast_ref</span>::<span class="op">&lt;</span><span class="ident">ListModel</span><span class="op">&gt;</span>().<span class="ident">into_iter</span>()
+    <span class="kw">fn </span>into_iter(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
+        <span class="self">self</span>.upcast_ref::&lt;ListModel&gt;().into_iter()
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">compare_func_trampoline</span>(
-    <span class="ident">a</span>: <span class="ident">glib::ffi::gconstpointer</span>,
-    <span class="ident">b</span>: <span class="ident">glib::ffi::gconstpointer</span>,
-    <span class="ident">func</span>: <span class="ident">glib::ffi::gpointer</span>,
-) -&gt; <span class="ident">i32</span> {
-    <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> <span class="ident">func</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw-2">&amp;mut</span> (<span class="kw">dyn</span> <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">Object</span>, <span class="kw-2">&amp;</span><span class="ident">Object</span>) -&gt; <span class="ident">Ordering</span>);
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>compare_func_trampoline(
+    a: glib::ffi::gconstpointer,
+    b: glib::ffi::gconstpointer,
+    func: glib::ffi::gpointer,
+) -&gt; i32 {
+    <span class="kw">let </span>func = func <span class="kw">as </span><span class="kw-2">*mut &amp;mut </span>(<span class="kw">dyn </span>FnMut(<span class="kw-2">&amp;</span>Object, <span class="kw-2">&amp;</span>Object) -&gt; Ordering);
 
-    <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">a</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>);
-    <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">b</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>);
+    <span class="kw">let </span>a = from_glib_borrow(a <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GObject);
+    <span class="kw">let </span>b = from_glib_borrow(b <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GObject);
 
-    (<span class="kw-2">*</span><span class="ident">func</span>)(<span class="kw-2">&amp;</span><span class="ident">a</span>, <span class="kw-2">&amp;</span><span class="ident">b</span>).<span class="ident">into_glib</span>()
+    (<span class="kw-2">*</span>func)(<span class="kw-2">&amp;</span>a, <span class="kw-2">&amp;</span>b).into_glib()
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">A</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">std::iter::Extend</span><span class="op">&lt;</span><span class="ident">A</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ListStore</span> {
-    <span class="kw">fn</span> <span class="ident">extend</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">A</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">iter</span>: <span class="ident">T</span>) {
-        <span class="kw">let</span> <span class="ident">additions</span> <span class="op">=</span> <span class="ident">iter</span>
-            .<span class="ident">into_iter</span>()
-            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">o</span><span class="op">|</span> <span class="ident">o</span>.<span class="ident">as_ref</span>().<span class="ident">clone</span>())
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
-        <span class="self">self</span>.<span class="ident">splice</span>(<span class="self">self</span>.<span class="ident">n_items</span>(), <span class="number">0</span>, <span class="kw-2">&amp;</span><span class="ident">additions</span>)
+<span class="kw">impl</span>&lt;A: AsRef&lt;glib::Object&gt;&gt; std::iter::Extend&lt;A&gt; <span class="kw">for </span>ListStore {
+    <span class="kw">fn </span>extend&lt;T: IntoIterator&lt;Item = A&gt;&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, iter: T) {
+        <span class="kw">let </span>additions = iter
+            .into_iter()
+            .map(|o| o.as_ref().clone())
+            .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+        <span class="self">self</span>.splice(<span class="self">self</span>.n_items(), <span class="number">0</span>, <span class="kw-2">&amp;</span>additions)
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ListStore</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::ListStore;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">splice</span>() {
-        <span class="kw">let</span> <span class="ident">item0</span> <span class="op">=</span> <span class="ident">ListStore::new</span>(<span class="ident">ListStore::static_type</span>());
-        <span class="kw">let</span> <span class="ident">item1</span> <span class="op">=</span> <span class="ident">ListStore::new</span>(<span class="ident">ListStore::static_type</span>());
-        <span class="kw">let</span> <span class="ident">list</span> <span class="op">=</span> <span class="ident">ListStore::new</span>(<span class="ident">ListStore::static_type</span>());
-        <span class="ident">list</span>.<span class="ident">splice</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="kw-2">&amp;</span>[<span class="ident">item0</span>.<span class="ident">clone</span>(), <span class="ident">item1</span>.<span class="ident">clone</span>()]);
-        <span class="macro">assert_eq!</span>(<span class="ident">list</span>.<span class="ident">item</span>(<span class="number">0</span>), <span class="prelude-val">Some</span>(<span class="ident">item0</span>.<span class="ident">upcast</span>()));
-        <span class="macro">assert_eq!</span>(<span class="ident">list</span>.<span class="ident">item</span>(<span class="number">1</span>), <span class="prelude-val">Some</span>(<span class="ident">item1</span>.<span class="ident">upcast</span>()));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>splice() {
+        <span class="kw">let </span>item0 = ListStore::new(ListStore::static_type());
+        <span class="kw">let </span>item1 = ListStore::new(ListStore::static_type());
+        <span class="kw">let </span>list = ListStore::new(ListStore::static_type());
+        list.splice(<span class="number">0</span>, <span class="number">0</span>, <span class="kw-2">&amp;</span>[item0.clone(), item1.clone()]);
+        <span class="macro">assert_eq!</span>(list.item(<span class="number">0</span>), <span class="prelude-val">Some</span>(item0.upcast()));
+        <span class="macro">assert_eq!</span>(list.item(<span class="number">1</span>), <span class="prelude-val">Some</span>(item1.upcast()));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">extend</span>() {
-        <span class="kw">let</span> <span class="ident">item0</span> <span class="op">=</span> <span class="ident">ListStore::new</span>(<span class="ident">ListStore::static_type</span>());
-        <span class="kw">let</span> <span class="ident">item1</span> <span class="op">=</span> <span class="ident">ListStore::new</span>(<span class="ident">ListStore::static_type</span>());
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">list</span> <span class="op">=</span> <span class="ident">ListStore::new</span>(<span class="ident">ListStore::static_type</span>());
-        <span class="ident">list</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">item0</span>, <span class="kw-2">&amp;</span><span class="ident">item1</span>]);
-        <span class="macro">assert_eq!</span>(<span class="ident">list</span>.<span class="ident">item</span>(<span class="number">0</span>).<span class="ident">as_ref</span>(), <span class="prelude-val">Some</span>(<span class="ident">item0</span>.<span class="ident">upcast_ref</span>()));
-        <span class="macro">assert_eq!</span>(<span class="ident">list</span>.<span class="ident">item</span>(<span class="number">1</span>).<span class="ident">as_ref</span>(), <span class="prelude-val">Some</span>(<span class="ident">item1</span>.<span class="ident">upcast_ref</span>()));
-        <span class="ident">list</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span>[<span class="ident">item0</span>.<span class="ident">clone</span>(), <span class="ident">item1</span>.<span class="ident">clone</span>()]);
-        <span class="macro">assert_eq!</span>(<span class="ident">list</span>.<span class="ident">item</span>(<span class="number">2</span>).<span class="ident">as_ref</span>(), <span class="prelude-val">Some</span>(<span class="ident">item0</span>.<span class="ident">upcast_ref</span>()));
-        <span class="macro">assert_eq!</span>(<span class="ident">list</span>.<span class="ident">item</span>(<span class="number">3</span>).<span class="ident">as_ref</span>(), <span class="prelude-val">Some</span>(<span class="ident">item1</span>.<span class="ident">upcast_ref</span>()));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>extend() {
+        <span class="kw">let </span>item0 = ListStore::new(ListStore::static_type());
+        <span class="kw">let </span>item1 = ListStore::new(ListStore::static_type());
+        <span class="kw">let </span><span class="kw-2">mut </span>list = ListStore::new(ListStore::static_type());
+        list.extend([<span class="kw-2">&amp;</span>item0, <span class="kw-2">&amp;</span>item1]);
+        <span class="macro">assert_eq!</span>(list.item(<span class="number">0</span>).as_ref(), <span class="prelude-val">Some</span>(item0.upcast_ref()));
+        <span class="macro">assert_eq!</span>(list.item(<span class="number">1</span>).as_ref(), <span class="prelude-val">Some</span>(item1.upcast_ref()));
+        list.extend([item0.clone(), item1.clone()]);
+        <span class="macro">assert_eq!</span>(list.item(<span class="number">2</span>).as_ref(), <span class="prelude-val">Some</span>(item0.upcast_ref()));
+        <span class="macro">assert_eq!</span>(list.item(<span class="number">3</span>).as_ref(), <span class="prelude-val">Some</span>(item1.upcast_ref()));
 
-        <span class="kw">let</span> <span class="ident">list_from_slice</span> <span class="op">=</span> <span class="ident">ListStore::new</span>(<span class="ident">ListStore::static_type</span>());
-        <span class="ident">list_from_slice</span>.<span class="ident">extend_from_slice</span>(<span class="kw-2">&amp;</span>[<span class="ident">item0</span>, <span class="ident">item1</span>.<span class="ident">clone</span>()]);
-        <span class="macro">assert_eq!</span>(<span class="ident">list_from_slice</span>.<span class="ident">item</span>(<span class="number">1</span>).<span class="ident">as_ref</span>(), <span class="prelude-val">Some</span>(<span class="ident">item1</span>.<span class="ident">upcast_ref</span>()));
+        <span class="kw">let </span>list_from_slice = ListStore::new(ListStore::static_type());
+        list_from_slice.extend_from_slice(<span class="kw-2">&amp;</span>[item0, item1.clone()]);
+        <span class="macro">assert_eq!</span>(list_from_slice.item(<span class="number">1</span>).as_ref(), <span class="prelude-val">Some</span>(item1.upcast_ref()));
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

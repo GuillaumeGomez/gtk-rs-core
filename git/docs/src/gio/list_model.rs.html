@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/list_model.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>list_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/list_model.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>list_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -400,329 +394,328 @@
 <span id="321">321</span>
 <span id="322">322</span>
 <span id="323">323</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident">std::cell::Cell</span>;
-<span class="kw">use</span> <span class="ident">std::iter::FusedIterator</span>;
-<span class="kw">use</span> <span class="ident">std::marker::PhantomData</span>;
-<span class="kw">use</span> <span class="ident">std::rc::Rc</span>;
+</span><span class="kw">use </span>std::cell::Cell;
+<span class="kw">use </span>std::iter::FusedIterator;
+<span class="kw">use </span>std::marker::PhantomData;
+<span class="kw">use </span>std::rc::Rc;
 
-<span class="kw">use</span> <span class="ident">glib::SignalHandlerId</span>;
+<span class="kw">use </span>glib::SignalHandlerId;
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ListModel</span>;
+<span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
+<span class="kw">use </span><span class="kw">crate</span>::ListModel;
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">thiserror::Error</span>, <span class="ident">Debug</span>, <span class="ident">PartialEq</span>)]</span>
-<span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;can&#39;t downcast ListModel&#39;s items (`{actual}`) to the requested type `{requested}`&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ListModelItemsTypeErr</span> {
-    <span class="ident">actual</span>: <span class="ident">glib::Type</span>,
-    <span class="ident">requested</span>: <span class="ident">glib::Type</span>,
+<span class="attribute">#[derive(thiserror::Error, Debug, PartialEq, Eq)]
+#[error(<span class="string">&quot;can&#39;t downcast ListModel&#39;s items (`{actual}`) to the requested type `{requested}`&quot;</span>)]
+</span><span class="kw">pub struct </span>ListModelItemsTypeErr {
+    actual: glib::Type,
+    requested: glib::Type,
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ListModelExtManual</span>: <span class="ident">Sized</span> {
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Get an immutable snapshot of the container inside the `ListModel`.</span>
-    <span class="doccomment">/// Any modification done to the returned container `Vec` will not be</span>
-    <span class="doccomment">/// reflected on the `ListModel`.</span>
-    <span class="kw">fn</span> <span class="ident">snapshot</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>;
+<span class="kw">pub trait </span>ListModelExtManual: Sized {
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Get an immutable snapshot of the container inside the `ListModel`.
+    /// Any modification done to the returned container `Vec` will not be
+    /// reflected on the `ListModel`.
+    </span><span class="kw">fn </span>snapshot(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::Object&gt;;
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// If `T::static_type().is_a(self.item_type())` then it returns an iterator over the `ListModel` elements,</span>
-    <span class="doccomment">/// else the types are not compatible and returns an `Err(...)`.</span>
-    <span class="kw">fn</span> <span class="ident">iter</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ListModelItemsTypeErr</span><span class="op">&gt;</span>;
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// If `T::static_type().is_a(self.item_type())` then it returns an iterator over the `ListModel` elements,
+    /// else the types are not compatible and returns an `Err(...)`.
+    </span><span class="kw">fn </span>iter&lt;T: IsA&lt;glib::Object&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;ListModelIter&lt;T&gt;, ListModelItemsTypeErr&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ListModel</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">ListModelExtManual</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">snapshot</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">Vec::with_capacity</span>(<span class="self">self</span>.<span class="ident">n_items</span>() <span class="kw">as</span> <span class="ident">usize</span>);
-        <span class="kw">for</span> <span class="ident">i</span> <span class="kw">in</span> <span class="number">0</span>..<span class="self">self</span>.<span class="ident">n_items</span>() {
-            <span class="ident">res</span>.<span class="ident">push</span>(<span class="self">self</span>.<span class="ident">item</span>(<span class="ident">i</span>).<span class="ident">unwrap</span>())
+<span class="kw">impl</span>&lt;T: IsA&lt;ListModel&gt;&gt; ListModelExtManual <span class="kw">for </span>T {
+    <span class="kw">fn </span>snapshot(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::Object&gt; {
+        <span class="kw">let </span><span class="kw-2">mut </span>res = Vec::with_capacity(<span class="self">self</span>.n_items() <span class="kw">as </span>usize);
+        <span class="kw">for </span>i <span class="kw">in </span><span class="number">0</span>..<span class="self">self</span>.n_items() {
+            res.push(<span class="self">self</span>.item(i).unwrap())
         }
-        <span class="ident">res</span>
+        res
     }
-    <span class="kw">fn</span> <span class="ident">iter</span><span class="op">&lt;</span><span class="ident">LT</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="ident">LT</span><span class="op">&gt;</span>, <span class="ident">ListModelItemsTypeErr</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">item_type</span>().<span class="ident">is_a</span>(<span class="ident">LT::static_type</span>()) {
-            <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ListModelItemsTypeErr</span> {
-                <span class="ident">actual</span>: <span class="self">self</span>.<span class="ident">item_type</span>(),
-                <span class="ident">requested</span>: <span class="ident">LT::static_type</span>(),
+    <span class="kw">fn </span>iter&lt;LT: IsA&lt;glib::Object&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;ListModelIter&lt;LT&gt;, ListModelItemsTypeErr&gt; {
+        <span class="kw">if </span>!<span class="self">self</span>.item_type().is_a(LT::static_type()) {
+            <span class="kw">return </span><span class="prelude-val">Err</span>(ListModelItemsTypeErr {
+                actual: <span class="self">self</span>.item_type(),
+                requested: LT::static_type(),
             });
         }
 
-        <span class="kw">let</span> <span class="ident">len</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">n_items</span>();
-        <span class="kw">let</span> <span class="ident">changed</span> <span class="op">=</span> <span class="ident">Rc::new</span>(<span class="ident">Cell::new</span>(<span class="bool-val">false</span>));
+        <span class="kw">let </span>len = <span class="self">self</span>.n_items();
+        <span class="kw">let </span>changed = Rc::new(Cell::new(<span class="bool-val">false</span>));
 
-        <span class="kw">let</span> <span class="ident">changed_clone</span> <span class="op">=</span> <span class="ident">changed</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">signal_id</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">connect_items_changed</span>(<span class="kw">move</span> <span class="op">|</span><span class="kw">_</span>, <span class="ident">pos</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">|</span> {
-            <span class="kw">if</span> <span class="ident">pos</span> <span class="op">&lt;</span> <span class="ident">len</span> {
-                <span class="ident">changed_clone</span>.<span class="ident">set</span>(<span class="bool-val">true</span>);
+        <span class="kw">let </span>changed_clone = changed.clone();
+        <span class="kw">let </span>signal_id = <span class="prelude-val">Some</span>(<span class="self">self</span>.connect_items_changed(<span class="kw">move </span>|<span class="kw">_</span>, pos, <span class="kw">_</span>, <span class="kw">_</span>| {
+            <span class="kw">if </span>pos &lt; len {
+                changed_clone.set(<span class="bool-val">true</span>);
             }
         }));
 
-        <span class="prelude-val">Ok</span>(<span class="ident">ListModelIter</span> {
-            <span class="ident">ty</span>: <span class="ident">Default::default</span>(),
-            <span class="ident">i</span>: <span class="number">0</span>,
-            <span class="ident">reverse_pos</span>: <span class="ident">len</span>,
-            <span class="ident">model</span>: <span class="self">self</span>.<span class="ident">upcast_ref</span>(),
-            <span class="ident">changed</span>,
-            <span class="ident">signal_id</span>,
+        <span class="prelude-val">Ok</span>(ListModelIter {
+            ty: Default::default(),
+            i: <span class="number">0</span>,
+            reverse_pos: len,
+            model: <span class="self">self</span>.upcast_ref(),
+            changed,
+            signal_id,
         })
     }
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">thiserror::Error</span>, <span class="ident">Debug</span>, <span class="ident">PartialEq</span>)]</span>
-<span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;the list model was mutated during iteration&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ListModelMutatedDuringIter</span>;
+<span class="attribute">#[derive(thiserror::Error, Debug, PartialEq, Eq)]
+#[error(<span class="string">&quot;the list model was mutated during iteration&quot;</span>)]
+</span><span class="kw">pub struct </span>ListModelMutatedDuringIter;
 
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">/// Iterator of `ListModel`&#39;s items.</span>
-<span class="doccomment">/// This iterator will always give `n = initial_model.n_items()` items, even if the `ListModel`</span>
-<span class="doccomment">/// is mutated during iteration.</span>
-<span class="doccomment">/// If the internal `ListModel` gets mutated, the iterator</span>
-<span class="doccomment">/// will return `Some(Err(...))` for the remaining items.</span>
-<span class="doccomment">/// Mutations to the `ListModel` in position &gt;= `initial_model.n_items()` are allowed.</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="ident">ty</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
-    <span class="ident">i</span>: <span class="ident">u32</span>,
-    <span class="comment">// it&#39;s &gt; i when valid</span>
-    <span class="ident">reverse_pos</span>: <span class="ident">u32</span>,
-    <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ListModel</span>,
-    <span class="ident">changed</span>: <span class="ident">Rc</span><span class="op">&lt;</span><span class="ident">Cell</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-    <span class="ident">signal_id</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">SignalHandlerId</span><span class="op">&gt;</span>,
+<span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// Iterator of `ListModel`&#39;s items.
+/// This iterator will always give `n = initial_model.n_items()` items, even if the `ListModel`
+/// is mutated during iteration.
+/// If the internal `ListModel` gets mutated, the iterator
+/// will return `Some(Err(...))` for the remaining items.
+/// Mutations to the `ListModel` in position &gt;= `initial_model.n_items()` are allowed.
+</span><span class="kw">pub struct </span>ListModelIter&lt;<span class="lifetime">&#39;a</span>, T: IsA&lt;glib::Object&gt;&gt; {
+    ty: PhantomData&lt;T&gt;,
+    i: u32,
+    <span class="comment">// it&#39;s &gt; i when valid
+    </span>reverse_pos: u32,
+    model: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>ListModel,
+    changed: Rc&lt;Cell&lt;bool&gt;&gt;,
+    signal_id: <span class="prelude-ty">Option</span>&lt;SignalHandlerId&gt;,
 }
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">ListModelMutatedDuringIter</span><span class="op">&gt;</span>;
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: IsA&lt;glib::Object&gt;&gt; Iterator <span class="kw">for </span>ListModelIter&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+    <span class="kw">type </span>Item = <span class="prelude-ty">Result</span>&lt;T, ListModelMutatedDuringIter&gt;;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">i</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">reverse_pos</span> {
-            <span class="kw">return</span> <span class="prelude-val">None</span>;
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">if </span><span class="self">self</span>.i &gt;= <span class="self">self</span>.reverse_pos {
+            <span class="kw">return </span><span class="prelude-val">None</span>;
         }
-        <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">changed</span>.<span class="ident">get</span>() {
-            <span class="bool-val">true</span> =&gt; <span class="prelude-val">Err</span>(<span class="ident">ListModelMutatedDuringIter</span>),
-            <span class="bool-val">false</span> =&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>.<span class="ident">model</span>.<span class="ident">item</span>(<span class="self">self</span>.<span class="ident">i</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>()),
+        <span class="kw">let </span>res = <span class="kw">match </span><span class="self">self</span>.changed.get() {
+            <span class="bool-val">true </span>=&gt; <span class="prelude-val">Err</span>(ListModelMutatedDuringIter),
+            <span class="bool-val">false </span>=&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>.model.item(<span class="self">self</span>.i).unwrap().downcast::&lt;T&gt;().unwrap()),
         };
-        <span class="self">self</span>.<span class="ident">i</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-        <span class="prelude-val">Some</span>(<span class="ident">res</span>)
+        <span class="self">self</span>.i += <span class="number">1</span>;
+        <span class="prelude-val">Some</span>(res)
     }
 
-    <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">n</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">i</span>) <span class="kw">as</span> <span class="ident">usize</span>;
-        (<span class="ident">n</span> <span class="kw">as</span> <span class="ident">usize</span>, <span class="prelude-val">Some</span>(<span class="ident">n</span>))
+    <span class="kw">fn </span>size_hint(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (usize, <span class="prelude-ty">Option</span>&lt;usize&gt;) {
+        <span class="kw">let </span>n = (<span class="self">self</span>.reverse_pos - <span class="self">self</span>.i) <span class="kw">as </span>usize;
+        (n <span class="kw">as </span>usize, <span class="prelude-val">Some</span>(n))
     }
 
-    <span class="kw">fn</span> <span class="ident">count</span>(<span class="self">self</span>) -&gt; <span class="ident">usize</span> {
-        (<span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">i</span>) <span class="kw">as</span> <span class="ident">usize</span>
+    <span class="kw">fn </span>count(<span class="self">self</span>) -&gt; usize {
+        (<span class="self">self</span>.reverse_pos - <span class="self">self</span>.i) <span class="kw">as </span>usize
     }
 
-    <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> (<span class="ident">end</span>, <span class="ident">overflow</span>) <span class="op">=</span> (<span class="self">self</span>.<span class="ident">i</span> <span class="kw">as</span> <span class="ident">usize</span>).<span class="ident">overflowing_add</span>(<span class="ident">n</span>);
-        <span class="kw">if</span> <span class="ident">end</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">|</span><span class="op">|</span> <span class="ident">overflow</span> {
-            <span class="self">self</span>.<span class="ident">i</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">reverse_pos</span>;
-            <span class="prelude-val">None</span>
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">end</span> <span class="kw">as</span> <span class="ident">u32</span>;
-            <span class="self">self</span>.<span class="ident">i</span> <span class="op">=</span> <span class="ident">end</span> <span class="op">+</span> <span class="number">1</span>;
+    <span class="kw">fn </span>nth(<span class="kw-2">&amp;mut </span><span class="self">self</span>, n: usize) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">let </span>(end, overflow) = (<span class="self">self</span>.i <span class="kw">as </span>usize).overflowing_add(n);
+        <span class="kw">if </span>end &gt;= <span class="self">self</span>.reverse_pos <span class="kw">as </span>usize || overflow {
+            <span class="self">self</span>.i = <span class="self">self</span>.reverse_pos;
+            <span class="prelude-val">None
+        </span>} <span class="kw">else </span>{
+            <span class="kw">let </span>end = end <span class="kw">as </span>u32;
+            <span class="self">self</span>.i = end + <span class="number">1</span>;
 
-            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">changed</span>.<span class="ident">get</span>() {
-                <span class="bool-val">true</span> =&gt; <span class="prelude-val">Err</span>(<span class="ident">ListModelMutatedDuringIter</span>),
-                <span class="bool-val">false</span> =&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>.<span class="ident">model</span>.<span class="ident">item</span>(<span class="ident">end</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>()),
+            <span class="kw">let </span>res = <span class="kw">match </span><span class="self">self</span>.changed.get() {
+                <span class="bool-val">true </span>=&gt; <span class="prelude-val">Err</span>(ListModelMutatedDuringIter),
+                <span class="bool-val">false </span>=&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>.model.item(end).unwrap().downcast::&lt;T&gt;().unwrap()),
             };
-            <span class="prelude-val">Some</span>(<span class="ident">res</span>)
+            <span class="prelude-val">Some</span>(res)
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">last</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">i</span> <span class="op">==</span> <span class="self">self</span>.<span class="ident">reverse_pos</span> {
-            <span class="prelude-val">None</span>
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">changed</span>.<span class="ident">get</span>() {
-                <span class="bool-val">true</span> =&gt; <span class="prelude-val">Err</span>(<span class="ident">ListModelMutatedDuringIter</span>),
-                <span class="bool-val">false</span> =&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>
-                    .<span class="ident">model</span>
-                    .<span class="ident">item</span>(<span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="op">-</span> <span class="number">1</span>)
-                    .<span class="ident">unwrap</span>()
-                    .<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>()
-                    .<span class="ident">unwrap</span>()),
+    <span class="kw">fn </span>last(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">if </span><span class="self">self</span>.i == <span class="self">self</span>.reverse_pos {
+            <span class="prelude-val">None
+        </span>} <span class="kw">else </span>{
+            <span class="kw">let </span>res = <span class="kw">match </span><span class="self">self</span>.changed.get() {
+                <span class="bool-val">true </span>=&gt; <span class="prelude-val">Err</span>(ListModelMutatedDuringIter),
+                <span class="bool-val">false </span>=&gt; <span class="prelude-val">Ok</span>(<span class="self">self
+                    </span>.model
+                    .item(<span class="self">self</span>.reverse_pos - <span class="number">1</span>)
+                    .unwrap()
+                    .downcast::&lt;T&gt;()
+                    .unwrap()),
             };
-            <span class="prelude-val">Some</span>(<span class="ident">res</span>)
+            <span class="prelude-val">Some</span>(res)
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">FusedIterator</span> <span class="kw">for</span> <span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> {}
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: IsA&lt;glib::Object&gt;&gt; FusedIterator <span class="kw">for </span>ListModelIter&lt;<span class="lifetime">&#39;a</span>, T&gt; {}
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">ExactSizeIterator</span> <span class="kw">for</span> <span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> {}
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: IsA&lt;glib::Object&gt;&gt; ExactSizeIterator <span class="kw">for </span>ListModelIter&lt;<span class="lifetime">&#39;a</span>, T&gt; {}
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">DoubleEndedIterator</span> <span class="kw">for</span> <span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">next_back</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="op">==</span> <span class="self">self</span>.<span class="ident">i</span> {
-            <span class="kw">return</span> <span class="prelude-val">None</span>;
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: IsA&lt;glib::Object&gt;&gt; DoubleEndedIterator <span class="kw">for </span>ListModelIter&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+    <span class="kw">fn </span>next_back(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">if </span><span class="self">self</span>.reverse_pos == <span class="self">self</span>.i {
+            <span class="kw">return </span><span class="prelude-val">None</span>;
         }
-        <span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-        <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">changed</span>.<span class="ident">get</span>() {
-            <span class="bool-val">true</span> =&gt; <span class="prelude-val">Err</span>(<span class="ident">ListModelMutatedDuringIter</span>),
-            <span class="bool-val">false</span> =&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>
-                .<span class="ident">model</span>
-                .<span class="ident">item</span>(<span class="self">self</span>.<span class="ident">reverse_pos</span>)
-                .<span class="ident">unwrap</span>()
-                .<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>()
-                .<span class="ident">unwrap</span>()),
+        <span class="self">self</span>.reverse_pos -= <span class="number">1</span>;
+        <span class="kw">let </span>res = <span class="kw">match </span><span class="self">self</span>.changed.get() {
+            <span class="bool-val">true </span>=&gt; <span class="prelude-val">Err</span>(ListModelMutatedDuringIter),
+            <span class="bool-val">false </span>=&gt; <span class="prelude-val">Ok</span>(<span class="self">self
+                </span>.model
+                .item(<span class="self">self</span>.reverse_pos)
+                .unwrap()
+                .downcast::&lt;T&gt;()
+                .unwrap()),
         };
-        <span class="prelude-val">Some</span>(<span class="ident">res</span>)
+        <span class="prelude-val">Some</span>(res)
     }
 
-    <span class="kw">fn</span> <span class="ident">nth_back</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> (<span class="ident">end</span>, <span class="ident">overflow</span>) <span class="op">=</span> (<span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="kw">as</span> <span class="ident">usize</span>).<span class="ident">overflowing_sub</span>(<span class="ident">n</span>);
-        <span class="kw">if</span> <span class="ident">end</span> <span class="op">&lt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">i</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">|</span><span class="op">|</span> <span class="ident">overflow</span> {
-            <span class="self">self</span>.<span class="ident">i</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">reverse_pos</span>;
-            <span class="prelude-val">None</span>
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">end</span> <span class="kw">as</span> <span class="ident">u32</span>;
-            <span class="self">self</span>.<span class="ident">reverse_pos</span> <span class="op">=</span> <span class="ident">end</span> <span class="op">-</span> <span class="number">1</span>;
+    <span class="kw">fn </span>nth_back(<span class="kw-2">&amp;mut </span><span class="self">self</span>, n: usize) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">let </span>(end, overflow) = (<span class="self">self</span>.reverse_pos <span class="kw">as </span>usize).overflowing_sub(n);
+        <span class="kw">if </span>end &lt;= <span class="self">self</span>.i <span class="kw">as </span>usize || overflow {
+            <span class="self">self</span>.i = <span class="self">self</span>.reverse_pos;
+            <span class="prelude-val">None
+        </span>} <span class="kw">else </span>{
+            <span class="kw">let </span>end = end <span class="kw">as </span>u32;
+            <span class="self">self</span>.reverse_pos = end - <span class="number">1</span>;
 
-            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">changed</span>.<span class="ident">get</span>() {
-                <span class="bool-val">true</span> =&gt; <span class="prelude-val">Err</span>(<span class="ident">ListModelMutatedDuringIter</span>),
-                <span class="bool-val">false</span> =&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>.<span class="ident">model</span>.<span class="ident">item</span>(<span class="ident">end</span> <span class="op">-</span> <span class="number">1</span>).<span class="ident">unwrap</span>().<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>()),
+            <span class="kw">let </span>res = <span class="kw">match </span><span class="self">self</span>.changed.get() {
+                <span class="bool-val">true </span>=&gt; <span class="prelude-val">Err</span>(ListModelMutatedDuringIter),
+                <span class="bool-val">false </span>=&gt; <span class="prelude-val">Ok</span>(<span class="self">self</span>.model.item(end - <span class="number">1</span>).unwrap().downcast::&lt;T&gt;().unwrap()),
             };
-            <span class="prelude-val">Some</span>(<span class="ident">res</span>)
+            <span class="prelude-val">Some</span>(res)
         }
     }
 }
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
-        <span class="self">self</span>.<span class="ident">model</span>.<span class="ident">disconnect</span>(<span class="self">self</span>.<span class="ident">signal_id</span>.<span class="ident">take</span>().<span class="ident">unwrap</span>());
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: IsA&lt;glib::Object&gt;&gt; Drop <span class="kw">for </span>ListModelIter&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+    <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
+        <span class="self">self</span>.model.disconnect(<span class="self">self</span>.signal_id.take().unwrap());
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">std::iter::IntoIterator</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ListModel</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">glib::Object</span>, <span class="ident">ListModelMutatedDuringIter</span><span class="op">&gt;</span>;
-    <span class="kw">type</span> <span class="ident">IntoIter</span> <span class="op">=</span> <span class="ident">ListModelIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">glib::Object</span><span class="op">&gt;</span>;
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; std::iter::IntoIterator <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>ListModel {
+    <span class="kw">type </span>Item = <span class="prelude-ty">Result</span>&lt;glib::Object, ListModelMutatedDuringIter&gt;;
+    <span class="kw">type </span>IntoIter = ListModelIter&lt;<span class="lifetime">&#39;a</span>, glib::Object&gt;;
 
-    <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
-        <span class="self">self</span>.<span class="ident">iter</span>()
-            .<span class="ident">expect</span>(<span class="string">&quot;can&#39;t create a ListModelIter with the requested item type&quot;</span>)
+    <span class="kw">fn </span>into_iter(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
+        <span class="self">self</span>.iter()
+            .expect(<span class="string">&quot;can&#39;t create a ListModelIter with the requested item type&quot;</span>)
     }
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">list_model_iter_ok</span>() {
-    <span class="kw">let</span> <span class="ident">list</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::ListStore::new</span>(<span class="ident"><span class="kw">crate</span>::Menu::static_type</span>());
-    <span class="kw">let</span> <span class="ident">m1</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m2</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m3</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m4</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>list_model_iter_ok() {
+    <span class="kw">let </span>list = <span class="kw">crate</span>::ListStore::new(<span class="kw">crate</span>::Menu::static_type());
+    <span class="kw">let </span>m1 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m2 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m3 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m4 = <span class="kw">crate</span>::Menu::new();
 
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m1</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m2</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m3</span>);
+    list.append(<span class="kw-2">&amp;</span>m1);
+    list.append(<span class="kw-2">&amp;</span>m2);
+    list.append(<span class="kw-2">&amp;</span>m3);
 
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">list</span>.<span class="ident">iter</span>::<span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Menu</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let </span><span class="kw-2">mut </span>iter = list.iter::&lt;<span class="kw">crate</span>::Menu&gt;().unwrap();
 
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">len</span>(), <span class="number">3</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m1</span>)));
-    <span class="comment">// Appending items at the end of the `ListModel` can&#39;t affect the items</span>
-    <span class="comment">// we are iterating over.</span>
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m4</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next_back</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m3</span>)));
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">len</span>(), <span class="number">1</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next_back</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m2</span>)));
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">None</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next_back</span>(), <span class="prelude-val">None</span>);
+    <span class="macro">assert_eq!</span>(iter.len(), <span class="number">3</span>);
+    <span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m1)));
+    <span class="comment">// Appending items at the end of the `ListModel` can&#39;t affect the items
+    // we are iterating over.
+    </span>list.append(<span class="kw-2">&amp;</span>m4);
+    <span class="macro">assert_eq!</span>(iter.next_back(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m3)));
+    <span class="macro">assert_eq!</span>(iter.len(), <span class="number">1</span>);
+    <span class="macro">assert_eq!</span>(iter.next_back(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m2)));
+    <span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">None</span>);
+    <span class="macro">assert_eq!</span>(iter.next_back(), <span class="prelude-val">None</span>);
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">list_model_iter_err</span>() {
-    <span class="kw">let</span> <span class="ident">list</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::ListStore::new</span>(<span class="ident"><span class="kw">crate</span>::Menu::static_type</span>());
-    <span class="kw">let</span> <span class="ident">m1</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m2</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m3</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m4</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>list_model_iter_err() {
+    <span class="kw">let </span>list = <span class="kw">crate</span>::ListStore::new(<span class="kw">crate</span>::Menu::static_type());
+    <span class="kw">let </span>m1 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m2 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m3 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m4 = <span class="kw">crate</span>::Menu::new();
 
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m1</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m2</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m3</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m4</span>);
+    list.append(<span class="kw-2">&amp;</span>m1);
+    list.append(<span class="kw-2">&amp;</span>m2);
+    list.append(<span class="kw-2">&amp;</span>m3);
+    list.append(<span class="kw-2">&amp;</span>m4);
 
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">list</span>.<span class="ident">iter</span>::<span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Menu</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next_back</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m4</span>)));
+    <span class="kw">let </span><span class="kw-2">mut </span>iter = list.iter::&lt;<span class="kw">crate</span>::Menu&gt;().unwrap();
+    <span class="macro">assert_eq!</span>(iter.next_back(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m4)));
 
-    <span class="comment">// These two don&#39;t affect the iter</span>
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m2</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m2</span>);
+    <span class="comment">// These two don&#39;t affect the iter
+    </span>list.append(<span class="kw-2">&amp;</span>m2);
+    list.append(<span class="kw-2">&amp;</span>m2);
 
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m1</span>)));
+    <span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m1)));
 
-    <span class="comment">// Does affect the iter</span>
-    <span class="ident">list</span>.<span class="ident">remove</span>(<span class="number">2</span>);
-    <span class="comment">// Doesn&#39;t affect the iter, but the iter should stay tainted.</span>
-    <span class="ident">list</span>.<span class="ident">remove</span>(<span class="number">4</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(<span class="ident">ListModelMutatedDuringIter</span>)));
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(<span class="ident">ListModelMutatedDuringIter</span>)));
-    <span class="comment">// Returned n items</span>
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">None</span>);
+    <span class="comment">// Does affect the iter
+    </span>list.remove(<span class="number">2</span>);
+    <span class="comment">// Doesn&#39;t affect the iter, but the iter should stay tainted.
+    </span>list.remove(<span class="number">4</span>);
+    <span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(ListModelMutatedDuringIter)));
+    <span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(ListModelMutatedDuringIter)));
+    <span class="comment">// Returned n items
+    </span><span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">None</span>);
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">list_model_iter_nth</span>() {
-    <span class="kw">let</span> <span class="ident">list</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::ListStore::new</span>(<span class="ident"><span class="kw">crate</span>::Menu::static_type</span>());
-    <span class="kw">let</span> <span class="ident">m1</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m2</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m3</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m4</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m5</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m6</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>list_model_iter_nth() {
+    <span class="kw">let </span>list = <span class="kw">crate</span>::ListStore::new(<span class="kw">crate</span>::Menu::static_type());
+    <span class="kw">let </span>m1 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m2 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m3 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m4 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m5 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m6 = <span class="kw">crate</span>::Menu::new();
 
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m1</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m2</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m3</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m4</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m5</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m6</span>);
+    list.append(<span class="kw-2">&amp;</span>m1);
+    list.append(<span class="kw-2">&amp;</span>m2);
+    list.append(<span class="kw-2">&amp;</span>m3);
+    list.append(<span class="kw-2">&amp;</span>m4);
+    list.append(<span class="kw-2">&amp;</span>m5);
+    list.append(<span class="kw-2">&amp;</span>m6);
 
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">list</span>.<span class="ident">iter</span>::<span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Menu</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let </span><span class="kw-2">mut </span>iter = list.iter::&lt;<span class="kw">crate</span>::Menu&gt;().unwrap();
 
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">len</span>(), <span class="number">6</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">nth</span>(<span class="number">1</span>), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m2</span>)));
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">len</span>(), <span class="number">4</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m3</span>)));
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">nth_back</span>(<span class="number">2</span>), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m4</span>)));
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">len</span>(), <span class="number">0</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">None</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next_back</span>(), <span class="prelude-val">None</span>);
+    <span class="macro">assert_eq!</span>(iter.len(), <span class="number">6</span>);
+    <span class="macro">assert_eq!</span>(iter.nth(<span class="number">1</span>), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m2)));
+    <span class="macro">assert_eq!</span>(iter.len(), <span class="number">4</span>);
+    <span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m3)));
+    <span class="macro">assert_eq!</span>(iter.nth_back(<span class="number">2</span>), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m4)));
+    <span class="macro">assert_eq!</span>(iter.len(), <span class="number">0</span>);
+    <span class="macro">assert_eq!</span>(iter.next(), <span class="prelude-val">None</span>);
+    <span class="macro">assert_eq!</span>(iter.next_back(), <span class="prelude-val">None</span>);
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">list_model_iter_last</span>() {
-    <span class="kw">let</span> <span class="ident">list</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::ListStore::new</span>(<span class="ident"><span class="kw">crate</span>::Menu::static_type</span>());
-    <span class="kw">let</span> <span class="ident">m1</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m2</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m3</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>list_model_iter_last() {
+    <span class="kw">let </span>list = <span class="kw">crate</span>::ListStore::new(<span class="kw">crate</span>::Menu::static_type());
+    <span class="kw">let </span>m1 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m2 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m3 = <span class="kw">crate</span>::Menu::new();
 
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m1</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m2</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m3</span>);
+    list.append(<span class="kw-2">&amp;</span>m1);
+    list.append(<span class="kw-2">&amp;</span>m2);
+    list.append(<span class="kw-2">&amp;</span>m3);
 
-    <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">list</span>.<span class="ident">iter</span>::<span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Menu</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let </span>iter = list.iter::&lt;<span class="kw">crate</span>::Menu&gt;().unwrap();
 
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">len</span>(), <span class="number">3</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">last</span>(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(<span class="ident">m3</span>)));
+    <span class="macro">assert_eq!</span>(iter.len(), <span class="number">3</span>);
+    <span class="macro">assert_eq!</span>(iter.last(), <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(m3)));
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">list_model_iter_count</span>() {
-    <span class="kw">let</span> <span class="ident">list</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::ListStore::new</span>(<span class="ident"><span class="kw">crate</span>::Menu::static_type</span>());
-    <span class="kw">let</span> <span class="ident">m1</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m2</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
-    <span class="kw">let</span> <span class="ident">m3</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Menu::new</span>();
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>list_model_iter_count() {
+    <span class="kw">let </span>list = <span class="kw">crate</span>::ListStore::new(<span class="kw">crate</span>::Menu::static_type());
+    <span class="kw">let </span>m1 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m2 = <span class="kw">crate</span>::Menu::new();
+    <span class="kw">let </span>m3 = <span class="kw">crate</span>::Menu::new();
 
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m1</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m2</span>);
-    <span class="ident">list</span>.<span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="ident">m3</span>);
+    list.append(<span class="kw-2">&amp;</span>m1);
+    list.append(<span class="kw-2">&amp;</span>m2);
+    list.append(<span class="kw-2">&amp;</span>m3);
 
-    <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">list</span>.<span class="ident">iter</span>::<span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Menu</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
+    <span class="kw">let </span>iter = list.iter::&lt;<span class="kw">crate</span>::Menu&gt;().unwrap();
 
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">len</span>(), <span class="number">3</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">count</span>(), <span class="number">3</span>);
+    <span class="macro">assert_eq!</span>(iter.len(), <span class="number">3</span>);
+    <span class="macro">assert_eq!</span>(iter.count(), <span class="number">3</span>);
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

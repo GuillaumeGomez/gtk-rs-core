@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/gobject/binding_group.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>binding_group.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/gobject/binding_group.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>binding_group.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -582,280 +576,263 @@
 <span id="503">503</span>
 <span id="504">504</span>
 <span id="505">505</span>
-<span id="506">506</span>
-<span id="507">507</span>
-<span id="508">508</span>
-<span id="509">509</span>
-<span id="510">510</span>
-<span id="511">511</span>
-<span id="512">512</span>
-<span id="513">513</span>
-<span id="514">514</span>
-<span id="515">515</span>
-<span id="516">516</span>
-<span id="517">517</span>
-<span id="518">518</span>
-<span id="519">519</span>
-<span id="520">520</span>
-<span id="521">521</span>
-<span id="522">522</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::object::ObjectRef</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Binding</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::BindingFlags</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::BindingGroup</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::BoolError</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Object</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ParamSpec</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Value</span>;
-<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fmt</span>, <span class="ident">ptr</span>};
+</span><span class="kw">use </span><span class="kw">crate</span>::object::ObjectRef;
+<span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
+<span class="kw">use </span><span class="kw">crate</span>::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span><span class="kw">crate</span>::Binding;
+<span class="kw">use </span><span class="kw">crate</span>::BindingFlags;
+<span class="kw">use </span><span class="kw">crate</span>::BindingGroup;
+<span class="kw">use </span><span class="kw">crate</span>::BoolError;
+<span class="kw">use </span><span class="kw">crate</span>::Object;
+<span class="kw">use </span><span class="kw">crate</span>::ParamSpec;
+<span class="kw">use </span><span class="kw">crate</span>::Value;
+<span class="kw">use </span>std::{fmt, ptr};
 
-<span class="kw">impl</span> <span class="ident">BindingGroup</span> {
-    <span class="doccomment">/// Creates a binding between `source_property` on the source object</span>
-    <span class="doccomment">/// and `target_property` on `target`. Whenever the `source_property`</span>
-    <span class="doccomment">/// is changed the `target_property` is updated using the same value.</span>
-    <span class="doccomment">/// The binding flag [`BindingFlags::SYNC_CREATE`][crate::BindingFlags::SYNC_CREATE] is automatically specified.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See [`ObjectExt::bind_property()`][crate::prelude::ObjectExt::bind_property()] for more information.</span>
-    <span class="doccomment">/// ## `source_property`</span>
-    <span class="doccomment">/// the property on the source to bind</span>
-    <span class="doccomment">/// ## `target`</span>
-    <span class="doccomment">/// the target [`Object`][crate::Object]</span>
-    <span class="doccomment">/// ## `target_property`</span>
-    <span class="doccomment">/// the property on `target` to bind</span>
-    <span class="doccomment">/// ## `flags`</span>
-    <span class="doccomment">/// the flags used to create the [`Binding`][crate::Binding]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;bind_with_closures&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bind</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">O</span>: <span class="ident">ObjectType</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>,
-        <span class="ident">source_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-        <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">O</span>,
-        <span class="ident">target_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-    ) -&gt; <span class="ident">BindingGroupBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-        <span class="ident">BindingGroupBuilder::new</span>(<span class="self">self</span>, <span class="ident">source_property</span>, <span class="ident">target</span>, <span class="ident">target_property</span>)
+<span class="kw">impl </span>BindingGroup {
+    <span class="doccomment">/// Creates a binding between `source_property` on the source object
+    /// and `target_property` on `target`. Whenever the `source_property`
+    /// is changed the `target_property` is updated using the same value.
+    /// The binding flag [`BindingFlags::SYNC_CREATE`][crate::BindingFlags::SYNC_CREATE] is automatically specified.
+    ///
+    /// See [`ObjectExt::bind_property()`][crate::prelude::ObjectExt::bind_property()] for more information.
+    /// ## `source_property`
+    /// the property on the source to bind
+    /// ## `target`
+    /// the target [`Object`][crate::Object]
+    /// ## `target_property`
+    /// the property on `target` to bind
+    /// ## `flags`
+    /// the flags used to create the [`Binding`][crate::Binding]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;bind_with_closures&quot;</span>)]
+    </span><span class="kw">pub fn </span>bind&lt;<span class="lifetime">&#39;a</span>, O: ObjectType&gt;(
+        <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>,
+        source_property: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+        target: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>O,
+        target_property: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+    ) -&gt; BindingGroupBuilder&lt;<span class="lifetime">&#39;a</span>&gt; {
+        BindingGroupBuilder::new(<span class="self">self</span>, source_property, target, target_property)
     }
 }
 
-<span class="kw">type</span> <span class="ident">TransformFn</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Binding</span>, <span class="kw-2">&amp;</span><span class="ident">Value</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+<span class="kw">type </span>TransformFn = <span class="prelude-ty">Option</span>&lt;Box&lt;<span class="kw">dyn </span>Fn(<span class="kw-2">&amp;</span>Binding, <span class="kw-2">&amp;</span>Value) -&gt; <span class="prelude-ty">Option</span>&lt;Value&gt; + Send + Sync + <span class="lifetime">&#39;static</span>&gt;&gt;;
 
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">/// Builder for binding group bindings.</span>
-<span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;The builder must be built to be used&quot;</span>]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BindingGroupBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="ident">group</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">BindingGroup</span>,
-    <span class="ident">source_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-    <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">ObjectRef</span>,
-    <span class="ident">target_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-    <span class="ident">flags</span>: <span class="ident">BindingFlags</span>,
-    <span class="ident">transform_to</span>: <span class="ident">TransformFn</span>,
-    <span class="ident">transform_from</span>: <span class="ident">TransformFn</span>,
+<span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// Builder for binding group bindings.
+</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="kw">pub struct </span>BindingGroupBuilder&lt;<span class="lifetime">&#39;a</span>&gt; {
+    group: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>BindingGroup,
+    source_property: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+    target: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>ObjectRef,
+    target_property: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+    flags: BindingFlags,
+    transform_to: TransformFn,
+    transform_from: TransformFn,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">BindingGroupBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;BindingGroupBuilder&quot;</span>)
-            .<span class="ident">field</span>(<span class="string">&quot;group&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">group</span>)
-            .<span class="ident">field</span>(<span class="string">&quot;source_property&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">source_property</span>)
-            .<span class="ident">field</span>(<span class="string">&quot;target&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">target</span>)
-            .<span class="ident">field</span>(<span class="string">&quot;target_property&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">target_property</span>)
-            .<span class="ident">field</span>(<span class="string">&quot;flags&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">flags</span>)
-            .<span class="ident">finish</span>()
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; fmt::Debug <span class="kw">for </span>BindingGroupBuilder&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+        f.debug_struct(<span class="string">&quot;BindingGroupBuilder&quot;</span>)
+            .field(<span class="string">&quot;group&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.group)
+            .field(<span class="string">&quot;source_property&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.source_property)
+            .field(<span class="string">&quot;target&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.target)
+            .field(<span class="string">&quot;target_property&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.target_property)
+            .field(<span class="string">&quot;flags&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.flags)
+            .finish()
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">BindingGroupBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(
-        <span class="ident">group</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">BindingGroup</span>,
-        <span class="ident">source_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-        <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw">impl</span> <span class="ident">ObjectType</span>,
-        <span class="ident">target_property</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-    ) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">group</span>,
-            <span class="ident">source_property</span>,
-            <span class="ident">target</span>: <span class="ident">target</span>.<span class="ident">as_object_ref</span>(),
-            <span class="ident">target_property</span>,
-            <span class="ident">flags</span>: <span class="ident">BindingFlags::DEFAULT</span>,
-            <span class="ident">transform_to</span>: <span class="prelude-val">None</span>,
-            <span class="ident">transform_from</span>: <span class="prelude-val">None</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; BindingGroupBuilder&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="kw">fn </span>new(
+        group: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>BindingGroup,
+        source_property: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+        target: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw">impl </span>ObjectType,
+        target_property: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+    ) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            group,
+            source_property,
+            target: target.as_object_ref(),
+            target_property,
+            flags: BindingFlags::DEFAULT,
+            transform_to: <span class="prelude-val">None</span>,
+            transform_from: <span class="prelude-val">None</span>,
         }
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Transform changed property values from the target object to the source object with the given closure.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">transform_from</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Binding</span>, <span class="kw-2">&amp;</span><span class="ident">Value</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Transform changed property values from the target object to the source object with the given closure.
+    </span><span class="kw">pub fn </span>transform_from&lt;F: Fn(<span class="kw-2">&amp;</span>Binding, <span class="kw-2">&amp;</span>Value) -&gt; <span class="prelude-ty">Option</span>&lt;Value&gt; + Send + Sync + <span class="lifetime">&#39;static</span>&gt;(
         <span class="self">self</span>,
-        <span class="ident">func</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">transform_from</span>: <span class="prelude-val">Some</span>(<span class="ident">Box::new</span>(<span class="ident">func</span>)),
-            ..<span class="self">self</span>
-        }
+        func: F,
+    ) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            transform_from: <span class="prelude-val">Some</span>(Box::new(func)),
+            ..<span class="self">self
+        </span>}
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Transform changed property values from the source object to the target object with the given closure.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">transform_to</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Binding</span>, <span class="kw-2">&amp;</span><span class="ident">Value</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Transform changed property values from the source object to the target object with the given closure.
+    </span><span class="kw">pub fn </span>transform_to&lt;F: Fn(<span class="kw-2">&amp;</span>Binding, <span class="kw-2">&amp;</span>Value) -&gt; <span class="prelude-ty">Option</span>&lt;Value&gt; + Send + Sync + <span class="lifetime">&#39;static</span>&gt;(
         <span class="self">self</span>,
-        <span class="ident">func</span>: <span class="ident">F</span>,
-    ) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">transform_to</span>: <span class="prelude-val">Some</span>(<span class="ident">Box::new</span>(<span class="ident">func</span>)),
-            ..<span class="self">self</span>
-        }
+        func: F,
+    ) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            transform_to: <span class="prelude-val">Some</span>(Box::new(func)),
+            ..<span class="self">self
+        </span>}
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Bind the properties with the given flags.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">flags</span>(<span class="self">self</span>, <span class="ident">flags</span>: <span class="ident">BindingFlags</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> { <span class="ident">flags</span>, ..<span class="self">self</span> }
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Bind the properties with the given flags.
+    </span><span class="kw">pub fn </span>flags(<span class="self">self</span>, flags: BindingFlags) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{ flags, ..<span class="self">self </span>}
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Establish the property binding.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This fails if the provided properties do not exist.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">try_build</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">BoolError</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">transform_to_trampoline</span>(
-            <span class="ident">binding</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GBinding</span>,
-            <span class="ident">from_value</span>: <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GValue</span>,
-            <span class="ident">to_value</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
-            <span class="ident">user_data</span>: <span class="ident">ffi::gpointer</span>,
-        ) -&gt; <span class="ident">ffi::gboolean</span> {
-            <span class="kw">let</span> <span class="ident">transform_data</span> <span class="op">=</span>
-                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*const</span> (<span class="ident">TransformFn</span>, <span class="ident">TransformFn</span>, <span class="ident">String</span>, <span class="ident">ParamSpec</span>));
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Establish the property binding.
+    ///
+    /// This fails if the provided properties do not exist.
+    </span><span class="kw">pub fn </span>try_build(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(), BoolError&gt; {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>transform_to_trampoline(
+            binding: <span class="kw-2">*mut </span>gobject_ffi::GBinding,
+            from_value: <span class="kw-2">*const </span>gobject_ffi::GValue,
+            to_value: <span class="kw-2">*mut </span>gobject_ffi::GValue,
+            user_data: ffi::gpointer,
+        ) -&gt; ffi::gboolean {
+            <span class="kw">let </span>transform_data =
+                <span class="kw-2">&amp;*</span>(user_data <span class="kw">as </span><span class="kw-2">*const </span>(TransformFn, TransformFn, String, ParamSpec));
 
-            <span class="kw">match</span> (<span class="ident">transform_data</span>.<span class="number">0</span>.<span class="ident">as_ref</span>().<span class="ident">unwrap</span>())(
-                <span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">binding</span>),
-                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">from_value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span>),
+            <span class="kw">match </span>(transform_data.<span class="number">0</span>.as_ref().unwrap())(
+                <span class="kw-2">&amp;</span>from_glib_borrow(binding),
+                <span class="kw-2">&amp;*</span>(from_value <span class="kw">as </span><span class="kw-2">*const </span>Value),
             ) {
-                <span class="prelude-val">None</span> =&gt; <span class="bool-val">false</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">res</span>) =&gt; {
+                <span class="prelude-val">None </span>=&gt; <span class="bool-val">false</span>,
+                <span class="prelude-val">Some</span>(res) =&gt; {
                     <span class="macro">assert!</span>(
-                        <span class="ident">res</span>.<span class="ident">type_</span>().<span class="ident">is_a</span>(<span class="ident">transform_data</span>.<span class="number">3</span>.<span class="ident">value_type</span>()),
+                        res.type_().is_a(transform_data.<span class="number">3</span>.value_type()),
                         <span class="string">&quot;Target property {} expected type {} but transform_to function returned {}&quot;</span>,
-                        <span class="ident">transform_data</span>.<span class="number">3</span>.<span class="ident">name</span>(),
-                        <span class="ident">transform_data</span>.<span class="number">3</span>.<span class="ident">value_type</span>(),
-                        <span class="ident">res</span>.<span class="ident">type_</span>()
+                        transform_data.<span class="number">3</span>.name(),
+                        transform_data.<span class="number">3</span>.value_type(),
+                        res.type_()
                     );
-                    <span class="kw-2">*</span><span class="ident">to_value</span> <span class="op">=</span> <span class="ident">res</span>.<span class="ident">into_raw</span>();
-                    <span class="bool-val">true</span>
-                }
+                    <span class="kw-2">*</span>to_value = res.into_raw();
+                    <span class="bool-val">true
+                </span>}
             }
-            .<span class="ident">into_glib</span>()
+            .into_glib()
         }
 
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">transform_from_trampoline</span>(
-            <span class="ident">binding</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GBinding</span>,
-            <span class="ident">from_value</span>: <span class="kw-2">*const</span> <span class="ident">gobject_ffi::GValue</span>,
-            <span class="ident">to_value</span>: <span class="kw-2">*mut</span> <span class="ident">gobject_ffi::GValue</span>,
-            <span class="ident">user_data</span>: <span class="ident">ffi::gpointer</span>,
-        ) -&gt; <span class="ident">ffi::gboolean</span> {
-            <span class="kw">let</span> <span class="ident">transform_data</span> <span class="op">=</span>
-                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*const</span> (<span class="ident">TransformFn</span>, <span class="ident">TransformFn</span>, <span class="ident">String</span>, <span class="ident">ParamSpec</span>));
-            <span class="kw">let</span> <span class="ident">binding</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">binding</span>);
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>transform_from_trampoline(
+            binding: <span class="kw-2">*mut </span>gobject_ffi::GBinding,
+            from_value: <span class="kw-2">*const </span>gobject_ffi::GValue,
+            to_value: <span class="kw-2">*mut </span>gobject_ffi::GValue,
+            user_data: ffi::gpointer,
+        ) -&gt; ffi::gboolean {
+            <span class="kw">let </span>transform_data =
+                <span class="kw-2">&amp;*</span>(user_data <span class="kw">as </span><span class="kw-2">*const </span>(TransformFn, TransformFn, String, ParamSpec));
+            <span class="kw">let </span>binding = from_glib_borrow(binding);
 
-            <span class="kw">match</span> (<span class="ident">transform_data</span>.<span class="number">1</span>.<span class="ident">as_ref</span>().<span class="ident">unwrap</span>())(
-                <span class="kw-2">&amp;</span><span class="ident">binding</span>,
-                <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">from_value</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Value</span>),
+            <span class="kw">match </span>(transform_data.<span class="number">1</span>.as_ref().unwrap())(
+                <span class="kw-2">&amp;</span>binding,
+                <span class="kw-2">&amp;*</span>(from_value <span class="kw">as </span><span class="kw-2">*const </span>Value),
             ) {
-                <span class="prelude-val">None</span> =&gt; <span class="bool-val">false</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">res</span>) =&gt; {
-                    <span class="kw">let</span> <span class="ident">pspec_name</span> <span class="op">=</span> <span class="ident">transform_data</span>.<span class="number">2</span>.<span class="ident">clone</span>();
-                    <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">binding</span>.<span class="ident">source</span>().<span class="ident">unwrap</span>();
-                    <span class="kw">let</span> <span class="ident">pspec</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">find_property</span>(<span class="kw-2">&amp;</span><span class="ident">pspec_name</span>);
-                    <span class="macro">assert!</span>(<span class="ident">pspec</span>.<span class="ident">is_some</span>(), <span class="string">&quot;Source object does not have a property {}&quot;</span>, <span class="ident">pspec_name</span>);
-                    <span class="kw">let</span> <span class="ident">pspec</span> <span class="op">=</span> <span class="ident">pspec</span>.<span class="ident">unwrap</span>();
+                <span class="prelude-val">None </span>=&gt; <span class="bool-val">false</span>,
+                <span class="prelude-val">Some</span>(res) =&gt; {
+                    <span class="kw">let </span>pspec_name = transform_data.<span class="number">2</span>.clone();
+                    <span class="kw">let </span>source = binding.source().unwrap();
+                    <span class="kw">let </span>pspec = source.find_property(<span class="kw-2">&amp;</span>pspec_name);
+                    <span class="macro">assert!</span>(pspec.is_some(), <span class="string">&quot;Source object does not have a property {}&quot;</span>, pspec_name);
+                    <span class="kw">let </span>pspec = pspec.unwrap();
 
                     <span class="macro">assert!</span>(
-                        <span class="ident">res</span>.<span class="ident">type_</span>().<span class="ident">is_a</span>(<span class="ident">pspec</span>.<span class="ident">value_type</span>()),
+                        res.type_().is_a(pspec.value_type()),
                         <span class="string">&quot;Source property {} expected type {} but transform_from function returned {}&quot;</span>,
-                        <span class="ident">pspec_name</span>,
-                        <span class="ident">pspec</span>.<span class="ident">value_type</span>(),
-                        <span class="ident">res</span>.<span class="ident">type_</span>()
+                        pspec_name,
+                        pspec.value_type(),
+                        res.type_()
                     );
-                    <span class="kw-2">*</span><span class="ident">to_value</span> <span class="op">=</span> <span class="ident">res</span>.<span class="ident">into_raw</span>();
-                    <span class="bool-val">true</span>
-                }
+                    <span class="kw-2">*</span>to_value = res.into_raw();
+                    <span class="bool-val">true
+                </span>}
             }
-            .<span class="ident">into_glib</span>()
+            .into_glib()
         }
 
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">free_transform_data</span>(<span class="ident">data</span>: <span class="ident">ffi::gpointer</span>) {
-            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">Box::from_raw</span>(<span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> (<span class="ident">TransformFn</span>, <span class="ident">TransformFn</span>, <span class="ident">String</span>, <span class="ident">ParamSpec</span>));
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>free_transform_data(data: ffi::gpointer) {
+            <span class="kw">let _ </span>= Box::from_raw(data <span class="kw">as </span><span class="kw-2">*mut </span>(TransformFn, TransformFn, String, ParamSpec));
         }
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">_source_propery_name_cstr</span> <span class="op">=</span> <span class="prelude-val">None</span>;
-        <span class="kw">let</span> <span class="ident">source_property_name</span> <span class="op">=</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">source</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">group</span>.<span class="ident">source</span>() {
-            <span class="kw">let</span> <span class="ident">source_property</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">find_property</span>(<span class="self">self</span>.<span class="ident">source_property</span>).<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> {
+        <span class="kw">let </span><span class="kw-2">mut </span>_source_propery_name_cstr = <span class="prelude-val">None</span>;
+        <span class="kw">let </span>source_property_name = <span class="kw">if let </span><span class="prelude-val">Some</span>(source) = <span class="self">self</span>.group.source() {
+            <span class="kw">let </span>source_property = source.find_property(<span class="self">self</span>.source_property).ok_or_else(|| {
                 <span class="macro">bool_error!</span>(
                     <span class="string">&quot;Source property {} on type {} not found&quot;</span>,
-                    <span class="self">self</span>.<span class="ident">source_property</span>,
-                    <span class="ident">source</span>.<span class="ident">type_</span>()
+                    <span class="self">self</span>.source_property,
+                    source.type_()
                 )
             })<span class="question-mark">?</span>;
 
-            <span class="comment">// This is NUL-termianted from the C side</span>
-            <span class="ident">source_property</span>.<span class="ident">name</span>().<span class="ident">as_ptr</span>()
-        } <span class="kw">else</span> {
-            <span class="comment">// This is a Rust &amp;str and needs to be NUL-terminated first</span>
-            <span class="kw">let</span> <span class="ident">source_propery_name</span> <span class="op">=</span> <span class="ident">std::ffi::CString::new</span>(<span class="self">self</span>.<span class="ident">source_property</span>).<span class="ident">unwrap</span>();
-            <span class="kw">let</span> <span class="ident">source_property_name_ptr</span> <span class="op">=</span> <span class="ident">source_propery_name</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u8</span>;
-            <span class="ident">_source_propery_name_cstr</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">source_propery_name</span>);
+            <span class="comment">// This is NUL-termianted from the C side
+            </span>source_property.name().as_ptr()
+        } <span class="kw">else </span>{
+            <span class="comment">// This is a Rust &amp;str and needs to be NUL-terminated first
+            </span><span class="kw">let </span>source_propery_name = std::ffi::CString::new(<span class="self">self</span>.source_property).unwrap();
+            <span class="kw">let </span>source_property_name_ptr = source_propery_name.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>u8;
+            _source_propery_name_cstr = <span class="prelude-val">Some</span>(source_propery_name);
 
-            <span class="ident">source_property_name_ptr</span>
+            source_property_name_ptr
         };
 
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">target</span>: <span class="ident">Object</span> <span class="op">=</span> <span class="ident">from_glib_none</span>(<span class="self">self</span>.<span class="ident">target</span>.<span class="ident">clone</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>target: Object = from_glib_none(<span class="self">self</span>.target.clone().to_glib_none().<span class="number">0</span>);
 
-            <span class="kw">let</span> <span class="ident">target_property</span> <span class="op">=</span> <span class="ident">target</span>.<span class="ident">find_property</span>(<span class="self">self</span>.<span class="ident">target_property</span>).<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> {
+            <span class="kw">let </span>target_property = target.find_property(<span class="self">self</span>.target_property).ok_or_else(|| {
                 <span class="macro">bool_error!</span>(
                     <span class="string">&quot;Target property {} on type {} not found&quot;</span>,
-                    <span class="self">self</span>.<span class="ident">target_property</span>,
-                    <span class="ident">target</span>.<span class="ident">type_</span>()
+                    <span class="self">self</span>.target_property,
+                    target.type_()
                 )
             })<span class="question-mark">?</span>;
 
-            <span class="kw">let</span> <span class="ident">target_property_name</span> <span class="op">=</span> <span class="ident">target_property</span>.<span class="ident">name</span>().<span class="ident">as_ptr</span>();
+            <span class="kw">let </span>target_property_name = target_property.name().as_ptr();
 
-            <span class="kw">let</span> <span class="ident">have_transform_to</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">transform_to</span>.<span class="ident">is_some</span>();
-            <span class="kw">let</span> <span class="ident">have_transform_from</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">transform_from</span>.<span class="ident">is_some</span>();
-            <span class="kw">let</span> <span class="ident">transform_data</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">have_transform_to</span> <span class="op">|</span><span class="op">|</span> <span class="ident">have_transform_from</span> {
-                <span class="ident">Box::into_raw</span>(<span class="ident">Box::new</span>((
-                    <span class="self">self</span>.<span class="ident">transform_to</span>,
-                    <span class="self">self</span>.<span class="ident">transform_from</span>,
-                    <span class="ident">String::from_glib_none</span>(<span class="ident">source_property_name</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>),
-                    <span class="ident">target_property</span>,
+            <span class="kw">let </span>have_transform_to = <span class="self">self</span>.transform_to.is_some();
+            <span class="kw">let </span>have_transform_from = <span class="self">self</span>.transform_from.is_some();
+            <span class="kw">let </span>transform_data = <span class="kw">if </span>have_transform_to || have_transform_from {
+                Box::into_raw(Box::new((
+                    <span class="self">self</span>.transform_to,
+                    <span class="self">self</span>.transform_from,
+                    String::from_glib_none(source_property_name <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>),
+                    target_property,
                 )))
-            } <span class="kw">else</span> {
-                <span class="ident">ptr::null_mut</span>()
+            } <span class="kw">else </span>{
+                ptr::null_mut()
             };
 
-            <span class="ident">gobject_ffi::g_binding_group_bind_full</span>(
-                <span class="self">self</span>.<span class="ident">group</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">source_property_name</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="ident">target</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">target_property_name</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="self">self</span>.<span class="ident">flags</span>.<span class="ident">into_glib</span>(),
-                <span class="kw">if</span> <span class="ident">have_transform_to</span> {
-                    <span class="prelude-val">Some</span>(<span class="ident">transform_to_trampoline</span>)
-                } <span class="kw">else</span> {
-                    <span class="prelude-val">None</span>
-                },
-                <span class="kw">if</span> <span class="ident">have_transform_from</span> {
-                    <span class="prelude-val">Some</span>(<span class="ident">transform_from_trampoline</span>)
-                } <span class="kw">else</span> {
-                    <span class="prelude-val">None</span>
-                },
-                <span class="ident">transform_data</span> <span class="kw">as</span> <span class="ident">ffi::gpointer</span>,
-                <span class="kw">if</span> <span class="ident">transform_data</span>.<span class="ident">is_null</span>() {
-                    <span class="prelude-val">None</span>
-                } <span class="kw">else</span> {
-                    <span class="prelude-val">Some</span>(<span class="ident">free_transform_data</span>)
+            gobject_ffi::g_binding_group_bind_full(
+                <span class="self">self</span>.group.to_glib_none().<span class="number">0</span>,
+                source_property_name <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                target.to_glib_none().<span class="number">0</span>,
+                target_property_name <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="self">self</span>.flags.into_glib(),
+                <span class="kw">if </span>have_transform_to {
+                    <span class="prelude-val">Some</span>(transform_to_trampoline)
+                } <span class="kw">else </span>{
+                    <span class="prelude-val">None
+                </span>},
+                <span class="kw">if </span>have_transform_from {
+                    <span class="prelude-val">Some</span>(transform_from_trampoline)
+                } <span class="kw">else </span>{
+                    <span class="prelude-val">None
+                </span>},
+                transform_data <span class="kw">as </span>ffi::gpointer,
+                <span class="kw">if </span>transform_data.is_null() {
+                    <span class="prelude-val">None
+                </span>} <span class="kw">else </span>{
+                    <span class="prelude-val">Some</span>(free_transform_data)
                 },
             );
         }
@@ -863,264 +840,246 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="comment">// rustdoc-stripper-ignore-next</span>
-    <span class="doccomment">/// Similar to `try_build` but panics instead of failing.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) {
-        <span class="self">self</span>.<span class="ident">try_build</span>().<span class="ident">unwrap</span>()
+    <span class="comment">// rustdoc-stripper-ignore-next
+    </span><span class="doccomment">/// Similar to `try_build` but panics instead of failing.
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) {
+        <span class="self">self</span>.try_build().unwrap()
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">test</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::subclass::prelude</span>::<span class="kw-2">*</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>test {
+    <span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::subclass::prelude::<span class="kw-2">*</span>;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binding_without_source</span>() {
-        <span class="kw">let</span> <span class="ident">binding_group</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::BindingGroup::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binding_without_source() {
+        <span class="kw">let </span>binding_group = <span class="kw">crate</span>::BindingGroup::new();
 
-        <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
+        <span class="kw">let </span>source = TestObject::default();
+        <span class="kw">let </span>target = TestObject::default();
 
-        <span class="macro">assert!</span>(<span class="ident">source</span>.<span class="ident">find_property</span>(<span class="string">&quot;name&quot;</span>).<span class="ident">is_some</span>());
-        <span class="ident">binding_group</span>
-            .<span class="ident">bind</span>(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">target</span>, <span class="string">&quot;name&quot;</span>)
-            .<span class="ident">flags</span>(<span class="ident"><span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL</span>)
-            .<span class="ident">build</span>();
+        <span class="macro">assert!</span>(source.find_property(<span class="string">&quot;name&quot;</span>).is_some());
+        binding_group
+            .bind(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
+            .flags(<span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .build();
 
-        <span class="ident">binding_group</span>.<span class="ident">set_source</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>));
+        binding_group.set_source(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>source));
 
-        <span class="ident">source</span>.<span class="ident">set_name</span>(<span class="string">&quot;test_source_name&quot;</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">source</span>.<span class="ident">name</span>(), <span class="ident">target</span>.<span class="ident">name</span>());
+        source.set_name(<span class="string">&quot;test_source_name&quot;</span>);
+        <span class="macro">assert_eq!</span>(source.name(), target.name());
 
-        <span class="ident">target</span>.<span class="ident">set_name</span>(<span class="string">&quot;test_target_name&quot;</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">source</span>.<span class="ident">name</span>(), <span class="ident">target</span>.<span class="ident">name</span>());
+        target.set_name(<span class="string">&quot;test_target_name&quot;</span>);
+        <span class="macro">assert_eq!</span>(source.name(), target.name());
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binding_with_source</span>() {
-        <span class="kw">let</span> <span class="ident">binding_group</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::BindingGroup::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binding_with_source() {
+        <span class="kw">let </span>binding_group = <span class="kw">crate</span>::BindingGroup::new();
 
-        <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
+        <span class="kw">let </span>source = TestObject::default();
+        <span class="kw">let </span>target = TestObject::default();
 
-        <span class="ident">binding_group</span>.<span class="ident">set_source</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>));
+        binding_group.set_source(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>source));
 
-        <span class="ident">binding_group</span>.<span class="ident">bind</span>(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">target</span>, <span class="string">&quot;name&quot;</span>).<span class="ident">build</span>();
+        binding_group.bind(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>).build();
 
-        <span class="ident">source</span>.<span class="ident">set_name</span>(<span class="string">&quot;test_source_name&quot;</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">source</span>.<span class="ident">name</span>(), <span class="ident">target</span>.<span class="ident">name</span>());
+        source.set_name(<span class="string">&quot;test_source_name&quot;</span>);
+        <span class="macro">assert_eq!</span>(source.name(), target.name());
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binding_to_transform</span>() {
-        <span class="kw">let</span> <span class="ident">binding_group</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::BindingGroup::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binding_to_transform() {
+        <span class="kw">let </span>binding_group = <span class="kw">crate</span>::BindingGroup::new();
 
-        <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
+        <span class="kw">let </span>source = TestObject::default();
+        <span class="kw">let </span>target = TestObject::default();
 
-        <span class="ident">binding_group</span>.<span class="ident">set_source</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>));
-        <span class="ident">binding_group</span>
-            .<span class="ident">bind</span>(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">target</span>, <span class="string">&quot;name&quot;</span>)
-            .<span class="ident">flags</span>(<span class="ident"><span class="kw">crate</span>::BindingFlags::SYNC_CREATE</span>)
-            .<span class="ident">transform_to</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, <span class="ident">value</span>).<span class="ident">to_value</span>())
+        binding_group.set_source(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>source));
+        binding_group
+            .bind(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
+            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE)
+            .transform_to(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
+                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value).to_value())
             })
-            .<span class="ident">transform_from</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, <span class="ident">value</span>).<span class="ident">to_value</span>())
+            .transform_from(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
+                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value).to_value())
             })
-            .<span class="ident">build</span>();
+            .build();
 
-        <span class="ident">source</span>.<span class="ident">set_name</span>(<span class="string">&quot;Hello&quot;</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">target</span>.<span class="ident">name</span>(), <span class="string">&quot;Hello World&quot;</span>);
+        source.set_name(<span class="string">&quot;Hello&quot;</span>);
+        <span class="macro">assert_eq!</span>(target.name(), <span class="string">&quot;Hello World&quot;</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binding_from_transform</span>() {
-        <span class="kw">let</span> <span class="ident">binding_group</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::BindingGroup::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binding_from_transform() {
+        <span class="kw">let </span>binding_group = <span class="kw">crate</span>::BindingGroup::new();
 
-        <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
+        <span class="kw">let </span>source = TestObject::default();
+        <span class="kw">let </span>target = TestObject::default();
 
-        <span class="ident">binding_group</span>.<span class="ident">set_source</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>));
-        <span class="ident">binding_group</span>
-            .<span class="ident">bind</span>(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">target</span>, <span class="string">&quot;name&quot;</span>)
-            .<span class="ident">flags</span>(<span class="ident"><span class="kw">crate</span>::BindingFlags::SYNC_CREATE</span> <span class="op">|</span> <span class="ident"><span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL</span>)
-            .<span class="ident">transform_to</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, <span class="ident">value</span>).<span class="ident">to_value</span>())
+        binding_group.set_source(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>source));
+        binding_group
+            .bind(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
+            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE | <span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .transform_to(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
+                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value).to_value())
             })
-            .<span class="ident">transform_from</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, <span class="ident">value</span>).<span class="ident">to_value</span>())
+            .transform_from(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
+                <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value).to_value())
             })
-            .<span class="ident">build</span>();
+            .build();
 
-        <span class="ident">target</span>.<span class="ident">set_name</span>(<span class="string">&quot;Hello&quot;</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">source</span>.<span class="ident">name</span>(), <span class="string">&quot;Hello World&quot;</span>);
+        target.set_name(<span class="string">&quot;Hello&quot;</span>);
+        <span class="macro">assert_eq!</span>(source.name(), <span class="string">&quot;Hello World&quot;</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binding_to_transform_change_type</span>() {
-        <span class="kw">let</span> <span class="ident">binding_group</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::BindingGroup::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binding_to_transform_change_type() {
+        <span class="kw">let </span>binding_group = <span class="kw">crate</span>::BindingGroup::new();
 
-        <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
+        <span class="kw">let </span>source = TestObject::default();
+        <span class="kw">let </span>target = TestObject::default();
 
-        <span class="ident">binding_group</span>.<span class="ident">set_source</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>));
-        <span class="ident">binding_group</span>
-            .<span class="ident">bind</span>(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">target</span>, <span class="string">&quot;enabled&quot;</span>)
-            .<span class="ident">flags</span>(<span class="ident"><span class="kw">crate</span>::BindingFlags::SYNC_CREATE</span>)
-            .<span class="ident">transform_to</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>((<span class="ident">value</span> <span class="op">==</span> <span class="string">&quot;Hello&quot;</span>).<span class="ident">to_value</span>())
+        binding_group.set_source(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>source));
+        binding_group
+            .bind(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;enabled&quot;</span>)
+            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE)
+            .transform_to(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
+                <span class="prelude-val">Some</span>((value == <span class="string">&quot;Hello&quot;</span>).to_value())
             })
-            .<span class="ident">transform_from</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>((<span class="kw">if</span> <span class="ident">value</span> { <span class="string">&quot;Hello&quot;</span> } <span class="kw">else</span> { <span class="string">&quot;World&quot;</span> }).<span class="ident">to_value</span>())
+            .transform_from(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;bool&gt;().unwrap();
+                <span class="prelude-val">Some</span>((<span class="kw">if </span>value { <span class="string">&quot;Hello&quot; </span>} <span class="kw">else </span>{ <span class="string">&quot;World&quot; </span>}).to_value())
             })
-            .<span class="ident">build</span>();
+            .build();
 
-        <span class="ident">source</span>.<span class="ident">set_name</span>(<span class="string">&quot;Hello&quot;</span>);
-        <span class="macro">assert!</span>(<span class="ident">target</span>.<span class="ident">enabled</span>());
+        source.set_name(<span class="string">&quot;Hello&quot;</span>);
+        <span class="macro">assert!</span>(target.enabled());
 
-        <span class="ident">source</span>.<span class="ident">set_name</span>(<span class="string">&quot;Hello World&quot;</span>);
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">target</span>.<span class="ident">enabled</span>());
+        source.set_name(<span class="string">&quot;Hello World&quot;</span>);
+        <span class="macro">assert!</span>(!target.enabled());
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binding_from_transform_change_type</span>() {
-        <span class="kw">let</span> <span class="ident">binding_group</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::BindingGroup::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binding_from_transform_change_type() {
+        <span class="kw">let </span>binding_group = <span class="kw">crate</span>::BindingGroup::new();
 
-        <span class="kw">let</span> <span class="ident">source</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
-        <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">TestObject::default</span>();
+        <span class="kw">let </span>source = TestObject::default();
+        <span class="kw">let </span>target = TestObject::default();
 
-        <span class="ident">binding_group</span>.<span class="ident">set_source</span>(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="ident">source</span>));
-        <span class="ident">binding_group</span>
-            .<span class="ident">bind</span>(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">target</span>, <span class="string">&quot;enabled&quot;</span>)
-            .<span class="ident">flags</span>(<span class="ident"><span class="kw">crate</span>::BindingFlags::SYNC_CREATE</span> <span class="op">|</span> <span class="ident"><span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL</span>)
-            .<span class="ident">transform_to</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>((<span class="ident">value</span> <span class="op">==</span> <span class="string">&quot;Hello&quot;</span>).<span class="ident">to_value</span>())
+        binding_group.set_source(<span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>source));
+        binding_group
+            .bind(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;enabled&quot;</span>)
+            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE | <span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .transform_to(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
+                <span class="prelude-val">Some</span>((value == <span class="string">&quot;Hello&quot;</span>).to_value())
             })
-            .<span class="ident">transform_from</span>(<span class="op">|</span><span class="ident">_binding</span>, <span class="ident">value</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">value</span>.<span class="ident">get</span>::<span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>().<span class="ident">unwrap</span>();
-                <span class="prelude-val">Some</span>((<span class="kw">if</span> <span class="ident">value</span> { <span class="string">&quot;Hello&quot;</span> } <span class="kw">else</span> { <span class="string">&quot;World&quot;</span> }).<span class="ident">to_value</span>())
+            .transform_from(|_binding, value| {
+                <span class="kw">let </span>value = value.get::&lt;bool&gt;().unwrap();
+                <span class="prelude-val">Some</span>((<span class="kw">if </span>value { <span class="string">&quot;Hello&quot; </span>} <span class="kw">else </span>{ <span class="string">&quot;World&quot; </span>}).to_value())
             })
-            .<span class="ident">build</span>();
+            .build();
 
-        <span class="ident">target</span>.<span class="ident">set_enabled</span>(<span class="bool-val">true</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">source</span>.<span class="ident">name</span>(), <span class="string">&quot;Hello&quot;</span>);
-        <span class="ident">target</span>.<span class="ident">set_enabled</span>(<span class="bool-val">false</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">source</span>.<span class="ident">name</span>(), <span class="string">&quot;World&quot;</span>);
+        target.set_enabled(<span class="bool-val">true</span>);
+        <span class="macro">assert_eq!</span>(source.name(), <span class="string">&quot;Hello&quot;</span>);
+        target.set_enabled(<span class="bool-val">false</span>);
+        <span class="macro">assert_eq!</span>(source.name(), <span class="string">&quot;World&quot;</span>);
     }
 
-    <span class="kw">mod</span> <span class="ident">imp</span> {
-        <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+    <span class="kw">mod </span>imp {
+        <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-        <span class="kw">use</span> <span class="ident">once_cell::sync::Lazy</span>;
-        <span class="kw">use</span> <span class="ident">std::cell::RefCell</span>;
+        <span class="kw">use </span>once_cell::sync::Lazy;
+        <span class="kw">use </span>std::cell::RefCell;
 
-        <span class="kw">use</span> <span class="kw">crate</span> <span class="kw">as</span> <span class="ident">glib</span>;
+        <span class="kw">use crate as </span>glib;
 
-        <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TestObject</span> {
-            <span class="kw">pub</span> <span class="ident">name</span>: <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
-            <span class="kw">pub</span> <span class="ident">enabled</span>: <span class="ident">RefCell</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>,
+        <span class="attribute">#[derive(Debug, Default)]
+        </span><span class="kw">pub struct </span>TestObject {
+            <span class="kw">pub </span>name: RefCell&lt;String&gt;,
+            <span class="kw">pub </span>enabled: RefCell&lt;bool&gt;,
         }
 
-        <span class="attribute">#[<span class="ident"><span class="kw">crate</span>::object_subclass</span>]</span>
-        <span class="kw">impl</span> <span class="ident">ObjectSubclass</span> <span class="kw">for</span> <span class="ident">TestObject</span> {
-            <span class="kw">const</span> <span class="ident">NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;TestBindingGroup&quot;</span>;
-            <span class="kw">type</span> <span class="ident">Type</span> <span class="op">=</span> <span class="ident"><span class="kw">super</span>::TestObject</span>;
+        <span class="attribute">#[<span class="kw">crate</span>::object_subclass]
+        </span><span class="kw">impl </span>ObjectSubclass <span class="kw">for </span>TestObject {
+            <span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str = <span class="string">&quot;TestBindingGroup&quot;</span>;
+            <span class="kw">type </span>Type = <span class="kw">super</span>::TestObject;
         }
 
-        <span class="kw">impl</span> <span class="ident">ObjectImpl</span> <span class="kw">for</span> <span class="ident">TestObject</span> {
-            <span class="kw">fn</span> <span class="ident">properties</span>() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::ParamSpec</span>] {
-                <span class="kw">static</span> <span class="ident">PROPERTIES</span>: <span class="ident">Lazy</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Lazy::new</span>(<span class="op">|</span><span class="op">|</span> {
+        <span class="kw">impl </span>ObjectImpl <span class="kw">for </span>TestObject {
+            <span class="kw">fn </span>properties() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>[<span class="kw">crate</span>::ParamSpec] {
+                <span class="kw">static </span>PROPERTIES: Lazy&lt;Vec&lt;<span class="kw">crate</span>::ParamSpec&gt;&gt; = Lazy::new(|| {
                     <span class="macro">vec!</span>[
-                        <span class="ident"><span class="kw">crate</span>::ParamSpecString::new</span>(
-                            <span class="string">&quot;name&quot;</span>,
-                            <span class="string">&quot;name&quot;</span>,
-                            <span class="string">&quot;name&quot;</span>,
-                            <span class="prelude-val">None</span>,
-                            <span class="ident"><span class="kw">crate</span>::ParamFlags::READWRITE</span> <span class="op">|</span> <span class="ident"><span class="kw">crate</span>::ParamFlags::EXPLICIT_NOTIFY</span>,
-                        ),
-                        <span class="ident"><span class="kw">crate</span>::ParamSpecBoolean::new</span>(
-                            <span class="string">&quot;enabled&quot;</span>,
-                            <span class="string">&quot;enabled&quot;</span>,
-                            <span class="string">&quot;enabled&quot;</span>,
-                            <span class="bool-val">false</span>,
-                            <span class="ident"><span class="kw">crate</span>::ParamFlags::READWRITE</span> <span class="op">|</span> <span class="ident"><span class="kw">crate</span>::ParamFlags::EXPLICIT_NOTIFY</span>,
-                        ),
+                        <span class="kw">crate</span>::ParamSpecString::builder(<span class="string">&quot;name&quot;</span>)
+                            .explicit_notify()
+                            .build(),
+                        <span class="kw">crate</span>::ParamSpecBoolean::builder(<span class="string">&quot;enabled&quot;</span>)
+                            .explicit_notify()
+                            .build(),
                     ]
                 });
-                <span class="ident">PROPERTIES</span>.<span class="ident">as_ref</span>()
+                PROPERTIES.as_ref()
             }
 
-            <span class="kw">fn</span> <span class="ident">property</span>(
-                <span class="kw-2">&amp;</span><span class="self">self</span>,
-                <span class="ident">obj</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-                <span class="ident">_id</span>: <span class="ident">usize</span>,
-                <span class="ident">pspec</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span>,
-            ) -&gt; <span class="ident"><span class="kw">crate</span>::Value</span> {
-                <span class="kw">match</span> <span class="ident">pspec</span>.<span class="ident">name</span>() {
-                    <span class="string">&quot;name&quot;</span> =&gt; <span class="ident">obj</span>.<span class="ident">name</span>().<span class="ident">to_value</span>(),
-                    <span class="string">&quot;enabled&quot;</span> =&gt; <span class="ident">obj</span>.<span class="ident">enabled</span>().<span class="ident">to_value</span>(),
-                    <span class="kw">_</span> =&gt; <span class="macro">unimplemented!</span>(),
+            <span class="kw">fn </span>property(<span class="kw-2">&amp;</span><span class="self">self</span>, _id: usize, pspec: <span class="kw-2">&amp;</span><span class="kw">crate</span>::ParamSpec) -&gt; <span class="kw">crate</span>::Value {
+                <span class="kw">let </span>obj = <span class="self">self</span>.instance();
+                <span class="kw">match </span>pspec.name() {
+                    <span class="string">&quot;name&quot; </span>=&gt; obj.name().to_value(),
+                    <span class="string">&quot;enabled&quot; </span>=&gt; obj.enabled().to_value(),
+                    <span class="kw">_ </span>=&gt; <span class="macro">unimplemented!</span>(),
                 }
             }
 
-            <span class="kw">fn</span> <span class="ident">set_property</span>(
-                <span class="kw-2">&amp;</span><span class="self">self</span>,
-                <span class="ident">obj</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-                <span class="ident">_id</span>: <span class="ident">usize</span>,
-                <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::Value</span>,
-                <span class="ident">pspec</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::ParamSpec</span>,
-            ) {
-                <span class="kw">match</span> <span class="ident">pspec</span>.<span class="ident">name</span>() {
-                    <span class="string">&quot;name&quot;</span> =&gt; <span class="ident">obj</span>.<span class="ident">set_name</span>(<span class="ident">value</span>.<span class="ident">get</span>().<span class="ident">unwrap</span>()),
-                    <span class="string">&quot;enabled&quot;</span> =&gt; <span class="ident">obj</span>.<span class="ident">set_enabled</span>(<span class="ident">value</span>.<span class="ident">get</span>().<span class="ident">unwrap</span>()),
-                    <span class="kw">_</span> =&gt; <span class="macro">unimplemented!</span>(),
+            <span class="kw">fn </span>set_property(<span class="kw-2">&amp;</span><span class="self">self</span>, _id: usize, value: <span class="kw-2">&amp;</span><span class="kw">crate</span>::Value, pspec: <span class="kw-2">&amp;</span><span class="kw">crate</span>::ParamSpec) {
+                <span class="kw">let </span>obj = <span class="self">self</span>.instance();
+                <span class="kw">match </span>pspec.name() {
+                    <span class="string">&quot;name&quot; </span>=&gt; obj.set_name(value.get().unwrap()),
+                    <span class="string">&quot;enabled&quot; </span>=&gt; obj.set_enabled(value.get().unwrap()),
+                    <span class="kw">_ </span>=&gt; <span class="macro">unimplemented!</span>(),
                 };
             }
         }
     }
 
-    <span class="macro">crate::wrapper!</span> {
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TestObject</span>(<span class="ident">ObjectSubclass</span><span class="op">&lt;</span><span class="ident">imp::TestObject</span><span class="op">&gt;</span>);
+    <span class="macro">crate::wrapper! </span>{
+        <span class="kw">pub struct </span>TestObject(ObjectSubclass&lt;imp::TestObject&gt;);
     }
 
-    <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">TestObject</span> {
-        <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-            <span class="ident"><span class="kw">crate</span>::Object::new</span>(<span class="kw-2">&amp;</span>[]).<span class="ident">unwrap</span>()
+    <span class="kw">impl </span>Default <span class="kw">for </span>TestObject {
+        <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+            <span class="kw">crate</span>::Object::new(<span class="kw-2">&amp;</span>[])
         }
     }
 
-    <span class="kw">impl</span> <span class="ident">TestObject</span> {
-        <span class="kw">fn</span> <span class="ident">name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">String</span> {
-            <span class="self">self</span>.<span class="ident">imp</span>().<span class="ident">name</span>.<span class="ident">borrow</span>().<span class="ident">clone</span>()
+    <span class="kw">impl </span>TestObject {
+        <span class="kw">fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; String {
+            <span class="self">self</span>.imp().name.borrow().clone()
         }
 
-        <span class="kw">fn</span> <span class="ident">set_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-            <span class="kw">if</span> <span class="ident">name</span> <span class="op">!</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">imp</span>().<span class="ident">name</span>.<span class="ident">replace</span>(<span class="ident">name</span>.<span class="ident">to_string</span>()).<span class="ident">as_str</span>() {
-                <span class="self">self</span>.<span class="ident">notify</span>(<span class="string">&quot;name&quot;</span>);
+        <span class="kw">fn </span>set_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw-2">&amp;</span>str) {
+            <span class="kw">if </span>name != <span class="self">self</span>.imp().name.replace(name.to_string()).as_str() {
+                <span class="self">self</span>.notify(<span class="string">&quot;name&quot;</span>);
             }
         }
 
-        <span class="kw">fn</span> <span class="ident">enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-            <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">imp</span>().<span class="ident">enabled</span>.<span class="ident">borrow</span>()
+        <span class="kw">fn </span>enabled(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+            <span class="kw-2">*</span><span class="self">self</span>.imp().enabled.borrow()
         }
 
-        <span class="kw">fn</span> <span class="ident">set_enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">enabled</span>: <span class="ident">bool</span>) {
-            <span class="kw">if</span> <span class="ident">enabled</span> <span class="op">!</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">imp</span>().<span class="ident">enabled</span>.<span class="ident">replace</span>(<span class="ident">enabled</span>) {
-                <span class="self">self</span>.<span class="ident">notify</span>(<span class="string">&quot;enabled&quot;</span>);
+        <span class="kw">fn </span>set_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>, enabled: bool) {
+            <span class="kw">if </span>enabled != <span class="self">self</span>.imp().enabled.replace(enabled) {
+                <span class="self">self</span>.notify(<span class="string">&quot;enabled&quot;</span>);
             }
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/async_initable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>async_initable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/subclass/async_initable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>async_initable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gio/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gio/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -471,101 +465,97 @@
 <span id="392">392</span>
 <span id="393">393</span>
 <span id="394">394</span>
-<span id="395">395</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident">glib::object::Cast</span>;
-<span class="kw">use</span> <span class="ident">glib::thread_guard::ThreadGuard</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::Error</span>;
+</span><span class="kw">use </span>glib::object::Cast;
+<span class="kw">use </span>glib::thread_guard::ThreadGuard;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::Error;
 
-<span class="kw">use</span> <span class="ident">glib::subclass::prelude</span>::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::subclass::prelude::<span class="kw-2">*</span>;
 
-<span class="kw">use</span> <span class="ident">std::ptr</span>;
+<span class="kw">use </span>std::ptr;
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude::CancellableExt</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude::CancellableExtManual</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::AsyncInitable</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::AsyncResult</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Cancellable</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::GioFutureResult</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::LocalTask</span>;
+<span class="kw">use </span><span class="kw">crate</span>::prelude::CancellableExt;
+<span class="kw">use </span><span class="kw">crate</span>::prelude::CancellableExtManual;
+<span class="kw">use </span><span class="kw">crate</span>::AsyncInitable;
+<span class="kw">use </span><span class="kw">crate</span>::AsyncResult;
+<span class="kw">use </span><span class="kw">crate</span>::Cancellable;
+<span class="kw">use </span><span class="kw">crate</span>::GioFutureResult;
+<span class="kw">use </span><span class="kw">crate</span>::LocalTask;
 
-<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">future::Future</span>, <span class="ident">pin::Pin</span>};
+<span class="kw">use </span>std::{future::Future, pin::Pin};
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">AsyncInitableImpl</span>: <span class="ident">ObjectImpl</span> {
-    <span class="kw">fn</span> <span class="ident">init_future</span>(
+<span class="kw">pub trait </span>AsyncInitableImpl: ObjectImpl {
+    <span class="kw">fn </span>init_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">initable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">parent_init_future</span>(<span class="ident">initable</span>, <span class="ident">io_priority</span>)
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+        <span class="self">self</span>.parent_init_future(io_priority)
     }
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">AsyncInitableImplExt</span>: <span class="ident">ObjectSubclass</span> {
-    <span class="kw">fn</span> <span class="ident">parent_init_future</span>(
+<span class="kw">pub trait </span>AsyncInitableImplExt: ObjectSubclass {
+    <span class="kw">fn </span>parent_init_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">initable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">AsyncInitableImpl</span><span class="op">&gt;</span> <span class="ident">AsyncInitableImplExt</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">parent_init_future</span>(
+<span class="kw">impl</span>&lt;T: AsyncInitableImpl&gt; AsyncInitableImplExt <span class="kw">for </span>T {
+    <span class="kw">fn </span>parent_init_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">initable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">AsyncInitable</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GAsyncInitableIface</span>;
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;AsyncInitable&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GAsyncInitableIface;
 
-            <span class="kw">let</span> <span class="ident">init_async</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">init_async</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;init_async\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>init_async = (<span class="kw-2">*</span>parent_iface)
+                .init_async
+                .expect(<span class="string">&quot;no parent \&quot;init_async\&quot; implementation&quot;</span>);
 
-            <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">parent_init_future_callback</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(
-                <span class="ident">source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-                <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GAsyncResult</span>,
-                <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
-            ) <span class="kw">where</span>
-                <span class="ident">T</span>: <span class="ident">AsyncInitableImpl</span>,
+            <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>parent_init_future_callback&lt;T&gt;(
+                source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+                res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
+                user_data: glib::ffi::gpointer,
+            ) <span class="kw">where
+                </span>T: AsyncInitableImpl,
             {
-                <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident">T::type_data</span>();
-                <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">AsyncInitable</span><span class="op">&gt;</span>()
-                    <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GAsyncInitableIface</span>;
-                <span class="kw">let</span> <span class="ident">init_finish</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                    .<span class="ident">init_finish</span>
-                    .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;init_finish\&quot; implementation&quot;</span>);
+                <span class="kw">let </span>type_data = T::type_data();
+                <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;AsyncInitable&gt;()
+                    <span class="kw">as </span><span class="kw-2">*const </span>ffi::GAsyncInitableIface;
+                <span class="kw">let </span>init_finish = (<span class="kw-2">*</span>parent_iface)
+                    .init_finish
+                    .expect(<span class="string">&quot;no parent \&quot;init_finish\&quot; implementation&quot;</span>);
 
-                <span class="kw">let</span> <span class="ident">r</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">GioFutureResult</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                    <span class="ident">Box::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-                <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> <span class="ident">r</span>.<span class="ident">into_inner</span>();
+                <span class="kw">let </span>r: Box&lt;ThreadGuard&lt;GioFutureResult&lt;(), Error&gt;&gt;&gt; =
+                    Box::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+                <span class="kw">let </span>r = r.into_inner();
 
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-                <span class="ident">init_finish</span>(<span class="ident">source_object</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>, <span class="ident">res</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
-                <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
+                <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+                init_finish(source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, res, <span class="kw-2">&amp;mut </span>error);
+                <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
                     <span class="prelude-val">Ok</span>(())
-                } <span class="kw">else</span> {
-                    <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+                } <span class="kw">else </span>{
+                    <span class="prelude-val">Err</span>(from_glib_full(error))
                 };
-                <span class="ident">r</span>.<span class="ident">resolve</span>(<span class="ident">result</span>);
+                r.resolve(result);
             }
 
-            <span class="ident">Box::pin</span>(<span class="ident"><span class="kw">crate</span>::GioFuture::new</span>(
-                <span class="ident">initable</span>,
-                <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">res</span><span class="op">|</span> {
-                    <span class="kw">let</span> <span class="ident">user_data</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">GioFutureResult</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                        <span class="ident">Box::new</span>(<span class="ident">ThreadGuard::new</span>(<span class="ident">res</span>));
-                    <span class="kw">let</span> <span class="ident">user_data</span> <span class="op">=</span> <span class="ident">Box::into_raw</span>(<span class="ident">user_data</span>);
-                    <span class="ident">init_async</span>(
-                        <span class="ident">obj</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">AsyncInitable</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="ident">io_priority</span>.<span class="ident">into_glib</span>(),
-                        <span class="ident">cancellable</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="prelude-val">Some</span>(<span class="ident">parent_init_future_callback</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>),
-                        <span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+            Box::pin(<span class="kw">crate</span>::GioFuture::new(
+                <span class="kw-2">&amp;*</span><span class="self">self</span>.instance(),
+                <span class="kw">move </span>|obj, cancellable, res| {
+                    <span class="kw">let </span>user_data: Box&lt;ThreadGuard&lt;GioFutureResult&lt;(), Error&gt;&gt;&gt; =
+                        Box::new(ThreadGuard::new(res));
+                    <span class="kw">let </span>user_data = Box::into_raw(user_data);
+                    init_async(
+                        obj.unsafe_cast_ref::&lt;AsyncInitable&gt;().to_glib_none().<span class="number">0</span>,
+                        io_priority.into_glib(),
+                        cancellable.to_glib_none().<span class="number">0</span>,
+                        <span class="prelude-val">Some</span>(parent_init_future_callback::&lt;T&gt;),
+                        user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     );
                 },
             ))
@@ -573,300 +563,301 @@
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">AsyncInitableImpl</span><span class="op">&gt;</span> <span class="ident">IsImplementable</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">AsyncInitable</span> {
-    <span class="kw">fn</span> <span class="ident">interface_init</span>(<span class="ident">iface</span>: <span class="kw-2">&amp;mut</span> <span class="ident">glib::Interface</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">iface</span> <span class="op">=</span> <span class="ident">iface</span>.<span class="ident">as_mut</span>();
-        <span class="ident">iface</span>.<span class="ident">init_async</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">async_initable_init_async</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">init_finish</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">async_initable_init_finish</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
+<span class="kw">unsafe impl</span>&lt;T: AsyncInitableImpl&gt; IsImplementable&lt;T&gt; <span class="kw">for </span>AsyncInitable {
+    <span class="kw">fn </span>interface_init(iface: <span class="kw-2">&amp;mut </span>glib::Interface&lt;<span class="self">Self</span>&gt;) {
+        <span class="kw">let </span>iface = iface.as_mut();
+        iface.init_async = <span class="prelude-val">Some</span>(async_initable_init_async::&lt;T&gt;);
+        iface.init_finish = <span class="prelude-val">Some</span>(async_initable_init_finish::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">async_initable_init_async</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">AsyncInitableImpl</span><span class="op">&gt;</span>(
-    <span class="ident">initable</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GAsyncInitable</span>,
-    <span class="ident">io_priority</span>: <span class="ident">std::os::raw::c_int</span>,
-    <span class="ident">cancellable</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GCancellable</span>,
-    <span class="ident">callback</span>: <span class="ident">ffi::GAsyncReadyCallback</span>,
-    <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>async_initable_init_async&lt;T: AsyncInitableImpl&gt;(
+    initable: <span class="kw-2">*mut </span>ffi::GAsyncInitable,
+    io_priority: std::os::raw::c_int,
+    cancellable: <span class="kw-2">*mut </span>ffi::GCancellable,
+    callback: ffi::GAsyncReadyCallback,
+    user_data: glib::ffi::gpointer,
 ) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">initable</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
-    <span class="kw">let</span> <span class="ident">initable</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">AsyncInitable</span><span class="op">&gt;</span>(<span class="ident">initable</span>);
-    <span class="kw">let</span> <span class="ident">cancellable</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">cancellable</span>);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(initable <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>cancellable = from_glib_borrow::&lt;<span class="kw">_</span>, <span class="prelude-ty">Option</span>&lt;Cancellable&gt;&gt;(cancellable);
 
-    <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="ident">callback</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">callback</span><span class="op">|</span> {
-        <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="ident">LocalTask::new</span>(
-            <span class="prelude-val">Some</span>(<span class="ident">initable</span>.<span class="ident">upcast_ref</span>::<span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>()),
-            <span class="ident">cancellable</span>.<span class="ident">as_ref</span>().<span class="ident">as_ref</span>(),
-            <span class="kw">move</span> <span class="op">|</span><span class="ident">task</span>, <span class="ident">obj</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">result</span>: <span class="kw-2">*mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GAsyncResult</span> <span class="op">=</span>
-                    <span class="ident">task</span>.<span class="ident">upcast_ref</span>::<span class="op">&lt;</span><span class="ident">AsyncResult</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>;
-                <span class="kw">let</span> <span class="ident">obj</span>: <span class="kw-2">*mut</span> <span class="ident">glib::object::GObject</span> <span class="op">=</span> <span class="ident">obj</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>;
-                <span class="ident">callback</span>(<span class="ident">obj</span>, <span class="ident">result</span>, <span class="ident">user_data</span>);
+    <span class="kw">let </span>task = callback.map(|callback| {
+        <span class="kw">let </span>task = LocalTask::new(
+            <span class="prelude-val">Some</span>(imp.instance().unsafe_cast_ref::&lt;glib::Object&gt;()),
+            cancellable.as_ref().as_ref(),
+            <span class="kw">move </span>|task, obj| {
+                <span class="kw">let </span>result: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult =
+                    task.upcast_ref::&lt;AsyncResult&gt;().to_glib_none().<span class="number">0</span>;
+                <span class="kw">let </span>obj: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject = obj.to_glib_none().<span class="number">0</span>;
+                callback(obj, result, user_data);
             },
         );
-        <span class="ident">task</span>.<span class="ident">set_check_cancellable</span>(<span class="bool-val">true</span>);
-        <span class="ident">task</span>.<span class="ident">set_return_on_cancel</span>(<span class="bool-val">true</span>);
-        <span class="ident">task</span>
+        task.set_check_cancellable(<span class="bool-val">true</span>);
+        task.set_return_on_cancel(<span class="bool-val">true</span>);
+        task
     });
 
-    <span class="ident">glib::MainContext::ref_thread_default</span>().<span class="ident">spawn_local</span>(<span class="kw">async</span> <span class="kw">move</span> {
-        <span class="kw">let</span> <span class="ident">initable</span> <span class="op">=</span> <span class="ident">initable</span>.<span class="ident">unsafe_cast_ref</span>();
-        <span class="kw">let</span> <span class="ident">io_priority</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">io_priority</span>);
-        <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>) <span class="op">=</span> <span class="ident">cancellable</span>.<span class="ident">as_ref</span>() {
-            <span class="ident">futures_util::future::select</span>(
-                <span class="ident">imp</span>.<span class="ident">init_future</span>(<span class="ident">initable</span>, <span class="ident">io_priority</span>),
-                <span class="ident">Box::pin</span>(<span class="kw">async</span> {
-                    <span class="ident">cancellable</span>.<span class="ident">future</span>().<span class="kw">await</span>;
-                    <span class="ident">cancellable</span>.<span class="ident">set_error_if_cancelled</span>()
+    glib::MainContext::ref_thread_default().spawn_local(<span class="kw">async move </span>{
+        <span class="kw">let </span>io_priority = from_glib(io_priority);
+        <span class="kw">let </span>res = <span class="kw">if let </span><span class="prelude-val">Some</span>(cancellable) = cancellable.as_ref() {
+            futures_util::future::select(
+                imp.init_future(io_priority),
+                Box::pin(<span class="kw">async </span>{
+                    cancellable.future().<span class="kw">await</span>;
+                    cancellable.set_error_if_cancelled()
                 }),
             )
-            .<span class="kw">await</span>
-            .<span class="ident">factor_first</span>()
-            .<span class="number">0</span>
-        } <span class="kw">else</span> {
-            <span class="ident">imp</span>.<span class="ident">init_future</span>(<span class="ident">initable</span>, <span class="ident">io_priority</span>).<span class="kw">await</span>
-        };
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">task</span>) <span class="op">=</span> <span class="ident">task</span> {
-            <span class="ident">task</span>.<span class="ident">return_result</span>(<span class="ident">res</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">_t</span><span class="op">|</span> <span class="bool-val">true</span>));
+            .<span class="kw">await
+            </span>.factor_first()
+            .<span class="number">0
+        </span>} <span class="kw">else </span>{
+            imp.init_future(io_priority).<span class="kw">await
+        </span>};
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(task) = task {
+            task.return_result(res.map(|_t| <span class="bool-val">true</span>));
         }
     });
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">async_initable_init_finish</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">AsyncInitableImpl</span><span class="op">&gt;</span>(
-    <span class="ident">initable</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GAsyncInitable</span>,
-    <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GAsyncResult</span>,
-    <span class="ident">error</span>: <span class="kw-2">*mut</span> <span class="kw-2">*mut</span> <span class="ident">glib::ffi::GError</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">initable</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">AsyncInitable</span><span class="op">&gt;</span>(<span class="ident">initable</span>);
-    <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">from_glib_none</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">AsyncResult</span><span class="op">&gt;</span>(<span class="ident">res</span>);
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>async_initable_init_finish&lt;T: AsyncInitableImpl&gt;(
+    initable: <span class="kw-2">*mut </span>ffi::GAsyncInitable,
+    res: <span class="kw-2">*mut </span>ffi::GAsyncResult,
+    error: <span class="kw-2">*mut *mut </span>glib::ffi::GError,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>res = from_glib_none::&lt;<span class="kw">_</span>, AsyncResult&gt;(res);
 
-    <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="ident">res</span>
-        .<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">LocalTask</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span><span class="op">&gt;</span>()
-        .<span class="ident">expect</span>(<span class="string">&quot;GAsyncResult is not a GTask&quot;</span>);
-    <span class="kw">if</span> <span class="op">!</span><span class="ident">LocalTask</span>::<span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span><span class="ident">::is_valid</span>(<span class="kw-2">&amp;</span><span class="ident">task</span>, <span class="prelude-val">Some</span>(<span class="ident">initable</span>.<span class="ident">as_ref</span>())) {
+    <span class="kw">let </span>task = res
+        .downcast::&lt;LocalTask&lt;bool&gt;&gt;()
+        .expect(<span class="string">&quot;GAsyncResult is not a GTask&quot;</span>);
+    <span class="kw">if </span>!LocalTask::&lt;bool&gt;::is_valid(
+        <span class="kw-2">&amp;</span>task,
+        <span class="prelude-val">Some</span>(from_glib_borrow::&lt;<span class="kw">_</span>, AsyncInitable&gt;(initable).as_ref()),
+    ) {
         <span class="macro">panic!</span>(<span class="string">&quot;Task is not valid for source object&quot;</span>);
     }
 
-    <span class="kw">match</span> <span class="ident">task</span>.<span class="ident">propagate</span>() {
-        <span class="prelude-val">Ok</span>(<span class="ident">v</span>) =&gt; {
-            <span class="macro">assert!</span>(<span class="ident">v</span>);
-            <span class="bool-val">true</span>.<span class="ident">into_glib</span>()
+    <span class="kw">match </span>task.propagate() {
+        <span class="prelude-val">Ok</span>(v) =&gt; {
+            <span class="macro">assert!</span>(v);
+            <span class="bool-val">true</span>.into_glib()
         }
-        <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; {
-            <span class="kw">if</span> <span class="op">!</span><span class="ident">error</span>.<span class="ident">is_null</span>() {
-                <span class="kw-2">*</span><span class="ident">error</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_glib_ptr</span>();
+        <span class="prelude-val">Err</span>(e) =&gt; {
+            <span class="kw">if </span>!error.is_null() {
+                <span class="kw-2">*</span>error = e.into_glib_ptr();
             }
-            <span class="bool-val">false</span>.<span class="ident">into_glib</span>()
+            <span class="bool-val">false</span>.into_glib()
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::traits::AsyncInitableExt</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::traits::AsyncInitableExt;
 
-    <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">imp</span> {
-        <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-        <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::AsyncInitable</span>;
-        <span class="kw">use</span> <span class="ident">std::cell::Cell</span>;
+    <span class="kw">pub mod </span>imp {
+        <span class="kw">use super</span>::<span class="kw-2">*</span>;
+        <span class="kw">use </span><span class="kw">crate</span>::AsyncInitable;
+        <span class="kw">use </span>std::cell::Cell;
 
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">AsyncInitableTestType</span>(<span class="kw">pub</span> <span class="ident">Cell</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span>);
+        <span class="kw">pub struct </span>AsyncInitableTestType(<span class="kw">pub </span>Cell&lt;u64&gt;);
 
-        <span class="attribute">#[<span class="ident">glib::object_subclass</span>]</span>
-        <span class="kw">impl</span> <span class="ident">ObjectSubclass</span> <span class="kw">for</span> <span class="ident">AsyncInitableTestType</span> {
-            <span class="kw">const</span> <span class="ident">NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;AsyncInitableTestType&quot;</span>;
-            <span class="kw">type</span> <span class="ident">Type</span> <span class="op">=</span> <span class="ident"><span class="kw">super</span>::AsyncInitableTestType</span>;
-            <span class="kw">type</span> <span class="ident">Interfaces</span> <span class="op">=</span> (<span class="ident">AsyncInitable</span>,);
+        <span class="attribute">#[glib::object_subclass]
+        </span><span class="kw">impl </span>ObjectSubclass <span class="kw">for </span>AsyncInitableTestType {
+            <span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str = <span class="string">&quot;AsyncInitableTestType&quot;</span>;
+            <span class="kw">type </span>Type = <span class="kw">super</span>::AsyncInitableTestType;
+            <span class="kw">type </span>Interfaces = (AsyncInitable,);
 
-            <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-                <span class="self">Self</span>(<span class="ident">Cell::new</span>(<span class="number">0</span>))
+            <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
+                <span class="self">Self</span>(Cell::new(<span class="number">0</span>))
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">AsyncInitableImpl</span> <span class="kw">for</span> <span class="ident">AsyncInitableTestType</span> {
-            <span class="kw">fn</span> <span class="ident">init_future</span>(
+        <span class="kw">impl </span>AsyncInitableImpl <span class="kw">for </span>AsyncInitableTestType {
+            <span class="kw">fn </span>init_future(
                 <span class="kw-2">&amp;</span><span class="self">self</span>,
-                <span class="ident">initable</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-                <span class="ident">_io_priority</span>: <span class="ident">glib::Priority</span>,
-            ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-                <span class="kw">let</span> <span class="ident">initable</span> <span class="op">=</span> <span class="ident">initable</span>.<span class="ident">clone</span>();
-                <span class="ident">Box::pin</span>(<span class="kw">async</span> <span class="kw">move</span> {
-                    <span class="ident">glib::timeout_future_seconds</span>(<span class="number">0</span>).<span class="kw">await</span>;
-                    <span class="ident">initable</span>.<span class="ident">imp</span>().<span class="number">0</span>.<span class="ident">set</span>(<span class="number">0x123456789abcdef</span>);
+                _io_priority: glib::Priority,
+            ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+                <span class="kw">let </span>imp = glib::subclass::ObjectImplRef::new(<span class="self">self</span>);
+                Box::pin(<span class="kw">async move </span>{
+                    glib::timeout_future_seconds(<span class="number">0</span>).<span class="kw">await</span>;
+                    imp.<span class="number">0</span>.set(<span class="number">0x123456789abcdef</span>);
                     <span class="prelude-val">Ok</span>(())
                 })
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">ObjectImpl</span> <span class="kw">for</span> <span class="ident">AsyncInitableTestType</span> {}
+        <span class="kw">impl </span>ObjectImpl <span class="kw">for </span>AsyncInitableTestType {}
     }
 
-    <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ffi</span> {
-        <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-        <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">AsyncInitableTestType</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">imp::AsyncInitableTestType</span> <span class="kw">as</span> <span class="ident">ObjectSubclass</span><span class="op">&gt;</span><span class="ident">::Instance</span>;
+    <span class="kw">pub mod </span>ffi {
+        <span class="kw">use super</span>::<span class="kw-2">*</span>;
+        <span class="kw">pub type </span>AsyncInitableTestType = &lt;imp::AsyncInitableTestType <span class="kw">as </span>ObjectSubclass&gt;::Instance;
 
-        <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">async_initable_test_type_get_value</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">AsyncInitableTestType</span>,
-        ) -&gt; <span class="ident">u64</span> {
-            <span class="kw">let</span> <span class="ident">this</span> <span class="op">=</span> <span class="ident"><span class="kw">super</span>::AsyncInitableTestType::from_glib_borrow</span>(<span class="ident">this</span>);
-            <span class="ident">this</span>.<span class="ident">imp</span>().<span class="number">0</span>.<span class="ident">get</span>()
+        <span class="kw">pub unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>async_initable_test_type_get_value(
+            this: <span class="kw-2">*mut </span>AsyncInitableTestType,
+        ) -&gt; u64 {
+            <span class="kw">let </span>this = <span class="kw">super</span>::AsyncInitableTestType::from_glib_borrow(this);
+            this.imp().<span class="number">0</span>.get()
         }
     }
 
-    <span class="macro">glib::wrapper!</span> {
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">AsyncInitableTestType</span>(<span class="ident">ObjectSubclass</span><span class="op">&lt;</span><span class="ident">imp::AsyncInitableTestType</span><span class="op">&gt;</span>)
-            @<span class="ident">implements</span> <span class="ident">AsyncInitable</span>;
+    <span class="macro">glib::wrapper! </span>{
+        <span class="kw">pub struct </span>AsyncInitableTestType(ObjectSubclass&lt;imp::AsyncInitableTestType&gt;)
+            @implements AsyncInitable;
     }
 
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::new_without_default</span>)]</span>
-    <span class="kw">impl</span> <span class="ident">AsyncInitableTestType</span> {
-        <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-            <span class="ident">AsyncInitable::new_future</span>(<span class="kw-2">&amp;</span>[], <span class="ident">glib::PRIORITY_DEFAULT</span>)
-                .<span class="kw">await</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;Failed creation/initialization of AsyncInitableTestType object&quot;</span>)
+    <span class="attribute">#[allow(clippy::new_without_default)]
+    </span><span class="kw">impl </span>AsyncInitableTestType {
+        <span class="kw">pub async fn </span>new() -&gt; <span class="self">Self </span>{
+            AsyncInitable::new_future(<span class="kw-2">&amp;</span>[], glib::PRIORITY_DEFAULT)
+                .<span class="kw">await
+                </span>.expect(<span class="string">&quot;Failed creation/initialization of AsyncInitableTestType object&quot;</span>)
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_uninit</span>() -&gt; <span class="self">Self</span> {
-            <span class="comment">// This creates an uninitialized AsyncInitableTestType object, for testing</span>
-            <span class="comment">// purposes. In real code, using AsyncInitable::new_future (like the new() method</span>
-            <span class="comment">// does) is recommended.</span>
-            <span class="ident">glib::Object::new</span>(<span class="kw-2">&amp;</span>[]).<span class="ident">expect</span>(<span class="string">&quot;Failed creation of AsyncInitableTestType object&quot;</span>)
+        <span class="kw">pub unsafe fn </span>new_uninit() -&gt; <span class="self">Self </span>{
+            <span class="comment">// This creates an uninitialized AsyncInitableTestType object, for testing
+            // purposes. In real code, using AsyncInitable::new_future (like the new() method
+            // does) is recommended.
+            </span>glib::Object::new_internal(<span class="self">Self</span>::static_type(), <span class="kw-2">&amp;mut </span>[])
+                .downcast()
+                .unwrap()
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u64</span> {
-            <span class="self">self</span>.<span class="ident">imp</span>().<span class="number">0</span>.<span class="ident">get</span>()
+        <span class="kw">pub fn </span>value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u64 {
+            <span class="self">self</span>.imp().<span class="number">0</span>.get()
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_async_initable_with_init</span>() {
-        <span class="ident">glib::MainContext::new</span>().<span class="ident">block_on</span>(<span class="kw">async</span> {
-            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">AsyncInitableTestType::new_uninit</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_async_initable_with_init() {
+        glib::MainContext::new().block_on(<span class="kw">async </span>{
+            <span class="kw">let </span>res = <span class="kw">unsafe </span>{
+                <span class="kw">let </span>test = AsyncInitableTestType::new_uninit();
 
-            <span class="macro">assert_ne!</span>(<span class="number">0x123456789abcdef</span>, <span class="ident">test</span>.<span class="ident">value</span>());
+                <span class="macro">assert_ne!</span>(<span class="number">0x123456789abcdef</span>, test.value());
 
-            <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">test</span>.<span class="ident">init_future</span>(<span class="ident">glib::PRIORITY_DEFAULT</span>) }.<span class="kw">await</span>;
-            <span class="macro">assert!</span>(<span class="ident">result</span>.<span class="ident">is_ok</span>());
+                test.init_future(glib::PRIORITY_DEFAULT).<span class="kw">await</span>.map(|<span class="kw">_</span>| test)
+            };
+            <span class="macro">assert!</span>(res.is_ok());
+            <span class="kw">let </span>test = res.unwrap();
 
-            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, <span class="ident">test</span>.<span class="ident">value</span>());
+            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, test.value());
         });
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_async_initable_with_initable_new</span>() {
-        <span class="ident">glib::MainContext::new</span>().<span class="ident">block_on</span>(<span class="kw">async</span> {
-            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">AsyncInitableTestType::new</span>().<span class="kw">await</span>;
-            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, <span class="ident">test</span>.<span class="ident">value</span>());
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_async_initable_with_initable_new() {
+        glib::MainContext::new().block_on(<span class="kw">async </span>{
+            <span class="kw">let </span>test = AsyncInitableTestType::new().<span class="kw">await</span>;
+            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, test.value());
         });
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_async_initable_new_failure</span>() {
-        <span class="ident">glib::MainContext::new</span>().<span class="ident">block_on</span>(<span class="kw">async</span> {
-            <span class="kw">let</span> <span class="ident">value</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">2</span>;
-            <span class="kw">match</span> <span class="ident">AsyncInitable::new_future</span>::<span class="op">&lt;</span><span class="ident">AsyncInitableTestType</span><span class="op">&gt;</span>(
-                <span class="kw-2">&amp;</span>[(<span class="string">&quot;invalid-property&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">value</span>)],
-                <span class="ident">glib::PRIORITY_DEFAULT</span>,
+    <span class="attribute">#[test]
+    #[should_panic = <span class="string">&quot;&quot;</span>]
+    </span><span class="kw">fn </span>test_async_initable_new_failure() {
+        glib::MainContext::new().block_on(<span class="kw">async </span>{
+            <span class="kw">let </span>value: u32 = <span class="number">2</span>;
+            <span class="kw">let _ </span>= AsyncInitable::new_future::&lt;AsyncInitableTestType&gt;(
+                <span class="kw-2">&amp;</span>[(<span class="string">&quot;invalid-property&quot;</span>, <span class="kw-2">&amp;</span>value)],
+                glib::PRIORITY_DEFAULT,
             )
-            .<span class="kw">await</span>
-            {
-                <span class="prelude-val">Err</span>(<span class="ident">InitableError::NewObjectFailed</span>(<span class="kw">_</span>)) =&gt; (),
-                <span class="ident">v</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;expected InitableError::NewObjectFailed, got {:?}&quot;</span>, <span class="ident">v</span>),
-            }
+            .<span class="kw">await</span>;
+            <span class="macro">unreachable!</span>();
         });
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_async_initable_with_initable_with_type</span>() {
-        <span class="ident">glib::MainContext::new</span>().<span class="ident">block_on</span>(<span class="kw">async</span> {
-            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">AsyncInitable::with_type_future</span>(
-                <span class="ident">AsyncInitableTestType::static_type</span>(),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_async_initable_with_initable_with_type() {
+        glib::MainContext::new().block_on(<span class="kw">async </span>{
+            <span class="kw">let </span>test = AsyncInitable::with_type_future(
+                AsyncInitableTestType::static_type(),
                 <span class="kw-2">&amp;</span>[],
-                <span class="ident">glib::PRIORITY_DEFAULT</span>,
+                glib::PRIORITY_DEFAULT,
             )
-            .<span class="kw">await</span>
-            .<span class="ident">expect</span>(<span class="string">&quot;Failed creation/initialization of AsyncInitableTestType object from type&quot;</span>)
-            .<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">AsyncInitableTestType</span><span class="op">&gt;</span>()
-            .<span class="ident">expect</span>(<span class="string">&quot;Failed downcast of AsyncInitableTestType object&quot;</span>);
-            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, <span class="ident">test</span>.<span class="ident">value</span>());
+            .<span class="kw">await
+            </span>.expect(<span class="string">&quot;Failed creation/initialization of AsyncInitableTestType object from type&quot;</span>)
+            .downcast::&lt;AsyncInitableTestType&gt;()
+            .expect(<span class="string">&quot;Failed downcast of AsyncInitableTestType object&quot;</span>);
+            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, test.value());
         });
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_async_initable_with_async_initable_with_values</span>() {
-        <span class="ident">glib::MainContext::new</span>().<span class="ident">block_on</span>(<span class="kw">async</span> {
-            <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">AsyncInitable::with_values_future</span>(
-                <span class="ident">AsyncInitableTestType::static_type</span>(),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_async_initable_with_async_initable_with_values() {
+        glib::MainContext::new().block_on(<span class="kw">async </span>{
+            <span class="kw">let </span>test = AsyncInitable::with_values_future(
+                AsyncInitableTestType::static_type(),
                 <span class="kw-2">&amp;</span>[],
-                <span class="ident">glib::PRIORITY_DEFAULT</span>,
+                glib::PRIORITY_DEFAULT,
             )
-            .<span class="kw">await</span>
-            .<span class="ident">expect</span>(<span class="string">&quot;Failed creation/initialization of AsyncInitableTestType object from values&quot;</span>)
-            .<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">AsyncInitableTestType</span><span class="op">&gt;</span>()
-            .<span class="ident">expect</span>(<span class="string">&quot;Failed downcast of AsyncInitableTestType object&quot;</span>);
-            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, <span class="ident">test</span>.<span class="ident">value</span>());
+            .<span class="kw">await
+            </span>.expect(<span class="string">&quot;Failed creation/initialization of AsyncInitableTestType object from values&quot;</span>)
+            .downcast::&lt;AsyncInitableTestType&gt;()
+            .expect(<span class="string">&quot;Failed downcast of AsyncInitableTestType object&quot;</span>);
+            <span class="macro">assert_eq!</span>(<span class="number">0x123456789abcdef</span>, test.value());
         });
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_async_initable_through_ffi</span>() {
-        <span class="kw">use</span> <span class="ident">futures_channel::oneshot</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_async_initable_through_ffi() {
+        <span class="kw">use </span>futures_channel::oneshot;
 
-        <span class="ident">glib::MainContext::new</span>().<span class="ident">block_on</span>(<span class="kw">async</span> {
-            <span class="kw">unsafe</span> {
-                <span class="kw">let</span> <span class="ident">test</span> <span class="op">=</span> <span class="ident">AsyncInitableTestType::new_uninit</span>();
-                <span class="kw">let</span> <span class="ident">test</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::AsyncInitableTestType</span> <span class="op">=</span> <span class="ident">test</span>.<span class="ident">as_ptr</span>();
+        glib::MainContext::new().block_on(<span class="kw">async </span>{
+            <span class="kw">unsafe </span>{
+                <span class="kw">let </span>test = AsyncInitableTestType::new_uninit();
+                <span class="kw">let </span>test: <span class="kw-2">*mut </span>ffi::AsyncInitableTestType = test.as_ptr();
 
                 <span class="macro">assert_ne!</span>(
                     <span class="number">0x123456789abcdef</span>,
-                    <span class="ident">ffi::async_initable_test_type_get_value</span>(<span class="ident">test</span>)
+                    ffi::async_initable_test_type_get_value(test)
                 );
 
-                <span class="kw">let</span> (<span class="ident">tx</span>, <span class="ident">rx</span>) <span class="op">=</span> <span class="ident">oneshot::channel</span>::<span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span>();
-                <span class="kw">let</span> <span class="ident">user_data</span> <span class="op">=</span> <span class="ident">Box::new</span>(<span class="ident">ThreadGuard::new</span>(<span class="ident">tx</span>));
-                <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">init_async_callback</span>(
-                    <span class="ident">source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-                    <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GAsyncResult</span>,
-                    <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
+                <span class="kw">let </span>(tx, rx) = oneshot::channel::&lt;<span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;&gt;();
+                <span class="kw">let </span>user_data = Box::new(ThreadGuard::new(tx));
+                <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>init_async_callback(
+                    source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+                    res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
+                    user_data: glib::ffi::gpointer,
                 ) {
-                    <span class="kw">let</span> <span class="ident">tx</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">ThreadGuard</span><span class="op">&lt;</span><span class="ident">oneshot::Sender</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                        <span class="ident">Box::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-                    <span class="kw">let</span> <span class="ident">tx</span> <span class="op">=</span> <span class="ident">tx</span>.<span class="ident">into_inner</span>();
-                    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-                    <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::ffi::g_async_initable_init_finish</span>(
-                        <span class="ident">source_object</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                        <span class="ident">res</span>,
-                        <span class="kw-2">&amp;mut</span> <span class="ident">error</span>,
+                    <span class="kw">let </span>tx: Box&lt;ThreadGuard&lt;oneshot::Sender&lt;<span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;&gt;&gt;&gt; =
+                        Box::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+                    <span class="kw">let </span>tx = tx.into_inner();
+                    <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+                    <span class="kw">let </span>ret = <span class="kw">crate</span>::ffi::g_async_initable_init_finish(
+                        source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                        res,
+                        <span class="kw-2">&amp;mut </span>error,
                     );
-                    <span class="macro">assert_eq!</span>(<span class="ident">ret</span>, <span class="ident">glib::ffi::GTRUE</span>);
-                    <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
+                    <span class="macro">assert_eq!</span>(ret, glib::ffi::GTRUE);
+                    <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
                         <span class="prelude-val">Ok</span>(())
-                    } <span class="kw">else</span> {
-                        <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+                    } <span class="kw">else </span>{
+                        <span class="prelude-val">Err</span>(from_glib_full(error))
                     };
-                    <span class="ident">tx</span>.<span class="ident">send</span>(<span class="ident">result</span>).<span class="ident">unwrap</span>();
+                    tx.send(result).unwrap();
                 }
 
-                <span class="ident"><span class="kw">crate</span>::ffi::g_async_initable_init_async</span>(
-                    <span class="ident">test</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident"><span class="kw">crate</span>::ffi::GAsyncInitable</span>,
-                    <span class="ident">glib::ffi::G_PRIORITY_DEFAULT</span>,
-                    <span class="ident">std::ptr::null_mut</span>(),
-                    <span class="prelude-val">Some</span>(<span class="ident">init_async_callback</span>),
-                    <span class="ident">Box::into_raw</span>(<span class="ident">user_data</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+                <span class="kw">crate</span>::ffi::g_async_initable_init_async(
+                    test <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncInitable,
+                    glib::ffi::G_PRIORITY_DEFAULT,
+                    std::ptr::null_mut(),
+                    <span class="prelude-val">Some</span>(init_async_callback),
+                    Box::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 );
 
-                <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="ident">rx</span>.<span class="kw">await</span>.<span class="ident">unwrap</span>();
-                <span class="macro">assert!</span>(<span class="ident">result</span>.<span class="ident">is_ok</span>());
+                <span class="kw">let </span>result = rx.<span class="kw">await</span>.unwrap();
+                <span class="macro">assert!</span>(result.is_ok());
                 <span class="macro">assert_eq!</span>(
                     <span class="number">0x123456789abcdef</span>,
-                    <span class="ident">ffi::async_initable_test_type_get_value</span>(<span class="ident">test</span>)
+                    ffi::async_initable_test_type_get_value(test)
                 );
             }
         });
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

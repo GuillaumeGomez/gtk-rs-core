@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -191,120 +185,131 @@
 <span id="112">112</span>
 <span id="113">113</span>
 <span id="114">114</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
-<span class="comment">// DO NOT EDIT</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">mod</span> <span class="ident">checksum</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::checksum::Checksum</span>;
+</span><span class="kw">mod </span>checksum;
+<span class="kw">pub use </span><span class="self">self</span>::checksum::Checksum;
 
-<span class="kw">mod</span> <span class="ident">date_time</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::date_time::DateTime</span>;
+<span class="kw">mod </span>date_time;
+<span class="kw">pub use </span><span class="self">self</span>::date_time::DateTime;
 
-<span class="kw">mod</span> <span class="ident">key_file</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::key_file::KeyFile</span>;
+<span class="kw">mod </span>key_file;
+<span class="kw">pub use </span><span class="self">self</span>::key_file::KeyFile;
 
-<span class="kw">mod</span> <span class="ident">main_context</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::main_context::MainContext</span>;
+<span class="kw">mod </span>main_context;
+<span class="kw">pub use </span><span class="self">self</span>::main_context::MainContext;
 
-<span class="kw">mod</span> <span class="ident">main_loop</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::main_loop::MainLoop</span>;
+<span class="kw">mod </span>main_loop;
+<span class="kw">pub use </span><span class="self">self</span>::main_loop::MainLoop;
 
-<span class="kw">mod</span> <span class="ident">source</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::source::Source</span>;
+<span class="kw">mod </span>markup_parse_context;
+<span class="kw">pub use </span><span class="self">self</span>::markup_parse_context::MarkupParseContext;
 
-<span class="kw">mod</span> <span class="ident">time_zone</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::time_zone::TimeZone</span>;
+<span class="kw">mod </span>source;
+<span class="kw">pub use </span><span class="self">self</span>::source::Source;
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>)))]</span>
-<span class="kw">mod</span> <span class="ident">uri</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::uri::Uri</span>;
+<span class="kw">mod </span>time_zone;
+<span class="kw">pub use </span><span class="self">self</span>::time_zone::TimeZone;
 
-<span class="kw">mod</span> <span class="ident">enums</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::ChecksumType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::DateMonth</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::DateWeekday</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::KeyFileError</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::LogWriterOutput</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::OptionArg</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::SeekType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::TimeType</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::UnicodeScript</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::UriError</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::enums::VariantClass</span>;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_66&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+</span><span class="kw">mod </span>uri;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_66&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::uri::Uri;
 
-<span class="kw">mod</span> <span class="ident">flags</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::FileSetContentsFlags</span>;
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::FileTest</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::FormatSizeFlags</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::IOCondition</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::KeyFileFlags</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::LogLevelFlags</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_72&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_72&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::MainContextFlags</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::OptionFlags</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::SpawnFlags</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::UriFlags</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::UriHideFlags</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_66&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::flags::UriParamsFlags</span>;
+<span class="kw">mod </span>enums;
+<span class="kw">pub use </span><span class="self">self</span>::enums::ChecksumType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::ConvertError;
+<span class="kw">pub use </span><span class="self">self</span>::enums::DateMonth;
+<span class="kw">pub use </span><span class="self">self</span>::enums::DateWeekday;
+<span class="kw">pub use </span><span class="self">self</span>::enums::FileError;
+<span class="kw">pub use </span><span class="self">self</span>::enums::KeyFileError;
+<span class="kw">pub use </span><span class="self">self</span>::enums::LogWriterOutput;
+<span class="kw">pub use </span><span class="self">self</span>::enums::MarkupError;
+<span class="kw">pub use </span><span class="self">self</span>::enums::OptionArg;
+<span class="kw">pub use </span><span class="self">self</span>::enums::SeekType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::TimeType;
+<span class="kw">pub use </span><span class="self">self</span>::enums::UnicodeScript;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_66&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::enums::UriError;
+<span class="kw">pub use </span><span class="self">self</span>::enums::VariantClass;
 
-<span class="kw">mod</span> <span class="ident">alias</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::alias::DateDay</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::alias::DateYear</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::alias::Time</span>;
+<span class="kw">mod </span>flags;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_66&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::flags::FileSetContentsFlags;
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">use </span><span class="self">self</span>::flags::FileTest;
+<span class="kw">pub use </span><span class="self">self</span>::flags::FormatSizeFlags;
+<span class="kw">pub use </span><span class="self">self</span>::flags::IOCondition;
+<span class="kw">pub use </span><span class="self">self</span>::flags::KeyFileFlags;
+<span class="kw">pub use </span><span class="self">self</span>::flags::LogLevelFlags;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_72&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::flags::MainContextFlags;
+<span class="kw">pub use </span><span class="self">self</span>::flags::OptionFlags;
+<span class="kw">pub use </span><span class="self">self</span>::flags::SpawnFlags;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_66&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::flags::UriFlags;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_66&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::flags::UriHideFlags;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_66&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::flags::UriParamsFlags;
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">functions</span>;
+<span class="kw">mod </span>alias;
+<span class="kw">pub use </span><span class="self">self</span>::alias::DateDay;
+<span class="kw">pub use </span><span class="self">self</span>::alias::DateYear;
+<span class="kw">pub use </span><span class="self">self</span>::alias::Time;
 
-<span class="kw">mod</span> <span class="ident">constants</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::CSET_a_2_z</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::CSET_A_2_Z</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::CSET_DIGITS</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_GROUP</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_ACTIONS</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_CATEGORIES</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_COMMENT</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_DBUS_ACTIVATABLE</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_EXEC</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_GENERIC_NAME</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_HIDDEN</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_ICON</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_MIME_TYPE</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_NAME</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_NOT_SHOW_IN</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_NO_DISPLAY</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_ONLY_SHOW_IN</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_PATH</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_STARTUP_NOTIFY</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_STARTUP_WM_CLASS</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_TERMINAL</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_TRY_EXEC</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_TYPE</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_URL</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_VERSION</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_TYPE_APPLICATION</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_TYPE_DIRECTORY</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::KEY_FILE_DESKTOP_TYPE_LINK</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::OPTION_REMAINING</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::STR_DELIMITERS</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_60&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v2_60&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::TEST_OPTION_ISOLATE_DIRS</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::URI_RESERVED_CHARS_GENERIC_DELIMITERS</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::constants::URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS</span>;
+<span class="kw">pub mod </span>functions;
+
+<span class="kw">mod </span>constants;
+<span class="kw">pub use </span><span class="self">self</span>::constants::CSET_a_2_z;
+<span class="kw">pub use </span><span class="self">self</span>::constants::CSET_A_2_Z;
+<span class="kw">pub use </span><span class="self">self</span>::constants::CSET_DIGITS;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_GROUP;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_ACTIONS;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_CATEGORIES;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_COMMENT;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_DBUS_ACTIVATABLE;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_EXEC;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_GENERIC_NAME;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_HIDDEN;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_ICON;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_MIME_TYPE;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_NAME;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_NOT_SHOW_IN;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_NO_DISPLAY;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_ONLY_SHOW_IN;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_PATH;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_STARTUP_NOTIFY;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_STARTUP_WM_CLASS;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_TERMINAL;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_TRY_EXEC;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_TYPE;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_URL;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_KEY_VERSION;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_TYPE_APPLICATION;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_TYPE_DIRECTORY;
+<span class="kw">pub use </span><span class="self">self</span>::constants::KEY_FILE_DESKTOP_TYPE_LINK;
+<span class="kw">pub use </span><span class="self">self</span>::constants::OPTION_REMAINING;
+<span class="kw">pub use </span><span class="self">self</span>::constants::STR_DELIMITERS;
+<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v2_60&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::constants::TEST_OPTION_ISOLATE_DIRS;
+<span class="kw">pub use </span><span class="self">self</span>::constants::URI_RESERVED_CHARS_GENERIC_DELIMITERS;
+<span class="kw">pub use </span><span class="self">self</span>::constants::URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS;
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

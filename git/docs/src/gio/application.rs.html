@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/application.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/application.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -293,222 +287,225 @@
 <span id="214">214</span>
 <span id="215">215</span>
 <span id="216">216</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+<span id="217">217</span>
+<span id="218">218</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Application</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::File</span>;
-<span class="kw">use</span> <span class="ident">glib::prelude</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::signal</span>::{<span class="ident">connect_raw</span>, <span class="ident">SignalHandlerId</span>};
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::GString</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Application;
+<span class="kw">use </span><span class="kw">crate</span>::File;
+<span class="kw">use </span>glib::prelude::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::signal::{connect_raw, SignalHandlerId};
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::GString;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::mem::transmute;
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ApplicationExtManual</span> {
-    <span class="doccomment">/// Runs the application.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function is intended to be run from `main()` and its return value</span>
-    <span class="doccomment">/// is intended to be returned by `main()`. Although you are expected to pass</span>
-    <span class="doccomment">/// the `argc`, `argv` parameters from `main()` to this function, it is possible</span>
-    <span class="doccomment">/// to pass [`None`] if `argv` is not available or commandline handling is not</span>
-    <span class="doccomment">/// required. Note that on Windows, `argc` and `argv` are ignored, and</span>
-    <span class="doccomment">/// `g_win32_get_command_line()` is called internally (for proper support</span>
-    <span class="doccomment">/// of Unicode commandline arguments).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Application`][crate::Application] will attempt to parse the commandline arguments. You</span>
-    <span class="doccomment">/// can add commandline flags to the list of recognised options by way of</span>
-    <span class="doccomment">/// `g_application_add_main_option_entries()`. After this, the</span>
-    <span class="doccomment">/// `signal::Application::handle-local-options` signal is emitted, from which the</span>
-    <span class="doccomment">/// application can inspect the values of its `GOptionEntrys`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// `signal::Application::handle-local-options` is a good place to handle options</span>
-    <span class="doccomment">/// such as `--version`, where an immediate reply from the local process is</span>
-    <span class="doccomment">/// desired (instead of communicating with an already-running instance).</span>
-    <span class="doccomment">/// A `signal::Application::handle-local-options` handler can stop further processing</span>
-    <span class="doccomment">/// by returning a non-negative value, which then becomes the exit status of</span>
-    <span class="doccomment">/// the process.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// What happens next depends on the flags: if</span>
-    <span class="doccomment">/// [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] was specified then the remaining</span>
-    <span class="doccomment">/// commandline arguments are sent to the primary instance, where a</span>
-    <span class="doccomment">/// `signal::Application::command-line` signal is emitted. Otherwise, the</span>
-    <span class="doccomment">/// remaining commandline arguments are assumed to be a list of files.</span>
-    <span class="doccomment">/// If there are no files listed, the application is activated via the</span>
-    <span class="doccomment">/// `signal::Application::activate` signal. If there are one or more files, and</span>
-    <span class="doccomment">/// [`ApplicationFlags::HANDLES_OPEN`][crate::ApplicationFlags::HANDLES_OPEN] was specified then the files are opened</span>
-    <span class="doccomment">/// via the `signal::Application::open` signal.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If you are interested in doing more complicated local handling of the</span>
-    <span class="doccomment">/// commandline then you should implement your own [`Application`][crate::Application] subclass</span>
-    <span class="doccomment">/// and override `local_command_line()`. In this case, you most likely want</span>
-    <span class="doccomment">/// to return [`true`] from your `local_command_line()` implementation to</span>
-    <span class="doccomment">/// suppress the default handling. See</span>
-    <span class="doccomment">/// [gapplication-example-cmdline2.c][https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline2.c]</span>
-    <span class="doccomment">/// for an example.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If, after the above is done, the use count of the application is zero</span>
-    <span class="doccomment">/// then the exit status is returned immediately. If the use count is</span>
-    <span class="doccomment">/// non-zero then the default main context is iterated until the use count</span>
-    <span class="doccomment">/// falls to zero, at which point 0 is returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] flag is set, then the service will</span>
-    <span class="doccomment">/// run for as much as 10 seconds with a use count of zero while waiting</span>
-    <span class="doccomment">/// for the message that caused the activation to arrive. After that,</span>
-    <span class="doccomment">/// if the use count falls to zero the application will exit immediately,</span>
-    <span class="doccomment">/// except in the case that [`ApplicationExt::set_inactivity_timeout()`][crate::prelude::ApplicationExt::set_inactivity_timeout()] is in</span>
-    <span class="doccomment">/// use.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function sets the prgname (`g_set_prgname()`), if not already set,</span>
-    <span class="doccomment">/// to the basename of argv[0].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Much like `g_main_loop_run()`, this function will acquire the main context</span>
-    <span class="doccomment">/// for the duration that the application is running.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Since 2.40, applications that are not explicitly flagged as services</span>
-    <span class="doccomment">/// or launchers (ie: neither [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] or</span>
-    <span class="doccomment">/// [`ApplicationFlags::IS_LAUNCHER`][crate::ApplicationFlags::IS_LAUNCHER] are given as flags) will check (from the</span>
-    <span class="doccomment">/// default handler for local_command_line) if &quot;--gapplication-service&quot;</span>
-    <span class="doccomment">/// was given in the command line. If this flag is present then normal</span>
-    <span class="doccomment">/// commandline processing is interrupted and the</span>
-    <span class="doccomment">/// [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] flag is set. This provides a &quot;compromise&quot;</span>
-    <span class="doccomment">/// solution whereby running an application directly from the commandline</span>
-    <span class="doccomment">/// will invoke it in the normal way (which can be useful for debugging)</span>
-    <span class="doccomment">/// while still allowing applications to be D-Bus activated in service</span>
-    <span class="doccomment">/// mode. The D-Bus service file should invoke the executable with</span>
-    <span class="doccomment">/// &quot;--gapplication-service&quot; as the sole commandline argument. This</span>
-    <span class="doccomment">/// approach is suitable for use by most graphical applications but</span>
-    <span class="doccomment">/// should not be used from applications like editors that need precise</span>
-    <span class="doccomment">/// control over when processes invoked via the commandline will exit and</span>
-    <span class="doccomment">/// what their exit status will be.</span>
-    <span class="doccomment">/// ## `argv`</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  the argv from `main()`, or [`None`]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the exit status</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_application_run&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">run</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_application_run&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">run_with_args</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">str</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="ident">S</span>]) -&gt; <span class="ident">i32</span>;
-    <span class="doccomment">/// The ::open signal is emitted on the primary instance when there are</span>
-    <span class="doccomment">/// files to open. See [`ApplicationExt::open()`][crate::prelude::ApplicationExt::open()] for more information.</span>
-    <span class="doccomment">/// ## `files`</span>
-    <span class="doccomment">/// an array of `GFiles`</span>
-    <span class="doccomment">/// ## `hint`</span>
-    <span class="doccomment">/// a hint provided by the calling instance</span>
-    <span class="kw">fn</span> <span class="ident">connect_open</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>[<span class="ident">File</span>], <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span>;
+<span class="kw">pub trait </span>ApplicationExtManual {
+    <span class="doccomment">/// Runs the application.
+    ///
+    /// This function is intended to be run from `main()` and its return value
+    /// is intended to be returned by `main()`. Although you are expected to pass
+    /// the `argc`, `argv` parameters from `main()` to this function, it is possible
+    /// to pass [`None`] if `argv` is not available or commandline handling is not
+    /// required. Note that on Windows, `argc` and `argv` are ignored, and
+    /// `g_win32_get_command_line()` is called internally (for proper support
+    /// of Unicode commandline arguments).
+    ///
+    /// [`Application`][crate::Application] will attempt to parse the commandline arguments. You
+    /// can add commandline flags to the list of recognised options by way of
+    /// `g_application_add_main_option_entries()`. After this, the
+    /// `signal::Application::handle-local-options` signal is emitted, from which the
+    /// application can inspect the values of its `GOptionEntrys`.
+    ///
+    /// `signal::Application::handle-local-options` is a good place to handle options
+    /// such as `--version`, where an immediate reply from the local process is
+    /// desired (instead of communicating with an already-running instance).
+    /// A `signal::Application::handle-local-options` handler can stop further processing
+    /// by returning a non-negative value, which then becomes the exit status of
+    /// the process.
+    ///
+    /// What happens next depends on the flags: if
+    /// [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] was specified then the remaining
+    /// commandline arguments are sent to the primary instance, where a
+    /// `signal::Application::command-line` signal is emitted. Otherwise, the
+    /// remaining commandline arguments are assumed to be a list of files.
+    /// If there are no files listed, the application is activated via the
+    /// `signal::Application::activate` signal. If there are one or more files, and
+    /// [`ApplicationFlags::HANDLES_OPEN`][crate::ApplicationFlags::HANDLES_OPEN] was specified then the files are opened
+    /// via the `signal::Application::open` signal.
+    ///
+    /// If you are interested in doing more complicated local handling of the
+    /// commandline then you should implement your own [`Application`][crate::Application] subclass
+    /// and override `local_command_line()`. In this case, you most likely want
+    /// to return [`true`] from your `local_command_line()` implementation to
+    /// suppress the default handling. See
+    /// [gapplication-example-cmdline2.c][https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline2.c]
+    /// for an example.
+    ///
+    /// If, after the above is done, the use count of the application is zero
+    /// then the exit status is returned immediately. If the use count is
+    /// non-zero then the default main context is iterated until the use count
+    /// falls to zero, at which point 0 is returned.
+    ///
+    /// If the [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] flag is set, then the service will
+    /// run for as much as 10 seconds with a use count of zero while waiting
+    /// for the message that caused the activation to arrive. After that,
+    /// if the use count falls to zero the application will exit immediately,
+    /// except in the case that [`ApplicationExt::set_inactivity_timeout()`][crate::prelude::ApplicationExt::set_inactivity_timeout()] is in
+    /// use.
+    ///
+    /// This function sets the prgname (`g_set_prgname()`), if not already set,
+    /// to the basename of argv[0].
+    ///
+    /// Much like `g_main_loop_run()`, this function will acquire the main context
+    /// for the duration that the application is running.
+    ///
+    /// Since 2.40, applications that are not explicitly flagged as services
+    /// or launchers (ie: neither [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] or
+    /// [`ApplicationFlags::IS_LAUNCHER`][crate::ApplicationFlags::IS_LAUNCHER] are given as flags) will check (from the
+    /// default handler for local_command_line) if &quot;--gapplication-service&quot;
+    /// was given in the command line. If this flag is present then normal
+    /// commandline processing is interrupted and the
+    /// [`ApplicationFlags::IS_SERVICE`][crate::ApplicationFlags::IS_SERVICE] flag is set. This provides a &quot;compromise&quot;
+    /// solution whereby running an application directly from the commandline
+    /// will invoke it in the normal way (which can be useful for debugging)
+    /// while still allowing applications to be D-Bus activated in service
+    /// mode. The D-Bus service file should invoke the executable with
+    /// &quot;--gapplication-service&quot; as the sole commandline argument. This
+    /// approach is suitable for use by most graphical applications but
+    /// should not be used from applications like editors that need precise
+    /// control over when processes invoked via the commandline will exit and
+    /// what their exit status will be.
+    /// ## `argv`
+    ///
+    ///  the argv from `main()`, or [`None`]
+    ///
+    /// # Returns
+    ///
+    /// the exit status
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_application_run&quot;</span>)]
+    </span><span class="kw">fn </span>run(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
+    <span class="attribute">#[doc(alias = <span class="string">&quot;g_application_run&quot;</span>)]
+    </span><span class="kw">fn </span>run_with_args&lt;S: AsRef&lt;str&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, args: <span class="kw-2">&amp;</span>[S]) -&gt; i32;
+    <span class="doccomment">/// The ::open signal is emitted on the primary instance when there are
+    /// files to open. See [`ApplicationExt::open()`][crate::prelude::ApplicationExt::open()] for more information.
+    /// ## `files`
+    /// an array of `GFiles`
+    /// ## `hint`
+    /// a hint provided by the calling instance
+    </span><span class="kw">fn </span>connect_open&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>[File], <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="doccomment">/// Increases the use count of `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Use this function to indicate that the application has a reason to</span>
-    <span class="doccomment">/// continue to run. For example, [`ApplicationExtManual::hold()`][crate::prelude::ApplicationExtManual::hold()] is called by GTK+</span>
-    <span class="doccomment">/// when a toplevel window is on the screen.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To cancel the hold, call [`ApplicationExtManual::release()`][crate::prelude::ApplicationExtManual::release()].</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_application_hold&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">hold</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">ApplicationHoldGuard</span>;
+    <span class="doccomment">/// Increases the use count of `self`.
+    ///
+    /// Use this function to indicate that the application has a reason to
+    /// continue to run. For example, [`ApplicationExtManual::hold()`][crate::prelude::ApplicationExtManual::hold()] is called by GTK+
+    /// when a toplevel window is on the screen.
+    ///
+    /// To cancel the hold, call [`ApplicationExtManual::release()`][crate::prelude::ApplicationExtManual::release()].
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_application_hold&quot;</span>)]
+    </span><span class="kw">fn </span>hold(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationHoldGuard;
 
-    <span class="doccomment">/// Increases the busy count of `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Use this function to indicate that the application is busy, for instance</span>
-    <span class="doccomment">/// while a long running operation is pending.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The busy state will be exposed to other processes, so a session shell will</span>
-    <span class="doccomment">/// use that information to indicate the state to the user (e.g. with a</span>
-    <span class="doccomment">/// spinner).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To cancel the busy indication, use [`ApplicationExtManual::unmark_busy()`][crate::prelude::ApplicationExtManual::unmark_busy()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The application must be registered before calling this function.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_application_mark_busy&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">mark_busy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">ApplicationBusyGuard</span>;
+    <span class="doccomment">/// Increases the busy count of `self`.
+    ///
+    /// Use this function to indicate that the application is busy, for instance
+    /// while a long running operation is pending.
+    ///
+    /// The busy state will be exposed to other processes, so a session shell will
+    /// use that information to indicate the state to the user (e.g. with a
+    /// spinner).
+    ///
+    /// To cancel the busy indication, use [`ApplicationExtManual::unmark_busy()`][crate::prelude::ApplicationExtManual::unmark_busy()].
+    ///
+    /// The application must be registered before calling this function.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_application_mark_busy&quot;</span>)]
+    </span><span class="kw">fn </span>mark_busy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationBusyGuard;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Application</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">ApplicationExtManual</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">run</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="self">self</span>.<span class="ident">run_with_args</span>(<span class="kw-2">&amp;</span><span class="ident">std::env::args</span>().<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>())
+<span class="kw">impl</span>&lt;O: IsA&lt;Application&gt;&gt; ApplicationExtManual <span class="kw">for </span>O {
+    <span class="kw">fn </span>run(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="self">self</span>.run_with_args(<span class="kw-2">&amp;</span>std::env::args().collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;())
     }
 
-    <span class="kw">fn</span> <span class="ident">run_with_args</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">str</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="ident">S</span>]) -&gt; <span class="ident">i32</span> {
-        <span class="kw">let</span> <span class="ident">argv</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">args</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">a</span><span class="op">|</span> <span class="ident">a</span>.<span class="ident">as_ref</span>()).<span class="ident">collect</span>();
-        <span class="kw">let</span> <span class="ident">argc</span> <span class="op">=</span> <span class="ident">argv</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::g_application_run</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">argc</span>, <span class="ident">argv</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)
+    <span class="kw">fn </span>run_with_args&lt;S: AsRef&lt;str&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, args: <span class="kw-2">&amp;</span>[S]) -&gt; i32 {
+        <span class="kw">let </span>argv: Vec&lt;<span class="kw-2">&amp;</span>str&gt; = args.iter().map(|a| a.as_ref()).collect();
+        <span class="kw">let </span>argc = argv.len() <span class="kw">as </span>i32;
+        <span class="kw">unsafe </span>{
+            ffi::g_application_run(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, argc, argv.to_glib_none().<span class="number">0</span>)
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">connect_open</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>[<span class="ident">File</span>], <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">open_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="kw-2">&amp;</span>[<span class="ident">File</span>], <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GApplication</span>,
-            <span class="ident">files</span>: <span class="kw-2">*const</span> <span class="kw-2">*mut</span> <span class="ident">ffi::GFile</span>,
-            <span class="ident">n_files</span>: <span class="ident">libc::c_int</span>,
-            <span class="ident">hint</span>: <span class="kw-2">*mut</span> <span class="ident">libc::c_char</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Application</span><span class="op">&gt;</span>,
+    <span class="kw">fn </span>connect_open&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>[File], <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>open_trampoline&lt;P, F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span>[File], <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GApplication,
+            files: <span class="kw-2">*const *mut </span>ffi::GFile,
+            n_files: libc::c_int,
+            hint: <span class="kw-2">*mut </span>libc::c_char,
+            f: glib::ffi::gpointer,
+        ) <span class="kw">where
+            </span>P: IsA&lt;Application&gt;,
         {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="kw">let</span> <span class="ident">files</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">File</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">FromGlibContainer::from_glib_none_num</span>(<span class="ident">files</span>, <span class="ident">n_files</span> <span class="kw">as</span> <span class="ident">usize</span>);
-            <span class="ident">f</span>(
-                <span class="ident">Application::from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>(),
-                <span class="kw-2">&amp;</span><span class="ident">files</span>,
-                <span class="kw-2">&amp;</span><span class="ident">GString::from_glib_borrow</span>(<span class="ident">hint</span>),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <span class="kw">let </span>files: Vec&lt;File&gt; = FromGlibContainer::from_glib_none_num(files, n_files <span class="kw">as </span>usize);
+            f(
+                Application::from_glib_borrow(this).unsafe_cast_ref(),
+                <span class="kw-2">&amp;</span>files,
+                <span class="kw-2">&amp;</span>GString::from_glib_borrow(hint),
             )
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;open\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">open_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;open\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    open_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">hold</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">ApplicationHoldGuard</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::g_application_hold</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>hold(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationHoldGuard {
+        <span class="kw">unsafe </span>{
+            ffi::g_application_hold(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
-        <span class="ident">ApplicationHoldGuard</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">downgrade</span>())
+        ApplicationHoldGuard(<span class="self">self</span>.as_ref().downgrade())
     }
 
-    <span class="kw">fn</span> <span class="ident">mark_busy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">ApplicationBusyGuard</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::g_application_mark_busy</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="kw">fn </span>mark_busy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ApplicationBusyGuard {
+        <span class="kw">unsafe </span>{
+            ffi::g_application_mark_busy(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
         }
-        <span class="ident">ApplicationBusyGuard</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">downgrade</span>())
+        ApplicationBusyGuard(<span class="self">self</span>.as_ref().downgrade())
     }
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ApplicationHoldGuard</span>(<span class="ident">glib::WeakRef</span><span class="op">&lt;</span><span class="ident">Application</span><span class="op">&gt;</span>);
+<span class="attribute">#[derive(Debug)]
+#[must_use = <span class="string">&quot;if unused the Application will immediately be released&quot;</span>]
+</span><span class="kw">pub struct </span>ApplicationHoldGuard(glib::WeakRef&lt;Application&gt;);
 
-<span class="kw">impl</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">ApplicationHoldGuard</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">application</span>) <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">upgrade</span>() {
-            <span class="kw">unsafe</span> {
-                <span class="ident">ffi::g_application_release</span>(<span class="ident">application</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+<span class="kw">impl </span>Drop <span class="kw">for </span>ApplicationHoldGuard {
+    <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(application) = <span class="self">self</span>.<span class="number">0</span>.upgrade() {
+            <span class="kw">unsafe </span>{
+                ffi::g_application_release(application.to_glib_none().<span class="number">0</span>);
             }
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ApplicationBusyGuard</span>(<span class="ident">glib::WeakRef</span><span class="op">&lt;</span><span class="ident">Application</span><span class="op">&gt;</span>);
+<span class="attribute">#[derive(Debug)]
+#[must_use = <span class="string">&quot;if unused the Application will immediately be unmarked busy&quot;</span>]
+</span><span class="kw">pub struct </span>ApplicationBusyGuard(glib::WeakRef&lt;Application&gt;);
 
-<span class="kw">impl</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">ApplicationBusyGuard</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">application</span>) <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">upgrade</span>() {
-            <span class="kw">unsafe</span> {
-                <span class="ident">ffi::g_application_unmark_busy</span>(<span class="ident">application</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+<span class="kw">impl </span>Drop <span class="kw">for </span>ApplicationBusyGuard {
+    <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(application) = <span class="self">self</span>.<span class="number">0</span>.upgrade() {
+            <span class="kw">unsafe </span>{
+                ffi::g_application_unmark_busy(application.to_glib_none().<span class="number">0</span>);
             }
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>

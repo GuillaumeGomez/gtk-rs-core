@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/async_initable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>async_initable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/async_initable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>async_initable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,13 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
-                                <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
-                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../gio/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gio/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -272,207 +266,200 @@
 <span id="193">193</span>
 <span id="194">194</span>
 <span id="195">195</span>
-<span id="196">196</span>
-<span id="197">197</span>
-<span id="198">198</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::initable::InitableError</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::traits::AsyncInitableExt</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::AsyncInitable</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Cancellable</span>;
-<span class="kw">use</span> <span class="ident">futures_util::future</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsClass</span>;
-<span class="kw">use</span> <span class="ident">glib::value::ToValue</span>;
-<span class="kw">use</span> <span class="ident">glib</span>::{<span class="ident">Cast</span>, <span class="ident">Object</span>, <span class="ident">StaticType</span>, <span class="ident">Type</span>};
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::pin::Pin</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::traits::AsyncInitableExt;
+<span class="kw">use </span><span class="kw">crate</span>::AsyncInitable;
+<span class="kw">use </span><span class="kw">crate</span>::Cancellable;
 
-<span class="kw">impl</span> <span class="ident">AsyncInitable</span> {
-    <span class="doccomment">/// Helper function for constructing [`AsyncInitable`][crate::AsyncInitable] object. This is</span>
-    <span class="doccomment">/// similar to [`glib::Object::new()`][crate::glib::Object::new()] but also initializes the object asynchronously.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// When the initialization is finished, `callback` will be called. You can</span>
-    <span class="doccomment">/// then call `g_async_initable_new_finish()` to get the new object and check</span>
-    <span class="doccomment">/// for any errors.</span>
-    <span class="doccomment">/// ## `object_type`</span>
-    <span class="doccomment">/// a `GType` supporting [`AsyncInitable`][crate::AsyncInitable].</span>
-    <span class="doccomment">/// ## `io_priority`</span>
-    <span class="doccomment">/// the [I/O priority][io-priority] of the operation</span>
-    <span class="doccomment">/// ## `cancellable`</span>
-    <span class="doccomment">/// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.</span>
-    <span class="doccomment">/// ## `callback`</span>
-    <span class="doccomment">/// a `GAsyncReadyCallback` to call when the initialization is</span>
-    <span class="doccomment">///  finished</span>
-    <span class="doccomment">/// ## `first_property_name`</span>
-    <span class="doccomment">/// the name of the first property, or [`None`] if no</span>
-    <span class="doccomment">///  properties</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_async_initable_new_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_async</span><span class="op">&lt;</span>
-        <span class="ident">O</span>: <span class="ident">Sized</span> <span class="op">+</span> <span class="ident">IsClass</span> <span class="op">+</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">AsyncInitable</span><span class="op">&gt;</span>,
-        <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>,
-        <span class="ident">Q</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">O</span>, <span class="ident">InitableError</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-    <span class="op">&gt;</span>(
-        <span class="ident">properties</span>: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)],
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>,
-        <span class="ident">callback</span>: <span class="ident">Q</span>,
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::object::IsClass;
+<span class="kw">use </span>glib::value::ToValue;
+<span class="kw">use </span>glib::{Cast, Object, StaticType, Type};
+
+<span class="kw">use </span>futures_util::TryFutureExt;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::pin::Pin;
+
+<span class="kw">impl </span>AsyncInitable {
+    <span class="doccomment">/// Helper function for constructing [`AsyncInitable`][crate::AsyncInitable] object. This is
+    /// similar to [`glib::Object::new()`][crate::glib::Object::new()] but also initializes the object asynchronously.
+    ///
+    /// When the initialization is finished, `callback` will be called. You can
+    /// then call `g_async_initable_new_finish()` to get the new object and check
+    /// for any errors.
+    /// ## `object_type`
+    /// a `GType` supporting [`AsyncInitable`][crate::AsyncInitable].
+    /// ## `io_priority`
+    /// the [I/O priority][io-priority] of the operation
+    /// ## `cancellable`
+    /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore.
+    /// ## `callback`
+    /// a `GAsyncReadyCallback` to call when the initialization is
+    ///  finished
+    /// ## `first_property_name`
+    /// the name of the first property, or [`None`] if no
+    ///  properties
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;g_async_initable_new_async&quot;</span>)]
+    #[track_caller]
+    </span><span class="kw">pub fn </span>new_async&lt;
+        O: Sized + IsClass + IsA&lt;Object&gt; + IsA&lt;AsyncInitable&gt;,
+        P: IsA&lt;Cancellable&gt;,
+        Q: FnOnce(<span class="prelude-ty">Result</span>&lt;O, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+    &gt;(
+        properties: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)],
+        io_priority: glib::Priority,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
+        callback: Q,
     ) {
-        <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">Object::new</span>::<span class="op">&lt;</span><span class="ident">O</span><span class="op">&gt;</span>(<span class="ident">properties</span>) {
-            <span class="prelude-val">Ok</span>(<span class="ident">obj</span>) =&gt; <span class="ident">obj</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">return</span> <span class="ident">callback</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">into</span>())),
-        };
-        <span class="kw">unsafe</span> {
-            <span class="ident">obj</span>.<span class="ident">init_async</span>(
-                <span class="ident">io_priority</span>,
-                <span class="ident">cancellable</span>,
-                <span class="macro">glib::clone!</span>(@<span class="ident">strong</span> <span class="ident">obj</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                    <span class="ident">callback</span>(<span class="ident">res</span>.<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">obj</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>.<span class="ident">into</span>()));
-                }),
-            );
-        }
+        <span class="self">Self</span>::with_type(
+            O::static_type(),
+            properties,
+            io_priority,
+            cancellable,
+            <span class="kw">move </span>|res| callback(res.map(|o| <span class="kw">unsafe </span>{ o.unsafe_cast() })),
+        )
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_async_initable_new_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_future</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">Sized</span> <span class="op">+</span> <span class="ident">IsClass</span> <span class="op">+</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Object</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">AsyncInitable</span><span class="op">&gt;</span><span class="op">&gt;</span>(
-        <span class="ident">properties</span>: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)],
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">O</span>, <span class="ident">InitableError</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">Object::new</span>::<span class="op">&lt;</span><span class="ident">O</span><span class="op">&gt;</span>(<span class="ident">properties</span>) {
-            <span class="prelude-val">Ok</span>(<span class="ident">obj</span>) =&gt; <span class="ident">obj</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">return</span> <span class="ident">Box::pin</span>(<span class="ident">future::ready</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">into</span>()))),
-        };
-        <span class="ident">Box_::pin</span>(<span class="ident"><span class="kw">crate</span>::GioFuture::new</span>(
-            <span class="kw-2">&amp;</span><span class="ident">obj</span>,
-            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> <span class="kw">unsafe</span> {
-                <span class="ident">obj</span>.<span class="ident">init_async</span>(
-                    <span class="ident">io_priority</span>,
-                    <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>),
-                    <span class="macro">glib::clone!</span>(@<span class="ident">strong</span> <span class="ident">obj</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                        <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>.<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">obj</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>.<span class="ident">into</span>()));
-                    }),
-                );
-            },
-        ))
+    <span class="attribute">#[doc(alias = <span class="string">&quot;g_async_initable_new_async&quot;</span>)]
+    #[track_caller]
+    </span><span class="kw">pub fn </span>new_future&lt;O: Sized + IsClass + IsA&lt;Object&gt; + IsA&lt;AsyncInitable&gt;&gt;(
+        properties: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)],
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;O, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+        Box::pin(
+            <span class="self">Self</span>::with_type_future(O::static_type(), properties, io_priority)
+                .map_ok(|o| <span class="kw">unsafe </span>{ o.unsafe_cast() }),
+        )
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_async_initable_new_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_type</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>, <span class="ident">Q</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Object</span>, <span class="ident">InitableError</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="ident">type_</span>: <span class="ident">Type</span>,
-        <span class="ident">properties</span>: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)],
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>,
-        <span class="ident">callback</span>: <span class="ident">Q</span>,
+    <span class="attribute">#[doc(alias = <span class="string">&quot;g_async_initable_new_async&quot;</span>)]
+    #[track_caller]
+    </span><span class="kw">pub fn </span>with_type&lt;P: IsA&lt;Cancellable&gt;, Q: FnOnce(<span class="prelude-ty">Result</span>&lt;Object, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+        type_: Type,
+        properties: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)],
+        io_priority: glib::Priority,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
+        callback: Q,
     ) {
-        <span class="kw">if</span> <span class="op">!</span><span class="ident">type_</span>.<span class="ident">is_a</span>(<span class="ident">AsyncInitable::static_type</span>()) {
-            <span class="kw">return</span> <span class="ident">callback</span>(<span class="prelude-val">Err</span>(<span class="ident">InitableError::NewObjectFailed</span>(<span class="macro">glib::bool_error!</span>(
-                <span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>,
-                <span class="ident">type_</span>
-            ))));
+        <span class="kw">if </span>!type_.is_a(AsyncInitable::static_type()) {
+            <span class="macro">panic!</span>(<span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>, type_);
         }
-        <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">Object::with_type</span>(<span class="ident">type_</span>, <span class="ident">properties</span>) {
-            <span class="prelude-val">Ok</span>(<span class="ident">obj</span>) =&gt; <span class="ident">obj</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">return</span> <span class="ident">callback</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">into</span>())),
-        };
-        <span class="kw">unsafe</span> {
-            <span class="ident">obj</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>().<span class="ident">init_async</span>(
-                <span class="ident">io_priority</span>,
-                <span class="ident">cancellable</span>,
-                <span class="macro">glib::clone!</span>(@<span class="ident">strong</span> <span class="ident">obj</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                    <span class="ident">callback</span>(<span class="ident">res</span>.<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">obj</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>.<span class="ident">into</span>()));
+
+        <span class="kw">let </span><span class="kw-2">mut </span>property_values = smallvec::SmallVec::&lt;[<span class="kw">_</span>; <span class="number">16</span>]&gt;::with_capacity(properties.len());
+        <span class="kw">for </span>(name, value) <span class="kw">in </span>properties {
+            property_values.push((<span class="kw-2">*</span>name, value.to_value()));
+        }
+
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>obj = Object::new_internal(type_, <span class="kw-2">&amp;mut </span>property_values);
+            obj.unsafe_cast_ref::&lt;<span class="self">Self</span>&gt;().init_async(
+                io_priority,
+                cancellable,
+                <span class="macro">glib::clone!</span>(@strong obj =&gt; <span class="kw">move </span>|res| {
+                    callback(res.map(|<span class="kw">_</span>| obj));
                 }),
             )
         };
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_async_initable_new_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_type_future</span>(
-        <span class="ident">type_</span>: <span class="ident">Type</span>,
-        <span class="ident">properties</span>: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)],
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Object</span>, <span class="ident">InitableError</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="op">!</span><span class="ident">type_</span>.<span class="ident">is_a</span>(<span class="ident">AsyncInitable::static_type</span>()) {
-            <span class="kw">return</span> <span class="ident">Box::pin</span>(<span class="ident">future::ready</span>(<span class="prelude-val">Err</span>(<span class="ident">InitableError::NewObjectFailed</span>(
-                <span class="macro">glib::bool_error!</span>(<span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>, <span class="ident">type_</span>),
-            ))));
+    <span class="attribute">#[doc(alias = <span class="string">&quot;g_async_initable_new_async&quot;</span>)]
+    #[track_caller]
+    </span><span class="kw">pub fn </span>with_type_future(
+        type_: Type,
+        properties: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)],
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Object, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+        <span class="kw">if </span>!type_.is_a(AsyncInitable::static_type()) {
+            <span class="macro">panic!</span>(<span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>, type_);
         }
-        <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">Object::with_type</span>(<span class="ident">type_</span>, <span class="ident">properties</span>) {
-            <span class="prelude-val">Ok</span>(<span class="ident">obj</span>) =&gt; <span class="ident">obj</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">return</span> <span class="ident">Box::pin</span>(<span class="ident">future::ready</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">into</span>()))),
-        };
-        <span class="ident">Box_::pin</span>(<span class="ident"><span class="kw">crate</span>::GioFuture::new</span>(
-            <span class="kw-2">&amp;</span><span class="ident">obj</span>,
-            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> <span class="kw">unsafe</span> {
-                <span class="ident">obj</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>().<span class="ident">init_async</span>(
-                    <span class="ident">io_priority</span>,
-                    <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>),
-                    <span class="macro">glib::clone!</span>(@<span class="ident">strong</span> <span class="ident">obj</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                        <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>.<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">obj</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>.<span class="ident">into</span>()));
-                    }),
-                );
-            },
-        ))
+
+        <span class="kw">let </span><span class="kw-2">mut </span>property_values = smallvec::SmallVec::&lt;[<span class="kw">_</span>; <span class="number">16</span>]&gt;::with_capacity(properties.len());
+        <span class="kw">for </span>(name, value) <span class="kw">in </span>properties {
+            property_values.push((<span class="kw-2">*</span>name, value.to_value()));
+        }
+
+        <span class="kw">unsafe </span>{
+            <span class="comment">// FIXME: object construction should ideally happen as part of the future
+            </span><span class="kw">let </span>obj = Object::new_internal(type_, <span class="kw-2">&amp;mut </span>property_values);
+            Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+                <span class="kw-2">&amp;</span>obj,
+                <span class="kw">move </span>|obj, cancellable, send| {
+                    obj.unsafe_cast_ref::&lt;<span class="self">Self</span>&gt;().init_async(
+                        io_priority,
+                        <span class="prelude-val">Some</span>(cancellable),
+                        <span class="macro">glib::clone!</span>(@strong obj =&gt; <span class="kw">move </span>|res| {
+                            send.resolve(res.map(|<span class="kw">_</span>| obj));
+                        }),
+                    );
+                },
+            ))
+        }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_async_initable_new_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_values</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Cancellable</span><span class="op">&gt;</span>, <span class="ident">Q</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Object</span>, <span class="ident">InitableError</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="ident">type_</span>: <span class="ident">Type</span>,
-        <span class="ident">properties</span>: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">glib::Value</span>)],
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>,
-        <span class="ident">callback</span>: <span class="ident">Q</span>,
+    <span class="attribute">#[doc(alias = <span class="string">&quot;g_async_initable_new_async&quot;</span>)]
+    #[track_caller]
+    </span><span class="kw">pub fn </span>with_values&lt;P: IsA&lt;Cancellable&gt;, Q: FnOnce(<span class="prelude-ty">Result</span>&lt;Object, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+        type_: Type,
+        properties: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, glib::Value)],
+        io_priority: glib::Priority,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
+        callback: Q,
     ) {
-        <span class="kw">if</span> <span class="op">!</span><span class="ident">type_</span>.<span class="ident">is_a</span>(<span class="ident">AsyncInitable::static_type</span>()) {
-            <span class="kw">return</span> <span class="ident">callback</span>(<span class="prelude-val">Err</span>(<span class="ident">InitableError::NewObjectFailed</span>(<span class="macro">glib::bool_error!</span>(
-                <span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>,
-                <span class="ident">type_</span>
-            ))));
+        <span class="kw">if </span>!type_.is_a(AsyncInitable::static_type()) {
+            <span class="macro">panic!</span>(<span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>, type_);
         }
-        <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">Object::with_values</span>(<span class="ident">type_</span>, <span class="ident">properties</span>) {
-            <span class="prelude-val">Ok</span>(<span class="ident">obj</span>) =&gt; <span class="ident">obj</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">return</span> <span class="ident">callback</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">into</span>())),
-        };
-        <span class="kw">unsafe</span> {
-            <span class="ident">obj</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>().<span class="ident">init_async</span>(
-                <span class="ident">io_priority</span>,
-                <span class="ident">cancellable</span>,
-                <span class="macro">glib::clone!</span>(@<span class="ident">strong</span> <span class="ident">obj</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                    <span class="ident">callback</span>(<span class="ident">res</span>.<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">obj</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>.<span class="ident">into</span>()));
+
+        <span class="kw">let </span><span class="kw-2">mut </span>property_values = smallvec::SmallVec::&lt;[<span class="kw">_</span>; <span class="number">16</span>]&gt;::with_capacity(properties.len());
+        <span class="kw">for </span>(name, value) <span class="kw">in </span>properties {
+            property_values.push((<span class="kw-2">*</span>name, value.clone()));
+        }
+
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>obj = Object::new_internal(type_, <span class="kw-2">&amp;mut </span>property_values);
+            obj.unsafe_cast_ref::&lt;<span class="self">Self</span>&gt;().init_async(
+                io_priority,
+                cancellable,
+                <span class="macro">glib::clone!</span>(@strong obj =&gt; <span class="kw">move </span>|res| {
+                    callback(res.map(|<span class="kw">_</span>| obj));
                 }),
             )
         };
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;g_async_initable_new_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_values_future</span>(
-        <span class="ident">type_</span>: <span class="ident">Type</span>,
-        <span class="ident">properties</span>: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">glib::Value</span>)],
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Object</span>, <span class="ident">InitableError</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="op">!</span><span class="ident">type_</span>.<span class="ident">is_a</span>(<span class="ident">AsyncInitable::static_type</span>()) {
-            <span class="kw">return</span> <span class="ident">Box::pin</span>(<span class="ident">future::ready</span>(<span class="prelude-val">Err</span>(<span class="ident">InitableError::NewObjectFailed</span>(
-                <span class="macro">glib::bool_error!</span>(<span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>, <span class="ident">type_</span>),
-            ))));
+    <span class="attribute">#[doc(alias = <span class="string">&quot;g_async_initable_new_async&quot;</span>)]
+    #[track_caller]
+    </span><span class="kw">pub fn </span>with_values_future(
+        type_: Type,
+        properties: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, glib::Value)],
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Object, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+        <span class="kw">if </span>!type_.is_a(AsyncInitable::static_type()) {
+            <span class="macro">panic!</span>(<span class="string">&quot;Type &#39;{}&#39; is not async initable&quot;</span>, type_);
         }
-        <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">Object::with_values</span>(<span class="ident">type_</span>, <span class="ident">properties</span>) {
-            <span class="prelude-val">Ok</span>(<span class="ident">obj</span>) =&gt; <span class="ident">obj</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="kw">return</span> <span class="ident">Box::pin</span>(<span class="ident">future::ready</span>(<span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">into</span>()))),
-        };
-        <span class="ident">Box_::pin</span>(<span class="ident"><span class="kw">crate</span>::GioFuture::new</span>(
-            <span class="kw-2">&amp;</span><span class="ident">obj</span>,
-            <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> <span class="kw">unsafe</span> {
-                <span class="ident">obj</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>().<span class="ident">init_async</span>(
-                    <span class="ident">io_priority</span>,
-                    <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>),
-                    <span class="macro">glib::clone!</span>(@<span class="ident">strong</span> <span class="ident">obj</span> =&gt; <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                        <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>.<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">obj</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>.<span class="ident">into</span>()));
-                    }),
-                );
-            },
-        ))
+
+        <span class="kw">let </span><span class="kw-2">mut </span>property_values = smallvec::SmallVec::&lt;[<span class="kw">_</span>; <span class="number">16</span>]&gt;::with_capacity(properties.len());
+        <span class="kw">for </span>(name, value) <span class="kw">in </span>properties {
+            property_values.push((<span class="kw-2">*</span>name, value.clone()));
+        }
+
+        <span class="kw">unsafe </span>{
+            <span class="comment">// FIXME: object construction should ideally happen as part of the future
+            </span><span class="kw">let </span>obj = Object::new_internal(type_, <span class="kw-2">&amp;mut </span>property_values);
+            Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+                <span class="kw-2">&amp;</span>obj,
+                <span class="kw">move </span>|obj, cancellable, send| {
+                    obj.unsafe_cast_ref::&lt;<span class="self">Self</span>&gt;().init_async(
+                        io_priority,
+                        <span class="prelude-val">Some</span>(cancellable),
+                        <span class="macro">glib::clone!</span>(@strong obj =&gt; <span class="kw">move </span>|res| {
+                            send.resolve(res.map(|<span class="kw">_</span>| obj));
+                        }),
+                    );
+                },
+            ))
+        }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (ddcbba036 2022-06-29)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gio" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>
