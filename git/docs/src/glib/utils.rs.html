@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -330,6 +330,26 @@
 <span id="257">257</span>
 <span id="258">258</span>
 <span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span><span class="kw">crate</span>::translate::<span class="kw-2">*</span>;
@@ -425,7 +445,27 @@
     }
 }
 
-<span class="attribute">#[doc(alias = <span class="string">&quot;g_file_get_contents&quot;</span>)]
+<span class="doccomment">/// Reads an entire file into allocated memory, with good error
+/// checking.
+///
+/// If the call was successful, it returns [`true`] and sets `contents` to the file
+/// contents and `length` to the length of the file contents in bytes. The string
+/// stored in `contents` will be nul-terminated, so for text files you can pass
+/// [`None`] for the `length` argument. If the call was not successful, it returns
+/// [`false`] and sets `error`. The error domain is `G_FILE_ERROR`. Possible error
+/// codes are those in the [`FileError`][crate::FileError] enumeration. In the error case,
+/// `contents` is set to [`None`] and `length` is set to zero.
+/// ## `filename`
+/// name of a file to read contents from, in the GLib file name encoding
+///
+/// # Returns
+///
+/// [`true`] on success, [`false`] if an error occurred
+///
+/// ## `contents`
+/// location to store an allocated string, use `g_free()` to free
+///  the returned string
+</span><span class="attribute">#[doc(alias = <span class="string">&quot;g_file_get_contents&quot;</span>)]
 </span><span class="kw">pub fn </span>file_get_contents(
     filename: <span class="kw">impl </span>AsRef&lt;std::path::Path&gt;,
 ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw">crate</span>::Slice&lt;u8&gt;, <span class="kw">crate</span>::Error&gt; {
@@ -590,4 +630,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (758f19645 2022-10-24)" ></div></body></html>

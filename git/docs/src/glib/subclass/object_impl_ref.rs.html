@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -212,6 +212,12 @@
 <span id="139">139</span>
 <span id="140">140</span>
 <span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span><span class="kw">super</span>::prelude::<span class="kw-2">*</span>;
@@ -228,11 +234,14 @@
 /// from the implementation type to the instance type and back.
 </span><span class="kw">pub struct </span>ObjectImplRef&lt;T: ObjectSubclass&gt;(T::Type);
 
+<span class="kw">unsafe impl</span>&lt;T: ObjectSubclass + Send + Sync&gt; Send <span class="kw">for </span>ObjectImplRef&lt;T&gt; {}
+<span class="kw">unsafe impl</span>&lt;T: ObjectSubclass + Send + Sync&gt; Sync <span class="kw">for </span>ObjectImplRef&lt;T&gt; {}
+
 <span class="kw">impl</span>&lt;T: ObjectSubclass&gt; ObjectImplRef&lt;T&gt; {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create a new reference-counting wrapper around `imp`.
     </span><span class="kw">pub fn </span>new(imp: <span class="kw-2">&amp;</span>T) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>(imp.instance().clone())
+        <span class="self">Self</span>(imp.obj().clone())
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -323,6 +332,9 @@
 </span><span class="doccomment">/// Weak reference to an [`ObjectSubclass`] reference.
 </span><span class="kw">pub struct </span>ObjectImplWeakRef&lt;T: ObjectSubclass&gt;(WeakRef&lt;T::Type&gt;);
 
+<span class="kw">unsafe impl</span>&lt;T: ObjectSubclass + Send + Sync&gt; Send <span class="kw">for </span>ObjectImplWeakRef&lt;T&gt; {}
+<span class="kw">unsafe impl</span>&lt;T: ObjectSubclass + Send + Sync&gt; Sync <span class="kw">for </span>ObjectImplWeakRef&lt;T&gt; {}
+
 <span class="kw">impl</span>&lt;T: ObjectSubclass&gt; ObjectImplWeakRef&lt;T&gt; {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Upgrade to a strong reference, if possible.
@@ -354,4 +366,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (758f19645 2022-10-24)" ></div></body></html>

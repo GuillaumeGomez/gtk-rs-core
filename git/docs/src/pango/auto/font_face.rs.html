@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><a class="sidebar-logo" href="../../../pango/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../pango/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../pango/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../pango/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -288,7 +288,7 @@
     ///   holding the description of the face. Use `Pango::FontDescription::free()`
     ///   to free the result.
     </span><span class="attribute">#[doc(alias = <span class="string">&quot;pango_font_face_describe&quot;</span>)]
-    </span><span class="kw">fn </span>describe(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;FontDescription&gt;;
+    </span><span class="kw">fn </span>describe(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FontDescription;
 
     <span class="doccomment">/// Gets a name representing the style of this face.
     ///
@@ -302,7 +302,7 @@
     ///   owned by the face object and must not be modified or freed.
     </span><span class="attribute">#[doc(alias = <span class="string">&quot;pango_font_face_get_face_name&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_face_name&quot;</span>)]
-    </span><span class="kw">fn </span>face_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
+    </span><span class="kw">fn </span>face_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::GString;
 
     <span class="doccomment">/// Gets the [`FontFamily`][crate::FontFamily] that @self belongs to.
     ///
@@ -313,7 +313,7 @@
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v1_46&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;pango_font_face_get_family&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_family&quot;</span>)]
-    </span><span class="kw">fn </span>family(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;FontFamily&gt;;
+    </span><span class="kw">fn </span>family(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FontFamily;
 
     <span class="doccomment">/// Returns whether a [`FontFace`][crate::FontFace] is synthesized.
     ///
@@ -346,7 +346,7 @@
 }
 
 <span class="kw">impl</span>&lt;O: IsA&lt;FontFace&gt;&gt; FontFaceExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>describe(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;FontDescription&gt; {
+    <span class="kw">fn </span>describe(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FontDescription {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::pango_font_face_describe(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
@@ -354,7 +354,7 @@
         }
     }
 
-    <span class="kw">fn </span>face_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+    <span class="kw">fn </span>face_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::GString {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::pango_font_face_get_face_name(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
@@ -364,7 +364,7 @@
 
     <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v1_46&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v1_46&quot;</span>)))]
-    </span><span class="kw">fn </span>family(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;FontFamily&gt; {
+    </span><span class="kw">fn </span>family(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FontFamily {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::pango_font_face_get_family(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
@@ -400,4 +400,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="pango" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (758f19645 2022-10-24)" ></div></body></html>

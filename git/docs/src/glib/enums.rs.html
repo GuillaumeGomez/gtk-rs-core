@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../glib/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -942,15 +942,110 @@
 <span id="869">869</span>
 <span id="870">870</span>
 <span id="871">871</span>
+<span id="872">872</span>
+<span id="873">873</span>
+<span id="874">874</span>
+<span id="875">875</span>
+<span id="876">876</span>
+<span id="877">877</span>
+<span id="878">878</span>
+<span id="879">879</span>
+<span id="880">880</span>
+<span id="881">881</span>
+<span id="882">882</span>
+<span id="883">883</span>
+<span id="884">884</span>
+<span id="885">885</span>
+<span id="886">886</span>
+<span id="887">887</span>
+<span id="888">888</span>
+<span id="889">889</span>
+<span id="890">890</span>
+<span id="891">891</span>
+<span id="892">892</span>
+<span id="893">893</span>
+<span id="894">894</span>
+<span id="895">895</span>
+<span id="896">896</span>
+<span id="897">897</span>
+<span id="898">898</span>
+<span id="899">899</span>
+<span id="900">900</span>
+<span id="901">901</span>
+<span id="902">902</span>
+<span id="903">903</span>
+<span id="904">904</span>
+<span id="905">905</span>
+<span id="906">906</span>
+<span id="907">907</span>
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
+<span id="912">912</span>
+<span id="913">913</span>
+<span id="914">914</span>
+<span id="915">915</span>
+<span id="916">916</span>
+<span id="917">917</span>
+<span id="918">918</span>
+<span id="919">919</span>
+<span id="920">920</span>
+<span id="921">921</span>
+<span id="922">922</span>
+<span id="923">923</span>
+<span id="924">924</span>
+<span id="925">925</span>
+<span id="926">926</span>
+<span id="927">927</span>
+<span id="928">928</span>
+<span id="929">929</span>
+<span id="930">930</span>
+<span id="931">931</span>
+<span id="932">932</span>
+<span id="933">933</span>
+<span id="934">934</span>
+<span id="935">935</span>
+<span id="936">936</span>
+<span id="937">937</span>
+<span id="938">938</span>
+<span id="939">939</span>
+<span id="940">940</span>
+<span id="941">941</span>
+<span id="942">942</span>
+<span id="943">943</span>
+<span id="944">944</span>
+<span id="945">945</span>
+<span id="946">946</span>
+<span id="947">947</span>
+<span id="948">948</span>
+<span id="949">949</span>
+<span id="950">950</span>
+<span id="951">951</span>
+<span id="952">952</span>
+<span id="953">953</span>
+<span id="954">954</span>
+<span id="955">955</span>
+<span id="956">956</span>
+<span id="957">957</span>
+<span id="958">958</span>
+<span id="959">959</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span><span class="kw">crate</span>::translate::<span class="kw-2">*</span>;
-<span class="kw">use </span><span class="kw">crate</span>::value::Value;
+<span class="kw">use </span><span class="kw">crate</span>::value::{FromValue, Value, ValueTypeChecker};
 <span class="kw">use </span><span class="kw">crate</span>::Type;
 <span class="kw">use </span>std::ffi::CStr;
 <span class="kw">use </span>std::{cmp, fmt, ptr};
 
-<span class="attribute">#[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
+<span class="doccomment">/// These are logical ids for special directories which are defined
+/// depending on the platform used. You should use [`user_special_dir()`][crate::user_special_dir()]
+/// to retrieve the full path associated to the logical id.
+///
+/// The [`UserDirectory`][crate::UserDirectory] enumeration can be extended at later date. Not
+/// every platform has a directory for every logical id in this
+/// enumeration.
+</span><span class="attribute">#[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
 </span><span class="kw">pub enum </span>UserDirectory {
     <span class="attribute">#[doc(alias = <span class="string">&quot;G_USER_DIRECTORY_DESKTOP&quot;</span>)]
     </span>Desktop,
@@ -968,7 +1063,8 @@
     </span>Templates,
     <span class="attribute">#[doc(alias = <span class="string">&quot;G_USER_DIRECTORY_VIDEOS&quot;</span>)]
     </span>Videos,
-    <span class="attribute">#[doc(hidden)]
+    <span class="doccomment">/// the number of enum values
+    </span><span class="attribute">#[doc(hidden)]
     #[doc(alias = <span class="string">&quot;G_USER_N_DIRECTORIES&quot;</span>)]
     </span>NDirectories,
 }
@@ -1225,6 +1321,44 @@
         <span class="self">self</span>.value().cmp(<span class="kw-2">&amp;</span>other.value())
     }
 }
+
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>&gt; FromValue&lt;<span class="lifetime">&#39;a</span>&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;b </span>EnumValue {
+    <span class="kw">type </span>Checker = EnumTypeChecker;
+
+    <span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>Value) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>(<span class="kw">_</span>, v) = EnumValue::from_value(value).unwrap();
+        <span class="comment">// SAFETY: The enum class and its values live forever
+        </span>std::mem::transmute(v)
+    }
+}
+
+<span class="kw">pub struct </span>EnumTypeChecker();
+<span class="kw">unsafe impl </span>ValueTypeChecker <span class="kw">for </span>EnumTypeChecker {
+    <span class="kw">type </span>Error = InvalidEnumError;
+
+    <span class="kw">fn </span>check(value: <span class="kw-2">&amp;</span>Value) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt; {
+        <span class="kw">let </span>t = value.type_();
+        <span class="kw">if </span>t.is_a(Type::ENUM) {
+            <span class="prelude-val">Ok</span>(())
+        } <span class="kw">else </span>{
+            <span class="prelude-val">Err</span>(InvalidEnumError)
+        }
+    }
+}
+
+<span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// An error returned from the [`get`](struct.Value.html#method.get) function
+/// on a [`Value`](struct.Value.html) for enum types.
+</span><span class="attribute">#[derive(Clone, PartialEq, Eq, Debug)]
+</span><span class="kw">pub struct </span>InvalidEnumError;
+
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>InvalidEnumError {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        <span class="macro">write!</span>(f, <span class="string">&quot;Value is not an enum&quot;</span>)
+    }
+}
+
+<span class="kw">impl </span>std::error::Error <span class="kw">for </span>InvalidEnumError {}
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Representation of a `flags` for dynamically, at runtime, querying the values of the enum and
@@ -1793,6 +1927,44 @@
     </span>}
 }
 
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>&gt; FromValue&lt;<span class="lifetime">&#39;a</span>&gt; <span class="kw">for </span>Vec&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;b </span>FlagsValue&gt; {
+    <span class="kw">type </span>Checker = FlagsTypeChecker;
+
+    <span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>Value) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>(<span class="kw">_</span>, v) = FlagsValue::from_value(value).unwrap();
+        <span class="comment">// SAFETY: The enum class and its values live forever
+        </span>std::mem::transmute(v)
+    }
+}
+
+<span class="kw">pub struct </span>FlagsTypeChecker();
+<span class="kw">unsafe impl </span>ValueTypeChecker <span class="kw">for </span>FlagsTypeChecker {
+    <span class="kw">type </span>Error = InvalidFlagsError;
+
+    <span class="kw">fn </span>check(value: <span class="kw-2">&amp;</span>Value) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt; {
+        <span class="kw">let </span>t = value.type_();
+        <span class="kw">if </span>t.is_a(Type::FLAGS) {
+            <span class="prelude-val">Ok</span>(())
+        } <span class="kw">else </span>{
+            <span class="prelude-val">Err</span>(InvalidFlagsError)
+        }
+    }
+}
+
+<span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// An error returned from the [`get`](struct.Value.html#method.get) function
+/// on a [`Value`](struct.Value.html) for flags types.
+</span><span class="attribute">#[derive(Clone, PartialEq, Eq, Debug)]
+</span><span class="kw">pub struct </span>InvalidFlagsError;
+
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>InvalidFlagsError {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        <span class="macro">write!</span>(f, <span class="string">&quot;Value is not a flags&quot;</span>)
+    }
+}
+
+<span class="kw">impl </span>std::error::Error <span class="kw">for </span>InvalidFlagsError {}
+
 <span class="attribute">#[cfg(test)]
 </span><span class="kw">mod </span>tests {
     <span class="kw">use super</span>::<span class="kw-2">*</span>;
@@ -1810,8 +1982,12 @@
         <span class="kw">let </span>def2 = flags.value_by_name(<span class="string">&quot;G_BINDING_DEFAULT&quot;</span>).unwrap();
         <span class="macro">assert!</span>(ptr::eq(def1, def2));
 
+        <span class="kw">let </span>value = flags.to_value(<span class="number">0</span>).unwrap();
+        <span class="kw">let </span>values = value.get::&lt;Vec&lt;<span class="kw-2">&amp;</span>FlagsValue&gt;&gt;().unwrap();
+        <span class="macro">assert_eq!</span>(values.len(), <span class="number">0</span>);
+
         <span class="macro">assert_eq!</span>(def1.value(), <span class="kw">crate</span>::BindingFlags::DEFAULT.bits());
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (758f19645 2022-10-24)" ></div></body></html>

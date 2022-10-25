@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
+<nav class="sidebar"><a class="sidebar-logo" href="../../../glib/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../glib/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -379,6 +379,10 @@
 <span id="306">306</span>
 <span id="307">307</span>
 <span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span><span class="kw">crate</span>::prelude::<span class="kw-2">*</span>;
@@ -412,7 +416,7 @@
         <span class="macro">assert!</span>(source.find_property(<span class="string">&quot;name&quot;</span>).is_some());
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .bidirectional()
             .build();
 
         source.set_name(<span class="string">&quot;test_source_name&quot;</span>);
@@ -429,7 +433,7 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE)
+            .sync_create()
             .transform_to_with_values(|_binding, value| {
                 <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
                 <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value).to_value())
@@ -451,7 +455,8 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE | <span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .sync_create()
+            .bidirectional()
             .transform_to_with_values(|_binding, value| {
                 <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
                 <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value).to_value())
@@ -473,7 +478,7 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE)
+            .sync_create()
             .transform_to(|_binding, value: <span class="kw-2">&amp;</span>str| <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value)))
             .transform_from(|_binding, value: <span class="kw-2">&amp;</span>str| <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value)))
             .build();
@@ -489,7 +494,7 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE)
+            .sync_create()
             .transform_to(|_binding, value: String| <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value)))
             .transform_from(|_binding, value: <span class="kw-2">&amp;</span>str| <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value)))
             .build();
@@ -505,7 +510,8 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;name&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE | <span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .sync_create()
+            .bidirectional()
             .transform_to(|_binding, value: <span class="kw-2">&amp;</span>str| <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value)))
             .transform_from(|_binding, value: <span class="kw-2">&amp;</span>str| <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{} World&quot;</span>, value)))
             .build();
@@ -521,7 +527,7 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;enabled&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE)
+            .sync_create()
             .transform_to_with_values(|_binding, value| {
                 <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
                 <span class="prelude-val">Some</span>((value == <span class="string">&quot;Hello&quot;</span>).to_value())
@@ -546,7 +552,8 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;enabled&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE | <span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .sync_create()
+            .bidirectional()
             .transform_to_with_values(|_binding, value| {
                 <span class="kw">let </span>value = value.get::&lt;<span class="kw-2">&amp;</span>str&gt;().unwrap();
                 <span class="prelude-val">Some</span>((value == <span class="string">&quot;Hello&quot;</span>).to_value())
@@ -570,7 +577,7 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;enabled&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE)
+            .sync_create()
             .transform_to(|_binding, value: <span class="kw-2">&amp;</span>str| <span class="prelude-val">Some</span>(value == <span class="string">&quot;Hello&quot;</span>))
             .transform_from(|_binding, value: bool| <span class="prelude-val">Some</span>(<span class="kw">if </span>value { <span class="string">&quot;Hello&quot; </span>} <span class="kw">else </span>{ <span class="string">&quot;World&quot; </span>}))
             .build();
@@ -589,7 +596,8 @@
 
         source
             .bind_property(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span>target, <span class="string">&quot;enabled&quot;</span>)
-            .flags(<span class="kw">crate</span>::BindingFlags::SYNC_CREATE | <span class="kw">crate</span>::BindingFlags::BIDIRECTIONAL)
+            .sync_create()
+            .bidirectional()
             .transform_to(|_binding, value: <span class="kw-2">&amp;</span>str| <span class="prelude-val">Some</span>(value == <span class="string">&quot;Hello&quot;</span>))
             .transform_from(|_binding, value: bool| <span class="prelude-val">Some</span>(<span class="kw">if </span>value { <span class="string">&quot;Hello&quot; </span>} <span class="kw">else </span>{ <span class="string">&quot;World&quot; </span>}))
             .build();
@@ -636,7 +644,7 @@
             }
 
             <span class="kw">fn </span>property(<span class="kw-2">&amp;</span><span class="self">self</span>, _id: usize, pspec: <span class="kw-2">&amp;</span><span class="kw">crate</span>::ParamSpec) -&gt; <span class="kw">crate</span>::Value {
-                <span class="kw">let </span>obj = <span class="self">self</span>.instance();
+                <span class="kw">let </span>obj = <span class="self">self</span>.obj();
                 <span class="kw">match </span>pspec.name() {
                     <span class="string">&quot;name&quot; </span>=&gt; obj.name().to_value(),
                     <span class="string">&quot;enabled&quot; </span>=&gt; obj.enabled().to_value(),
@@ -645,7 +653,7 @@
             }
 
             <span class="kw">fn </span>set_property(<span class="kw-2">&amp;</span><span class="self">self</span>, _id: usize, value: <span class="kw-2">&amp;</span><span class="kw">crate</span>::Value, pspec: <span class="kw-2">&amp;</span><span class="kw">crate</span>::ParamSpec) {
-                <span class="kw">let </span>obj = <span class="self">self</span>.instance();
+                <span class="kw">let </span>obj = <span class="self">self</span>.obj();
                 <span class="kw">match </span>pspec.name() {
                     <span class="string">&quot;name&quot; </span>=&gt; obj.set_name(value.get().unwrap()),
                     <span class="string">&quot;enabled&quot; </span>=&gt; obj.set_enabled(value.get().unwrap()),
@@ -688,4 +696,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (db0597f56 2022-10-11)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="glib" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0-nightly (758f19645 2022-10-24)" ></div></body></html>
