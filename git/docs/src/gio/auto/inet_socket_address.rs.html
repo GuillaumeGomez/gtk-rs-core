@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/inet_socket_address.rs`."><title>inet_socket_address.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/inet_socket_address.rs`."><title>inet_socket_address.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -275,8 +277,8 @@
     /// # Implements
     ///
     /// [`InetSocketAddressExt`][trait@crate::prelude::InetSocketAddressExt], [`SocketAddressExt`][trait@crate::prelude::SocketAddressExt], [`trait@glib::ObjectExt`], [`SocketConnectableExt`][trait@crate::prelude::SocketConnectableExt]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GInetSocketAddress&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.InetSocketAddress.html">InetSocketAddress</a>(Object&lt;ffi::GInetSocketAddress, ffi::GInetSocketAddressClass&gt;) @extends <a href="socket_address.rs.html#13-35">SocketAddress</a>, @implements <a href="socket_connectable.rs.html#8-80">SocketConnectable</a>;
+    </span><span class="attr">#[doc(alias = <span class="string">"GInetSocketAddress"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.InetSocketAddress.html">InetSocketAddress</a>(Object&lt;<a href="../../../gio_sys/struct.GInetSocketAddress.html">ffi::GInetSocketAddress</a>, <a href="../../../gio_sys/struct.GInetSocketAddressClass.html">ffi::GInetSocketAddressClass</a>&gt;) @extends <a href="socket_address.rs.html#13-35">SocketAddress</a>, @implements <a href="socket_connectable.rs.html#8-80">SocketConnectable</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_inet_socket_address_get_type(),
@@ -284,7 +286,7 @@
 }
 
 <span class="kw">impl </span><a href="#8-47">InetSocketAddress</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="#8-47">InetSocketAddress</a>&gt; = <span class="prelude-val">None</span>;
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#8-47">InetSocketAddress</a>&gt; = <span class="prelude-val">None</span>;
 
     <span class="doccomment">/// Creates a new [`InetSocketAddress`][crate::InetSocketAddress] for `address` and `port`.
     /// ## `address`
@@ -295,10 +297,10 @@
     /// # Returns
     ///
     /// a new [`InetSocketAddress`][crate::InetSocketAddress]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_inet_socket_address_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_inet_socket_address_new"</span>)]
     </span><span class="kw">pub fn </span>new(address: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, port: <a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>) -&gt; <a href="#8-47">InetSocketAddress</a> {
         <span class="kw">unsafe </span>{
-            SocketAddress::from_glib_full(ffi::g_inet_socket_address_new(
+            <a href="../../../glib/translate/trait.FromGlibPtrFull.html">SocketAddress::from_glib_full</a>(ffi::g_inet_socket_address_new(
                 <a href="#62">address</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#62">port</a>,
             ))
@@ -319,8 +321,8 @@
     ///
     /// a new [`InetSocketAddress`][crate::InetSocketAddress],
     /// or [`None`] if `address` cannot be parsed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_inet_socket_address_new_from_string&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_from_string&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_inet_socket_address_new_from_string"</span>)]
+    #[doc(alias = <span class="string">"new_from_string"</span>)]
     </span><span class="kw">pub fn </span>from_string(address: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, port: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#8-47">InetSocketAddress</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="prelude-ty">Option</span>::&lt;<a href="socket_address.rs.html#13-35">SocketAddress</a>&gt;::from_glib_full(ffi::g_inet_socket_address_new_from_string(
@@ -345,15 +347,15 @@
 /// # Implementors
 ///
 /// [`InetSocketAddress`][struct@crate::InetSocketAddress], [`ProxyAddress`][struct@crate::ProxyAddress]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.InetSocketAddressExt.html">InetSocketAddressExt</a>: IsA&lt;<a href="#8-47">InetSocketAddress</a>&gt; + <a href="#102">sealed::Sealed</a> + <span class="lifetime">&#39;static </span>{
-    <span class="doccomment">/// Gets `self`&#39;s [`InetAddress`][crate::InetAddress].
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.InetSocketAddressExt.html">InetSocketAddressExt</a>: IsA&lt;<a href="#8-47">InetSocketAddress</a>&gt; + <a href="#102">sealed::Sealed</a> + <span class="lifetime">'static </span>{
+    <span class="doccomment">/// Gets `self`'s [`InetAddress`][crate::InetAddress].
     ///
     /// # Returns
     ///
     /// the [`InetAddress`][crate::InetAddress] for `self`, which must be
-    /// `g_object_ref()`&#39;d if it will be stored
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_inet_socket_address_get_address&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_address&quot;</span>)]
+    /// `g_object_ref()`'d if it will be stored
+    </span><span class="attr">#[doc(alias = <span class="string">"g_inet_socket_address_get_address"</span>)]
+    #[doc(alias = <span class="string">"get_address"</span>)]
     </span><span class="kw">fn </span>address(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="inet_address.rs.html#13-114">InetAddress</a> {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_inet_socket_address_get_address(
@@ -368,19 +370,19 @@
     /// # Returns
     ///
     /// the flowinfo field
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_inet_socket_address_get_flowinfo&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_flowinfo&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_inet_socket_address_get_flowinfo"</span>)]
+    #[doc(alias = <span class="string">"get_flowinfo"</span>)]
     </span><span class="kw">fn </span>flowinfo(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_inet_socket_address_get_flowinfo(<a class="self" href="#136">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s port.
+    <span class="doccomment">/// Gets `self`'s port.
     ///
     /// # Returns
     ///
     /// the port for `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_inet_socket_address_get_port&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_port&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_inet_socket_address_get_port"</span>)]
+    #[doc(alias = <span class="string">"get_port"</span>)]
     </span><span class="kw">fn </span>port(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a> {
         <span class="kw">unsafe </span>{ ffi::g_inet_socket_address_get_port(<a class="self" href="#147">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -391,8 +393,8 @@
     /// # Returns
     ///
     /// the scope id field
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_inet_socket_address_get_scope_id&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_scope_id&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_inet_socket_address_get_scope_id"</span>)]
+    #[doc(alias = <span class="string">"get_scope_id"</span>)]
     </span><span class="kw">fn </span>scope_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_inet_socket_address_get_scope_id(<a class="self" href="#159">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }

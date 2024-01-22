@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1058,25 +1060,25 @@
 <span class="kw">mod </span><a href="datagram_based.rs.html#5-135">datagram_based</a>;
 <span class="kw">pub use </span><a href="datagram_based.rs.html#7-65"><span class="self">self</span>::datagram_based::DatagramBased</a>;
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
 </span><span class="kw">mod </span><a href="debug_controller.rs.html#5-122">debug_controller</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
 </span><span class="kw">pub use </span><a href="debug_controller.rs.html#13-48"><span class="self">self</span>::debug_controller::DebugController</a>;
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
 </span><span class="kw">mod </span><a href="debug_controller_dbus.rs.html#5-319">debug_controller_dbus</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
 </span><span class="kw">pub use </span><a href="debug_controller_dbus.rs.html#13-184"><span class="self">self</span>::debug_controller_dbus::DebugControllerDBus</a>;
 
-<span class="attr">#[cfg(all(not(windows), not(target_os = <span class="string">&quot;macos&quot;</span>)))]
-#[cfg_attr(docsrs, doc(cfg(all(not(windows), not(target_os = <span class="string">&quot;macos&quot;</span>)))))]
-</span><span class="kw">mod </span><a href="desktop_app_info.rs.html#5-538">desktop_app_info</a>;
-<span class="attr">#[cfg(all(not(windows), not(target_os = <span class="string">&quot;macos&quot;</span>)))]
-#[cfg_attr(docsrs, doc(cfg(all(not(windows), not(target_os = <span class="string">&quot;macos&quot;</span>)))))]
+<span class="attr">#[cfg(all(not(windows), not(target_os = <span class="string">"macos"</span>)))]
+#[cfg_attr(docsrs, doc(cfg(all(not(windows), not(target_os = <span class="string">"macos"</span>)))))]
+</span><span class="kw">mod </span><a href="desktop_app_info.rs.html#5-535">desktop_app_info</a>;
+<span class="attr">#[cfg(all(not(windows), not(target_os = <span class="string">"macos"</span>)))]
+#[cfg_attr(docsrs, doc(cfg(all(not(windows), not(target_os = <span class="string">"macos"</span>)))))]
 </span><span class="kw">pub use </span><a href="desktop_app_info.rs.html#9-34"><span class="self">self</span>::desktop_app_info::DesktopAppInfo</a>;
 
 <span class="kw">mod </span><a href="drive.rs.html#5-770">drive</a>;
@@ -1088,7 +1090,7 @@
 <span class="kw">mod </span><a href="emblemed_icon.rs.html#5-124">emblemed_icon</a>;
 <span class="kw">pub use </span><a href="emblemed_icon.rs.html#8-31"><span class="self">self</span>::emblemed_icon::EmblemedIcon</a>;
 
-<span class="kw">mod </span><a href="file.rs.html#5-4680">file</a>;
+<span class="kw">mod </span><a href="file.rs.html#5-4528">file</a>;
 <span class="kw">pub use </span><a href="file.rs.html#14-108"><span class="self">self</span>::file::File</a>;
 
 <span class="kw">mod </span><a href="file_enumerator.rs.html#5-447">file_enumerator</a>;
@@ -1154,11 +1156,11 @@
 <span class="kw">mod </span><a href="memory_input_stream.rs.html#5-89">memory_input_stream</a>;
 <span class="kw">pub use </span><a href="memory_input_stream.rs.html#8-24"><span class="self">self</span>::memory_input_stream::MemoryInputStream</a>;
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_64&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
 </span><span class="kw">mod </span><a href="memory_monitor.rs.html#5-153">memory_monitor</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_64&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
 </span><span class="kw">pub use </span><a href="memory_monitor.rs.html#13-85"><span class="self">self</span>::memory_monitor::MemoryMonitor</a>;
 
 <span class="kw">mod </span><a href="memory_output_stream.rs.html#5-141">memory_output_stream</a>;
@@ -1209,11 +1211,11 @@
 <span class="kw">mod </span><a href="pollable_output_stream.rs.html#5-145">pollable_output_stream</a>;
 <span class="kw">pub use </span><a href="pollable_output_stream.rs.html#8-28"><span class="self">self</span>::pollable_output_stream::PollableOutputStream</a>;
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_70&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_70&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
 </span><span class="kw">mod </span><a href="power_profile_monitor.rs.html#5-130">power_profile_monitor</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_70&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_70&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
 </span><span class="kw">pub use </span><a href="power_profile_monitor.rs.html#13-54"><span class="self">self</span>::power_profile_monitor::PowerProfileMonitor</a>;
 
 <span class="kw">mod </span><a href="property_action.rs.html#5-210">property_action</a>;
@@ -1369,7 +1371,7 @@
 #[cfg_attr(docsrs, doc(cfg(unix)))]
 </span><span class="kw">pub use </span><a href="unix_socket_address.rs.html#8-63"><span class="self">self</span>::unix_socket_address::UnixSocketAddress</a>;
 
-<span class="kw">mod </span><a href="vfs.rs.html#5-300">vfs</a>;
+<span class="kw">mod </span><a href="vfs.rs.html#5-298">vfs</a>;
 <span class="kw">pub use </span><a href="vfs.rs.html#9-21"><span class="self">self</span>::vfs::Vfs</a>;
 
 <span class="kw">mod </span><a href="volume.rs.html#5-537">volume</a>;
@@ -1453,15 +1455,15 @@
 <span class="kw">pub use </span><a href="enums.rs.html#1355-1398"><span class="self">self</span>::enums::FileMonitorEvent</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#1511-1537"><span class="self">self</span>::enums::FileType</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#1654-1812"><span class="self">self</span>::enums::IOErrorEnum</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_64&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
 </span><span class="kw">pub use </span><a href="enums.rs.html#2024-2042"><span class="self">self</span>::enums::MemoryMonitorWarningLevel</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#2147-2162"><span class="self">self</span>::enums::MountOperationResult</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#2250-2271"><span class="self">self</span>::enums::NetworkConnectivity</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#2361-2384"><span class="self">self</span>::enums::NotificationPriority</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#2477-2489"><span class="self">self</span>::enums::PasswordSave</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
 </span><span class="kw">pub use </span><a href="enums.rs.html#2587-2599"><span class="self">self</span>::enums::PollableReturn</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#2704-2718"><span class="self">self</span>::enums::ResolverError</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#2855-2873"><span class="self">self</span>::enums::ResolverRecordType</a>;
@@ -1473,14 +1475,14 @@
 <span class="kw">pub use </span><a href="enums.rs.html#3555-3572"><span class="self">self</span>::enums::SocketType</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#3662-3674"><span class="self">self</span>::enums::TlsAuthenticationMode</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#3764-3770"><span class="self">self</span>::enums::TlsCertificateRequestFlags</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_66&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_66&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
 </span><span class="kw">pub use </span><a href="enums.rs.html#3859-3876"><span class="self">self</span>::enums::TlsChannelBindingType</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#3984-3994"><span class="self">self</span>::enums::TlsDatabaseLookupFlags</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#4081-4123"><span class="self">self</span>::enums::TlsError</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#4246-4261"><span class="self">self</span>::enums::TlsInteractionResult</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_70&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_70&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
 </span><span class="kw">pub use </span><a href="enums.rs.html#4359-4386"><span class="self">self</span>::enums::TlsProtocolVersion</a>;
 <span class="attr">#[allow(deprecated)]
 </span><span class="kw">pub use </span><a href="enums.rs.html#4508-4520"><span class="self">self</span>::enums::TlsRehandshakeMode</a>;
@@ -1517,8 +1519,8 @@
 <span class="kw">pub use </span><a href="flags.rs.html#2325-2334"><span class="self">self</span>::flags::MountMountFlags</a>;
 <span class="kw">pub use </span><a href="flags.rs.html#2408-2421"><span class="self">self</span>::flags::MountUnmountFlags</a>;
 <span class="kw">pub use </span><a href="flags.rs.html#2495-2512"><span class="self">self</span>::flags::OutputStreamSpliceFlags</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
 </span><span class="kw">pub use </span><a href="flags.rs.html#2587-2603"><span class="self">self</span>::flags::ResolverNameLookupFlags</a>;
 <span class="kw">pub use </span><a href="flags.rs.html#2693-2702"><span class="self">self</span>::flags::ResourceLookupFlags</a>;
 <span class="kw">pub use </span><a href="flags.rs.html#2776-2807"><span class="self">self</span>::flags::SettingsBindFlags</a>;
@@ -1530,11 +1532,11 @@
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span><a href="functions.rs.html#5-1298">functions</a>;
 
 <span class="kw">mod </span><a href="constants.rs.html#5-1066">constants</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#12-13"><span class="self">self</span>::constants::DEBUG_CONTROLLER_EXTENSION_POINT_NAME</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_58&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_58&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_58"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_58"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#18-19"><span class="self">self</span>::constants::DRIVE_IDENTIFIER_KIND_UNIX_DEVICE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#26-27"><span class="self">self</span>::constants::FILE_ATTRIBUTE_ACCESS_CAN_DELETE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#34-35"><span class="self">self</span>::constants::FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE</a>;
@@ -1543,12 +1545,12 @@
 <span class="kw">pub use </span><a href="constants.rs.html#59-60"><span class="self">self</span>::constants::FILE_ATTRIBUTE_ACCESS_CAN_TRASH</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#67-68"><span class="self">self</span>::constants::FILE_ATTRIBUTE_ACCESS_CAN_WRITE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#78-79"><span class="self">self</span>::constants::FILE_ATTRIBUTE_DOS_IS_ARCHIVE</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#92-93"><span class="self">self</span>::constants::FILE_ATTRIBUTE_DOS_IS_MOUNTPOINT</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#103-104"><span class="self">self</span>::constants::FILE_ATTRIBUTE_DOS_IS_SYSTEM</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#116-117"><span class="self">self</span>::constants::FILE_ATTRIBUTE_DOS_REPARSE_POINT_TAG</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#123-124"><span class="self">self</span>::constants::FILE_ATTRIBUTE_ETAG_VALUE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#130-131"><span class="self">self</span>::constants::FILE_ATTRIBUTE_FILESYSTEM_FREE</a>;
@@ -1600,62 +1602,62 @@
 <span class="kw">pub use </span><a href="constants.rs.html#502-503"><span class="self">self</span>::constants::FILE_ATTRIBUTE_STANDARD_TARGET_URI</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#510-511"><span class="self">self</span>::constants::FILE_ATTRIBUTE_STANDARD_TYPE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#518-519"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAILING_FAILED</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#529-530"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAILING_FAILED_LARGE</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#540-541"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAILING_FAILED_NORMAL</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#551-552"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAILING_FAILED_XLARGE</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#562-564"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAILING_FAILED_XXLARGE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#575-576"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_IS_VALID</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#592-593"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_IS_VALID_LARGE</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#609-610"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_IS_VALID_NORMAL</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#626-627"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_IS_VALID_XLARGE</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#643-644"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_IS_VALID_XXLARGE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#650-651"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_PATH</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#659-660"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_PATH_LARGE</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#668-669"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_PATH_NORMAL</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#677-678"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_PATH_XLARGE</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_76&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_76&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_76"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_76"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#686-687"><span class="self">self</span>::constants::FILE_ATTRIBUTE_THUMBNAIL_PATH_XXLARGE</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#695-696"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_ACCESS</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#704-705"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_ACCESS_NSEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#713-714"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_ACCESS_USEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#724-725"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_CHANGED</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#733-734"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_CHANGED_NSEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#742-743"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_CHANGED_USEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#753-754"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_CREATED</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#762-763"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_CREATED_NSEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#771-772"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_CREATED_USEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#780-781"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_MODIFIED</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#789-790"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_MODIFIED_NSEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#798-799"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TIME_MODIFIED_USEC</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#807-808"><span class="self">self</span>::constants::FILE_ATTRIBUTE_TRASH_DELETION_DATE</a>;
@@ -1671,8 +1673,8 @@
 <span class="kw">pub use </span><a href="constants.rs.html#901-902"><span class="self">self</span>::constants::FILE_ATTRIBUTE_UNIX_NLINK</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#912-913"><span class="self">self</span>::constants::FILE_ATTRIBUTE_UNIX_RDEV</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#920-921"><span class="self">self</span>::constants::FILE_ATTRIBUTE_UNIX_UID</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_64&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#927-928"><span class="self">self</span>::constants::MEMORY_MONITOR_EXTENSION_POINT_NAME</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#936-937"><span class="self">self</span>::constants::MENU_ATTRIBUTE_ACTION</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#941-942"><span class="self">self</span>::constants::MENU_ATTRIBUTE_ACTION_NAMESPACE</a>;
@@ -1683,8 +1685,8 @@
 <span class="kw">pub use </span><a href="constants.rs.html#976-977"><span class="self">self</span>::constants::MENU_LINK_SUBMENU</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#979-981"><span class="self">self</span>::constants::NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#985-986"><span class="self">self</span>::constants::NETWORK_MONITOR_EXTENSION_POINT_NAME</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_70&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_70&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
 </span><span class="kw">pub use </span><a href="constants.rs.html#992-994"><span class="self">self</span>::constants::POWER_PROFILE_MONITOR_EXTENSION_POINT_NAME</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#998-999"><span class="self">self</span>::constants::PROXY_EXTENSION_POINT_NAME</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#1003-1004"><span class="self">self</span>::constants::PROXY_RESOLVER_EXTENSION_POINT_NAME</a>;
@@ -1726,15 +1728,15 @@
     <span class="kw">pub use </span><a href="dbus_object.rs.html#58-180"><span class="kw">super</span>::dbus_object::DBusObjectExt</a>;
     <span class="kw">pub use </span><a href="dbus_object_manager.rs.html#79-302"><span class="kw">super</span>::dbus_object_manager::DBusObjectManagerExt</a>;
     <span class="kw">pub use </span><a href="dbus_proxy.rs.html#578-1443"><span class="kw">super</span>::dbus_proxy::DBusProxyExt</a>;
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
     </span><span class="kw">pub use </span><a href="debug_controller.rs.html#64-120"><span class="kw">super</span>::debug_controller::DebugControllerExt</a>;
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
     </span><span class="kw">pub use </span><a href="debug_controller_dbus.rs.html#236-317"><span class="kw">super</span>::debug_controller_dbus::DebugControllerDBusExt</a>;
     <span class="kw">pub use </span><a href="drive.rs.html#100-768"><span class="kw">super</span>::drive::DriveExt</a>;
     <span class="kw">pub use </span><a href="emblemed_icon.rs.html#66-122"><span class="kw">super</span>::emblemed_icon::EmblemedIconExt</a>;
-    <span class="kw">pub use </span><a href="file.rs.html#306-4678"><span class="kw">super</span>::file::FileExt</a>;
+    <span class="kw">pub use </span><a href="file.rs.html#306-4526"><span class="kw">super</span>::file::FileExt</a>;
     <span class="kw">pub use </span><a href="file_enumerator.rs.html#68-445"><span class="kw">super</span>::file_enumerator::FileEnumeratorExt</a>;
     <span class="kw">pub use </span><a href="file_input_stream.rs.html#45-172"><span class="kw">super</span>::file_input_stream::FileInputStreamExt</a>;
     <span class="kw">pub use </span><a href="file_io_stream.rs.html#56-204"><span class="kw">super</span>::file_io_stream::FileIOStreamExt</a>;
@@ -1752,8 +1754,8 @@
     <span class="kw">pub use </span><a href="list_model.rs.html#118-270"><span class="kw">super</span>::list_model::ListModelExt</a>;
     <span class="kw">pub use </span><a href="loadable_icon.rs.html#38-162"><span class="kw">super</span>::loadable_icon::LoadableIconExt</a>;
     <span class="kw">pub use </span><a href="memory_input_stream.rs.html#74-87"><span class="kw">super</span>::memory_input_stream::MemoryInputStreamExt</a>;
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_64&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
     </span><span class="kw">pub use </span><a href="memory_monitor.rs.html#111-151"><span class="kw">super</span>::memory_monitor::MemoryMonitorExt</a>;
     <span class="kw">pub use </span><a href="memory_output_stream.rs.html#86-139"><span class="kw">super</span>::memory_output_stream::MemoryOutputStreamExt</a>;
     <span class="kw">pub use </span><a href="menu_attribute_iter.rs.html#38-83"><span class="kw">super</span>::menu_attribute_iter::MenuAttributeIterExt</a>;
@@ -1768,8 +1770,8 @@
     <span class="kw">pub use </span><a href="permission.rs.html#80-445"><span class="kw">super</span>::permission::PermissionExt</a>;
     <span class="kw">pub use </span><a href="pollable_input_stream.rs.html#44-91"><span class="kw">super</span>::pollable_input_stream::PollableInputStreamExt</a>;
     <span class="kw">pub use </span><a href="pollable_output_stream.rs.html#44-143"><span class="kw">super</span>::pollable_output_stream::PollableOutputStreamExt</a>;
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_70&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_70&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_70"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_70"</span>)))]
     </span><span class="kw">pub use </span><a href="power_profile_monitor.rs.html#81-128"><span class="kw">super</span>::power_profile_monitor::PowerProfileMonitorExt</a>;
     <span class="kw">pub use </span><a href="proxy.rs.html#61-199"><span class="kw">super</span>::proxy::ProxyExt</a>;
     <span class="kw">pub use </span><a href="proxy_address.rs.html#151-253"><span class="kw">super</span>::proxy_address::ProxyAddressExt</a>;
@@ -1818,7 +1820,7 @@
     <span class="attr">#[cfg(unix)]
     #[cfg_attr(docsrs, doc(cfg(unix)))]
     </span><span class="kw">pub use </span><a href="unix_socket_address.rs.html#103-155"><span class="kw">super</span>::unix_socket_address::UnixSocketAddressExt</a>;
-    <span class="kw">pub use </span><a href="vfs.rs.html#64-298"><span class="kw">super</span>::vfs::VfsExt</a>;
+    <span class="kw">pub use </span><a href="vfs.rs.html#64-296"><span class="kw">super</span>::vfs::VfsExt</a>;
     <span class="kw">pub use </span><a href="volume.rs.html#100-535"><span class="kw">super</span>::volume::VolumeExt</a>;
     <span class="kw">pub use </span><a href="volume_monitor.rs.html#139-618"><span class="kw">super</span>::volume_monitor::VolumeMonitorExt</a>;
 }

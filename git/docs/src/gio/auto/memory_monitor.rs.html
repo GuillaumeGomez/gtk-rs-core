@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/memory_monitor.rs`."><title>memory_monitor.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/memory_monitor.rs`."><title>memory_monitor.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -247,7 +249,7 @@
     /// Possible actions to take when the signal is received are:
     ///
     ///  - Free caches
-    ///  - Save files that haven&#39;t been looked at in a while to disk, ready to be reopened when needed
+    ///  - Save files that haven't been looked at in a while to disk, ready to be reopened when needed
     ///  - Run a garbage collection cycle
     ///  - Try and compress fragmented allocations
     ///  - Exit on idle if the process has no reason to stay around
@@ -269,7 +271,7 @@
     /// static void
     /// warning_cb (GMemoryMonitor *m, GMemoryMonitorWarningLevel level)
     /// {
-    ///   g_debug (&quot;Warning level: %d&quot;, level);
+    ///   g_debug ("Warning level: %d", level);
     ///   if (warning_level &gt; G_MEMORY_MONITOR_WARNING_LEVEL_LOW)
     ///     drop_caches ();
     /// }
@@ -279,13 +281,13 @@
     /// {
     ///   GMemoryMonitor *m;
     ///   m = g_memory_monitor_dup_default ();
-    ///   g_signal_connect (G_OBJECT (m), &quot;low-memory-warning&quot;,
+    ///   g_signal_connect (G_OBJECT (m), "low-memory-warning",
     ///                     G_CALLBACK (warning_cb), NULL);
     ///   return m;
     /// }
     /// ```
     ///
-    /// Don&#39;t forget to disconnect the [`low-memory-warning`][struct@crate::MemoryMonitor#low-memory-warning]
+    /// Don't forget to disconnect the [`low-memory-warning`][struct@crate::MemoryMonitor#low-memory-warning]
     /// signal, and unref the [`MemoryMonitor`][crate::MemoryMonitor] itself when exiting.
     ///
     /// ## Signals
@@ -302,8 +304,8 @@
     /// # Implements
     ///
     /// [`MemoryMonitorExt`][trait@crate::prelude::MemoryMonitorExt], [`InitableExt`][trait@crate::prelude::InitableExt]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GMemoryMonitor&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.MemoryMonitor.html">MemoryMonitor</a>(Interface&lt;ffi::GMemoryMonitor, ffi::GMemoryMonitorInterface&gt;) @requires <a href="initable.rs.html#8-43">Initable</a>;
+    </span><span class="attr">#[doc(alias = <span class="string">"GMemoryMonitor"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.MemoryMonitor.html">MemoryMonitor</a>(Interface&lt;<a href="../../../gio_sys/struct.GMemoryMonitor.html">ffi::GMemoryMonitor</a>, <a href="../../../gio_sys/struct.GMemoryMonitorInterface.html">ffi::GMemoryMonitorInterface</a>&gt;) @requires <a href="initable.rs.html#8-43">Initable</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_memory_monitor_get_type(),
@@ -311,14 +313,14 @@
 }
 
 <span class="kw">impl </span><a href="#13-85">MemoryMonitor</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="#13-85">MemoryMonitor</a>&gt; = <span class="prelude-val">None</span>;
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#13-85">MemoryMonitor</a>&gt; = <span class="prelude-val">None</span>;
 
     <span class="doccomment">/// Gets a reference to the default [`MemoryMonitor`][crate::MemoryMonitor] for the system.
     ///
     /// # Returns
     ///
     /// a new reference to the default [`MemoryMonitor`][crate::MemoryMonitor]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_memory_monitor_dup_default&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_memory_monitor_dup_default"</span>)]
     </span><span class="kw">pub fn </span>dup_default() -&gt; <a href="#13-85">MemoryMonitor</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_memory_monitor_dup_default()) }
     }
@@ -334,31 +336,31 @@
 /// # Implementors
 ///
 /// [`MemoryMonitor`][struct@crate::MemoryMonitor]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.MemoryMonitorExt.html">MemoryMonitorExt</a>: IsA&lt;<a href="#13-85">MemoryMonitor</a>&gt; + <a href="#102">sealed::Sealed</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.MemoryMonitorExt.html">MemoryMonitorExt</a>: IsA&lt;<a href="#13-85">MemoryMonitor</a>&gt; + <a href="#102">sealed::Sealed</a> + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Emitted when the system is running low on free memory. The signal
     /// handler should then take the appropriate action depending on the
     /// warning level. See the [`MemoryMonitorWarningLevel`][crate::MemoryMonitorWarningLevel] documentation for
     /// details.
     /// ## `level`
     /// the [`MemoryMonitorWarningLevel`][crate::MemoryMonitorWarningLevel] warning level
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_64&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_64&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;low-memory-warning&quot;</span>)]
-    </span><span class="kw">fn </span>connect_low_memory_warning&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#2024-2042">MemoryMonitorWarningLevel</a>) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_64"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_64"</span>)))]
+    #[doc(alias = <span class="string">"low-memory-warning"</span>)]
+    </span><span class="kw">fn </span>connect_low_memory_warning&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="enums.rs.html#2024-2042">MemoryMonitorWarningLevel</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>low_memory_warning_trampoline&lt;
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>low_memory_warning_trampoline&lt;
             P: IsA&lt;<a href="#13-85">MemoryMonitor</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <a href="enums.rs.html#2024-2042">MemoryMonitorWarningLevel</a>) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <a href="enums.rs.html#2024-2042">MemoryMonitorWarningLevel</a>) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GMemoryMonitor,
-            level: ffi::GMemoryMonitorWarningLevel,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GMemoryMonitor.html">ffi::GMemoryMonitor</a>,
+            level: <a href="../../../gio_sys/type.GMemoryMonitorWarningLevel.html">ffi::GMemoryMonitorWarningLevel</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#131">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#133">f</a>(
-                MemoryMonitor::from_glib_borrow(<a href="#129">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
+                <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">MemoryMonitor::from_glib_borrow</a>(<a href="#129">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
                 from_glib(<a href="#130">level</a>),
             )
         }
@@ -366,8 +368,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#123">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#122">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;low-memory-warning\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"low-memory-warning\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     low_memory_warning_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#140">f</a>),

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `cairo/src/patterns.rs`."><title>patterns.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="cairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `cairo/src/patterns.rs`."><title>patterns.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="cairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../cairo/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -634,7 +636,7 @@
 <span class="kw">use </span>libc::{c_double, c_int, c_uint};
 
 <span class="kw">use crate</span>::{
-    ffi::{cairo_pattern_t, cairo_surface_t},
+    ffi::{<a href="../../cairo_sys/struct.cairo_pattern_t.html">cairo_pattern_t</a>, <a href="../../cairo_sys/struct.cairo_surface_t.html">cairo_surface_t</a>},
     <a href="utils.rs.html#21-26">utils::status_to_result</a>,
     <a href="error.rs.html#10-150">Error</a>, <a href="enums.rs.html#477-488">Extend</a>, <a href="enums.rs.html#522-537">Filter</a>, <a href="matrices.rs.html#12">Matrix</a>, <a href="enums.rs.html#1479-1490">MeshCorner</a>, <a href="paths.rs.html#8">Path</a>, <a href="enums.rs.html#575-590">PatternType</a>, <a href="surface.rs.html#19">Surface</a>,
 };
@@ -642,7 +644,7 @@
 <span class="comment">// See https://cairographics.org/manual/bindings-patterns.html for more info
 </span><span class="attr">#[derive(Debug)]
 </span><span class="kw">pub struct </span><a href="../../cairo/struct.Pattern.html">Pattern</a> {
-    pointer: <span class="kw-2">*mut </span>cairo_pattern_t,
+    pointer: <span class="kw-2">*mut </span><a href="../../cairo_sys/struct.cairo_pattern_t.html">cairo_pattern_t</a>,
 }
 
 <span class="kw">impl </span><a href="#15-17">Pattern</a> {
@@ -652,71 +654,71 @@
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>to_raw_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>cairo_pattern_t {
+    </span><span class="kw">pub fn </span>to_raw_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*mut </span><a href="../../cairo_sys/struct.cairo_pattern_t.html">cairo_pattern_t</a> {
         <a class="self" href="#26">self</a>.pointer
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub unsafe fn </span>from_raw_none(pointer: <span class="kw-2">*mut </span>cairo_pattern_t) -&gt; <a href="#15-17">Pattern</a> {
+    </span><span class="kw">pub unsafe fn </span>from_raw_none(pointer: <span class="kw-2">*mut </span><a href="../../cairo_sys/struct.cairo_pattern_t.html">cairo_pattern_t</a>) -&gt; <a href="#15-17">Pattern</a> {
         ffi::cairo_pattern_reference(<a href="#31">pointer</a>);
-        <span class="self">Self</span>::from_raw_full(<a href="#31">pointer</a>)
+        <a href="#37-39"><span class="self">Self</span>::from_raw_full</a>(<a href="#31">pointer</a>)
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub unsafe fn </span>from_raw_full(pointer: <span class="kw-2">*mut </span>cairo_pattern_t) -&gt; <a href="#15-17">Pattern</a> {
+    </span><span class="kw">pub unsafe fn </span>from_raw_full(pointer: <span class="kw-2">*mut </span><a href="../../cairo_sys/struct.cairo_pattern_t.html">cairo_pattern_t</a>) -&gt; <a href="#15-17">Pattern</a> {
         <span class="self">Self </span>{ <a href="#37">pointer</a> }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_type&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_type&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_type"</span>)]
+    #[doc(alias = <span class="string">"get_type"</span>)]
     </span><span class="kw">pub fn </span>type_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#575-590">PatternType</a> {
         <span class="kw">unsafe </span>{ ffi::cairo_pattern_get_type(<a class="self" href="#43">self</a>.pointer).<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>() }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_reference_count&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_reference_count&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_reference_count"</span>)]
+    #[doc(alias = <span class="string">"get_reference_count"</span>)]
     </span><span class="kw">pub fn </span>reference_count(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a> {
         <span class="kw">unsafe </span>{ ffi::cairo_pattern_get_reference_count(<a class="self" href="#49">self</a>.pointer) <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a> }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_set_extend&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_set_extend"</span>)]
     </span><span class="kw">pub fn </span>set_extend(<span class="kw-2">&amp;</span><span class="self">self</span>, extend: <a href="enums.rs.html#477-488">Extend</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_pattern_set_extend(<a class="self" href="#54">self</a>.pointer, <a href="#54">extend</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_extend&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_extend&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_extend"</span>)]
+    #[doc(alias = <span class="string">"get_extend"</span>)]
     </span><span class="kw">pub fn </span>extend(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#477-488">Extend</a> {
-        <span class="kw">unsafe </span>{ Extend::from(ffi::cairo_pattern_get_extend(<a class="self" href="#60">self</a>.pointer)) }
+        <span class="kw">unsafe </span>{ <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">Extend::from</a>(ffi::cairo_pattern_get_extend(<a class="self" href="#60">self</a>.pointer)) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_set_filter&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_set_filter"</span>)]
     </span><span class="kw">pub fn </span>set_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <a href="enums.rs.html#522-537">Filter</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_pattern_set_filter(<a class="self" href="#65">self</a>.pointer, <a href="#65">filter</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_filter&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_filter&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_filter"</span>)]
+    #[doc(alias = <span class="string">"get_filter"</span>)]
     </span><span class="kw">pub fn </span>filter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#522-537">Filter</a> {
-        <span class="kw">unsafe </span>{ Filter::from(ffi::cairo_pattern_get_filter(<a class="self" href="#71">self</a>.pointer)) }
+        <span class="kw">unsafe </span>{ <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">Filter::from</a>(ffi::cairo_pattern_get_filter(<a class="self" href="#71">self</a>.pointer)) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_set_matrix&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_set_matrix"</span>)]
     </span><span class="kw">pub fn </span>set_matrix(<span class="kw-2">&amp;</span><span class="self">self</span>, matrix: <a href="matrices.rs.html#12">Matrix</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_pattern_set_matrix(<a class="self" href="#76">self</a>.pointer, <a href="#76">matrix</a>.<a href="matrices.rs.html#22-24">ptr</a>()) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_matrix&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_matrix&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_matrix"</span>)]
+    #[doc(alias = <span class="string">"get_matrix"</span>)]
     </span><span class="kw">pub fn </span>matrix(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="matrices.rs.html#12">Matrix</a> {
-        <span class="kw">let </span><span class="kw-2">mut </span>matrix = Matrix::null();
+        <span class="kw">let </span><span class="kw-2">mut </span>matrix = <a href="matrices.rs.html#32-41">Matrix::null</a>();
         <span class="kw">unsafe </span>{
             ffi::cairo_pattern_get_matrix(<a class="self" href="#82">self</a>.pointer, <a href="#83">matrix</a>.<a href="matrices.rs.html#27-29">mut_ptr</a>());
         }
         <a href="#83">matrix</a>
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_status&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_status"</span>)]
     </span><span class="kw">pub fn </span>status(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span>status = <span class="kw">unsafe </span>{ ffi::cairo_pattern_status(<a class="self" href="#91">self</a>.pointer) };
         <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#92">status</a>)
@@ -798,26 +800,26 @@
 <a class="macro" href="#140-167">pattern_type!</a>(<a href="../../cairo/struct.SolidPattern.html">SolidPattern</a> = Solid);
 
 <span class="kw">impl </span><a href="#169">SolidPattern</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_create_rgb&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_create_rgb"</span>)]
     </span><span class="kw">pub fn </span>from_rgb(red: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, green: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, blue: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
-            <span class="self">Self</span>(Pattern::from_raw_full(ffi::cairo_pattern_create_rgb(
+            <span class="self">Self</span>(<a href="#37-39">Pattern::from_raw_full</a>(ffi::cairo_pattern_create_rgb(
                 <a href="#173">red</a>, <a href="#173">green</a>, <a href="#173">blue</a>,
             )))
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_create_rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_create_rgba"</span>)]
     </span><span class="kw">pub fn </span>from_rgba(red: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, green: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, blue: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, alpha: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
-            <span class="self">Self</span>(Pattern::from_raw_full(ffi::cairo_pattern_create_rgba(
+            <span class="self">Self</span>(<a href="#37-39">Pattern::from_raw_full</a>(ffi::cairo_pattern_create_rgba(
                 <a href="#182">red</a>, <a href="#182">green</a>, <a href="#182">blue</a>, <a href="#182">alpha</a>,
             )))
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_rgba&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_rgba"</span>)]
+    #[doc(alias = <span class="string">"get_rgba"</span>)]
     </span><span class="kw">pub fn </span>rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>red = <span class="number">0.0</span>;
@@ -832,7 +834,7 @@
                 <span class="kw-2">&amp;mut </span><a href="#196">blue</a>,
                 <span class="kw-2">&amp;mut </span><a href="#197">alpha</a>,
             );
-            status_to_result(status)<span class="question-mark">?</span>;
+            <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#199">status</a>)<span class="question-mark">?</span>;
 
             <span class="prelude-val">Ok</span>((<a href="#194">red</a>, <a href="#195">green</a>, <a href="#196">blue</a>, <a href="#197">alpha</a>))
         }
@@ -843,32 +845,32 @@
 <a class="macro" href="#120-138">convert!</a>(Pattern =&gt; Gradient = LinearGradient | RadialGradient);
 
 <span class="kw">impl </span><a href="#213">Gradient</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_add_color_stop_rgb&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_add_color_stop_rgb"</span>)]
     </span><span class="kw">pub fn </span>add_color_stop_rgb(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, red: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, green: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, blue: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_pattern_add_color_stop_rgb(<a class="self" href="#218">self</a>.pointer, <a href="#218">offset</a>, <a href="#218">red</a>, <a href="#218">green</a>, <a href="#218">blue</a>) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_add_color_stop_rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_add_color_stop_rgba"</span>)]
     </span><span class="kw">pub fn </span>add_color_stop_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, red: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, green: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, blue: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, alpha: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{
             ffi::cairo_pattern_add_color_stop_rgba(<a class="self" href="#223">self</a>.pointer, <a href="#223">offset</a>, <a href="#223">red</a>, <a href="#223">green</a>, <a href="#223">blue</a>, <a href="#223">alpha</a>)
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_color_stop_count&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_color_stop_count&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_color_stop_count"</span>)]
+    #[doc(alias = <span class="string">"get_color_stop_count"</span>)]
     </span><span class="kw">pub fn </span>color_stop_count(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>, <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>count = <span class="number">0</span>;
             <span class="kw">let </span>status = ffi::cairo_pattern_get_color_stop_count(<a class="self" href="#231">self</a>.pointer, <span class="kw-2">&amp;mut </span><a href="#233">count</a>);
 
-            status_to_result(status)<span class="question-mark">?</span>;
+            <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#234">status</a>)<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>(<a href="#233">count</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>)
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_color_stop_rgba&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_color_stop_rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_color_stop_rgba"</span>)]
+    #[doc(alias = <span class="string">"get_color_stop_rgba"</span>)]
     </span><span class="kw">pub fn </span>color_stop_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, index: <a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>offset = <span class="number">0.0</span>;
@@ -886,7 +888,7 @@
                 <span class="kw-2">&amp;mut </span><a href="#248">blue</a>,
                 <span class="kw-2">&amp;mut </span><a href="#249">alpha</a>,
             );
-            status_to_result(status)<span class="question-mark">?</span>;
+            <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#251">status</a>)<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>((<a href="#245">offset</a>, <a href="#246">red</a>, <a href="#247">green</a>, <a href="#248">blue</a>, <a href="#249">alpha</a>))
         }
     }
@@ -928,17 +930,17 @@
 <a class="macro" href="#266-297">gradient_type!</a>(<a href="../../cairo/struct.LinearGradient.html">LinearGradient</a>);
 
 <span class="kw">impl </span><a href="#299">LinearGradient</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_create_linear&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_create_linear"</span>)]
     </span><span class="kw">pub fn </span>new(x0: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y0: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, x1: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y1: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
-            <span class="self">Self</span>(<a href="#213">Gradient</a>(Pattern::from_raw_full(
+            <span class="self">Self</span>(<a href="#213">Gradient</a>(<a href="#37-39">Pattern::from_raw_full</a>(
                 ffi::cairo_pattern_create_linear(<a href="#303">x0</a>, <a href="#303">y0</a>, <a href="#303">x1</a>, <a href="#303">y1</a>),
             )))
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_linear_points&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_linear_points&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_linear_points"</span>)]
+    #[doc(alias = <span class="string">"get_linear_points"</span>)]
     </span><span class="kw">pub fn </span>linear_points(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>x0 = <span class="number">0.0</span>;
@@ -953,7 +955,7 @@
                 <span class="kw-2">&amp;mut </span><a href="#317">x1</a>,
                 <span class="kw-2">&amp;mut </span><a href="#318">y1</a>,
             );
-            status_to_result(status)<span class="question-mark">?</span>;
+            <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#320">status</a>)<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>((<a href="#315">x0</a>, <a href="#316">y0</a>, <a href="#317">x1</a>, <a href="#318">y1</a>))
         }
     }
@@ -962,17 +964,17 @@
 <a class="macro" href="#266-297">gradient_type!</a>(<a href="../../cairo/struct.RadialGradient.html">RadialGradient</a>);
 
 <span class="kw">impl </span><a href="#333">RadialGradient</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_create_radial&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_create_radial"</span>)]
     </span><span class="kw">pub fn </span>new(x0: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y0: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, r0: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, x1: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y1: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, r1: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
-            <span class="self">Self</span>(<a href="#213">Gradient</a>(Pattern::from_raw_full(
+            <span class="self">Self</span>(<a href="#213">Gradient</a>(<a href="#37-39">Pattern::from_raw_full</a>(
                 ffi::cairo_pattern_create_radial(<a href="#337">x0</a>, <a href="#337">y0</a>, <a href="#337">r0</a>, <a href="#337">x1</a>, <a href="#337">y1</a>, <a href="#337">r1</a>),
             )))
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_radial_circles&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_radial_circles&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_radial_circles"</span>)]
+    #[doc(alias = <span class="string">"get_radial_circles"</span>)]
     </span><span class="kw">pub fn </span>radial_circles(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>x0 = <span class="number">0.0</span>;
@@ -991,7 +993,7 @@
                 <span class="kw-2">&amp;mut </span><a href="#353">y1</a>,
                 <span class="kw-2">&amp;mut </span><a href="#354">r1</a>,
             );
-            status_to_result(status)<span class="question-mark">?</span>;
+            <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#356">status</a>)<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>((<a href="#349">x0</a>, <a href="#350">y0</a>, <a href="#351">r0</a>, <a href="#352">x1</a>, <a href="#353">y1</a>, <a href="#354">r1</a>))
         }
     }
@@ -1000,23 +1002,23 @@
 <a class="macro" href="#140-167">pattern_type!</a>(<a href="../../cairo/struct.SurfacePattern.html">SurfacePattern</a> = Surface);
 
 <span class="kw">impl </span><a href="#371">SurfacePattern</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_create_for_surface&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_create_for_surface"</span>)]
     </span><span class="kw">pub fn </span>create(surface: <span class="kw">impl </span>AsRef&lt;<a href="surface.rs.html#19">Surface</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="kw">unsafe </span>{
-            <span class="self">Self</span>(Pattern::from_raw_full(
+            <span class="self">Self</span>(<a href="#37-39">Pattern::from_raw_full</a>(
                 ffi::cairo_pattern_create_for_surface(<a href="#375">surface</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="surface.rs.html#44-46">to_raw_none</a>()),
             ))
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_get_surface&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_surface&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_get_surface"</span>)]
+    #[doc(alias = <span class="string">"get_surface"</span>)]
     </span><span class="kw">pub fn </span>surface(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="surface.rs.html#19">Surface</a>, <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>surface_ptr: <span class="kw-2">*mut </span>cairo_surface_t = ptr::null_mut();
+            <span class="kw">let </span><span class="kw-2">mut </span>surface_ptr: <span class="kw-2">*mut </span><a href="../../cairo_sys/struct.cairo_surface_t.html">cairo_surface_t</a> = ptr::null_mut();
             <span class="kw">let </span>status = ffi::cairo_pattern_get_surface(<a class="self" href="#385">self</a>.pointer, <span class="kw-2">&amp;mut </span><a href="#387">surface_ptr</a>);
-            status_to_result(status)<span class="question-mark">?</span>;
-            <span class="prelude-val">Ok</span>(Surface::from_raw_none(<a href="#387">surface_ptr</a>))
+            <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#388">status</a>)<span class="question-mark">?</span>;
+            <span class="prelude-val">Ok</span>(<a href="surface.rs.html#23-27">Surface::from_raw_none</a>(<a href="#387">surface_ptr</a>))
         }
     }
 }
@@ -1024,43 +1026,43 @@
 <a class="macro" href="#140-167">pattern_type!</a>(<a href="../../cairo/struct.Mesh.html">Mesh</a> = Mesh);
 
 <span class="kw">impl </span><a href="#395">Mesh</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pattern_create_mesh&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pattern_create_mesh"</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
-        <span class="kw">unsafe </span>{ <span class="self">Self</span>(Pattern::from_raw_full(ffi::cairo_pattern_create_mesh())) }
+        <span class="kw">unsafe </span>{ <span class="self">Self</span>(<a href="#37-39">Pattern::from_raw_full</a>(ffi::cairo_pattern_create_mesh())) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_begin_patch&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_begin_patch"</span>)]
     </span><span class="kw">pub fn </span>begin_patch(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{ ffi::cairo_mesh_pattern_begin_patch(<a class="self" href="#404">self</a>.pointer) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_end_patch&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_end_patch"</span>)]
     </span><span class="kw">pub fn </span>end_patch(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{ ffi::cairo_mesh_pattern_end_patch(<a class="self" href="#409">self</a>.pointer) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_move_to&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_move_to"</span>)]
     </span><span class="kw">pub fn </span>move_to(<span class="kw-2">&amp;</span><span class="self">self</span>, x: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_mesh_pattern_move_to(<a class="self" href="#414">self</a>.pointer, <a href="#414">x</a>, <a href="#414">y</a>) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_line_to&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_line_to"</span>)]
     </span><span class="kw">pub fn </span>line_to(<span class="kw-2">&amp;</span><span class="self">self</span>, x: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_mesh_pattern_line_to(<a class="self" href="#419">self</a>.pointer, <a href="#419">x</a>, <a href="#419">y</a>) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_curve_to&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_curve_to"</span>)]
     </span><span class="kw">pub fn </span>curve_to(<span class="kw-2">&amp;</span><span class="self">self</span>, x1: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y1: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, x2: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y2: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, x3: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y3: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_mesh_pattern_curve_to(<a class="self" href="#424">self</a>.pointer, <a href="#424">x1</a>, <a href="#424">y1</a>, <a href="#424">x2</a>, <a href="#424">y2</a>, <a href="#424">x3</a>, <a href="#424">y3</a>) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_set_control_point&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_set_control_point"</span>)]
     </span><span class="kw">pub fn </span>set_control_point(<span class="kw-2">&amp;</span><span class="self">self</span>, corner: <a href="enums.rs.html#1479-1490">MeshCorner</a>, x: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{ ffi::cairo_mesh_pattern_set_control_point(<a class="self" href="#429">self</a>.pointer, <a href="#429">corner</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>(), <a href="#429">x</a>, <a href="#429">y</a>) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_get_control_point&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_control_point&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_get_control_point"</span>)]
+    #[doc(alias = <span class="string">"get_control_point"</span>)]
     </span><span class="kw">pub fn </span>control_point(<span class="kw-2">&amp;</span><span class="self">self</span>, patch_num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, corner: <a href="enums.rs.html#1479-1490">MeshCorner</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span><span class="kw-2">mut </span>x: c_double = <span class="number">0.0</span>;
         <span class="kw">let </span><span class="kw-2">mut </span>y: c_double = <span class="number">0.0</span>;
@@ -1074,11 +1076,11 @@
                 <span class="kw-2">&amp;mut </span><a href="#437">y</a>,
             )
         };
-        status_to_result(status)<span class="question-mark">?</span>;
+        <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#439">status</a>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>((<a href="#436">x</a>, <a href="#437">y</a>))
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_set_corner_color_rgb&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_set_corner_color_rgb"</span>)]
     </span><span class="kw">pub fn </span>set_corner_color_rgb(<span class="kw-2">&amp;</span><span class="self">self</span>, corner: <a href="enums.rs.html#1479-1490">MeshCorner</a>, red: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, green: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, blue: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{
             ffi::cairo_mesh_pattern_set_corner_color_rgb(
@@ -1091,7 +1093,7 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_set_corner_color_rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_set_corner_color_rgba"</span>)]
     </span><span class="kw">pub fn </span>set_corner_color_rgba(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         corner: <a href="enums.rs.html#1479-1490">MeshCorner</a>,
@@ -1112,8 +1114,8 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_get_corner_color_rgba&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_corner_color_rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_get_corner_color_rgba"</span>)]
+    #[doc(alias = <span class="string">"get_corner_color_rgba"</span>)]
     </span><span class="kw">pub fn </span>corner_color_rgba(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         patch_num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
@@ -1135,42 +1137,42 @@
                 <span class="kw-2">&amp;mut </span><a href="#496">alpha</a>,
             )
         };
-        status_to_result(status)<span class="question-mark">?</span>;
+        <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#498">status</a>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>((<a href="#493">red</a>, <a href="#494">green</a>, <a href="#495">blue</a>, <a href="#496">alpha</a>))
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_get_patch_count&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_patch_count&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_get_patch_count"</span>)]
+    #[doc(alias = <span class="string">"get_patch_count"</span>)]
     </span><span class="kw">pub fn </span>patch_count(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span><span class="kw-2">mut </span>count: c_uint = <span class="number">0</span>;
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>status = ffi::cairo_mesh_pattern_get_patch_count(<a class="self" href="#515">self</a>.pointer, <span class="kw-2">&amp;mut </span><a href="#516">count</a>);
-            status_to_result(status)<span class="question-mark">?</span>;
+            <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#518">status</a>)<span class="question-mark">?</span>;
         }
         <span class="prelude-val">Ok</span>(<a href="#516">count</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_mesh_pattern_get_path&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_path&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_mesh_pattern_get_path"</span>)]
+    #[doc(alias = <span class="string">"get_path"</span>)]
     </span><span class="kw">pub fn </span>path(<span class="kw-2">&amp;</span><span class="self">self</span>, patch_num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="paths.rs.html#8">Path</a>, <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span>path: <a href="paths.rs.html#8">Path</a> = <span class="kw">unsafe </span>{
-            Path::from_raw_full(ffi::cairo_mesh_pattern_get_path(
+            <a href="paths.rs.html#17-20">Path::from_raw_full</a>(ffi::cairo_mesh_pattern_get_path(
                 <a class="self" href="#526">self</a>.pointer,
                 <a href="#526">patch_num</a> <span class="kw">as </span>c_uint,
             ))
         };
         <span class="kw">let </span>status = <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr: <span class="kw-2">*mut </span>ffi::cairo_path_t = <a href="#527">path</a>.<a href="paths.rs.html#12-14">as_ptr</a>();
+            <span class="kw">let </span>ptr: <span class="kw-2">*mut </span><a href="../../cairo_sys/struct.cairo_path_t.html">ffi::cairo_path_t</a> = <a href="#527">path</a>.<a href="paths.rs.html#12-14">as_ptr</a>();
             (<span class="kw-2">*</span><a href="#534">ptr</a>).status
         };
-        status_to_result(status)<span class="question-mark">?</span>;
+        <a href="utils.rs.html#21-26">status_to_result</a>(<a href="#533">status</a>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<a href="#527">path</a>)
     }
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#395">Mesh</a> {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <a href="#399-401"><span class="self">Self</span>::new</a>()
     }
 }
 

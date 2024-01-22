@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/uri.rs`."><title>uri.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/uri.rs`."><title>uri.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1295,7 +1297,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="../bytes.rs.html#14-90">Bytes</a>, <a href="../error.rs.html#10-25">Error</a>, <a href="flags.rs.html#817-878">UriFlags</a>, <a href="flags.rs.html#903-931">UriHideFlags</a>};
+</span><span class="kw">use crate</span>::{<a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="../bytes.rs.html#14-40">Bytes</a>, <a href="../error.rs.html#10-22">Error</a>, <a href="flags.rs.html#765-826">UriFlags</a>, <a href="flags.rs.html#851-879">UriHideFlags</a>};
 
 <a class="macro" href="../wrapper.rs.html#277-445">crate::wrapper! </a>{
     <span class="doccomment">/// The [`Uri`][crate::Uri] type and related functions can be used to parse URIs into
@@ -1303,7 +1305,7 @@
     ///
     /// Note that [`Uri`][crate::Uri] scope is to help manipulate URIs in various applications,
     /// following [RFC 3986](https://tools.ietf.org/html/rfc3986). In particular,
-    /// it doesn&#39;t intend to cover web browser needs, and doesn&#39;t implement the
+    /// it doesn't intend to cover web browser needs, and doesn't implement the
     /// [WHATWG URL](https://url.spec.whatwg.org/) standard. No APIs are provided to
     /// help prevent
     /// [homograph attacks](https://en.wikipedia.org/wiki/IDN_homograph_attack), so
@@ -1417,7 +1419,7 @@
 }
 
 <span class="kw">impl </span><a href="#7-124">Uri</a> {
-    <span class="doccomment">/// Gets `self`&#39;s authentication parameters, which may contain
+    <span class="doccomment">/// Gets `self`'s authentication parameters, which may contain
     /// `%`-encoding, depending on the flags with which `self` was created.
     /// (If `self` was not created with [`UriFlags::HAS_AUTH_PARAMS`][crate::UriFlags::HAS_AUTH_PARAMS] then this will
     /// be [`None`].)
@@ -1427,37 +1429,37 @@
     ///
     /// # Returns
     ///
-    /// `self`&#39;s authentication parameters.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_auth_params&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_auth_params&quot;</span>)]
+    /// `self`'s authentication parameters.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_auth_params"</span>)]
+    #[doc(alias = <span class="string">"get_auth_params"</span>)]
     </span><span class="kw">pub fn </span>auth_params(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_auth_params(<a class="self" href="#140">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s flags set upon construction.
+    <span class="doccomment">/// Gets `self`'s flags set upon construction.
     ///
     /// # Returns
     ///
-    /// `self`&#39;s flags.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_flags&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_flags&quot;</span>)]
-    </span><span class="kw">pub fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#817-878">UriFlags</a> {
+    /// `self`'s flags.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_flags"</span>)]
+    #[doc(alias = <span class="string">"get_flags"</span>)]
+    </span><span class="kw">pub fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#765-826">UriFlags</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_uri_get_flags(<a class="self" href="#151">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s fragment, which may contain `%`-encoding, depending on
+    <span class="doccomment">/// Gets `self`'s fragment, which may contain `%`-encoding, depending on
     /// the flags with which `self` was created.
     ///
     /// # Returns
     ///
-    /// `self`&#39;s fragment.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_fragment&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_fragment&quot;</span>)]
+    /// `self`'s fragment.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_fragment"</span>)]
+    #[doc(alias = <span class="string">"get_fragment"</span>)]
     </span><span class="kw">pub fn </span>fragment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_fragment(<a class="self" href="#163">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s host. This will never have `%`-encoded characters,
+    <span class="doccomment">/// Gets `self`'s host. This will never have `%`-encoded characters,
     /// unless it is non-UTF-8 (which can only be the case if `self` was
     /// created with [`UriFlags::NON_DNS`][crate::UriFlags::NON_DNS]).
     ///
@@ -1469,50 +1471,50 @@
     ///
     /// # Returns
     ///
-    /// `self`&#39;s host.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_host&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_host&quot;</span>)]
+    /// `self`'s host.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_host"</span>)]
+    #[doc(alias = <span class="string">"get_host"</span>)]
     </span><span class="kw">pub fn </span>host(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_host(<a class="self" href="#182">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s password, which may contain `%`-encoding, depending on
+    <span class="doccomment">/// Gets `self`'s password, which may contain `%`-encoding, depending on
     /// the flags with which `self` was created. (If `self` was not created
     /// with [`UriFlags::HAS_PASSWORD`][crate::UriFlags::HAS_PASSWORD] then this will be [`None`].)
     ///
     /// # Returns
     ///
-    /// `self`&#39;s password.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_password&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_password&quot;</span>)]
+    /// `self`'s password.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_password"</span>)]
+    #[doc(alias = <span class="string">"get_password"</span>)]
     </span><span class="kw">pub fn </span>password(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_password(<a class="self" href="#195">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s path, which may contain `%`-encoding, depending on the
+    <span class="doccomment">/// Gets `self`'s path, which may contain `%`-encoding, depending on the
     /// flags with which `self` was created.
     ///
     /// # Returns
     ///
-    /// `self`&#39;s path.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_path&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_path&quot;</span>)]
+    /// `self`'s path.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_path"</span>)]
+    #[doc(alias = <span class="string">"get_path"</span>)]
     </span><span class="kw">pub fn </span>path(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_path(<a class="self" href="#207">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s port.
+    <span class="doccomment">/// Gets `self`'s port.
     ///
     /// # Returns
     ///
-    /// `self`&#39;s port, or `-1` if no port was specified.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_port&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_port&quot;</span>)]
+    /// `self`'s port, or `-1` if no port was specified.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_port"</span>)]
+    #[doc(alias = <span class="string">"get_port"</span>)]
     </span><span class="kw">pub fn </span>port(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_uri_get_port(<a class="self" href="#218">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s query, which may contain `%`-encoding, depending on the
+    <span class="doccomment">/// Gets `self`'s query, which may contain `%`-encoding, depending on the
     /// flags with which `self` was created.
     ///
     /// For queries consisting of a series of `name=value` parameters,
@@ -1520,47 +1522,47 @@
     ///
     /// # Returns
     ///
-    /// `self`&#39;s query.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_query&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_query&quot;</span>)]
+    /// `self`'s query.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_query"</span>)]
+    #[doc(alias = <span class="string">"get_query"</span>)]
     </span><span class="kw">pub fn </span>query(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_query(<a class="self" href="#233">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s scheme. Note that this will always be all-lowercase,
+    <span class="doccomment">/// Gets `self`'s scheme. Note that this will always be all-lowercase,
     /// regardless of the string or strings that `self` was created from.
     ///
     /// # Returns
     ///
-    /// `self`&#39;s scheme.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_scheme&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_scheme&quot;</span>)]
+    /// `self`'s scheme.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_scheme"</span>)]
+    #[doc(alias = <span class="string">"get_scheme"</span>)]
     </span><span class="kw">pub fn </span>scheme(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_scheme(<a class="self" href="#245">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the ‘username’ component of `self`&#39;s userinfo, which may contain
+    <span class="doccomment">/// Gets the ‘username’ component of `self`'s userinfo, which may contain
     /// `%`-encoding, depending on the flags with which `self` was created.
     /// If `self` was not created with [`UriFlags::HAS_PASSWORD`][crate::UriFlags::HAS_PASSWORD] or
     /// [`UriFlags::HAS_AUTH_PARAMS`][crate::UriFlags::HAS_AUTH_PARAMS], this is the same as [`userinfo()`][Self::userinfo()].
     ///
     /// # Returns
     ///
-    /// `self`&#39;s user.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_user&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_user&quot;</span>)]
+    /// `self`'s user.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_user"</span>)]
+    #[doc(alias = <span class="string">"get_user"</span>)]
     </span><span class="kw">pub fn </span>user(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_user(<a class="self" href="#259">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets `self`&#39;s userinfo, which may contain `%`-encoding, depending on
+    <span class="doccomment">/// Gets `self`'s userinfo, which may contain `%`-encoding, depending on
     /// the flags with which `self` was created.
     ///
     /// # Returns
     ///
-    /// `self`&#39;s userinfo.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_get_userinfo&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_userinfo&quot;</span>)]
+    /// `self`'s userinfo.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_get_userinfo"</span>)]
+    #[doc(alias = <span class="string">"get_userinfo"</span>)]
     </span><span class="kw">pub fn </span>userinfo(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_get_userinfo(<a class="self" href="#271">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -1577,8 +1579,8 @@
     /// # Returns
     ///
     /// a new [`Uri`][crate::Uri], or NULL on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_parse_relative&quot;</span>)]
-    </span><span class="kw">pub fn </span>parse_relative(<span class="kw-2">&amp;</span><span class="self">self</span>, uri_ref: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, flags: <a href="flags.rs.html#817-878">UriFlags</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#7-124">Uri</a>, <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_parse_relative"</span>)]
+    </span><span class="kw">pub fn </span>parse_relative(<span class="kw-2">&amp;</span><span class="self">self</span>, uri_ref: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, flags: <a href="flags.rs.html#765-826">UriFlags</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#7-124">Uri</a>, <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_uri_parse_relative(
@@ -1612,8 +1614,8 @@
     ///
     /// a string representing `self`,
     ///  which the caller must free.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_to_string&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;to_string&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_to_string"</span>)]
+    #[doc(alias = <span class="string">"to_string"</span>)]
     </span><span class="kw">pub fn </span>to_str(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_uri_to_string(<a class="self" href="#324">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -1627,8 +1629,8 @@
     ///
     /// a string representing
     ///  `self`, which the caller must free.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_to_string_partial&quot;</span>)]
-    </span><span class="kw">pub fn </span>to_string_partial(<span class="kw-2">&amp;</span><span class="self">self</span>, flags: <a href="flags.rs.html#903-931">UriHideFlags</a>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_to_string_partial"</span>)]
+    </span><span class="kw">pub fn </span>to_string_partial(<span class="kw-2">&amp;</span><span class="self">self</span>, flags: <a href="flags.rs.html#851-879">UriHideFlags</a>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{
             <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_uri_to_string_partial(
                 <a class="self" href="#338">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
@@ -1640,7 +1642,7 @@
     <span class="doccomment">/// Creates a new [`Uri`][crate::Uri] from the given components according to `flags`.
     ///
     /// See also [`build_with_user()`][Self::build_with_user()], which allows specifying the
-    /// components of the &quot;userinfo&quot; separately.
+    /// components of the "userinfo" separately.
     /// ## `flags`
     /// flags describing how to build the [`Uri`][crate::Uri]
     /// ## `scheme`
@@ -1661,9 +1663,9 @@
     /// # Returns
     ///
     /// a new [`Uri`][crate::Uri]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_build&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_build"</span>)]
     </span><span class="kw">pub fn </span>build(
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
         scheme: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         userinfo: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         host: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -1718,9 +1720,9 @@
     /// # Returns
     ///
     /// a new [`Uri`][crate::Uri]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_build_with_user&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_build_with_user"</span>)]
     </span><span class="kw">pub fn </span>build_with_user(
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
         scheme: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         user: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         password: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -1768,7 +1770,7 @@
     ///
     /// an escaped version of `unescaped`.
     ///  The returned string should be freed when no longer needed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_escape_bytes&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_escape_bytes"</span>)]
     </span><span class="kw">pub fn </span>escape_bytes(unescaped: <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>], reserved_chars_allowed: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">let </span>length = <a href="#479">unescaped</a>.len() <span class="kw">as _</span>;
         <span class="kw">unsafe </span>{
@@ -1782,10 +1784,10 @@
 
     <span class="doccomment">/// Escapes a string for use in a URI.
     ///
-    /// Normally all characters that are not &quot;unreserved&quot; (i.e. ASCII
+    /// Normally all characters that are not "unreserved" (i.e. ASCII
     /// alphanumerical characters plus dash, dot, underscore and tilde) are
     /// escaped. But if you specify characters in `reserved_chars_allowed`
-    /// they are not escaped. This is useful for the &quot;reserved&quot; characters
+    /// they are not escaped. This is useful for the "reserved" characters
     /// in the URI specification, since those are allowed unescaped in some
     /// portions of a URI.
     /// ## `unescaped`
@@ -1800,7 +1802,7 @@
     ///
     /// an escaped version of `unescaped`. The
     /// returned string should be freed when no longer needed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_escape_string&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_escape_string"</span>)]
     </span><span class="kw">pub fn </span>escape_string(
         unescaped: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         reserved_chars_allowed: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -1831,8 +1833,8 @@
     /// # Returns
     ///
     /// [`true`] if `uri_string` is a valid absolute URI, [`false`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_is_valid&quot;</span>)]
-    </span><span class="kw">pub fn </span>is_valid(uri_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, flags: <a href="flags.rs.html#817-878">UriFlags</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_is_valid"</span>)]
+    </span><span class="kw">pub fn </span>is_valid(uri_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, flags: <a href="flags.rs.html#765-826">UriFlags</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>is_ok =
@@ -1880,9 +1882,9 @@
     /// # Returns
     ///
     /// an absolute URI string
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_join&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_join"</span>)]
     </span><span class="kw">pub fn </span>join(
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
         scheme: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         userinfo: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         host: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -1940,9 +1942,9 @@
     /// # Returns
     ///
     /// an absolute URI string
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_join_with_user&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_join_with_user"</span>)]
     </span><span class="kw">pub fn </span>join_with_user(
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
         scheme: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         user: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         password: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -1980,7 +1982,7 @@
     /// a newly allocated [`None`]-terminated list
     ///  of strings holding the individual URIs. The array should be freed
     ///  with `g_strfreev()`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_list_extract_uris&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_list_extract_uris"</span>)]
     </span><span class="kw">pub fn </span>list_extract_uris(uri_list: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Vec&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../translate.rs.html#1934">FromGlibPtrContainer::from_glib_full</a>(ffi::g_uri_list_extract_uris(
@@ -2000,8 +2002,8 @@
     /// # Returns
     ///
     /// a new [`Uri`][crate::Uri], or NULL on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_parse&quot;</span>)]
-    </span><span class="kw">pub fn </span>parse(uri_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, flags: <a href="flags.rs.html#817-878">UriFlags</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#7-124">Uri</a>, <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_parse"</span>)]
+    </span><span class="kw">pub fn </span>parse(uri_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, flags: <a href="flags.rs.html#765-826">UriFlags</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#7-124">Uri</a>, <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_uri_parse(<a href="#711">uri_string</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#711">flags</a>.<a href="../translate.rs.html#330">into_glib</a>(), <span class="kw-2">&amp;mut </span><a href="#713">error</a>);
@@ -2013,7 +2015,7 @@
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_uri_parse_params&quot;)]
+    <span class="comment">//#[doc(alias = "g_uri_parse_params")]
     //pub fn parse_params(params: &amp;str, separators: &amp;str, flags: UriParamsFlags) -&gt; Result&lt;/*Unknown conversion*//*Unimplemented*/HashTable TypeId { ns_id: 0, id: 28 }/TypeId { ns_id: 0, id: 28 }, crate::Error&gt; {
     //    unsafe { TODO: call ffi:g_uri_parse_params() }
     //}
@@ -2023,7 +2025,7 @@
     /// as:
     ///
     /// ```text
-    /// URI = scheme &quot;:&quot; hier-part [ &quot;?&quot; query ] [ &quot;#&quot; fragment ]
+    /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
     /// ```
     /// Common schemes include `file`, `https`, `svn+ssh`, etc.
     /// ## `uri`
@@ -2033,7 +2035,7 @@
     ///
     /// The ‘scheme’ component of the URI, or
     ///  [`None`] on error. The returned string should be freed when no longer needed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_parse_scheme&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_parse_scheme"</span>)]
     </span><span class="kw">pub fn </span>parse_scheme(uri: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_uri_parse_scheme(<a href="#744">uri</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -2043,7 +2045,7 @@
     /// as:
     ///
     /// ```text
-    /// URI = scheme &quot;:&quot; hier-part [ &quot;?&quot; query ] [ &quot;#&quot; fragment ]
+    /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
     /// ```
     /// Common schemes include `file`, `https`, `svn+ssh`, etc.
     ///
@@ -2057,7 +2059,7 @@
     /// The ‘scheme’ component of the URI, or
     ///  [`None`] on error. The returned string is normalized to all-lowercase, and
     ///  interned via `g_intern_string()`, so it does not need to be freed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_peek_scheme&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_peek_scheme"</span>)]
     </span><span class="kw">pub fn </span>peek_scheme(uri: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_uri_peek_scheme(<a href="#768">uri</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -2080,12 +2082,12 @@
     ///
     /// the resolved URI string,
     /// or NULL on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_resolve_relative&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_resolve_relative"</span>)]
     </span><span class="kw">pub fn </span>resolve_relative(
         base_uri_string: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         uri_ref: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_uri_resolve_relative(
@@ -2104,7 +2106,7 @@
 
     <span class="doccomment">/// Parses `uri_ref` (which can be an
     /// [absolute or relative URI][relative-absolute-uris]) according to `flags`, and
-    /// returns the pieces. Any component that doesn&#39;t appear in `uri_ref` will be
+    /// returns the pieces. Any component that doesn't appear in `uri_ref` will be
     /// returned as [`None`] (but note that all URIs always have a path component,
     /// though it may be the empty string).
     ///
@@ -2155,10 +2157,10 @@
     /// ## `fragment`
     /// on return, contains
     ///  the fragment, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_split&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_split"</span>)]
     </span><span class="kw">pub fn </span>split(
         uri_ref: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;
         (
             <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;,
@@ -2169,7 +2171,7 @@
             <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;,
             <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;,
         ),
-        <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>,
+        <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>,
     &gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>scheme = std::ptr::null_mut();
@@ -2236,11 +2238,11 @@
     /// ## `port`
     /// on return, contains the
     ///  port, or `-1`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_split_network&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_split_network"</span>)]
     </span><span class="kw">pub fn </span>split_network(
         uri_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;, <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>), <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(<span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;, <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>), <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>scheme = std::ptr::null_mut();
             <span class="kw">let </span><span class="kw-2">mut </span>host = std::ptr::null_mut();
@@ -2269,7 +2271,7 @@
 
     <span class="doccomment">/// Parses `uri_ref` (which can be an
     /// [absolute or relative URI][relative-absolute-uris]) according to `flags`, and
-    /// returns the pieces. Any component that doesn&#39;t appear in `uri_ref` will be
+    /// returns the pieces. Any component that doesn't appear in `uri_ref` will be
     /// returned as [`None`] (but note that all URIs always have a path component,
     /// though it may be the empty string).
     ///
@@ -2323,10 +2325,10 @@
     /// ## `fragment`
     /// on return, contains
     ///  the fragment, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_split_with_user&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_split_with_user"</span>)]
     </span><span class="kw">pub fn </span>split_with_user(
         uri_ref: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        flags: <a href="flags.rs.html#817-878">UriFlags</a>,
+        flags: <a href="flags.rs.html#765-826">UriFlags</a>,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;
         (
             <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;,
@@ -2339,7 +2341,7 @@
             <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;,
             <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt;,
         ),
-        <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>,
+        <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>,
     &gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>scheme = std::ptr::null_mut();
@@ -2409,11 +2411,11 @@
     /// an unescaped version of `escaped_string`
     ///  or [`None`] on error (if decoding failed, using [`UriError::Failed`][crate::UriError::Failed] error
     ///  code). The returned [`Bytes`][crate::Bytes] should be unreffed when no longer needed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_unescape_bytes&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_unescape_bytes"</span>)]
     </span><span class="kw">pub fn </span>unescape_bytes(
         escaped_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         illegal_characters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="../bytes.rs.html#14-90">Bytes</a>, <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="../bytes.rs.html#14-40">Bytes</a>, <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">let </span>length = <a href="#1121">escaped_string</a>.len() <span class="kw">as _</span>;
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -2456,7 +2458,7 @@
     /// or [`None`] on error. The returned string should be freed when no longer
     /// needed. As a special case if [`None`] is given for `escaped_string`, this
     /// function will return [`None`].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_unescape_segment&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_unescape_segment"</span>)]
     </span><span class="kw">pub fn </span>unescape_segment(
         escaped_string: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
         escaped_string_end: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -2488,7 +2490,7 @@
     ///
     /// an unescaped version of `escaped_string`.
     /// The returned string should be freed when no longer needed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_uri_unescape_string&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_uri_unescape_string"</span>)]
     </span><span class="kw">pub fn </span>unescape_string(
         escaped_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         illegal_characters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,

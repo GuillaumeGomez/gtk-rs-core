@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -310,30 +312,31 @@
 <a href="#237" id="237">237</a>
 <a href="#238" id="238">238</a>
 <a href="#239" id="239">239</a>
+<a href="#240" id="240">240</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#![cfg_attr(docsrs, feature(doc_cfg))]
 #![allow(clippy::missing_safety_doc)]
-#![doc = <span class="macro">include_str!</span>(<span class="string">&quot;../README.md&quot;</span>)]
+#![allow(renamed_and_removed_lints)]
+#![doc = <span class="macro">include_str!</span>(<span class="string">"../README.md"</span>)]
 
 </span><span class="kw">pub use </span>bitflags;
 <span class="kw">pub use </span>ffi;
 <span class="attr">#[doc(hidden)]
 </span><span class="kw">pub use </span><a href="../../glib_macros/macro.cstr_bytes.html">glib_macros::cstr_bytes</a>;
 <span class="kw">pub use </span>glib_macros::{
-    <a href="../../glib/macro.clone.html">clone</a>, <a href="../../glib/macro.closure.html">closure</a>, <a href="../../glib/macro.closure_local.html">closure_local</a>, <a href="../../glib/attr.derived_properties.html">derived_properties</a>, <a href="../../glib/attr.dynamic_object_interface.html">dynamic_object_interface</a>,
-    <a href="../../glib/attr.dynamic_object_subclass.html">dynamic_object_subclass</a>, <a href="../../glib/attr.flags.html">flags</a>, <a href="../../glib/attr.object_interface.html">object_interface</a>, <a href="../../glib/attr.object_subclass.html">object_subclass</a>, <a href="../../glib/derive.Boxed.html">Boxed</a>, <a href="../../glib/derive.Downgrade.html">Downgrade</a>, <a href="../../glib/derive.Enum.html">Enum</a>,
-    <a href="../../glib/derive.ErrorDomain.html">ErrorDomain</a>, <a href="../../glib/derive.Properties.html">Properties</a>, <a href="../../glib/derive.SharedBoxed.html">SharedBoxed</a>, <a href="../../glib/derive.ValueDelegate.html">ValueDelegate</a>, <a href="../../glib/derive.Variant.html">Variant</a>,
+    <a href="../../glib/macro.clone.html">clone</a>, <a href="../../glib/macro.closure.html">closure</a>, <a href="../../glib/macro.closure_local.html">closure_local</a>, <a href="../../glib/attr.derived_properties.html">derived_properties</a>, <a href="../../glib/attr.flags.html">flags</a>, <a href="../../glib/attr.object_interface.html">object_interface</a>, <a href="../../glib/attr.object_subclass.html">object_subclass</a>,
+    <a href="../../glib/derive.Boxed.html">Boxed</a>, <a href="../../glib/derive.Downgrade.html">Downgrade</a>, <a href="../../glib/derive.Enum.html">Enum</a>, <a href="../../glib/derive.ErrorDomain.html">ErrorDomain</a>, <a href="../../glib/derive.Properties.html">Properties</a>, <a href="../../glib/derive.SharedBoxed.html">SharedBoxed</a>, <a href="../../glib/derive.ValueDelegate.html">ValueDelegate</a>, <a href="../../glib/derive.Variant.html">Variant</a>,
 };
 <span class="kw">pub use </span>gobject_ffi;
 <span class="kw">pub use </span>once_cell;
 
 <span class="kw">pub use </span><span class="self">self</span>::{
-    <a href="byte_array.rs.html#25-37">byte_array::ByteArray</a>,
-    <a href="bytes.rs.html#14-90">bytes::Bytes</a>,
+    <a href="byte_array.rs.html#25-34">byte_array::ByteArray</a>,
+    <a href="bytes.rs.html#14-40">bytes::Bytes</a>,
     closure::{<a href="closure.rs.html#11-24">Closure</a>, <a href="closure.rs.html#27">RustClosure</a>},
-    enums::{<a href="enums.rs.html#62">EnumClass</a>, <a href="enums.rs.html#221">EnumValue</a>, <a href="enums.rs.html#835">FlagsBuilder</a>, <a href="enums.rs.html#343">FlagsClass</a>, <a href="enums.rs.html#744">FlagsValue</a>, <a href="enums.rs.html#19-36">UserDirectory</a>},
-    error::{<a href="error.rs.html#243-251">BoolError</a>, <a href="error.rs.html#10-25">Error</a>},
+    enums::{<a href="enums.rs.html#62">EnumClass</a>, <a href="enums.rs.html#255">EnumValue</a>, <a href="enums.rs.html#975">FlagsBuilder</a>, <a href="enums.rs.html#413">FlagsClass</a>, <a href="enums.rs.html#848">FlagsValue</a>, <a href="enums.rs.html#19-36">UserDirectory</a>},
+    error::{<a href="error.rs.html#208-216">BoolError</a>, <a href="error.rs.html#10-22">Error</a>},
     object::{
         <a href="object.rs.html#4359-4362">BorrowedObject</a>, <a href="object.rs.html#74-280">Cast</a>, <a href="object.rs.html#302-318">CastNone</a>, <a href="object.rs.html#3854">Class</a>, <a href="object.rs.html#3295-3302">InitiallyUnowned</a>, <a href="object.rs.html#4066">Interface</a>, <a href="object.rs.html#65-68">IsA</a>, <a href="object.rs.html#1351-1354">Object</a>,
         <a href="object.rs.html#3236-3291">ObjectClassExt</a>, <a href="object.rs.html#1571-2175">ObjectExt</a>, <a href="object.rs.html#21-51">ObjectType</a>, <a href="object.rs.html#3499">SendWeakRef</a>, <a href="object.rs.html#3381">WeakRef</a>,
@@ -343,7 +346,7 @@
         <a href="signal.rs.html#124-131">signal_stop_emission_by_name</a>, <a href="signal.rs.html#153-158">Propagation</a>, <a href="signal.rs.html#50">SignalHandlerId</a>,
     },
     types::{<a href="types.rs.html#414">ILong</a>, <a href="types.rs.html#387">Pointer</a>, <a href="types.rs.html#290-294">StaticType</a>, <a href="types.rs.html#304-309">StaticTypeExt</a>, <a href="types.rs.html#22">Type</a>, <a href="types.rs.html#475">ULong</a>},
-    value::{<a href="value.rs.html#1667">BoxedValue</a>, <a href="value.rs.html#1031-1047">SendValue</a>, <a href="value.rs.html#1091-1095">ToSendValue</a>, <a href="value.rs.html#369-379">ToValue</a>, <a href="value.rs.html#476-521">Value</a>},
+    value::{<a href="value.rs.html#1434">BoxedValue</a>, <a href="value.rs.html#798-814">SendValue</a>, <a href="value.rs.html#858-862">ToSendValue</a>, <a href="value.rs.html#369-379">ToValue</a>, <a href="value.rs.html#476-510">Value</a>},
     variant::{
         <a href="variant.rs.html#2477-2480">FixedSizeVariantArray</a>, <a href="variant.rs.html#2458">FixedSizeVariantType</a>, <a href="variant.rs.html#1587-1593">FromVariant</a>, <a href="variant.rs.html#1597-1601">StaticVariantType</a>, <a href="variant.rs.html#1579-1583">ToVariant</a>,
         <a href="variant.rs.html#117-376">Variant</a>,
@@ -351,10 +354,10 @@
     <a href="variant_dict.rs.html#7-27">variant_dict::VariantDict</a>,
     variant_iter::{<a href="variant_iter.rs.html#14-18">VariantIter</a>, <a href="variant_iter.rs.html#102-106">VariantStrIter</a>},
     variant_type::{<a href="variant_type.rs.html#490-492">VariantTy</a>, <a href="variant_type.rs.html#1156-1158">VariantTyIterator</a>, <a href="variant_type.rs.html#173-180">VariantType</a>},
-    <a href="auto/enums.rs.html#346-466">FileError</a>,
+    <a href="auto/enums.rs.html#285-338">FileError</a>,
 };
 
-<span class="comment">// Hack for the time being to retrieve the current function&#39;s name as a string.
+<span class="comment">// Hack for the time being to retrieve the current function's name as a string.
 // Based on the stdext cratelicensed under the MIT license.
 //
 // Copyright (c) 2020 Igor Aleksanov
@@ -375,7 +378,7 @@
 /// ```rust
 /// mod bar {
 ///     pub fn sample_function() {
-///         assert!(glib::function_name!().ends_with(&quot;bar::sample_function&quot;));
+///         assert!(glib::function_name!().ends_with("bar::sample_function"));
 ///     }
 /// }
 ///
@@ -388,7 +391,7 @@
     () =&gt; {{
         <span class="comment">// Okay, this is ugly, I get it. However, this is the best we can get on a stable rust.
         </span><span class="kw">fn </span>f() {}
-        <span class="kw">fn </span>type_name_of&lt;T&gt;(<span class="kw">_</span>: T) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">fn </span>type_name_of&lt;T&gt;(<span class="kw">_</span>: T) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             std::any::type_name::&lt;T&gt;()
         }
         <span class="kw">let </span>name = type_name_of(f);
@@ -403,15 +406,15 @@
 <span class="attr">#[macro_use]
 </span><span class="kw">pub mod </span><a href="boxed.rs.html#4-610">boxed</a>;
 <span class="attr">#[macro_use]
-</span><span class="kw">pub mod </span><a href="boxed_inline.rs.html#4-642">boxed_inline</a>;
+</span><span class="kw">pub mod </span><a href="boxed_inline.rs.html#4-643">boxed_inline</a>;
 <span class="attr">#[macro_use]
 </span><span class="kw">pub mod </span><a href="shared.rs.html#4-592">shared</a>;
 <span class="attr">#[macro_use]
-</span><span class="kw">pub mod </span><a href="error.rs.html#4-366">error</a>;
+</span><span class="kw">pub mod </span><a href="error.rs.html#4-331">error</a>;
 <span class="attr">#[macro_use]
 </span><span class="kw">pub mod </span><a href="object.rs.html#4-4545">object</a>;
 
-<span class="kw">mod </span><a href="boxed_any_object.rs.html#3-191">boxed_any_object</a>;
+<span class="kw">mod </span><a href="boxed_any_object.rs.html#3-194">boxed_any_object</a>;
 <span class="kw">pub use </span><a href="boxed_any_object.rs.html#52-87">boxed_any_object::BoxedAnyObject</a>;
 <span class="kw">mod </span><a href="exit_code.rs.html#3-33">exit_code</a>;
 <span class="kw">pub use </span><a href="exit_code.rs.html#6">exit_code::ExitCode</a>;
@@ -426,35 +429,35 @@
 #[allow(clippy::type_complexity)]
 #[allow(unused_imports)]
 #[allow(non_upper_case_globals)]
-</span><span class="kw">mod </span><a href="auto/mod.rs.html#5-131">auto</a>;
+</span><span class="kw">mod </span><a href="auto/mod.rs.html#5-128">auto</a>;
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
-</span><span class="kw">pub use </span><a href="gobject/auto/signal_group.rs.html#7-129"><span class="self">self</span>::gobject::SignalGroup</a>;
+<span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
+</span><span class="kw">pub use </span><a href="gobject/auto/signal_group.rs.html#7-14"><span class="self">self</span>::gobject::SignalGroup</a>;
 <span class="kw">pub use </span><span class="self">self</span>::gobject::{
-    <a href="gobject/auto/binding.rs.html#7-285">Binding</a>, <a href="gobject/auto/flags.rs.html#7-59">BindingFlags</a>, <a href="gobject/interface_info.rs.html#11">InterfaceInfo</a>, <a href="gobject/flags.rs.html#5-82">ParamFlags</a>, <a href="gobject/auto/flags.rs.html#135-219">SignalFlags</a>, <a href="gobject/auto/flags.rs.html#239-284">TypeFlags</a>, <a href="gobject/type_info.rs.html#25">TypeInfo</a>, <a href="gobject/type_module.rs.html#5-85">TypeModule</a>,
-    <a href="gobject/type_plugin.rs.html#5-125">TypePlugin</a>, <a href="gobject/type_value_table.rs.html#11">TypeValueTable</a>,
+    <a href="gobject/auto/binding.rs.html#7-149">Binding</a>, <a href="gobject/auto/flags.rs.html#7-20">BindingFlags</a>, <a href="gobject/interface_info.rs.html#6">InterfaceInfo</a>, <a href="gobject/flags.rs.html#5-35">ParamFlags</a>, <a href="gobject/auto/flags.rs.html#96-121">SignalFlags</a>, <a href="gobject/auto/flags.rs.html#141-156">TypeFlags</a>, <a href="gobject/type_info.rs.html#6">TypeInfo</a>, <a href="gobject/type_module.rs.html#10-17">TypeModule</a>,
+    <a href="gobject/type_plugin.rs.html#5-68">TypePlugin</a>, <a href="gobject/type_value_table.rs.html#8">TypeValueTable</a>,
 };
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_72&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_72&quot;</span>)))]
-</span><span class="kw">pub use </span><span class="self">self</span>::gobject::{<a href="gobject/auto/binding_group.rs.html#13-59">BindingGroup</a>, <a href="gobject/binding_group.rs.html#56-64">BindingGroupBuilder</a>};
+<span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
+</span><span class="kw">pub use </span><span class="self">self</span>::gobject::{<a href="gobject/auto/binding_group.rs.html#13-20">BindingGroup</a>, <a href="gobject/binding_group.rs.html#27-35">BindingGroupBuilder</a>};
 
 <span class="kw">mod </span><a href="gobject/mod.rs.html#4-46">gobject</a>;
 
-<span class="kw">mod </span><a href="byte_array.rs.html#4-163">byte_array</a>;
-<span class="kw">mod </span><a href="bytes.rs.html#3-349">bytes</a>;
+<span class="kw">mod </span><a href="byte_array.rs.html#4-160">byte_array</a>;
+<span class="kw">mod </span><a href="bytes.rs.html#3-277">bytes</a>;
 <span class="kw">mod </span><a href="control_flow.rs.html#3-103">control_flow</a>;
 <span class="kw">pub use </span><a href="control_flow.rs.html#14-17"><span class="self">self</span>::control_flow::ControlFlow</a>;
 <span class="kw">pub mod </span><a href="char.rs.html#3-220">char</a>;
 <span class="kw">pub use </span><a href="#136"><span class="self">self</span>::char</a>::<span class="kw-2">*</span>;
-<span class="kw">mod </span><a href="checksum.rs.html#3-93">checksum</a>;
+<span class="kw">mod </span><a href="checksum.rs.html#3-74">checksum</a>;
 <span class="kw">pub mod </span><a href="closure.rs.html#5-447">closure</a>;
-<span class="kw">mod </span><a href="convert.rs.html#3-465">convert</a>;
+<span class="kw">mod </span><a href="convert.rs.html#3-726">convert</a>;
 <span class="kw">pub use </span><a href="#140"><span class="self">self</span>::convert</a>::<span class="kw-2">*</span>;
-<span class="kw">mod </span><a href="enums.rs.html#3-973">enums</a>;
-<span class="kw">mod </span><a href="functions.rs.html#3-338">functions</a>;
+<span class="kw">pub mod </span><a href="enums.rs.html#3-1201">enums</a>;
+<span class="kw">mod </span><a href="functions.rs.html#3-319">functions</a>;
 <span class="kw">pub use </span><a href="#143"><span class="self">self</span>::functions</a>::<span class="kw-2">*</span>;
-<span class="kw">mod </span><a href="key_file.rs.html#3-508">key_file</a>;
+<span class="kw">mod </span><a href="key_file.rs.html#3-295">key_file</a>;
 <span class="kw">pub mod </span><a href="prelude.rs.html#4-11">prelude</a>;
 <span class="kw">pub mod </span><a href="signal.rs.html#4-226">signal</a>;
 <span class="kw">pub mod </span><a href="source.rs.html#3-1197">source</a>;
@@ -468,7 +471,7 @@
 <span class="kw">pub mod </span><a href="types.rs.html#4-720">types</a>;
 <span class="kw">mod </span><a href="unicollate.rs.html#3-88">unicollate</a>;
 <span class="kw">pub use </span><span class="self">self</span>::unicollate::{<a href="unicollate.rs.html#8">CollationKey</a>, <a href="unicollate.rs.html#27">FilenameCollationKey</a>};
-<span class="kw">mod </span><a href="utils.rs.html#3-278">utils</a>;
+<span class="kw">mod </span><a href="utils.rs.html#3-386">utils</a>;
 <span class="kw">pub use </span><a href="#159"><span class="self">self</span>::utils</a>::<span class="kw-2">*</span>;
 <span class="kw">mod </span><a href="unichar.rs.html#3-243">unichar</a>;
 <span class="kw">pub use </span><a href="#161"><span class="self">self</span>::unichar</a>::<span class="kw-2">*</span>;
@@ -479,7 +482,7 @@
 <span class="kw">mod </span><a href="time_span.rs.html#3-99">time_span</a>;
 <span class="kw">mod </span><a href="time_zone.rs.html#3-39">time_zone</a>;
 <span class="kw">pub use </span><a href="#167"><span class="self">self</span>::time_span</a>::<span class="kw-2">*</span>;
-<span class="kw">pub mod </span><a href="value.rs.html#4-1937">value</a>;
+<span class="kw">pub mod </span><a href="value.rs.html#4-1704">value</a>;
 <span class="kw">pub mod </span><a href="variant.rs.html#4-3129">variant</a>;
 <span class="kw">mod </span><a href="variant_dict.rs.html#3-293">variant_dict</a>;
 <span class="kw">mod </span><a href="variant_iter.rs.html#7-371">variant_iter</a>;
@@ -487,19 +490,20 @@
 <span class="kw">pub use </span><a href="date.rs.html#7-16"><span class="self">self</span>::date::Date</a>;
 <span class="kw">mod </span><a href="value_array.rs.html#3-251">value_array</a>;
 <span class="kw">pub use </span><a href="value_array.rs.html#14-23"><span class="self">self</span>::value_array::ValueArray</a>;
-<span class="kw">mod </span><a href="param_spec.rs.html#3-2463">param_spec</a>;
+<span class="kw">mod </span><a href="param_spec.rs.html#3-2164">param_spec</a>;
 <span class="kw">pub use </span><a href="#178"><span class="self">self</span>::param_spec</a>::<span class="kw-2">*</span>;
 <span class="kw">mod </span><a href="property.rs.html#3-303">property</a>;
 <span class="kw">pub use </span><a href="#180"><span class="self">self</span>::property</a>::<span class="kw-2">*</span>;
 <span class="kw">mod </span><a href="quark.rs.html#3-103">quark</a>;
 <span class="kw">pub use </span><a href="quark.rs.html#10"><span class="self">self</span>::quark::Quark</a>;
-<span class="kw">pub mod </span><a href="match_info.rs.html#3-114">match_info</a>;
-<span class="kw">pub mod </span><a href="regex.rs.html#4-707">regex</a>;
+<span class="kw">pub mod </span><a href="match_info.rs.html#3-395">match_info</a>;
+<span class="kw">pub use </span><a href="match_info.rs.html#10-13"><span class="self">self</span>::match_info::MatchInfo</a>;
+<span class="kw">pub mod </span><a href="regex.rs.html#4-703">regex</a>;
 <span class="attr">#[macro_use]
 </span><span class="kw">mod </span><a href="log.rs.html#3-1069">log</a>;
 <span class="attr">#[doc(hidden)]
-#[cfg(feature = <span class="string">&quot;log_macros&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log_macros&quot;</span>)))]
+#[cfg(feature = <span class="string">"log_macros"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log_macros"</span>)))]
 </span><span class="kw">pub use </span><a href="https://docs.rs/log/0.4.20/log/index.html">rs_log</a>;
 
 <span class="kw">pub use </span><span class="self">self</span>::log::{
@@ -509,29 +513,29 @@
     <a href="log.rs.html#1000-1009">log_writer_journald</a>, <a href="log.rs.html#1013-1025">log_writer_standard_streams</a>, <a href="log.rs.html#226-242">set_print_handler</a>, <a href="log.rs.html#258-274">set_printerr_handler</a>,
     <a href="log.rs.html#246-251">unset_print_handler</a>, <a href="log.rs.html#278-283">unset_printerr_handler</a>, <a href="log.rs.html#356">LogField</a>, <a href="log.rs.html#15">LogHandlerId</a>, <a href="log.rs.html#36-49">LogLevel</a>, <a href="log.rs.html#104-121">LogLevels</a>,
 };
-<span class="attr">#[cfg(feature = <span class="string">&quot;v2_68&quot;</span>)]
+<span class="attr">#[cfg(feature = <span class="string">"v2_68"</span>)]
 </span><span class="kw">pub use </span><span class="self">self</span>::log::{<a href="log.rs.html#1054-1056">log_writer_default_set_use_stderr</a>, <a href="log.rs.html#1062-1069">log_writer_default_would_drop</a>};
 <span class="attr">#[cfg(unix)]
 </span><span class="kw">pub use </span><span class="self">self</span>::log::{<a href="log.rs.html#977-979">log_writer_is_journald</a>, <a href="log.rs.html#969-971">log_writer_supports_color</a>};
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;log&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"log"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log"</span>)))]
 #[macro_use]
 </span><span class="kw">mod </span><a href="bridged_logging.rs.html#3-385">bridged_logging</a>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;log&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log&quot;</span>)))]
+<span class="attr">#[cfg(feature = <span class="string">"log"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log"</span>)))]
 </span><span class="kw">pub use </span><span class="self">self</span>::bridged_logging::{<a href="bridged_logging.rs.html#246-255">rust_log_handler</a>, <a href="bridged_logging.rs.html#76-79">GlibLogger</a>, <a href="bridged_logging.rs.html#31-43">GlibLoggerDomain</a>, <a href="bridged_logging.rs.html#12-22">GlibLoggerFormat</a>};
 
 <span class="attr">#[macro_use]
-</span><span class="kw">pub mod </span><a href="subclass/mod.rs.html#3-470">subclass</a>;
+</span><span class="kw">pub mod </span><a href="subclass/mod.rs.html#3-468">subclass</a>;
 
 <span class="kw">mod </span><a href="main_context_futures.rs.html#3-810">main_context_futures</a>;
 <span class="kw">pub use </span>main_context_futures::{<a href="main_context_futures.rs.html#440">JoinError</a>, <a href="main_context_futures.rs.html#276-281">JoinHandle</a>, <a href="main_context_futures.rs.html#361-364">SpawnWithinJoinHandle</a>};
 <span class="kw">mod </span><a href="source_futures.rs.html#3-482">source_futures</a>;
-<span class="kw">pub use </span><a href="#218"><span class="self">self</span>::source_futures</a>::<span class="kw-2">*</span>;
+<span class="kw">pub use </span><a href="#219"><span class="self">self</span>::source_futures</a>::<span class="kw-2">*</span>;
 
 <span class="kw">mod </span><a href="future_with_timeout.rs.html#3-103">future_with_timeout</a>;
-<span class="kw">pub use </span><a href="#221"><span class="self">self</span>::future_with_timeout</a>::<span class="kw-2">*</span>;
+<span class="kw">pub use </span><a href="#222"><span class="self">self</span>::future_with_timeout</a>::<span class="kw-2">*</span>;
 
 <span class="kw">mod </span><a href="thread_pool.rs.html#3-361">thread_pool</a>;
 <span class="kw">pub use </span><span class="self">self</span>::thread_pool::{<a href="thread_pool.rs.html#26-28">ThreadHandle</a>, <a href="thread_pool.rs.html#14">ThreadPool</a>};
@@ -542,11 +546,11 @@
 </span><span class="doccomment">/// This is the log domain used by the [`clone!`][crate::clone!] macro. If you want to use a custom
 /// logger (it prints to stdout by default), you can set your own logger using the corresponding
 /// `log` functions.
-</span><span class="kw">pub const </span><a href="../../glib/constant.CLONE_MACRO_LOG_DOMAIN.html">CLONE_MACRO_LOG_DOMAIN</a>: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">&quot;glib-rs-clone&quot;</span>;
+</span><span class="kw">pub const </span><a href="../../glib/constant.CLONE_MACRO_LOG_DOMAIN.html">CLONE_MACRO_LOG_DOMAIN</a>: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"glib-rs-clone"</span>;
 
-<span class="attr">#[cfg(target_family = <span class="string">&quot;windows&quot;</span>)]
+<span class="attr">#[cfg(target_family = <span class="string">"windows"</span>)]
 </span><span class="kw">mod </span>win32;
 
-<span class="attr">#[cfg(target_family = <span class="string">&quot;windows&quot;</span>)]
+<span class="attr">#[cfg(target_family = <span class="string">"windows"</span>)]
 </span><span class="kw">pub use </span><span class="self">self</span>::win32::<span class="kw-2">*</span>;
 </code></pre></div></section></main></body></html>

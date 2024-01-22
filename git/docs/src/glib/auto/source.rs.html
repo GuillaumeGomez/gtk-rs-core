@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/source.rs`."><title>source.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/source.rs`."><title>source.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -388,12 +390,12 @@
 }
 
 <span class="kw">impl </span><a href="#7-18">Source</a> {
-    <span class="comment">//#[doc(alias = &quot;g_source_new&quot;)]
+    <span class="comment">//#[doc(alias = "g_source_new")]
     //pub fn new(source_funcs: /*Ignored*/&amp;mut SourceFuncs, struct_size: u32) -&gt; Source {
     //    unsafe { TODO: call ffi:g_source_new() }
     //}
 
-    </span><span class="doccomment">/// Adds `child_source` to `self` as a &quot;polled&quot; source; when `self` is
+    </span><span class="doccomment">/// Adds `child_source` to `self` as a "polled" source; when `self` is
     /// added to a [`MainContext`][crate::MainContext], `child_source` will be automatically added
     /// with the same priority, when `child_source` is triggered, it will
     /// cause `self` to dispatch (in addition to calling its own
@@ -401,7 +403,7 @@
     /// `child_source` as well. (`self` will also still be dispatched if
     /// its own prepare/check functions indicate that it is ready.)
     ///
-    /// If you don&#39;t need `child_source` to do anything on its own when it
+    /// If you don't need `child_source` to do anything on its own when it
     /// triggers, you can call `g_source_set_dummy_callback()` on it to set a
     /// callback that does nothing (except return [`true`] if appropriate).
     ///
@@ -411,25 +413,25 @@
     /// This API is only intended to be used by implementations of [`Source`][crate::Source].
     /// Do not call this API on a [`Source`][crate::Source] that you did not create.
     /// ## `child_source`
-    /// a second [`Source`][crate::Source] that `self` should &quot;poll&quot;
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_add_child_source&quot;</span>)]
+    /// a second [`Source`][crate::Source] that `self` should "poll"
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_add_child_source"</span>)]
     </span><span class="kw">pub fn </span>add_child_source(<span class="kw-2">&amp;</span><span class="self">self</span>, child_source: <span class="kw-2">&amp;</span><a href="#7-18">Source</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_source_add_child_source(<a class="self" href="#46">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#46">child_source</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_source_add_poll&quot;)]
+    <span class="comment">//#[doc(alias = "g_source_add_poll")]
     //pub fn add_poll(&amp;self, fd: /*Ignored*/&amp;mut PollFD) {
     //    unsafe { TODO: call ffi:g_source_add_poll() }
     //}
 
-    //#[doc(alias = &quot;g_source_add_unix_fd&quot;)]
+    //#[doc(alias = "g_source_add_unix_fd")]
     //pub fn add_unix_fd(&amp;self, fd: i32, events: IOCondition) -&gt; /*Unimplemented*/Basic: Pointer {
     //    unsafe { TODO: call ffi:g_source_add_unix_fd() }
     //}
 
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_destroy&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_destroy"</span>)]
     </span><span class="kw">pub fn </span>destroy(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::g_source_destroy(<a class="self" href="#63">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
@@ -442,8 +444,8 @@
     /// # Returns
     ///
     /// whether recursion is allowed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_get_can_recurse&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_can_recurse&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_get_can_recurse"</span>)]
+    #[doc(alias = <span class="string">"get_can_recurse"</span>)]
     </span><span class="kw">pub fn </span>can_recurse(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_source_get_can_recurse(<a class="self" href="#77">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -462,8 +464,8 @@
     /// the [`MainContext`][crate::MainContext] with which the
     ///  source is associated, or [`None`] if the context has not
     ///  yet been added to a source.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_get_context&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_context&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_get_context"</span>)]
+    #[doc(alias = <span class="string">"get_context"</span>)]
     </span><span class="kw">pub fn </span>context(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="main_context.rs.html#10-21">MainContext</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_source_get_context(<a class="self" href="#97">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -474,8 +476,8 @@
     /// # Returns
     ///
     /// the name of the source
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_get_name&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_get_name"</span>)]
+    #[doc(alias = <span class="string">"get_name"</span>)]
     </span><span class="kw">pub fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_source_get_name(<a class="self" href="#109">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -485,13 +487,13 @@
     /// # Returns
     ///
     /// the priority of the source
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_get_priority&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_priority&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_get_priority"</span>)]
+    #[doc(alias = <span class="string">"get_priority"</span>)]
     </span><span class="kw">pub fn </span>priority(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_source_get_priority(<a class="self" href="#120">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets the &quot;ready time&quot; of `self`, as set by
+    <span class="doccomment">/// Gets the "ready time" of `self`, as set by
     /// `g_source_set_ready_time()`.
     ///
     /// Any time before the current monotonic time (including 0) is an
@@ -499,9 +501,9 @@
     ///
     /// # Returns
     ///
-    /// the monotonic ready time, -1 for &quot;never&quot;
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_get_ready_time&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_ready_time&quot;</span>)]
+    /// the monotonic ready time, -1 for "never"
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_get_ready_time"</span>)]
+    #[doc(alias = <span class="string">"get_ready_time"</span>)]
     </span><span class="kw">pub fn </span>ready_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
         <span class="kw">unsafe </span>{ ffi::g_source_get_ready_time(<a class="self" href="#135">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -517,8 +519,8 @@
     /// # Returns
     ///
     /// the monotonic time in microseconds
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_get_time&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_time&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_get_time"</span>)]
+    #[doc(alias = <span class="string">"get_time"</span>)]
     </span><span class="kw">pub fn </span>time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
         <span class="kw">unsafe </span>{ ffi::g_source_get_time(<a class="self" href="#152">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -613,17 +615,17 @@
     /// # Returns
     ///
     /// [`true`] if the source has been destroyed
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_is_destroyed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_is_destroyed"</span>)]
     </span><span class="kw">pub fn </span>is_destroyed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_source_is_destroyed(<a class="self" href="#247">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_source_modify_unix_fd&quot;)]
+    <span class="comment">//#[doc(alias = "g_source_modify_unix_fd")]
     //pub fn modify_unix_fd(&amp;self, tag: /*Unimplemented*/Basic: Pointer, new_events: IOCondition) {
     //    unsafe { TODO: call ffi:g_source_modify_unix_fd() }
     //}
 
-    //#[doc(alias = &quot;g_source_query_unix_fd&quot;)]
+    //#[doc(alias = "g_source_query_unix_fd")]
     //pub fn query_unix_fd(&amp;self, tag: /*Unimplemented*/Basic: Pointer) -&gt; IOCondition {
     //    unsafe { TODO: call ffi:g_source_query_unix_fd() }
     //}
@@ -635,29 +637,29 @@
     /// ## `child_source`
     /// a [`Source`][crate::Source] previously passed to
     ///  [`add_child_source()`][Self::add_child_source()].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_source_remove_child_source&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_source_remove_child_source"</span>)]
     </span><span class="kw">pub fn </span>remove_child_source(<span class="kw-2">&amp;</span><span class="self">self</span>, child_source: <span class="kw-2">&amp;</span><a href="#7-18">Source</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_source_remove_child_source(<a class="self" href="#269">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#269">child_source</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_source_remove_poll&quot;)]
+    <span class="comment">//#[doc(alias = "g_source_remove_poll")]
     //pub fn remove_poll(&amp;self, fd: /*Ignored*/&amp;mut PollFD) {
     //    unsafe { TODO: call ffi:g_source_remove_poll() }
     //}
 
-    //#[doc(alias = &quot;g_source_remove_unix_fd&quot;)]
+    //#[doc(alias = "g_source_remove_unix_fd")]
     //pub fn remove_unix_fd(&amp;self, tag: /*Unimplemented*/Basic: Pointer) {
     //    unsafe { TODO: call ffi:g_source_remove_unix_fd() }
     //}
 
-    //#[doc(alias = &quot;g_source_remove_by_funcs_user_data&quot;)]
+    //#[doc(alias = "g_source_remove_by_funcs_user_data")]
     //pub fn remove_by_funcs_user_data(funcs: /*Ignored*/&amp;mut SourceFuncs, user_data: /*Unimplemented*/Option&lt;Basic: Pointer&gt;) -&gt; bool {
     //    unsafe { TODO: call ffi:g_source_remove_by_funcs_user_data() }
     //}
 
-    //#[doc(alias = &quot;g_source_remove_by_user_data&quot;)]
+    //#[doc(alias = "g_source_remove_by_user_data")]
     //pub fn remove_by_user_data(user_data: /*Unimplemented*/Option&lt;Basic: Pointer&gt;) -&gt; bool {
     //    unsafe { TODO: call ffi:g_source_remove_by_user_data() }
     //}

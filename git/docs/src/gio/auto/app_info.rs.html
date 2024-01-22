@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/app_info.rs`."><title>app_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/app_info.rs`."><title>app_info.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1111,7 +1113,7 @@
     /// compiled with FUSE support), is available and operational; if this
     /// is not the case, the URI will be passed unmodified to the application.
     /// Some URIs, such as `mailto:`, of course cannot be mapped to a POSIX
-    /// path (in gvfs there&#39;s no FUSE mount for it); such URIs will be
+    /// path (in gvfs there's no FUSE mount for it); such URIs will be
     /// passed unmodified to the application.
     ///
     /// Specifically for gvfs 2.26 and later, the POSIX URI will be mapped
@@ -1134,7 +1136,7 @@
     /// strcmp (uri, uri_from_commandline) == 0;
     /// g_free (uri);
     ///
-    /// if (g_file_has_uri_scheme (file, &quot;cdda&quot;))
+    /// if (g_file_has_uri_scheme (file, "cdda"))
     ///   {
     ///     // do something special with uri
     ///   }
@@ -1143,7 +1145,7 @@
     ///
     /// This code will work when both `cdda://sr0/Track 1.wav` and
     /// `/home/user/.gvfs/cdda on sr0/Track 1.wav` is passed to the
-    /// application. It should be noted that it&#39;s generally not safe
+    /// application. It should be noted that it's generally not safe
     /// for applications to rely on the format of a particular URIs.
     /// Different launcher applications (e.g. file managers) may have
     /// different ideas of what a given URI means.
@@ -1151,8 +1153,8 @@
     /// # Implements
     ///
     /// [`AppInfoExt`][trait@crate::prelude::AppInfoExt], [`AppInfoExtManual`][trait@crate::prelude::AppInfoExtManual]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GAppInfo&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.AppInfo.html">AppInfo</a>(Interface&lt;ffi::GAppInfo, ffi::GAppInfoIface&gt;);
+    </span><span class="attr">#[doc(alias = <span class="string">"GAppInfo"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.AppInfo.html">AppInfo</a>(Interface&lt;<a href="../../../gio_sys/struct.GAppInfo.html">ffi::GAppInfo</a>, <a href="../../../gio_sys/struct.GAppInfoIface.html">ffi::GAppInfoIface</a>&gt;);
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_app_info_get_type(),
@@ -1160,7 +1162,7 @@
 }
 
 <span class="kw">impl </span><a href="#9-69">AppInfo</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="#9-69">AppInfo</a>&gt; = <span class="prelude-val">None</span>;
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#9-69">AppInfo</a>&gt; = <span class="prelude-val">None</span>;
 
     <span class="doccomment">/// Creates a new [`AppInfo`][crate::AppInfo] from the given information.
     ///
@@ -1179,7 +1181,7 @@
     /// # Returns
     ///
     /// new [`AppInfo`][crate::AppInfo] for given command.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_create_from_commandline&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_create_from_commandline"</span>)]
     </span><span class="kw">pub fn </span>create_from_commandline(
         commandline: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">std::ffi::OsStr</a>&gt;,
         application_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -1213,8 +1215,8 @@
     /// # Returns
     ///
     /// a newly allocated `GList` of references to `GAppInfos`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_all&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_all&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_all"</span>)]
+    #[doc(alias = <span class="string">"get_all"</span>)]
     </span><span class="kw">pub fn </span>all() -&gt; Vec&lt;<a href="#9-69">AppInfo</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(ffi::g_app_info_get_all()) }
     }
@@ -1230,8 +1232,8 @@
     ///
     /// `GList` of `GAppInfos`
     ///  for given `content_type` or [`None`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_all_for_type&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_all_for_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_all_for_type"</span>)]
+    #[doc(alias = <span class="string">"get_all_for_type"</span>)]
     </span><span class="kw">pub fn </span>all_for_type(content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Vec&lt;<a href="#9-69">AppInfo</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(ffi::g_app_info_get_all_for_type(
@@ -1251,8 +1253,8 @@
     ///
     /// [`AppInfo`][crate::AppInfo] for given `content_type` or
     ///  [`None`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_default_for_type&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_default_for_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_default_for_type"</span>)]
+    #[doc(alias = <span class="string">"get_default_for_type"</span>)]
     </span><span class="kw">pub fn </span>default_for_type(content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, must_support_uris: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#9-69">AppInfo</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_app_info_get_default_for_type(
@@ -1272,11 +1274,11 @@
     /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
     /// ## `callback`
     /// a `GAsyncReadyCallback` to call when the request is done
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_app_info_get_default_for_type_async&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_default_for_type_async&quot;</span>)]
-    </span><span class="kw">pub fn </span>default_for_type_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
+    #[doc(alias = <span class="string">"g_app_info_get_default_for_type_async"</span>)]
+    #[doc(alias = <span class="string">"get_default_for_type_async"</span>)]
+    </span><span class="kw">pub fn </span>default_for_type_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         must_support_uris: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
@@ -1289,17 +1291,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#192">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>default_for_type_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>default_for_type_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_app_info_get_default_for_type_finish(<a href="#210">res</a>, <span class="kw-2">&amp;mut </span><a href="#213">error</a>);
@@ -1325,17 +1327,17 @@
         }
     }
 
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
     </span><span class="kw">pub fn </span>default_for_type_future(
         content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         must_support_uris: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
-        <span class="kw">let </span>content_type = String::from(<a href="#240">content_type</a>);
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>content_type = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#240">content_type</a>);
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <span class="kw-2">&amp;</span>(),
             <span class="kw">move </span>|_obj, cancellable, send| {
-                <span class="self">Self</span>::default_for_type_async(
+                <a href="#188-235"><span class="self">Self</span>::default_for_type_async</a>(
                     <span class="kw-2">&amp;</span><a href="#243">content_type</a>,
                     <a href="#241">must_support_uris</a>,
                     <span class="prelude-val">Some</span>(<a href="#246">cancellable</a>),
@@ -1349,8 +1351,8 @@
 
     <span class="doccomment">/// Gets the default application for handling URIs with
     /// the given URI scheme. A URI scheme is the initial part
-    /// of the URI, up to but not including the &#39;:&#39;, e.g. &quot;http&quot;,
-    /// &quot;ftp&quot; or &quot;sip&quot;.
+    /// of the URI, up to but not including the ':', e.g. "http",
+    /// "ftp" or "sip".
     /// ## `uri_scheme`
     /// a string containing a URI scheme.
     ///
@@ -1358,8 +1360,8 @@
     ///
     /// [`AppInfo`][crate::AppInfo] for given `uri_scheme` or
     ///  [`None`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_default_for_uri_scheme&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_default_for_uri_scheme&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_default_for_uri_scheme"</span>)]
+    #[doc(alias = <span class="string">"get_default_for_uri_scheme"</span>)]
     </span><span class="kw">pub fn </span>default_for_uri_scheme(uri_scheme: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#9-69">AppInfo</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_app_info_get_default_for_uri_scheme(
@@ -1370,19 +1372,19 @@
 
     <span class="doccomment">/// Asynchronously gets the default application for handling URIs with
     /// the given URI scheme. A URI scheme is the initial part
-    /// of the URI, up to but not including the &#39;:&#39;, e.g. &quot;http&quot;,
-    /// &quot;ftp&quot; or &quot;sip&quot;.
+    /// of the URI, up to but not including the ':', e.g. "http",
+    /// "ftp" or "sip".
     /// ## `uri_scheme`
     /// a string containing a URI scheme.
     /// ## `cancellable`
     /// optional [`Cancellable`][crate::Cancellable] object, [`None`] to ignore
     /// ## `callback`
     /// a `GAsyncReadyCallback` to call when the request is done
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_app_info_get_default_for_uri_scheme_async&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_default_for_uri_scheme_async&quot;</span>)]
-    </span><span class="kw">pub fn </span>default_for_uri_scheme_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
+    #[doc(alias = <span class="string">"g_app_info_get_default_for_uri_scheme_async"</span>)]
+    #[doc(alias = <span class="string">"get_default_for_uri_scheme_async"</span>)]
+    </span><span class="kw">pub fn </span>default_for_uri_scheme_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         uri_scheme: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
         callback: P,
@@ -1394,17 +1396,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#297">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>default_for_uri_scheme_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>default_for_uri_scheme_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_app_info_get_default_for_uri_scheme_finish(<a href="#315">res</a>, <span class="kw-2">&amp;mut </span><a href="#318">error</a>);
@@ -1429,16 +1431,16 @@
         }
     }
 
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_74&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_74&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_74"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_74"</span>)))]
     </span><span class="kw">pub fn </span>default_for_uri_scheme_future(
         uri_scheme: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
-        <span class="kw">let </span>uri_scheme = String::from(<a href="#344">uri_scheme</a>);
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="#9-69">AppInfo</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>uri_scheme = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#344">uri_scheme</a>);
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <span class="kw-2">&amp;</span>(),
             <span class="kw">move </span>|_obj, cancellable, send| {
-                <span class="self">Self</span>::default_for_uri_scheme_async(<span class="kw-2">&amp;</span><a href="#346">uri_scheme</a>, <span class="prelude-val">Some</span>(<a href="#349">cancellable</a>), <span class="kw">move </span>|res| {
+                <a href="#294-339"><span class="self">Self</span>::default_for_uri_scheme_async</a>(<span class="kw-2">&amp;</span><a href="#346">uri_scheme</a>, <span class="prelude-val">Some</span>(<a href="#349">cancellable</a>), <span class="kw">move </span>|res| {
                     <a href="#349">send</a>.<a href="../gio_future.rs.html#28-30">resolve</a>(<a href="#350">res</a>);
                 });
             },
@@ -1455,8 +1457,8 @@
     ///
     /// `GList` of `GAppInfos`
     ///  for given `content_type` or [`None`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_fallback_for_type&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_fallback_for_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_fallback_for_type"</span>)]
+    #[doc(alias = <span class="string">"get_fallback_for_type"</span>)]
     </span><span class="kw">pub fn </span>fallback_for_type(content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Vec&lt;<a href="#9-69">AppInfo</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(ffi::g_app_info_get_fallback_for_type(
@@ -1478,8 +1480,8 @@
     ///
     /// `GList` of `GAppInfos`
     ///  for given `content_type` or [`None`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_recommended_for_type&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_recommended_for_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_recommended_for_type"</span>)]
+    #[doc(alias = <span class="string">"get_recommended_for_type"</span>)]
     </span><span class="kw">pub fn </span>recommended_for_type(content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Vec&lt;<a href="#9-69">AppInfo</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_full</a>(ffi::g_app_info_get_recommended_for_type(
@@ -1493,7 +1495,7 @@
     /// is done on the uri to detect the type of the file if
     /// required.
     ///
-    /// The D-Bus–activated applications don&#39;t have to be started if your application
+    /// The D-Bus–activated applications don't have to be started if your application
     /// terminates too soon after this function. To prevent this, use
     /// [`launch_default_for_uri_async()`][Self::launch_default_for_uri_async()] instead.
     /// ## `uri`
@@ -1504,7 +1506,7 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_launch_default_for_uri&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_launch_default_for_uri"</span>)]
     </span><span class="kw">pub fn </span>launch_default_for_uri(
         uri: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         context: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="app_launch_context.rs.html#13-89">AppLaunchContext</a>&gt;&gt;,
@@ -1543,8 +1545,8 @@
     /// a [`Cancellable`][crate::Cancellable]
     /// ## `callback`
     /// a `GAsyncReadyCallback` to call when the request is done
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_launch_default_for_uri_async&quot;</span>)]
-    </span><span class="kw">pub fn </span>launch_default_for_uri_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_launch_default_for_uri_async"</span>)]
+    </span><span class="kw">pub fn </span>launch_default_for_uri_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         uri: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         context: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="app_launch_context.rs.html#13-89">AppLaunchContext</a>&gt;&gt;,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
@@ -1557,17 +1559,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#460">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>launch_default_for_uri_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>launch_default_for_uri_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let _ </span>= ffi::g_app_info_launch_default_for_uri_finish(<a href="#478">res</a>, <span class="kw-2">&amp;mut </span><a href="#481">error</a>);
@@ -1595,14 +1597,14 @@
 
     <span class="kw">pub fn </span>launch_default_for_uri_future(
         uri: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        context: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="app_launch_context.rs.html#13-89">AppLaunchContext</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">&#39;static</span>)&gt;,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
-        <span class="kw">let </span>uri = String::from(<a href="#506">uri</a>);
+        context: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="app_launch_context.rs.html#13-89">AppLaunchContext</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>uri = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#506">uri</a>);
         <span class="kw">let </span>context = <a href="#507">context</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <span class="kw-2">&amp;</span>(),
             <span class="kw">move </span>|_obj, cancellable, send| {
-                <span class="self">Self</span>::launch_default_for_uri_async(
+                <a href="#456-503"><span class="self">Self</span>::launch_default_for_uri_async</a>(
                     <span class="kw-2">&amp;</span><a href="#509">uri</a>,
                     <a href="#510">context</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
                     <span class="prelude-val">Some</span>(<a href="#513">cancellable</a>),
@@ -1621,7 +1623,7 @@
     /// [`AppInfoExt::remove_supports_type()`][crate::prelude::AppInfoExt::remove_supports_type()].
     /// ## `content_type`
     /// a content type
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_reset_type_associations&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_reset_type_associations"</span>)]
     </span><span class="kw">pub fn </span>reset_type_associations(content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_app_info_reset_type_associations(<a href="#534">content_type</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -1639,7 +1641,7 @@
 /// # Implementors
 ///
 /// [`AppInfo`][struct@crate::AppInfo], [`DesktopAppInfo`][struct@crate::DesktopAppInfo]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.AppInfoExt.html">AppInfoExt</a>: IsA&lt;<a href="#9-69">AppInfo</a>&gt; + <a href="#542">sealed::Sealed</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.AppInfoExt.html">AppInfoExt</a>: IsA&lt;<a href="#9-69">AppInfo</a>&gt; + <a href="#542">sealed::Sealed</a> + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Adds a content type to the application information to indicate the
     /// application is capable of opening files with the given content type.
     /// ## `content_type`
@@ -1648,7 +1650,7 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_add_supports_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_add_supports_type"</span>)]
     </span><span class="kw">fn </span>add_supports_type(<span class="kw-2">&amp;</span><span class="self">self</span>, content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -1672,7 +1674,7 @@
     /// # Returns
     ///
     /// [`true`] if `self` can be deleted
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_can_delete&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_can_delete"</span>)]
     </span><span class="kw">fn </span>can_delete(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_app_info_can_delete(<a class="self" href="#585">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -1683,7 +1685,7 @@
     ///
     /// [`true`] if it is possible to remove supported
     ///  content types from a given `self`, [`false`] if not.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_can_remove_supports_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_can_remove_supports_type"</span>)]
     </span><span class="kw">fn </span>can_remove_supports_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_app_info_can_remove_supports_type(
@@ -1701,7 +1703,7 @@
     /// # Returns
     ///
     /// [`true`] if `self` has been deleted
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_delete&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_delete"</span>)]
     </span><span class="kw">fn </span>delete(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_app_info_delete(<a class="self" href="#614">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -1711,13 +1713,13 @@
     /// # Returns
     ///
     /// a duplicate of `self`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_dup&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_dup"</span>)]
     #[must_use]
     </span><span class="kw">fn </span>dup(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#9-69">AppInfo</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_app_info_dup(<a class="self" href="#625">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_equal&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"g_app_info_equal"</span>)]
     </span><span class="kw">fn </span>equal(<span class="kw-2">&amp;</span><span class="self">self</span>, appinfo2: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="#9-69">AppInfo</a>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_app_info_equal(
@@ -1732,10 +1734,10 @@
     ///
     /// # Returns
     ///
-    /// a string containing the `self`&#39;s commandline,
+    /// a string containing the `self`'s commandline,
     ///  or [`None`] if this information is not available
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_commandline&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_commandline&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_commandline"</span>)]
+    #[doc(alias = <span class="string">"get_commandline"</span>)]
     </span><span class="kw">fn </span>commandline(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_app_info_get_commandline(
@@ -1750,8 +1752,8 @@
     ///
     /// a string containing a description of the
     /// application `self`, or [`None`] if none.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_description&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_description&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_description"</span>)]
+    #[doc(alias = <span class="string">"get_description"</span>)]
     </span><span class="kw">fn </span>description(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_app_info_get_description(
@@ -1767,8 +1769,8 @@
     ///
     /// the display name of the application for `self`, or the name if
     /// no display name is available.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_display_name&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_display_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_display_name"</span>)]
+    #[doc(alias = <span class="string">"get_display_name"</span>)]
     </span><span class="kw">fn </span>display_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_app_info_get_display_name(
@@ -1777,7 +1779,7 @@
         }
     }
 
-    <span class="doccomment">/// Gets the executable&#39;s name for the installed application.
+    <span class="doccomment">/// Gets the executable's name for the installed application.
     ///
     /// This is intended to be used for debugging or labelling what program is going
     /// to be run. To launch the executable, use [`launch()`][Self::launch()] and related
@@ -1785,10 +1787,10 @@
     ///
     /// # Returns
     ///
-    /// a string containing the `self`&#39;s application
+    /// a string containing the `self`'s application
     /// binaries name
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_executable&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_executable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_executable"</span>)]
+    #[doc(alias = <span class="string">"get_executable"</span>)]
     </span><span class="kw">fn </span>executable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a> {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_app_info_get_executable(
@@ -1803,8 +1805,8 @@
     ///
     /// the default [`Icon`][crate::Icon] for `self` or [`None`]
     /// if there is no default icon.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_icon&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_icon&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_icon"</span>)]
+    #[doc(alias = <span class="string">"get_icon"</span>)]
     </span><span class="kw">fn </span>icon(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="icon.rs.html#7-46">Icon</a>&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_app_info_get_icon(<a class="self" href="#717">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -1819,9 +1821,9 @@
     ///
     /// # Returns
     ///
-    /// a string containing the application&#39;s ID.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_id&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_id&quot;</span>)]
+    /// a string containing the application's ID.
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_id"</span>)]
+    #[doc(alias = <span class="string">"get_id"</span>)]
     </span><span class="kw">fn </span>id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_app_info_get_id(<a class="self" href="#734">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -1831,8 +1833,8 @@
     /// # Returns
     ///
     /// the name of the application for `self`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_name&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_name"</span>)]
+    #[doc(alias = <span class="string">"get_name"</span>)]
     </span><span class="kw">fn </span>name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_app_info_get_name(<a class="self" href="#745">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -1848,8 +1850,8 @@
     ///
     ///
     ///  a list of content types.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_get_supported_types&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_supported_types&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_get_supported_types"</span>)]
+    #[doc(alias = <span class="string">"get_supported_types"</span>)]
     </span><span class="kw">fn </span>supported_types(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_none</a>(ffi::g_app_info_get_supported_types(
@@ -1893,7 +1895,7 @@
     /// # Returns
     ///
     /// [`true`] on successful launch, [`false`] otherwise.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_launch&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_launch"</span>)]
     </span><span class="kw">fn </span>launch(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         files: <span class="kw-2">&amp;</span>[<a href="file.rs.html#14-108">File</a>],
@@ -1936,7 +1938,7 @@
     /// # Returns
     ///
     /// [`true`] on successful launch, [`false`] otherwise.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_launch_uris&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_launch_uris"</span>)]
     </span><span class="kw">fn </span>launch_uris(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         uris: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>],
@@ -1966,7 +1968,7 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_remove_supports_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_remove_supports_type"</span>)]
     </span><span class="kw">fn </span>remove_supports_type(<span class="kw-2">&amp;</span><span class="self">self</span>, content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -1992,7 +1994,7 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_set_as_default_for_extension&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_set_as_default_for_extension"</span>)]
     </span><span class="kw">fn </span>set_as_default_for_extension(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         extension: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">std::path::Path</a>&gt;,
@@ -2020,7 +2022,7 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_set_as_default_for_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_set_as_default_for_type"</span>)]
     </span><span class="kw">fn </span>set_as_default_for_type(<span class="kw-2">&amp;</span><span class="self">self</span>, content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -2048,7 +2050,7 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_set_as_last_used_for_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_set_as_last_used_for_type"</span>)]
     </span><span class="kw">fn </span>set_as_last_used_for_type(<span class="kw-2">&amp;</span><span class="self">self</span>, content_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -2072,7 +2074,7 @@
     /// # Returns
     ///
     /// [`true`] if the `self` should be shown, [`false`] otherwise.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_should_show&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_should_show"</span>)]
     </span><span class="kw">fn </span>should_show(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_app_info_should_show(<a class="self" href="#985">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -2082,7 +2084,7 @@
     /// # Returns
     ///
     /// [`true`] if the `self` supports files.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_supports_files&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_supports_files"</span>)]
     </span><span class="kw">fn </span>supports_files(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_app_info_supports_files(
@@ -2096,7 +2098,7 @@
     /// # Returns
     ///
     /// [`true`] if the `self` supports URIs.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_app_info_supports_uris&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_app_info_supports_uris"</span>)]
     </span><span class="kw">fn </span>supports_uris(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_app_info_supports_uris(

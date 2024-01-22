@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/thread_pool.rs`."><title>thread_pool.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/thread_pool.rs`."><title>thread_pool.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -444,7 +446,7 @@
 /// public read-only members, but the underlying struct is bigger,
 /// so you must not copy this struct.
 </span><span class="attr">#[derive(Debug)]
-#[doc(alias = <span class="string">&quot;GThreadPool&quot;</span>)]
+#[doc(alias = <span class="string">"GThreadPool"</span>)]
 </span><span class="kw">pub struct </span><a href="../../glib/struct.ThreadPool.html">ThreadPool</a>(ptr::NonNull&lt;ffi::GThreadPool&gt;);
 
 <span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> <span class="kw">for </span><a href="#14">ThreadPool</a> {}
@@ -454,7 +456,7 @@
 </span><span class="doccomment">/// A handle to a thread running on a [`ThreadPool`].
 ///
 /// Like [`std::thread::JoinHandle`] for a GLib thread. The return value from the task can be
-/// retrieved by calling [`ThreadHandle::join`]. Dropping the handle &quot;detaches&quot; the thread,
+/// retrieved by calling [`ThreadHandle::join`]. Dropping the handle "detaches" the thread,
 /// allowing it to complete but discarding the return value.
 </span><span class="attr">#[derive(Debug)]
 </span><span class="kw">pub struct </span><a href="../../glib/struct.ThreadHandle.html">ThreadHandle</a>&lt;T&gt; {
@@ -475,8 +477,8 @@
 }
 
 <span class="kw">impl </span><a href="#14">ThreadPool</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_new&quot;</span>)]
-    </span><span class="kw">pub fn </span>shared(max_threads: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    <span class="attr">#[doc(alias = <span class="string">"g_thread_pool_new"</span>)]
+    </span><span class="kw">pub fn </span>shared(max_threads: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>err = ptr::null_mut();
             <span class="kw">let </span>pool = ffi::g_thread_pool_new(
@@ -494,8 +496,8 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_new&quot;</span>)]
-    </span><span class="kw">pub fn </span>exclusive(max_threads: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    <span class="attr">#[doc(alias = <span class="string">"g_thread_pool_new"</span>)]
+    </span><span class="kw">pub fn </span>exclusive(max_threads: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>err = ptr::null_mut();
             <span class="kw">let </span>pool = ffi::g_thread_pool_new(
@@ -522,7 +524,7 @@
     /// finishes its previous task and processes `data`.
     ///
     /// `error` can be [`None`] to ignore errors, or non-[`None`] to report
-    /// errors. An error can only occur when a new thread couldn&#39;t be
+    /// errors. An error can only occur when a new thread couldn't be
     /// created. In that case `data` is simply appended to the queue of
     /// work to do.
     ///
@@ -531,14 +533,14 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] if an error occurred
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_push&quot;</span>)]
-    </span><span class="kw">pub fn </span>push&lt;T: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>, F: FnOnce() -&gt; T + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_push"</span>)]
+    </span><span class="kw">pub fn </span>push&lt;T: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>, F: FnOnce() -&gt; T + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         func: F,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;ThreadHandle&lt;T&gt;, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;ThreadHandle&lt;T&gt;, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">let </span>(tx, rx) = std::sync::mpsc::sync_channel(<span class="number">1</span>);
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>func: Box&lt;<span class="kw">dyn </span>FnOnce() + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt; = Box::new(<span class="kw">move </span>|| {
+            <span class="kw">let </span>func: Box&lt;<span class="kw">dyn </span>FnOnce() + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt; = Box::new(<span class="kw">move </span>|| {
                 <span class="kw">let _ </span>= <a href="#105">tx</a>.send(panic::catch_unwind(panic::AssertUnwindSafe(<a href="#103">func</a>)));
             });
             <span class="kw">let </span>func = Box::new(<a href="#107">func</a>);
@@ -559,18 +561,18 @@
         }
     }
 
-    <span class="kw">pub fn </span>push_future&lt;T: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>, F: FnOnce() -&gt; T + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;(
+    <span class="kw">pub fn </span>push_future&lt;T: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>, F: FnOnce() -&gt; T + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         func: F,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw">impl </span>Future&lt;Output = std::thread::Result&lt;T&gt;&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt;
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw">impl </span>Future&lt;Output = std::thread::Result&lt;T&gt;&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt;
     {
         <span class="kw">let </span>(sender, receiver) = oneshot::channel();
 
-        <span class="self">self</span>.push(<span class="kw">move </span>|| {
-            <span class="kw">let _ </span>= sender.send(panic::catch_unwind(panic::AssertUnwindSafe(func)));
+        <a class="self" href="#129">self</a>.<a href="#101-126">push</a>(<span class="kw">move </span>|| {
+            <span class="kw">let _ </span>= <a href="#133">sender</a>.send(panic::catch_unwind(panic::AssertUnwindSafe(<a href="#130">func</a>)));
         })<span class="question-mark">?</span>;
 
-        <span class="prelude-val">Ok</span>(<span class="kw">async move </span>{ receiver.<span class="kw">await</span>.expect(<span class="string">&quot;Dropped before executing&quot;</span>) })
+        <span class="prelude-val">Ok</span>(<span class="kw">async move </span>{ <a href="#133">receiver</a>.<span class="kw">await</span>.expect(<span class="string">"Dropped before executing"</span>) })
     }
 
     <span class="doccomment">/// Sets the maximal allowed number of threads for `self`.
@@ -589,7 +591,7 @@
     /// running threads in `self` is smaller than the maximal number.
     ///
     /// `error` can be [`None`] to ignore errors, or non-[`None`] to report
-    /// errors. An error can only occur when a new thread couldn&#39;t be
+    /// errors. An error can only occur when a new thread couldn't be
     /// created.
     ///
     /// Before version 2.32, this function did not return a success status.
@@ -600,8 +602,8 @@
     /// # Returns
     ///
     /// [`true`] on success, [`false`] if an error occurred
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_set_max_threads&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_max_threads(<span class="kw-2">&amp;</span><span class="self">self</span>, max_threads: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_set_max_threads"</span>)]
+    </span><span class="kw">pub fn </span>set_max_threads(<span class="kw-2">&amp;</span><span class="self">self</span>, max_threads: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>err = ptr::null_mut();
             <span class="kw">let </span>ret: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> = <a href="translate.rs.html#1413-1415">from_glib</a>(ffi::g_thread_pool_set_max_threads(
@@ -622,8 +624,8 @@
     /// # Returns
     ///
     /// the maximal number of threads
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_get_max_threads&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_max_threads&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_get_max_threads"</span>)]
+    #[doc(alias = <span class="string">"get_max_threads"</span>)]
     </span><span class="kw">pub fn </span>max_threads(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>max_threads = ffi::g_thread_pool_get_max_threads(<a class="self" href="#193">self</a>.<span class="number">0</span>.as_ptr());
@@ -640,8 +642,8 @@
     /// # Returns
     ///
     /// the number of threads currently running
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_get_num_threads&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_num_threads&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_get_num_threads"</span>)]
+    #[doc(alias = <span class="string">"get_num_threads"</span>)]
     </span><span class="kw">pub fn </span>num_threads(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_thread_pool_get_num_threads(<a class="self" href="#211">self</a>.<span class="number">0</span>.as_ptr()) }
     }
@@ -651,8 +653,8 @@
     /// # Returns
     ///
     /// the number of unprocessed tasks
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_unprocessed&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_unprocessed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_unprocessed"</span>)]
+    #[doc(alias = <span class="string">"get_unprocessed"</span>)]
     </span><span class="kw">pub fn </span>unprocessed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_thread_pool_unprocessed(<a class="self" href="#222">self</a>.<span class="number">0</span>.as_ptr()) }
     }
@@ -664,7 +666,7 @@
     /// The default value is 2.
     /// ## `max_threads`
     /// maximal number of unused threads
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_set_max_unused_threads&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_set_max_unused_threads"</span>)]
     </span><span class="kw">pub fn </span>set_max_unused_threads(max_threads: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_thread_pool_set_max_unused_threads(<a href="#234">max_threads</a>.map(|v| <a href="#236">v</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>).unwrap_or(-<span class="number">1</span>))
@@ -676,8 +678,8 @@
     /// # Returns
     ///
     /// the maximal number of unused threads
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_get_max_unused_threads&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_max_unused_threads&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_get_max_unused_threads"</span>)]
+    #[doc(alias = <span class="string">"get_max_unused_threads"</span>)]
     </span><span class="kw">pub fn </span>max_unused_threads() -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>max_unused_threads = ffi::g_thread_pool_get_max_unused_threads();
@@ -694,8 +696,8 @@
     /// # Returns
     ///
     /// the number of currently unused threads
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_get_num_unused_threads&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_num_unused_threads&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_get_num_unused_threads"</span>)]
+    #[doc(alias = <span class="string">"get_num_unused_threads"</span>)]
     </span><span class="kw">pub fn </span>num_unused_threads() -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_thread_pool_get_num_unused_threads() }
     }
@@ -703,7 +705,7 @@
     <span class="doccomment">/// Stops all currently unused threads. This does not change the
     /// maximal number of unused threads. This function can be used to
     /// regularly stop all unused threads e.g. from `g_timeout_add()`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_stop_unused_threads&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_stop_unused_threads"</span>)]
     </span><span class="kw">pub fn </span>stop_unused_threads() {
         <span class="kw">unsafe </span>{
             ffi::g_thread_pool_stop_unused_threads();
@@ -722,7 +724,7 @@
     /// ## `interval`
     /// the maximum `interval` (in milliseconds)
     ///  a thread can be idle
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_set_max_idle_time&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_set_max_idle_time"</span>)]
     </span><span class="kw">pub fn </span>set_max_idle_time(max_idle_time: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
         <span class="kw">unsafe </span>{ ffi::g_thread_pool_set_max_idle_time(<a href="#292">max_idle_time</a>) }
     }
@@ -739,8 +741,8 @@
     /// the maximum `interval` (milliseconds) to wait
     ///  for new tasks in the thread pool before stopping the
     ///  thread
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_thread_pool_get_max_idle_time&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_max_idle_time&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_thread_pool_get_max_idle_time"</span>)]
+    #[doc(alias = <span class="string">"get_max_idle_time"</span>)]
     </span><span class="kw">pub fn </span>max_idle_time() -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_thread_pool_get_max_idle_time() }
     }
@@ -755,7 +757,7 @@
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>spawn_func(func: ffi::gpointer, _data: ffi::gpointer) {
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>spawn_func(func: ffi::gpointer, _data: ffi::gpointer) {
     <span class="kw">let </span>func: Box&lt;Box&lt;<span class="kw">dyn </span>FnOnce()&gt;&gt; = Box::from_raw(<a href="#324">func</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
     <a href="#325">func</a>()
 }

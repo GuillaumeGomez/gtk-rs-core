@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/translate.rs`."><title>translate.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/translate.rs`."><title>translate.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3106,7 +3108,7 @@
 //! ```
 //!
 //! The [`TryFromGlib`] trait can also be implemented when the Glib type range is larger than the
-//! target Rust type&#39;s range. In the example below, the Rust type `U32` can be built from a signed
+//! target Rust type's range. In the example below, the Rust type `U32` can be built from a signed
 //! [`libc::c_long`], which means that the negative range is not valid.
 //!
 //! ```
@@ -3138,7 +3140,7 @@
 //! as well as turning floating references to strong ones,
 //! which are the only ones properly handled by the Rust bindings.
 //!
-//! For more information about floating references, please refer to the &quot;Floating references&quot; section
+//! For more information about floating references, please refer to the "Floating references" section
 //! of [the gobject reference](https://docs.gtk.org/gobject/floating-refs.html).
 //!
 //! ```ignore
@@ -3192,13 +3194,13 @@
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A pointer
-</span><span class="kw">pub trait </span><a href="../../glib/translate/trait.Ptr.html">Ptr</a>: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../glib/translate/trait.Ptr.html">Ptr</a>: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a> + <span class="lifetime">'static </span>{
     <span class="kw">fn </span>is_null(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>;
     <span class="kw">fn </span>from&lt;X&gt;(ptr: <span class="kw-2">*mut </span>X) -&gt; <span class="self">Self</span>;
     <span class="kw">fn </span>to&lt;X&gt;(<span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>X;
 }
 
-<span class="kw">impl</span>&lt;T: <span class="lifetime">&#39;static</span>&gt; <a href="#153-157">Ptr</a> <span class="kw">for </span><span class="kw-2">*const </span>T {
+<span class="kw">impl</span>&lt;T: <span class="lifetime">'static</span>&gt; <a href="#153-157">Ptr</a> <span class="kw">for </span><span class="kw-2">*const </span>T {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>is_null(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         (<span class="kw-2">*</span><a class="self" href="#161">self</a>).is_null()
@@ -3215,7 +3217,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;T: <span class="lifetime">&#39;static</span>&gt; <a href="#153-157">Ptr</a> <span class="kw">for </span><span class="kw-2">*mut </span>T {
+<span class="kw">impl</span>&lt;T: <span class="lifetime">'static</span>&gt; <a href="#153-157">Ptr</a> <span class="kw">for </span><span class="kw-2">*mut </span>T {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>is_null(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         (<span class="kw-2">*</span><a class="self" href="#178">self</a>).is_null()
@@ -3235,7 +3237,7 @@
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Overrides pointer mutability.
 ///
-/// Use when the C API should be specifying a const pointer but doesn&#39;t.
+/// Use when the C API should be specifying a const pointer but doesn't.
 </span><span class="attr">#[inline]
 </span><span class="kw">pub fn </span><a href="../../glib/translate/fn.mut_override.html">mut_override</a>&lt;T&gt;(ptr: <span class="kw-2">*const </span>T) -&gt; <span class="kw-2">*mut </span>T {
     <a href="#198">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T
@@ -3245,7 +3247,7 @@
 </span><span class="doccomment">/// Overrides pointer constness.
 ///
 /// Use when the C API need const pointer, but function with `IsA&lt;T&gt;` constraint,
-/// that usually don&#39;t have const pointer conversion.
+/// that usually don't have const pointer conversion.
 </span><span class="attr">#[inline]
 </span><span class="kw">pub fn </span><a href="../../glib/translate/fn.const_override.html">const_override</a>&lt;T&gt;(ptr: <span class="kw-2">*mut </span>T) -&gt; <span class="kw-2">*const </span>T {
     <a href="#208">ptr</a> <span class="kw">as </span><span class="kw-2">*const </span>T
@@ -3262,7 +3264,7 @@
 </span><span class="doccomment">/// Returns an uninitialized value.
 </span><span class="attr">#[inline]
 </span><span class="kw">pub unsafe fn </span><a href="../../glib/translate/fn.uninitialized.html">uninitialized</a>&lt;T: <a href="#214-217">Uninitialized</a>&gt;() -&gt; T {
-    T::uninitialized()
+    <a href="#216">T::uninitialized</a>()
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -3279,10 +3281,10 @@
 /// will own a `GdkWindowAttr` and a `CString` that `GdkWindowAttr::title` points into.
 ///
 /// ```ignore
-/// impl &lt;&#39;a&gt; ToGlibPtr&lt;&#39;a, *mut ffi::GdkWindowAttr&gt; for WindowAttr {
-///     type Storage = (Box&lt;ffi::GdkWindowAttr&gt;, Stash&lt;&#39;a, *const c_char, Option&lt;String&gt;&gt;);
+/// impl &lt;'a&gt; ToGlibPtr&lt;'a, *mut ffi::GdkWindowAttr&gt; for WindowAttr {
+///     type Storage = (Box&lt;ffi::GdkWindowAttr&gt;, Stash&lt;'a, *const c_char, Option&lt;String&gt;&gt;);
 ///
-///     fn to_glib_none(&amp;&#39;a self) -&gt; Stash&lt;*mut ffi::GdkWindowAttr, WindowAttr&gt; {
+///     fn to_glib_none(&amp;'a self) -&gt; Stash&lt;*mut ffi::GdkWindowAttr, WindowAttr&gt; {
 ///         let title = self.title.to_glib_none();
 ///
 ///         let mut attrs = Box::new(ffi::GdkWindowAttr {
@@ -3294,14 +3296,14 @@
 ///     }
 /// }
 /// ```
-</span><span class="kw">pub struct </span><a href="../../glib/translate/struct.Stash.html">Stash</a>&lt;<span class="lifetime">&#39;a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt;(
+</span><span class="kw">pub struct </span><a href="../../glib/translate/struct.Stash.html">Stash</a>&lt;<span class="lifetime">'a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;&gt;(
     <span class="kw">pub </span>P,
-    <span class="kw">pub </span>&lt;T <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt;::Storage,
+    <span class="kw">pub </span>&lt;T <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;&gt;::Storage,
 );
 
-<span class="kw">pub struct </span><a href="../../glib/translate/struct.StashMut.html">StashMut</a>&lt;<span class="lifetime">&#39;a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a>&gt;(<span class="kw">pub </span>P, <span class="kw">pub </span>&lt;T <span class="kw">as </span>ToGlibPtrMut&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt;::Storage)
+<span class="kw">pub struct </span><a href="../../glib/translate/struct.StashMut.html">StashMut</a>&lt;<span class="lifetime">'a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a>&gt;(<span class="kw">pub </span>P, <span class="kw">pub </span>&lt;T <span class="kw">as </span>ToGlibPtrMut&lt;<span class="lifetime">'a</span>, P&gt;&gt;::Storage)
 <span class="kw">where
-    </span>T: ToGlibPtrMut&lt;<span class="lifetime">&#39;a</span>, P&gt;;
+    </span>T: ToGlibPtrMut&lt;<span class="lifetime">'a</span>, P&gt;;
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Wrapper around values representing borrowed C memory.
@@ -3458,32 +3460,32 @@
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Provides the default pointer type to be used in some container conversions.
 ///
-/// It&#39;s `*mut c_char` for `String`, `*mut GtkButton` for `gtk::Button`, etc.
+/// It's `*mut c_char` for `String`, `*mut GtkButton` for `gtk::Button`, etc.
 </span><span class="kw">pub trait </span><a href="../../glib/translate/trait.GlibPtrDefault.html">GlibPtrDefault</a> {
     <span class="kw">type </span>GlibType: <a href="#153-157">Ptr</a>;
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <a href="#420-422">GlibPtrDefault</a>&gt; <a href="#420-422">GlibPtrDefault</a> <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <a href="#420-422">GlibPtrDefault</a>&gt; <a href="#420-422">GlibPtrDefault</a> <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span>T {
     <span class="kw">type </span>GlibType = &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType;
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Translate to a pointer.
-</span><span class="kw">pub trait </span><a href="../../glib/translate/trait.ToGlibPtr.html">ToGlibPtr</a>&lt;<span class="lifetime">&#39;a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>&gt; {
+</span><span class="kw">pub trait </span><a href="../../glib/translate/trait.ToGlibPtr.html">ToGlibPtr</a>&lt;<span class="lifetime">'a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>&gt; {
     <span class="kw">type </span>Storage;
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Transfer: none.
     ///
     /// The pointer in the `Stash` is only valid for the lifetime of the `Stash`.
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, P, <span class="self">Self</span>&gt;;
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, P, <span class="self">Self</span>&gt;;
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Transfer: container.
     ///
     /// We transfer the container ownership to the foreign library retaining
     /// the elements ownership.
-    </span><span class="kw">fn </span>to_glib_container(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, P, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_container(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, P, <span class="self">Self</span>&gt; {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>();
     }
 
@@ -3498,7 +3500,7 @@
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Translate to a pointer with a mutable borrow.
-</span><span class="kw">pub trait </span><a href="../../glib/translate/trait.ToGlibPtrMut.html">ToGlibPtrMut</a>&lt;<span class="lifetime">&#39;a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>&gt; {
+</span><span class="kw">pub trait </span><a href="../../glib/translate/trait.ToGlibPtrMut.html">ToGlibPtrMut</a>&lt;<span class="lifetime">'a</span>, P: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>&gt; {
     <span class="kw">type </span>Storage;
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -3506,14 +3508,14 @@
     ///
     /// The pointer in the `Stash` is only valid for the lifetime of the `Stash`.
     </span><span class="attr">#[allow(clippy::wrong_self_convention)]
-    </span><span class="kw">fn </span>to_glib_none_mut(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span><span class="self">self</span>) -&gt; StashMut&lt;P, <span class="self">Self</span>&gt;;
+    </span><span class="kw">fn </span>to_glib_none_mut(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span><span class="self">self</span>) -&gt; StashMut&lt;P, <span class="self">Self</span>&gt;;
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, P: <a href="#153-157">Ptr</a>, T: ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt; <span class="kw">for </span><span class="prelude-ty">Option</span>&lt;T&gt; {
-    <span class="kw">type </span>Storage = <span class="prelude-ty">Option</span>&lt;&lt;T <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt;::Storage&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, P: <a href="#153-157">Ptr</a>, T: ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt; <span class="kw">for </span><span class="prelude-ty">Option</span>&lt;T&gt; {
+    <span class="kw">type </span>Storage = <span class="prelude-ty">Option</span>&lt;&lt;T <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;&gt;::Storage&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, P, <span class="prelude-ty">Option</span>&lt;T&gt;&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, P, <span class="prelude-ty">Option</span>&lt;T&gt;&gt; {
         <a class="self" href="#474">self</a>.as_ref()
             .map_or(<a href="#255-258">Stash</a>(Ptr::from::&lt;()&gt;(ptr::null_mut()), <span class="prelude-val">None</span>), |s| {
                 <span class="kw">let </span>s = <a href="#476">s</a>.<a href="#437">to_glib_none</a>();
@@ -3528,11 +3530,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;opt</span>: <span class="lifetime">&#39;a</span>, P: <a href="#153-157">Ptr</a>, T: ToGlibPtrMut&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt; ToGlibPtrMut&lt;<span class="lifetime">&#39;a</span>, P&gt; <span class="kw">for </span><span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;opt </span><span class="kw-2">mut </span>T&gt; {
-    <span class="kw">type </span>Storage = <span class="prelude-ty">Option</span>&lt;&lt;T <span class="kw">as </span>ToGlibPtrMut&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt;::Storage&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, <span class="lifetime">'opt</span>: <span class="lifetime">'a</span>, P: <a href="#153-157">Ptr</a>, T: ToGlibPtrMut&lt;<span class="lifetime">'a</span>, P&gt;&gt; ToGlibPtrMut&lt;<span class="lifetime">'a</span>, P&gt; <span class="kw">for </span><span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'opt </span><span class="kw-2">mut </span>T&gt; {
+    <span class="kw">type </span>Storage = <span class="prelude-ty">Option</span>&lt;&lt;T <span class="kw">as </span>ToGlibPtrMut&lt;<span class="lifetime">'a</span>, P&gt;&gt;::Storage&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_mut(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span><span class="self">self</span>) -&gt; StashMut&lt;<span class="lifetime">&#39;a</span>, P, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;opt </span><span class="kw-2">mut </span>T&gt;&gt; {
+    </span><span class="kw">fn </span>to_glib_none_mut(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span><span class="self">self</span>) -&gt; StashMut&lt;<span class="lifetime">'a</span>, P, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'opt </span><span class="kw-2">mut </span>T&gt;&gt; {
         <a class="self" href="#493">self</a>.as_mut()
             .map_or(<a href="#260-262">StashMut</a>(Ptr::from::&lt;()&gt;(ptr::null_mut()), <span class="prelude-val">None</span>), |s| {
                 <span class="kw">let </span>s = <a href="#495">s</a>.<a href="#467">to_glib_none_mut</a>();
@@ -3541,11 +3543,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, P: <a href="#153-157">Ptr</a>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T {
-    <span class="kw">type </span>Storage = &lt;T <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt;::Storage;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, P: <a href="#153-157">Ptr</a>, T: <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span>T {
+    <span class="kw">type </span>Storage = &lt;T <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;&gt;::Storage;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, P, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, P, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>s = (<span class="kw-2">*</span><a class="self" href="#506">self</a>).<a href="#437">to_glib_none</a>();
         <a href="#255-258">Stash</a>(<a href="#507">s</a>.<span class="number">0</span>, <a href="#507">s</a>.<span class="number">1</span>)
     }
@@ -3563,15 +3565,15 @@
     Owned(O),
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, P: <a href="#153-157">Ptr</a>, T&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt; <span class="kw">for </span>Cow&lt;<span class="lifetime">&#39;a</span>, T&gt;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, P: <a href="#153-157">Ptr</a>, T&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt; <span class="kw">for </span>Cow&lt;<span class="lifetime">'a</span>, T&gt;
 <span class="kw">where
-    </span>T: <a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned</a> + <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;,
-    T::Owned: ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;,
+    </span>T: <a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned</a> + <span class="question-mark">?</span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;,
+    T::Owned: ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;,
 {
-    <span class="kw">type </span>Storage = CowStash&lt;T::Storage, &lt;T::Owned <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt;::Storage&gt;;
+    <span class="kw">type </span>Storage = CowStash&lt;T::Storage, &lt;T::Owned <span class="kw">as </span>ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt;&gt;::Storage&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, P, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, P, <span class="self">Self</span>&gt; {
         <span class="kw">match </span><span class="self"><a href="#532">self</a> </span>{
             Cow::Borrowed(v) =&gt; {
                 <span class="kw">let </span>s = <a href="#534">v</a>.<a href="#437">to_glib_none</a>();
@@ -3593,17 +3595,17 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
-    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">&#39;static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
+    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">'static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
 
-    <span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
+    <span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">static </span>EMPTY_STRING: <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>] = <span class="kw-2">&amp;</span>[<span class="number">0</span>];
 
         <span class="kw">let </span>bytes = <span class="kw">if </span><span class="self">self</span>.is_empty() {
             Cow::Borrowed(<a href="#558">EMPTY_STRING</a>)
         } <span class="kw">else </span>{
             <span class="kw">if </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.cfg.html">cfg!</a>(debug_assertions) {
-                <span class="kw">crate</span>::GStr::check_interior_nuls(<a class="self" href="#557">self</a>).unwrap();
+                <a href="gstring.rs.html#284-290"><span class="kw">crate</span>::GStr::check_interior_nuls</a>(<a class="self" href="#557">self</a>).unwrap();
             }
             <span class="kw">let </span><span class="kw-2">mut </span>bytes = Vec::with_capacity(<a class="self" href="#557">self</a>.len() + <span class="number">1</span>);
             <span class="kw">unsafe </span>{
@@ -3619,7 +3621,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_glib_full(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*const </span>c_char {
         <span class="kw">if </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.cfg.html">cfg!</a>(debug_assertions) {
-            <span class="kw">crate</span>::GStr::check_interior_nuls(<a class="self" href="#578">self</a>).unwrap();
+            <a href="gstring.rs.html#284-290"><span class="kw">crate</span>::GStr::check_interior_nuls</a>(<a class="self" href="#578">self</a>).unwrap();
         }
         <span class="kw">unsafe </span>{
             ffi::g_strndup(<a class="self" href="#578">self</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>c_char, <a class="self" href="#578">self</a>.len() <span class="kw">as </span>size_t) <span class="kw">as </span><span class="kw-2">*const </span>c_char
@@ -3627,11 +3629,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
-    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">&#39;static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
+    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">'static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>s = ToGlibPtr::&lt;<span class="kw-2">*const </span>c_char&gt;::to_glib_none(<a class="self" href="#592">self</a>);
         <a href="#255-258">Stash</a>(<a href="#593">s</a>.<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, <a href="#593">s</a>.<span class="number">1</span>)
     }
@@ -3642,11 +3644,11 @@
     </span>}
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a> {
-    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">&#39;static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a> {
+    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">'static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
         <span class="kw">let </span>s = <a href="#437">ToGlibPtr::to_glib_none</a>(<a class="self" href="#607">self</a>.as_str());
         <a href="#255-258">Stash</a>(<a href="#608">s</a>.<span class="number">0</span>, <a href="#608">s</a>.<span class="number">1</span>)
     }
@@ -3657,11 +3659,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a> {
-    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">&#39;static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a> {
+    <span class="kw">type </span>Storage = Cow&lt;<span class="lifetime">'static</span>, [<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
         <span class="kw">let </span>s = <a href="#437">ToGlibPtr::to_glib_none</a>(<a class="self" href="#622">self</a>.as_str());
         <a href="#255-258">Stash</a>(<a href="#623">s</a>.<span class="number">0</span>, <a href="#623">s</a>.<span class="number">1</span>)
     }
@@ -3672,11 +3674,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/core/ffi/c_str/struct.CStr.html">CStr</a> {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">Self</span>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/core/ffi/c_str/struct.CStr.html">CStr</a> {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
         <a href="#255-258">Stash</a>(<a class="self" href="#637">self</a>.as_ptr(), PhantomData)
     }
 
@@ -3691,11 +3693,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/core/ffi/c_str/struct.CStr.html">CStr</a> {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">Self</span>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/core/ffi/c_str/struct.CStr.html">CStr</a> {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
         <a href="#255-258">Stash</a>(<a class="self" href="#656">self</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span>c_char, PhantomData)
     }
 
@@ -3710,11 +3712,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a> {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">Self</span>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a> {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
         <a href="#255-258">Stash</a>(<a class="self" href="#675">self</a>.as_ptr(), PhantomData)
     }
 
@@ -3729,11 +3731,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a> {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">Self</span>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a> {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
         <a href="#255-258">Stash</a>(<a class="self" href="#694">self</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span>c_char, PhantomData)
     }
 
@@ -3781,7 +3783,7 @@
     // Paths on UNIX must not contain NUL bytes, in which case the conversion
     // to a CString would fail. The only thing we can do then is to panic, as passing
     // NULL or the empty string to GLib would cause undefined behaviour.
-    </span>CString::new(<a href="#736">path</a>.as_os_str().<a href="https://doc.rust-lang.org/nightly/std/os/unix/ffi/os_str/trait.OsStrExt.html">as_bytes</a>()).expect(<span class="string">&quot;Invalid path with NUL bytes&quot;</span>)
+    </span>CString::new(<a href="#736">path</a>.as_os_str().<a href="https://doc.rust-lang.org/nightly/std/os/unix/ffi/os_str/trait.OsStrExt.html">as_bytes</a>()).expect(<span class="string">"Invalid path with NUL bytes"</span>)
 }
 
 <span class="attr">#[cfg(windows)]
@@ -3790,13 +3792,13 @@
     // WTF-8. As such, we need to convert to a UTF-8 string. This conversion can
     // fail, see https://simonsapin.github.io/wtf-8/#converting-wtf-8-utf-8
     //
-    // It&#39;s not clear what we&#39;re supposed to do if it fails: the path is not
-    // representable in UTF-8 and thus can&#39;t possibly be passed to GLib.
+    // It's not clear what we're supposed to do if it fails: the path is not
+    // representable in UTF-8 and thus can't possibly be passed to GLib.
     // Passing NULL or the empty string to GLib can lead to undefined behaviour, so
     // the only safe option seems to be to simply panic here.
     </span><span class="kw">let </span>path_str = path
         .to_str()
-        .expect(<span class="string">&quot;Path can&#39;t be represented as UTF-8&quot;</span>)
+        .expect(<span class="string">"Path can't be represented as UTF-8"</span>)
         .to_owned();
 
     <span class="comment">// On Windows, paths can have \\?\ prepended for long-path support. See
@@ -3804,12 +3806,12 @@
     //
     // We have to get rid of this and let GLib take care of all these
     // weirdnesses later
-    </span><span class="kw">if </span>path_str.starts_with(<span class="string">&quot;\\\\?\\&quot;</span>) {
+    </span><span class="kw">if </span>path_str.starts_with(<span class="string">"\\\\?\\"</span>) {
         CString::new(path_str[<span class="number">4</span>..].as_bytes())
     } <span class="kw">else </span>{
         CString::new(path_str.as_bytes())
     }
-    .expect(<span class="string">&quot;Invalid path with NUL bytes&quot;</span>)
+    .expect(<span class="string">"Invalid path with NUL bytes"</span>)
 }
 
 <span class="attr">#[cfg(not(windows))]
@@ -3820,7 +3822,7 @@
     // OS string on UNIX must not contain NUL bytes, in which case the conversion
     // to a CString would fail. The only thing we can do then is to panic, as passing
     // NULL or the empty string to GLib would cause undefined behaviour.
-    </span>CString::new(<a href="#774">s</a>.<a href="https://doc.rust-lang.org/nightly/std/os/unix/ffi/os_str/trait.OsStrExt.html">as_bytes</a>()).expect(<span class="string">&quot;Invalid OS String with NUL bytes&quot;</span>)
+    </span>CString::new(<a href="#774">s</a>.<a href="https://doc.rust-lang.org/nightly/std/os/unix/ffi/os_str/trait.OsStrExt.html">as_bytes</a>()).expect(<span class="string">"Invalid OS String with NUL bytes"</span>)
 }
 
 <span class="attr">#[cfg(windows)]
@@ -3829,33 +3831,33 @@
     // while in Rust they are WTF-8. As such, we need to convert to a UTF-8 string.
     // This conversion can fail, see https://simonsapin.github.io/wtf-8/#converting-wtf-8-utf-8
     //
-    // It&#39;s not clear what we&#39;re supposed to do if it fails: the OS string is not
-    // representable in UTF-8 and thus can&#39;t possibly be passed to GLib.
+    // It's not clear what we're supposed to do if it fails: the OS string is not
+    // representable in UTF-8 and thus can't possibly be passed to GLib.
     // Passing NULL or the empty string to GLib can lead to undefined behaviour, so
     // the only safe option seems to be to simply panic here.
     </span><span class="kw">let </span>os_str = s
         .to_str()
-        .expect(<span class="string">&quot;OS String can&#39;t be represented as UTF-8&quot;</span>)
+        .expect(<span class="string">"OS String can't be represented as UTF-8"</span>)
         .to_owned();
 
-    CString::new(os_str.as_bytes()).expect(<span class="string">&quot;Invalid OS string with NUL bytes&quot;</span>)
+    CString::new(os_str.as_bytes()).expect(<span class="string">"Invalid OS string with NUL bytes"</span>)
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#736-743">path_to_c</a>(<a class="self" href="#806">self</a>);
         <a href="#255-258">Stash</a>(<a href="#807">tmp</a>.as_ptr(), <a href="#807">tmp</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#736-743">path_to_c</a>(<a class="self" href="#816">self</a>);
         <a href="#255-258">Stash</a>(<a href="#817">tmp</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span>c_char, <a href="#817">tmp</a>)
     }
@@ -3867,21 +3869,21 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#736-743">path_to_c</a>(<a class="self" href="#832">self</a>);
         <a href="#255-258">Stash</a>(<a href="#833">tmp</a>.as_ptr(), <a href="#833">tmp</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#736-743">path_to_c</a>(<a class="self" href="#842">self</a>);
         <a href="#255-258">Stash</a>(<a href="#843">tmp</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span>c_char, <a href="#843">tmp</a>)
     }
@@ -3901,21 +3903,21 @@
     <span class="kw">type </span>GlibType = <span class="kw-2">*mut </span>c_char;
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#774-782">os_str_to_c</a>(<a class="self" href="#866">self</a>);
         <a href="#255-258">Stash</a>(<a href="#867">tmp</a>.as_ptr(), <a href="#867">tmp</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#774-782">os_str_to_c</a>(<a class="self" href="#876">self</a>);
         <a href="#255-258">Stash</a>(<a href="#877">tmp</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span>c_char, <a href="#877">tmp</a>)
     }
@@ -3927,21 +3929,21 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">OsString</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">OsString</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#774-782">os_str_to_c</a>(<a class="self" href="#892">self</a>);
         <a href="#255-258">Stash</a>(<a href="#893">tmp</a>.as_ptr(), <a href="#893">tmp</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">OsString</a> {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char&gt; <span class="kw">for </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">OsString</a> {
     <span class="kw">type </span>Storage = <a href="https://doc.rust-lang.org/nightly/alloc/ffi/c_str/struct.CString.html">CString</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>c_char, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>tmp = <a href="#774-782">os_str_to_c</a>(<a class="self" href="#902">self</a>);
         <a href="#255-258">Stash</a>(<a href="#903">tmp</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span>c_char, <a href="#903">tmp</a>)
     }
@@ -3961,32 +3963,32 @@
     <span class="kw">type </span>GlibType = <span class="kw-2">*mut </span>c_char;
 }
 
-<span class="kw">pub trait </span><a href="../../glib/translate/trait.ToGlibContainerFromSlice.html">ToGlibContainerFromSlice</a>&lt;<span class="lifetime">&#39;a</span>, P&gt;
+<span class="kw">pub trait </span><a href="../../glib/translate/trait.ToGlibContainerFromSlice.html">ToGlibContainerFromSlice</a>&lt;<span class="lifetime">'a</span>, P&gt;
 <span class="kw">where
     </span><span class="self">Self</span>: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a>,
 {
     <span class="kw">type </span>Storage;
 
     <span class="attr">#[allow(clippy::wrong_self_convention)]
-    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="self">Self</span>]) -&gt; (P, <span class="self">Self</span>::Storage);
+    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="self">Self</span>]) -&gt; (P, <span class="self">Self</span>::Storage);
     <span class="attr">#[allow(clippy::wrong_self_convention)]
-    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="self">Self</span>]) -&gt; (P, <span class="self">Self</span>::Storage);
+    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="self">Self</span>]) -&gt; (P, <span class="self">Self</span>::Storage);
     <span class="attr">#[allow(clippy::wrong_self_convention)]
     </span><span class="kw">fn </span>to_glib_full_from_slice(t: <span class="kw-2">&amp;</span>[<span class="self">Self</span>]) -&gt; P;
 }
 
 <span class="macro">macro_rules! </span>impl_to_glib_container_from_slice_fundamental {
     (<span class="macro-nonterminal">$name</span>:ty) =&gt; {
-        <span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span><span class="macro-nonterminal">$name</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$name </span>{
-            <span class="kw">type </span>Storage = std::marker::PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="macro-nonterminal">$name</span>]&gt;;
+        <span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><span class="macro-nonterminal">$name</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$name </span>{
+            <span class="kw">type </span>Storage = std::marker::PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="macro-nonterminal">$name</span>]&gt;;
 
             <span class="attr">#[inline]
-            </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$name</span>, <span class="self">Self</span>::Storage) {
+            </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$name</span>, <span class="self">Self</span>::Storage) {
                 (t.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="macro-nonterminal">$name</span>, std::marker::PhantomData)
             }
 
             <span class="attr">#[inline]
-            </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$name</span>, <span class="self">Self</span>::Storage) {
+            </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$name</span>, <span class="self">Self</span>::Storage) {
                 (
                     ToGlibContainerFromSlice::to_glib_full_from_slice(t),
                     std::marker::PhantomData,
@@ -4022,10 +4024,10 @@
 
 <span class="macro">macro_rules! </span>impl_to_glib_container_from_slice_string {
     (<span class="macro-nonterminal">$name</span>:ty, <span class="macro-nonterminal">$ffi_name</span>:ty) =&gt; {
-        <span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_name</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$name </span>{
-            <span class="kw">type </span>Storage = (Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$ffi_name</span>, <span class="macro-nonterminal">$name</span>&gt;&gt;, <span class="prelude-ty">Option</span>&lt;Vec&lt;<span class="macro-nonterminal">$ffi_name</span>&gt;&gt;);
+        <span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_name</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$name </span>{
+            <span class="kw">type </span>Storage = (Vec&lt;Stash&lt;<span class="lifetime">'a</span>, <span class="macro-nonterminal">$ffi_name</span>, <span class="macro-nonterminal">$name</span>&gt;&gt;, <span class="prelude-ty">Option</span>&lt;Vec&lt;<span class="macro-nonterminal">$ffi_name</span>&gt;&gt;);
 
-            <span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
+            <span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
                 <span class="kw">let </span>v: Vec&lt;<span class="kw">_</span>&gt; = t.iter().map(ToGlibPtr::to_glib_none).collect();
                 <span class="kw">let </span><span class="kw-2">mut </span>v_ptr: Vec&lt;<span class="kw">_</span>&gt; = v.iter().map(|s| s.<span class="number">0</span>).collect();
                 v_ptr.push(ptr::null_mut() <span class="kw">as </span><span class="macro-nonterminal">$ffi_name</span>);
@@ -4033,7 +4035,7 @@
                 (v_ptr.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_name</span>, (v, <span class="prelude-val">Some</span>(v_ptr)))
             }
 
-            <span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
+            <span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
                 <span class="kw">let </span>v: Vec&lt;<span class="kw">_</span>&gt; = t.iter().map(ToGlibPtr::to_glib_none).collect();
 
                 <span class="kw">let </span>v_ptr = <span class="kw">unsafe </span>{
@@ -4065,10 +4067,10 @@
                 }
             }
         }
-        <span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$name </span>{
-            <span class="kw">type </span>Storage = (Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$ffi_name</span>, <span class="macro-nonterminal">$name</span>&gt;&gt;, <span class="prelude-ty">Option</span>&lt;Vec&lt;<span class="macro-nonterminal">$ffi_name</span>&gt;&gt;);
+        <span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$name </span>{
+            <span class="kw">type </span>Storage = (Vec&lt;Stash&lt;<span class="lifetime">'a</span>, <span class="macro-nonterminal">$ffi_name</span>, <span class="macro-nonterminal">$name</span>&gt;&gt;, <span class="prelude-ty">Option</span>&lt;Vec&lt;<span class="macro-nonterminal">$ffi_name</span>&gt;&gt;);
 
-            <span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
+            <span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
                 <span class="kw">let </span>v: Vec&lt;<span class="kw">_</span>&gt; = t.iter().map(ToGlibPtr::to_glib_none).collect();
                 <span class="kw">let </span><span class="kw-2">mut </span>v_ptr: Vec&lt;<span class="kw">_</span>&gt; = v.iter().map(|s| s.<span class="number">0</span>).collect();
                 v_ptr.push(ptr::null_mut() <span class="kw">as </span><span class="macro-nonterminal">$ffi_name</span>);
@@ -4076,7 +4078,7 @@
                 (v_ptr.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>, (v, <span class="prelude-val">Some</span>(v_ptr)))
             }
 
-            <span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
+            <span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="macro-nonterminal">$name</span>]) -&gt; (<span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>, <span class="self">Self</span>::Storage) {
                 <span class="kw">let </span>v: Vec&lt;<span class="kw">_</span>&gt; = t.iter().map(ToGlibPtr::to_glib_none).collect();
 
                 <span class="kw">let </span>v_ptr = <span class="kw">unsafe </span>{
@@ -4111,32 +4113,32 @@
     };
 }
 
-<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <span class="kw-2">*mut </span>c_char);
-<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <span class="kw-2">*const </span>c_char);
+<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <span class="kw-2">*mut </span>c_char);
+<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <span class="kw-2">*const </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <span class="kw-2">*mut </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <span class="kw-2">*const </span>c_char);
-<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a>, <span class="kw-2">*mut </span>c_char);
-<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a>, <span class="kw-2">*const </span>c_char);
+<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a>, <span class="kw-2">*mut </span>c_char);
+<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a>, <span class="kw-2">*const </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a>, <span class="kw-2">*mut </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a>, <span class="kw-2">*const </span>c_char);
-<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a>, <span class="kw-2">*mut </span>c_char);
-<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a>, <span class="kw-2">*const </span>c_char);
+<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a>, <span class="kw-2">*mut </span>c_char);
+<a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">OsStr</a>, <span class="kw-2">*const </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">OsString</a>, <span class="kw-2">*mut </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">OsString</a>, <span class="kw-2">*const </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <span class="kw-2">*mut </span>c_char);
 <a class="macro" href="#981-1070">impl_to_glib_container_from_slice_string!</a>(<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <span class="kw-2">*const </span>c_char);
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GList&gt; <span class="kw">for </span>T
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GList&gt; <span class="kw">for </span>T
 <span class="kw">where
-    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
+    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
 {
     <span class="kw">type </span>Storage = (
         <span class="prelude-ty">Option</span>&lt;<a href="#1160">List</a>&gt;,
-        Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
+        Vec&lt;Stash&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
     );
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>stash_vec: Vec&lt;<span class="kw">_</span>&gt; = <a href="#1097">t</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">rev</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(<a href="#437">ToGlibPtr::to_glib_none</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
         <span class="kw">let </span><span class="kw-2">mut </span>list: <span class="kw-2">*mut </span>ffi::GList = ptr::null_mut();
         <span class="kw">unsafe </span>{
@@ -4149,7 +4151,7 @@
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>stash_vec: Vec&lt;<span class="kw">_</span>&gt; = <a href="#1110">t</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">rev</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(<a href="#437">ToGlibPtr::to_glib_none</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
         <span class="kw">let </span><span class="kw-2">mut </span>list: <span class="kw-2">*mut </span>ffi::GList = ptr::null_mut();
         <span class="kw">unsafe </span>{
@@ -4172,23 +4174,23 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>ffi::GList&gt; <span class="kw">for </span>T
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>ffi::GList&gt; <span class="kw">for </span>T
 <span class="kw">where
-    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
+    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
 {
     <span class="kw">type </span>Storage = (
         <span class="prelude-ty">Option</span>&lt;<a href="#1160">List</a>&gt;,
-        Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
+        Vec&lt;Stash&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
     );
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GList, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>(list, stash) = ToGlibContainerFromSlice::&lt;<span class="kw-2">*mut </span>ffi::GList&gt;::to_glib_none_from_slice(<a href="#1143">t</a>);
         (<a href="#1144">list</a> <span class="kw">as </span><span class="kw-2">*const </span>ffi::GList, <a href="#1144">stash</a>)
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container_from_slice(_t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_container_from_slice(_t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GList, <span class="self">Self</span>::Storage) {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
@@ -4198,7 +4200,7 @@
     }
 }
 
-<span class="attr">#[doc(alias = <span class="string">&quot;GList&quot;</span>)]
+<span class="attr">#[doc(alias = <span class="string">"GList"</span>)]
 </span><span class="kw">pub struct </span><a href="../../glib/translate/struct.List.html">List</a>(ptr::NonNull&lt;ffi::GList&gt;);
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span><a href="#1160">List</a> {
@@ -4208,17 +4210,17 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GSList&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GSList&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span>T
 <span class="kw">where
-    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
+    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
 {
     <span class="kw">type </span>Storage = (
         <span class="prelude-ty">Option</span>&lt;<a href="#1244">SList</a>&gt;,
-        Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T&gt;&gt;,
+        Vec&lt;Stash&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, <span class="kw-2">&amp;</span><span class="lifetime">'a </span>T&gt;&gt;,
     );
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T]) -&gt; (<span class="kw-2">*mut </span>ffi::GSList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T]) -&gt; (<span class="kw-2">*mut </span>ffi::GSList, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>stash_vec: Vec&lt;<span class="kw">_</span>&gt; = <a href="#1179">t</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">rev</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(<a href="#437">ToGlibPtr::to_glib_none</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
         <span class="kw">let </span><span class="kw-2">mut </span>list: <span class="kw-2">*mut </span>ffi::GSList = ptr::null_mut();
         <span class="kw">unsafe </span>{
@@ -4232,7 +4234,7 @@
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T]) -&gt; (<span class="kw-2">*mut </span>ffi::GSList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T]) -&gt; (<span class="kw-2">*mut </span>ffi::GSList, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>stash_vec: Vec&lt;<span class="kw">_</span>&gt; = <a href="#1193">t</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">rev</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(<a href="#437">ToGlibPtr::to_glib_none</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
         <span class="kw">let </span><span class="kw-2">mut </span>list: <span class="kw-2">*mut </span>ffi::GSList = ptr::null_mut();
         <span class="kw">unsafe </span>{
@@ -4244,7 +4246,7 @@
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_full_from_slice(t: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T]) -&gt; <span class="kw-2">*mut </span>ffi::GSList {
+    </span><span class="kw">fn </span>to_glib_full_from_slice(t: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T]) -&gt; <span class="kw-2">*mut </span>ffi::GSList {
         <span class="kw">let </span><span class="kw-2">mut </span>list: <span class="kw-2">*mut </span>ffi::GSList = ptr::null_mut();
         <span class="kw">unsafe </span>{
             <span class="kw">for </span>ptr <span class="kw">in </span>t.iter().rev().map(ToGlibPtr::to_glib_full) {
@@ -4255,34 +4257,34 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>ffi::GSList&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>ffi::GSList&gt; <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span>T
 <span class="kw">where
-    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
+    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
 {
     <span class="kw">type </span>Storage = (
         <span class="prelude-ty">Option</span>&lt;<a href="#1244">SList</a>&gt;,
-        Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T&gt;&gt;,
+        Vec&lt;Stash&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, <span class="kw-2">&amp;</span><span class="lifetime">'a </span>T&gt;&gt;,
     );
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T]) -&gt; (<span class="kw-2">*const </span>ffi::GSList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T]) -&gt; (<span class="kw-2">*const </span>ffi::GSList, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>(list, stash) =
             ToGlibContainerFromSlice::&lt;<span class="kw-2">*mut </span>ffi::GSList&gt;::to_glib_none_from_slice(<a href="#1226">t</a>);
         (<a href="#1227">list</a> <span class="kw">as </span><span class="kw-2">*const </span>ffi::GSList, <a href="#1227">stash</a>)
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container_from_slice(_t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T]) -&gt; (<span class="kw-2">*const </span>ffi::GSList, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_container_from_slice(_t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T]) -&gt; (<span class="kw-2">*const </span>ffi::GSList, <span class="self">Self</span>::Storage) {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_full_from_slice(_t: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T]) -&gt; <span class="kw-2">*const </span>ffi::GSList {
+    </span><span class="kw">fn </span>to_glib_full_from_slice(_t: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T]) -&gt; <span class="kw-2">*const </span>ffi::GSList {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 }
 
-<span class="attr">#[doc(alias = <span class="string">&quot;GSList&quot;</span>)]
+<span class="attr">#[doc(alias = <span class="string">"GSList"</span>)]
 </span><span class="kw">pub struct </span><a href="../../glib/translate/struct.SList.html">SList</a>(ptr::NonNull&lt;ffi::GSList&gt;);
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span><a href="#1244">SList</a> {
@@ -4292,17 +4294,17 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, P: <a href="#153-157">Ptr</a>, T: ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, P&gt;&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, P&gt; <span class="kw">for </span>[T] {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, P: <a href="#153-157">Ptr</a>, T: ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, P&gt;&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, P&gt; <span class="kw">for </span>[T] {
     <span class="kw">type </span>Storage = T::Storage;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, P, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, P, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>result = <a href="#929">ToGlibContainerFromSlice::to_glib_none_from_slice</a>(<a class="self" href="#1257">self</a>);
         <a href="#255-258">Stash</a>(<a href="#1258">result</a>.<span class="number">0</span>, <a href="#1258">result</a>.<span class="number">1</span>)
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, P, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_container(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, P, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>result = <a href="#931">ToGlibContainerFromSlice::to_glib_container_from_slice</a>(<a class="self" href="#1263">self</a>);
         <a href="#255-258">Stash</a>(<a href="#1264">result</a>.<span class="number">0</span>, <a href="#1264">result</a>.<span class="number">1</span>)
     }
@@ -4314,11 +4316,11 @@
 }
 
 <span class="attr">#[allow(clippy::implicit_hasher)]
-</span><span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GHashTable&gt; <span class="kw">for </span>HashMap&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
+</span><span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GHashTable&gt; <span class="kw">for </span>HashMap&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
     <span class="kw">type </span>Storage = <a href="#1304">HashTable</a>;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GHashTable, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GHashTable, <span class="self">Self</span>&gt; {
         <span class="kw">let </span>ptr = <a class="self" href="#1279">self</a>.<a href="#452-454">to_glib_full</a>();
         <a href="#255-258">Stash</a>(<a href="#1280">ptr</a>, <a href="#1304">HashTable</a>(<span class="kw">unsafe </span>{ ptr::NonNull::new_unchecked(<a href="#1280">ptr</a>) }))
     }
@@ -4342,7 +4344,7 @@
     }
 }
 
-<span class="attr">#[doc(alias = <span class="string">&quot;GHashTable&quot;</span>)]
+<span class="attr">#[doc(alias = <span class="string">"GHashTable"</span>)]
 </span><span class="kw">pub struct </span><a href="../../glib/translate/struct.HashTable.html">HashTable</a>(ptr::NonNull&lt;ffi::GHashTable&gt;);
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span><a href="#1304">HashTable</a> {
@@ -4352,7 +4354,7 @@
     }
 }
 
-<span class="attr">#[doc(alias = <span class="string">&quot;GPtrArray&quot;</span>)]
+<span class="attr">#[doc(alias = <span class="string">"GPtrArray"</span>)]
 </span><span class="kw">pub struct </span><a href="../../glib/translate/struct.PtrArray.html">PtrArray</a>(ptr::NonNull&lt;ffi::GPtrArray&gt;);
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span><a href="#1314">PtrArray</a> {
@@ -4364,17 +4366,17 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GPtrArray&gt; <span class="kw">for </span>T
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GPtrArray&gt; <span class="kw">for </span>T
 <span class="kw">where
-    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
+    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
 {
     <span class="kw">type </span>Storage = (
         <span class="prelude-ty">Option</span>&lt;<a href="#1314">PtrArray</a>&gt;,
-        Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
+        Vec&lt;Stash&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
     );
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>stash_vec: Vec&lt;<span class="kw">_</span>&gt; = <a href="#1335">t</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(<a href="#437">ToGlibPtr::to_glib_none</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
         <span class="kw">let </span>arr = <span class="kw">unsafe </span>{ ffi::g_ptr_array_sized_new(<a href="#1335">t</a>.len() <span class="kw">as _</span>) };
         <span class="kw">unsafe </span>{
@@ -4393,7 +4395,7 @@
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_container_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*mut </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>stash_vec: Vec&lt;<span class="kw">_</span>&gt; = <a href="#1354">t</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(<a href="#437">ToGlibPtr::to_glib_none</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
         <span class="kw">let </span>arr = <span class="kw">unsafe </span>{ ffi::g_ptr_array_sized_new(<a href="#1354">t</a>.len() <span class="kw">as _</span>) };
         <span class="kw">unsafe </span>{
@@ -4416,24 +4418,24 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>ffi::GPtrArray&gt; <span class="kw">for </span>T
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T&gt; ToGlibContainerFromSlice&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>ffi::GPtrArray&gt; <span class="kw">for </span>T
 <span class="kw">where
-    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
+    </span>T: <a href="#420-422">GlibPtrDefault</a> + ToGlibPtr&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;,
 {
     <span class="kw">type </span>Storage = (
         <span class="prelude-ty">Option</span>&lt;<a href="#1314">PtrArray</a>&gt;,
-        Vec&lt;Stash&lt;<span class="lifetime">&#39;a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
+        Vec&lt;Stash&lt;<span class="lifetime">'a</span>, &lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType, T&gt;&gt;,
     );
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_none_from_slice(t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
         <span class="kw">let </span>(arr, stash) =
             ToGlibContainerFromSlice::&lt;<span class="kw-2">*mut </span>ffi::GPtrArray&gt;::to_glib_none_from_slice(<a href="#1387">t</a>);
         (<a href="#1388">arr</a> <span class="kw">as </span><span class="kw-2">*const </span>ffi::GPtrArray, <a href="#1388">stash</a>)
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container_from_slice(_t: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
+    </span><span class="kw">fn </span>to_glib_container_from_slice(_t: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[T]) -&gt; (<span class="kw-2">*const </span>ffi::GPtrArray, <span class="self">Self</span>::Storage) {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
@@ -4492,8 +4494,8 @@
 </span><span class="kw">pub struct </span><a href="../../glib/translate/struct.GlibNoneError.html">GlibNoneError</a>;
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html">fmt::Display</a> <span class="kw">for </span><a href="#1450">GlibNoneError</a> {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, fmt: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">fmt::Result</a> {
-        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.write.html">write!</a>(<a href="#1453">fmt</a>, <span class="string">&quot;glib value is None&quot;</span>)
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, fmt: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">fmt::Result</a> {
+        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.write.html">write!</a>(<a href="#1453">fmt</a>, <span class="string">"glib value is None"</span>)
     }
 }
 
@@ -4502,7 +4504,7 @@
 <span class="kw">impl</span>&lt;G: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>, T: TryFromGlib&lt;G, Error = <a href="#1450">GlibNoneError</a>&gt;&gt; FromGlib&lt;G&gt; <span class="kw">for </span><span class="prelude-ty">Option</span>&lt;T&gt; {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(val: G) -&gt; <span class="self">Self </span>{
-        T::try_from_glib(<a href="#1462">val</a>).ok()
+        <a href="#1435">T::try_from_glib</a>(<a href="#1462">val</a>).ok()
     }
 }
 
@@ -4540,18 +4542,18 @@
 <span class="kw">impl</span>&lt;I: <a href="https://doc.rust-lang.org/nightly/core/error/trait.Error.html">Error</a>&gt; From&lt;I&gt; <span class="kw">for </span>GlibNoneOrInvalidError&lt;I&gt; {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>from(invalid: I) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::Invalid(<a href="#1500">invalid</a>)
+        <a href="#1471"><span class="self">Self</span>::Invalid</a>(<a href="#1500">invalid</a>)
     }
 }
 
 <span class="kw">impl</span>&lt;I: <a href="https://doc.rust-lang.org/nightly/core/error/trait.Error.html">Error</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html">fmt::Display</a> <span class="kw">for </span>GlibNoneOrInvalidError&lt;I&gt; {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, fmt: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">fmt::Result</a> {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, fmt: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">fmt::Result</a> {
         <span class="kw">match </span><span class="self"><a href="#1506">self</a> </span>{
             <span class="self">Self</span>::Invalid(err) =&gt; {
-                <span class="macro">write!</span>(fmt, <span class="string">&quot;glib value is invalid: &quot;</span>)<span class="question-mark">?</span>;
+                <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.write.html">write!</a>(<a href="#1506">fmt</a>, <span class="string">"glib value is invalid: "</span>)<span class="question-mark">?</span>;
                 <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html">fmt::Display::fmt</a>(<a href="#1508">err</a>, <a href="#1506">fmt</a>)
             }
-            <span class="self">Self</span>::None =&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.write.html">write!</a>(<a href="#1506">fmt</a>, <span class="string">&quot;glib value is None&quot;</span>),
+            <span class="self">Self</span>::None =&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.write.html">write!</a>(<a href="#1506">fmt</a>, <span class="string">"glib value is None"</span>),
         }
     }
 }
@@ -4563,7 +4565,7 @@
 {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib(val: G) -&gt; <span class="self">Self </span>{
-        <span class="kw">match </span>T::try_from_glib(<a href="#1523">val</a>) {
+        <span class="kw">match </span><a href="#1435">T::try_from_glib</a>(<a href="#1523">val</a>) {
             <span class="prelude-val">Ok</span>(value) =&gt; <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<a href="#1525">value</a>)),
             <span class="prelude-val">Err</span>(<a href="#1472">GlibNoneOrInvalidError::None</a>) =&gt; <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>),
             <span class="prelude-val">Err</span>(<a href="#1471">GlibNoneOrInvalidError::Invalid</a>(err)) =&gt; <span class="prelude-val">Err</span>(<a href="#1527">err</a>),
@@ -4578,7 +4580,7 @@
 /// This is suitable for floating references, which become strong references.
 /// It is also suitable for acquiring non-gobject values, like `gchar*`.
 ///
-/// &lt;a name=&quot;safety_points&quot;&gt;&lt;/a&gt;
+/// &lt;a name="safety_points"&gt;&lt;/a&gt;
 /// # Safety
 ///
 /// The implementation of this trait should acquire a reference to the value
@@ -4603,7 +4605,7 @@
 /// Because ownership can only be transferred if something is already referenced,
 /// this is unsuitable for floating references.
 ///
-/// &lt;a name=&quot;safety_points&quot;&gt;&lt;/a&gt;
+/// &lt;a name="safety_points"&gt;&lt;/a&gt;
 /// # Safety
 ///
 /// The implementation of this trait should not alter the reference count
@@ -4629,7 +4631,7 @@
 /// and called procedures must not store any references to the underlying data.
 /// Safe Rust code must never obtain a mutable Rust reference.
 ///
-/// &lt;a name=&quot;safety_points&quot;&gt;&lt;/a&gt;
+/// &lt;a name="safety_points"&gt;&lt;/a&gt;
 /// # Safety
 ///
 /// The implementation of this trait as well as the returned type
@@ -4697,10 +4699,10 @@
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_borrow(ptr: P) -&gt; Borrowed&lt;<span class="prelude-ty">Option</span>&lt;T&gt;&gt; {
         <span class="kw">if </span>ptr.is_null() {
-            Borrowed::new(<span class="prelude-val">None</span>)
+            <a href="#279-281">Borrowed::new</a>(<span class="prelude-val">None</span>)
         } <span class="kw">else </span>{
-            <span class="kw">let </span>val = T::from_glib_borrow(<a href="#1656">ptr</a>);
-            Borrowed::new(<span class="prelude-val">Some</span>(<a href="#1660">val</a>.<a href="#291-293">into_inner</a>()))
+            <span class="kw">let </span>val = <a href="#1611-1613">T::from_glib_borrow</a>(<a href="#1656">ptr</a>);
+            <a href="#279-281">Borrowed::new</a>(<span class="prelude-val">Some</span>(<a href="#1660">val</a>.<a href="#291-293">into_inner</a>()))
         }
     }
 }
@@ -4760,7 +4762,7 @@
     <span class="comment">// GLib paths on UNIX are always in the local encoding, which can be
     // UTF-8 or anything else really, but is always a NUL-terminated string
     // and must not contain any other NUL bytes
-    </span>OsString::from_vec(CStr::from_ptr(<a href="#1715">ptr</a>).to_bytes().to_vec()).<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()
+    </span><a href="https://doc.rust-lang.org/nightly/std/os/unix/ffi/os_str/trait.OsStringExt.html">OsString::from_vec</a>(CStr::from_ptr(<a href="#1715">ptr</a>).to_bytes().to_vec()).<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()
 }
 
 <span class="attr">#[cfg(windows)]
@@ -4772,7 +4774,7 @@
     // in the C library, the conversion from UTF-8 can never fail so we can
     // safely panic here if that ever happens
     </span>String::from_utf8(CStr::from_ptr(ptr).to_bytes().into())
-        .expect(<span class="string">&quot;Invalid, non-UTF8 path&quot;</span>)
+        .expect(<span class="string">"Invalid, non-UTF8 path"</span>)
         .into()
 }
 
@@ -4783,7 +4785,7 @@
     <span class="comment">// GLib OS string (environment strings) on UNIX are always in the local encoding,
     // which can be UTF-8 or anything else really, but is always a NUL-terminated string
     // and must not contain any other NUL bytes
-    </span>OsString::from_vec(CStr::from_ptr(<a href="#1738">ptr</a>).to_bytes().to_vec())
+    </span><a href="https://doc.rust-lang.org/nightly/std/os/unix/ffi/os_str/trait.OsStringExt.html">OsString::from_vec</a>(CStr::from_ptr(<a href="#1738">ptr</a>).to_bytes().to_vec())
 }
 
 <span class="attr">#[cfg(windows)]
@@ -4796,7 +4798,7 @@
     // in the C library, the conversion from UTF-8 can never fail so we can
     // safely panic here if that ever happens
     </span>String::from_utf8(CStr::from_ptr(ptr).to_bytes().into())
-        .expect(<span class="string">&quot;Invalid, non-UTF8 path&quot;</span>)
+        .expect(<span class="string">"Invalid, non-UTF8 path"</span>)
         .into()
 }
 
@@ -4838,7 +4840,7 @@
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">unsafe fn </span>c_to_path_buf_num(ptr: <span class="kw-2">*const </span>c_char, num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">PathBuf</a> {
     <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!ptr.is_null());
     <span class="kw">let </span>slice = <a href="https://doc.rust-lang.org/nightly/core/slice/raw/fn.from_raw_parts.html">std::slice::from_raw_parts</a>(<a href="#1796">ptr</a> <span class="kw">as </span><span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="#1796">num</a>);
-    OsString::from_vec(<a href="#1798">slice</a>.to_vec()).<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()
+    <a href="https://doc.rust-lang.org/nightly/std/os/unix/ffi/os_str/trait.OsStringExt.html">OsString::from_vec</a>(<a href="#1798">slice</a>.to_vec()).<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()
 }
 
 <span class="attr">#[cfg(windows)]
@@ -4846,7 +4848,7 @@
     <span class="macro">debug_assert!</span>(!ptr.is_null());
     <span class="kw">let </span>slice = std::slice::from_raw_parts(ptr <span class="kw">as </span><span class="kw-2">*const </span>u8, num);
     String::from_utf8(slice.into())
-        .expect(<span class="string">&quot;Invalid, non-UTF8 path&quot;</span>)
+        .expect(<span class="string">"Invalid, non-UTF8 path"</span>)
         .into()
 }
 
@@ -5022,12 +5024,12 @@
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::gboolean, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;<span class="self">Self</span>&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>();
     }
 
     <span class="kw">unsafe fn </span>from_glib_full_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::gboolean, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;<span class="self">Self</span>&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>();
     }
 }
@@ -5068,12 +5070,12 @@
             }
 
             <span class="kw">unsafe fn </span>from_glib_container_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span><span class="macro-nonterminal">$name</span>, <span class="kw">_</span>: usize) -&gt; Vec&lt;<span class="self">Self</span>&gt; {
-                <span class="comment">// Can&#39;t really free a *const
+                <span class="comment">// Can't really free a *const
                 </span><span class="macro">unimplemented!</span>();
             }
 
             <span class="kw">unsafe fn </span>from_glib_full_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span><span class="macro-nonterminal">$name</span>, <span class="kw">_</span>: usize) -&gt; Vec&lt;<span class="self">Self</span>&gt; {
-                <span class="comment">// Can&#39;t really free a *const
+                <span class="comment">// Can't really free a *const
                 </span><span class="macro">unimplemented!</span>();
             }
         }
@@ -5128,12 +5130,12 @@
             }
 
             <span class="kw">unsafe fn </span>from_glib_container_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>, <span class="kw">_</span>: usize) -&gt; Vec&lt;<span class="self">Self</span>&gt; {
-                <span class="comment">// Can&#39;t really free a *const
+                <span class="comment">// Can't really free a *const
                 </span><span class="macro">unimplemented!</span>();
             }
 
             <span class="kw">unsafe fn </span>from_glib_full_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_name</span>, <span class="kw">_</span>: usize) -&gt; Vec&lt;<span class="self">Self</span>&gt; {
-                <span class="comment">// Can&#39;t really free a *const
+                <span class="comment">// Can't really free a *const
                 </span><span class="macro">unimplemented!</span>();
             }
         }
@@ -5433,12 +5435,12 @@
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GList, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
     <span class="kw">unsafe fn </span>from_glib_full_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GList, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 }
@@ -5454,12 +5456,12 @@
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GList) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
     <span class="kw">unsafe fn </span>from_glib_full_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GList) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 }
@@ -5475,12 +5477,12 @@
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GSList, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
     <span class="kw">unsafe fn </span>from_glib_full_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GSList, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 }
@@ -5496,12 +5498,12 @@
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GSList) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
     <span class="kw">unsafe fn </span>from_glib_full_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GSList) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 }
@@ -5524,7 +5526,7 @@
 <span class="attr">#[allow(clippy::implicit_hasher)]
 </span><span class="kw">impl </span>FromGlibPtrContainer&lt;<span class="kw-2">*const </span>c_char, <span class="kw-2">*mut </span>ffi::GHashTable&gt; <span class="kw">for </span>HashMap&lt;<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>&gt; {
     <span class="kw">unsafe fn </span>from_glib_none(ptr: <span class="kw-2">*mut </span>ffi::GHashTable) -&gt; <span class="self">Self </span>{
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>read_string_hash_table(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>read_string_hash_table(
             key: ffi::gpointer,
             value: ffi::gpointer,
             hash_map: ffi::gpointer,
@@ -5640,12 +5642,12 @@
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GPtrArray, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
     <span class="kw">unsafe fn </span>from_glib_full_num_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GPtrArray, <span class="kw">_</span>: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 }
@@ -5661,12 +5663,12 @@
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GPtrArray) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 
     <span class="kw">unsafe fn </span>from_glib_full_as_vec(<span class="kw">_</span>: <span class="kw-2">*const </span>ffi::GPtrArray) -&gt; Vec&lt;T&gt; {
-        <span class="comment">// Can&#39;t really free a *const
+        <span class="comment">// Can't really free a *const
         </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unimplemented.html">unimplemented!</a>()
     }
 }
@@ -5721,9 +5723,9 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>string() {
-        <span class="kw">let </span>s = <span class="string">&quot;ABC&quot;</span>;
-        <span class="kw">let </span>owned = <span class="string">&quot;ABC&quot;</span>.to_string();
-        <span class="kw">let </span>cstring = CString::new(<span class="string">&quot;ABC&quot;</span>).unwrap();
+        <span class="kw">let </span>s = <span class="string">"ABC"</span>;
+        <span class="kw">let </span>owned = <span class="string">"ABC"</span>.to_string();
+        <span class="kw">let </span>cstring = CString::new(<span class="string">"ABC"</span>).unwrap();
 
         <span class="kw">let </span>stash = s.to_glib_none();
         <span class="macro">assert_eq!</span>(<span class="kw">unsafe </span>{ CStr::from_ptr(stash.<span class="number">0</span>) }, cstring.as_c_str());
@@ -5748,19 +5750,19 @@
     <span class="attr">#[test]
     </span><span class="kw">fn </span>string_hash_map() {
         <span class="kw">let </span><span class="kw-2">mut </span>map = HashMap::new();
-        map.insert(<span class="string">&quot;A&quot;</span>.into(), <span class="string">&quot;1&quot;</span>.into());
-        map.insert(<span class="string">&quot;B&quot;</span>.into(), <span class="string">&quot;2&quot;</span>.into());
-        map.insert(<span class="string">&quot;C&quot;</span>.into(), <span class="string">&quot;3&quot;</span>.into());
+        map.insert(<span class="string">"A"</span>.into(), <span class="string">"1"</span>.into());
+        map.insert(<span class="string">"B"</span>.into(), <span class="string">"2"</span>.into());
+        map.insert(<span class="string">"C"</span>.into(), <span class="string">"3"</span>.into());
         <span class="kw">let </span>ptr: <span class="kw-2">*mut </span>ffi::GHashTable = map.to_glib_full();
         <span class="kw">let </span>map = <span class="kw">unsafe </span>{ HashMap::from_glib_full(ptr) };
-        <span class="macro">assert_eq!</span>(map.get(<span class="string">&quot;A&quot;</span>), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">&quot;1&quot;</span>.into()));
-        <span class="macro">assert_eq!</span>(map.get(<span class="string">&quot;B&quot;</span>), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">&quot;2&quot;</span>.into()));
-        <span class="macro">assert_eq!</span>(map.get(<span class="string">&quot;C&quot;</span>), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">&quot;3&quot;</span>.into()));
+        <span class="macro">assert_eq!</span>(map.get(<span class="string">"A"</span>), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">"1"</span>.into()));
+        <span class="macro">assert_eq!</span>(map.get(<span class="string">"B"</span>), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">"2"</span>.into()));
+        <span class="macro">assert_eq!</span>(map.get(<span class="string">"C"</span>), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">"3"</span>.into()));
     }
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>string_array() {
-        <span class="kw">let </span>v = <span class="macro">vec!</span>[<span class="string">&quot;A&quot;</span>.to_string(), <span class="string">&quot;B&quot;</span>.to_string(), <span class="string">&quot;C&quot;</span>.to_string()];
+        <span class="kw">let </span>v = <span class="macro">vec!</span>[<span class="string">"A"</span>.to_string(), <span class="string">"B"</span>.to_string(), <span class="string">"C"</span>.to_string()];
         <span class="kw">let </span>stash = v.to_glib_none();
         <span class="kw">let </span>ptr: <span class="kw-2">*mut *mut </span>c_char = stash.<span class="number">0</span>;
         <span class="kw">let </span>ptr_copy = <span class="kw">unsafe </span>{ ffi::g_strdupv(ptr) };
@@ -5771,7 +5773,7 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>gstring_array() {
-        <span class="kw">let </span>v = <span class="macro">vec!</span>[<span class="string">&quot;A&quot;</span>.to_string(), <span class="string">&quot;B&quot;</span>.to_string(), <span class="string">&quot;C&quot;</span>.to_string()];
+        <span class="kw">let </span>v = <span class="macro">vec!</span>[<span class="string">"A"</span>.to_string(), <span class="string">"B"</span>.to_string(), <span class="string">"C"</span>.to_string()];
         <span class="kw">let </span>stash = v.to_glib_none();
         <span class="kw">let </span>ptr: <span class="kw-2">*mut *mut </span>c_char = stash.<span class="number">0</span>;
         <span class="kw">let </span>ptr_copy = <span class="kw">unsafe </span>{ ffi::g_strdupv(ptr) };
@@ -5782,7 +5784,7 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>ptr_array() {
-        <span class="kw">let </span>strings = <span class="kw-2">&amp;</span>[<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>];
+        <span class="kw">let </span>strings = <span class="kw-2">&amp;</span>[<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>];
         <span class="kw">let </span>(ptr, _stash) =
             ToGlibContainerFromSlice::&lt;<span class="kw-2">*mut </span>ffi::GPtrArray&gt;::to_glib_none_from_slice(strings);
         <span class="kw">let </span>v: Vec&lt;GString&gt; = <span class="kw">unsafe </span>{ FromGlibPtrArrayContainerAsVec::from_glib_none_as_vec(ptr) };
@@ -5790,18 +5792,18 @@
     }
 
     <span class="attr">#[test]
-    #[cfg(not(target_os = <span class="string">&quot;macos&quot;</span>))]
+    #[cfg(not(target_os = <span class="string">"macos"</span>))]
     </span><span class="kw">fn </span>test_paths() {
         <span class="kw">let </span>tmp_dir = tempdir().unwrap();
 
         <span class="comment">// Test if passing paths to GLib and getting them back
         // gives us useful results
-        </span><span class="kw">let </span>dir_1 = tmp_dir.path().join(<span class="string">&quot;abcd&quot;</span>);
+        </span><span class="kw">let </span>dir_1 = tmp_dir.path().join(<span class="string">"abcd"</span>);
         fs::create_dir(<span class="kw-2">&amp;</span>dir_1).unwrap();
-        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::path_get_basename(<span class="kw-2">&amp;</span>dir_1), Path::new(<span class="string">&quot;abcd&quot;</span>));
+        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::path_get_basename(<span class="kw-2">&amp;</span>dir_1), Path::new(<span class="string">"abcd"</span>));
         <span class="macro">assert_eq!</span>(
             <span class="kw">crate</span>::path_get_basename(dir_1.canonicalize().unwrap()),
-            Path::new(<span class="string">&quot;abcd&quot;</span>)
+            Path::new(<span class="string">"abcd"</span>)
         );
         <span class="comment">// This currently fails on Windows because C:\\Users\\runneradmin
         // gets shortened to C:\\Users\\RUNNER~1
@@ -5820,12 +5822,12 @@
         ));
 
         <span class="comment">// And test with some non-ASCII characters
-        </span><span class="kw">let </span>dir_2 = tmp_dir.as_ref().join(<span class="string">&quot;øäöü&quot;</span>);
+        </span><span class="kw">let </span>dir_2 = tmp_dir.as_ref().join(<span class="string">"øäöü"</span>);
         fs::create_dir(<span class="kw-2">&amp;</span>dir_2).unwrap();
-        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::path_get_basename(<span class="kw-2">&amp;</span>dir_2), Path::new(<span class="string">&quot;øäöü&quot;</span>));
+        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::path_get_basename(<span class="kw-2">&amp;</span>dir_2), Path::new(<span class="string">"øäöü"</span>));
         <span class="macro">assert_eq!</span>(
             <span class="kw">crate</span>::path_get_basename(dir_2.canonicalize().unwrap()),
-            Path::new(<span class="string">&quot;øäöü&quot;</span>)
+            Path::new(<span class="string">"øäöü"</span>)
         );
         <span class="comment">// This currently fails on Windows because C:\\Users\\runneradmin
         // gets shortened to C:\\Users\\RUNNER~1
@@ -5845,19 +5847,19 @@
     }
 
     <span class="attr">#[test]
-    #[cfg(target_os = <span class="string">&quot;macos&quot;</span>)]
+    #[cfg(target_os = <span class="string">"macos"</span>)]
     </span><span class="kw">fn </span>test_paths() {
         <span class="kw">let </span>t_dir = tempdir().unwrap();
         <span class="kw">let </span>tmp_dir = t_dir.path().canonicalize().unwrap();
 
         <span class="comment">// Test if passing paths to GLib and getting them back
         // gives us useful results
-        </span><span class="kw">let </span>dir_1 = tmp_dir.join(<span class="string">&quot;abcd&quot;</span>);
+        </span><span class="kw">let </span>dir_1 = tmp_dir.join(<span class="string">"abcd"</span>);
         fs::create_dir(<span class="kw-2">&amp;</span>dir_1).unwrap();
-        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::path_get_basename(<span class="kw-2">&amp;</span>dir_1), Path::new(<span class="string">&quot;abcd&quot;</span>));
+        <span class="macro">assert_eq!</span>(<span class="kw">crate</span>::path_get_basename(<span class="kw-2">&amp;</span>dir_1), Path::new(<span class="string">"abcd"</span>));
         <span class="macro">assert_eq!</span>(
             <span class="kw">crate</span>::path_get_basename(dir_1.canonicalize().unwrap()),
-            Path::new(<span class="string">&quot;abcd&quot;</span>)
+            Path::new(<span class="string">"abcd"</span>)
         );
         <span class="macro">assert_eq!</span>(
             <span class="kw">crate</span>::path_get_dirname(dir_1.canonicalize().unwrap()),

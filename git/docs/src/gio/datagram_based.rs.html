@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/datagram_based.rs`."><title>datagram_based.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/datagram_based.rs`."><title>datagram_based.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -487,7 +489,7 @@
     /// # Returns
     ///
     /// a newly allocated [`glib::Source`][crate::glib::Source]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_datagram_based_create_source&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_datagram_based_create_source"</span>)]
     </span><span class="kw">fn </span>create_source&lt;F, C&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         condition: <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>,
@@ -497,26 +499,26 @@
         func: F,
     ) -&gt; <a href="../../glib/auto/source/struct.Source.html">glib::Source</a>
     <span class="kw">where
-        </span>F: FnMut(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>) -&gt; <a href="../../glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> + <span class="lifetime">&#39;static</span>,
+        </span>F: FnMut(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>) -&gt; <a href="../../glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> + <span class="lifetime">'static</span>,
         C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;,
     {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>trampoline&lt;
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>trampoline&lt;
             O: IsA&lt;<a href="auto/datagram_based.rs.html#7-65">DatagramBased</a>&gt;,
-            F: FnMut(<span class="kw-2">&amp;</span>O, <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>) -&gt; <a href="../../glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> + <span class="lifetime">&#39;static</span>,
+            F: FnMut(<span class="kw-2">&amp;</span>O, <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>) -&gt; <a href="../../glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> + <span class="lifetime">'static</span>,
         &gt;(
-            datagram_based: <span class="kw-2">*mut </span>ffi::GDatagramBased,
+            datagram_based: <span class="kw-2">*mut </span><a href="../../gio_sys/struct.GDatagramBased.html">ffi::GDatagramBased</a>,
             condition: glib::ffi::GIOCondition,
-            func: glib::ffi::gpointer,
-        ) -&gt; glib::ffi::gboolean {
+            func: <a href="../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+        ) -&gt; <a href="../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a> {
             <span class="kw">let </span>func: <span class="kw-2">&amp;</span>RefCell&lt;F&gt; = <span class="kw-2">&amp;*</span>(<a href="#57">func</a> <span class="kw">as </span><span class="kw-2">*const </span>RefCell&lt;F&gt;);
             <span class="kw">let </span><span class="kw-2">mut </span>func = <a href="#59">func</a>.borrow_mut();
             (<span class="kw-2">*</span><a href="#60">func</a>)(
-                DatagramBased::from_glib_borrow(<a href="#55">datagram_based</a>).<a href="../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
+                <a href="../../glib/translate/trait.FromGlibPtrBorrow.html">DatagramBased::from_glib_borrow</a>(<a href="#55">datagram_based</a>).<a href="../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
                 from_glib(<a href="#56">condition</a>),
             )
             .<a href="../../glib/translate/trait.IntoGlib.html">into_glib</a>()
         }
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>destroy_closure&lt;F&gt;(ptr: glib::ffi::gpointer) {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>destroy_closure&lt;F&gt;(ptr: <a href="../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>) {
             <span class="kw">let _ </span>= Box::&lt;RefCell&lt;F&gt;&gt;::from_raw(<a href="#67">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
         }
         <span class="kw">let </span>cancellable = <a href="#42">cancellable</a>.map(|c| <a href="#70">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>());
@@ -527,14 +529,14 @@
                 <a href="#41">condition</a>.<a href="../../glib/translate/trait.IntoGlib.html">into_glib</a>(),
                 <a href="#71">gcancellable</a>.<span class="number">0</span>,
             );
-            <span class="kw">let </span>trampoline = trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span>glib::ffi::gpointer;
+            <span class="kw">let </span>trampoline = trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><a href="../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>;
             glib::ffi::g_source_set_callback(
                 <a href="#73">source</a>,
                 <span class="prelude-val">Some</span>(transmute::&lt;
                     <span class="kw">_</span>,
-                    <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(glib::ffi::gpointer) -&gt; glib::ffi::gboolean,
+                    <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<a href="../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>) -&gt; <a href="../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a>,
                 &gt;(<a href="#78">trampoline</a>)),
-                Box::into_raw(Box::new(RefCell::new(<a href="#45">func</a>))) <span class="kw">as </span>glib::ffi::gpointer,
+                Box::into_raw(Box::new(RefCell::new(<a href="#45">func</a>))) <span class="kw">as </span><a href="../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
                 <span class="prelude-val">Some</span>(destroy_closure::&lt;F&gt;),
             );
             glib::ffi::g_source_set_priority(<a href="#73">source</a>, <a href="#44">priority</a>.<a href="../../glib/translate/trait.IntoGlib.html">into_glib</a>());
@@ -552,7 +554,7 @@
         condition: <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
         priority: <a href="../../glib/source/struct.Priority.html">glib::Priority</a>,
-    ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+    ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>&gt; + <span class="lifetime">'static</span>&gt;&gt; {
         <span class="kw">let </span>cancellable: <span class="prelude-ty">Option</span>&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt; = <a href="#101">cancellable</a>.map(|c| <a href="#104">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).cloned();
 
         <span class="kw">let </span>obj = <a class="self" href="#99">self</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
@@ -576,7 +578,7 @@
         condition: <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>C&gt;,
         priority: <a href="../../glib/source/struct.Priority.html">glib::Priority</a>,
-    ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+    ) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>&gt; + <span class="lifetime">'static</span>&gt;&gt; {
         <span class="kw">let </span>cancellable: <span class="prelude-ty">Option</span>&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt; = <a href="#125">cancellable</a>.map(|c| <a href="#128">c</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).cloned();
 
         <span class="kw">let </span>obj = <a class="self" href="#123">self</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
@@ -615,7 +617,7 @@
     /// # Returns
     ///
     /// [`true`] if the condition was met, [`false`] otherwise
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_datagram_based_condition_wait&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_datagram_based_condition_wait"</span>)]
     </span><span class="kw">fn </span>condition_wait(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         condition: <a href="../../glib/auto/flags/struct.IOCondition.html">glib::IOCondition</a>,
@@ -709,8 +711,8 @@
     ///  zero or positive, if the peer closed the connection, or if `num_messages`
     ///  was larger than `UIO_MAXIOV` (1024), in which case the caller may re-try
     ///  to receive the remaining messages.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_datagram_based_receive_messages&quot;</span>)]
-    </span><span class="kw">fn </span>receive_messages&lt;<span class="lifetime">&#39;v</span>, V: IntoIterator&lt;Item = <span class="kw-2">&amp;</span><span class="lifetime">&#39;v </span><span class="kw-2">mut </span>[<span class="kw-2">&amp;</span><span class="lifetime">&#39;v </span><span class="kw-2">mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_datagram_based_receive_messages"</span>)]
+    </span><span class="kw">fn </span>receive_messages&lt;<span class="lifetime">'v</span>, V: IntoIterator&lt;Item = <span class="kw-2">&amp;</span><span class="lifetime">'v </span><span class="kw-2">mut </span>[<span class="kw-2">&amp;</span><span class="lifetime">'v </span><span class="kw-2">mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]]&gt;, C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         messages: <span class="kw-2">&amp;mut </span>[<a href="socket.rs.html#196-201">InputMessage</a>],
         flags: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
@@ -797,7 +799,7 @@
     ///  messages sent may be smaller than `num_messages` if `timeout` is zero
     ///  or positive, or if `num_messages` was larger than `UIO_MAXIOV` (1024), in
     ///  which case the caller may re-try to send the remaining messages.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_datagram_based_send_messages&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_datagram_based_send_messages"</span>)]
     </span><span class="kw">fn </span>send_messages&lt;C: IsA&lt;<a href="auto/cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         messages: <span class="kw-2">&amp;mut </span>[<a href="socket.rs.html#296-301">OutputMessage</a>],

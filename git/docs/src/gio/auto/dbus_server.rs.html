@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/dbus_server.rs`."><title>dbus_server.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/dbus_server.rs`."><title>dbus_server.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -516,7 +518,7 @@
     ///
     /// You are guaranteed that signal handlers for this signal runs
     /// before incoming messages on `connection` are processed. This means
-    /// that it&#39;s suitable to call `g_dbus_connection_register_object()` or
+    /// that it's suitable to call `g_dbus_connection_register_object()` or
     /// similar from the signal handler.
     ///
     ///
@@ -524,8 +526,8 @@
     /// # Implements
     ///
     /// [`trait@glib::ObjectExt`], [`InitableExt`][trait@crate::prelude::InitableExt]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GDBusServer&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusServer.html">DBusServer</a>(Object&lt;ffi::GDBusServer&gt;) @implements <a href="initable.rs.html#8-43">Initable</a>;
+    </span><span class="attr">#[doc(alias = <span class="string">"GDBusServer"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.DBusServer.html">DBusServer</a>(Object&lt;<a href="../../../gio_sys/struct.GDBusServer.html">ffi::GDBusServer</a>&gt;) @implements <a href="initable.rs.html#8-43">Initable</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_dbus_server_get_type(),
@@ -546,7 +548,7 @@
     /// Connect to the [`new-connection`][struct@crate::DBusServer#new-connection] signal to handle
     /// incoming connections.
     ///
-    /// The returned [`DBusServer`][crate::DBusServer] isn&#39;t active - you have to start it with
+    /// The returned [`DBusServer`][crate::DBusServer] isn't active - you have to start it with
     /// [`start()`][Self::start()].
     ///
     /// [`DBusServer`][crate::DBusServer] is used in this [example][gdbus-peer-to-peer].
@@ -568,7 +570,7 @@
     ///
     /// A [`DBusServer`][crate::DBusServer] or [`None`] if `error` is set. Free with
     /// `g_object_unref()`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_dbus_server_new_sync&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_server_new_sync"</span>)]
     </span><span class="kw">pub fn </span>new_sync(
         address: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         flags: <a href="flags.rs.html#1374-1396">DBusServerFlags</a>,
@@ -604,8 +606,8 @@
     ///
     /// A D-Bus address string. Do not free, the string is owned
     /// by `self`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_dbus_server_get_client_address&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_client_address&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_server_get_client_address"</span>)]
+    #[doc(alias = <span class="string">"get_client_address"</span>)]
     </span><span class="kw">pub fn </span>client_address(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_dbus_server_get_client_address(<a class="self" href="#186">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -615,8 +617,8 @@
     /// # Returns
     ///
     /// A set of flags from the [`DBusServerFlags`][crate::DBusServerFlags] enumeration.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_dbus_server_get_flags&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_flags&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_server_get_flags"</span>)]
+    #[doc(alias = <span class="string">"get_flags"</span>)]
     </span><span class="kw">pub fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#1374-1396">DBusServerFlags</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_dbus_server_get_flags(<a class="self" href="#197">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -626,8 +628,8 @@
     /// # Returns
     ///
     /// A D-Bus GUID. Do not free this string, it is owned by `self`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_dbus_server_get_guid&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_guid&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_server_get_guid"</span>)]
+    #[doc(alias = <span class="string">"get_guid"</span>)]
     </span><span class="kw">pub fn </span>guid(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/gstring/struct.GString.html">glib::GString</a> {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_dbus_server_get_guid(<a class="self" href="#208">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -637,13 +639,13 @@
     /// # Returns
     ///
     /// [`true`] if server is active, [`false`] otherwise.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_dbus_server_is_active&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_server_is_active"</span>)]
     </span><span class="kw">pub fn </span>is_active(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_dbus_server_is_active(<a class="self" href="#218">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Starts `self`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_dbus_server_start&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_server_start"</span>)]
     </span><span class="kw">pub fn </span>start(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::g_dbus_server_start(<a class="self" href="#224">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -651,7 +653,7 @@
     }
 
     <span class="doccomment">/// Stops `self`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_dbus_server_stop&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_dbus_server_stop"</span>)]
     </span><span class="kw">pub fn </span>stop(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::g_dbus_server_stop(<a class="self" href="#232">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -660,13 +662,13 @@
 
     <span class="doccomment">/// The D-Bus address to listen on.
     </span><span class="kw">pub fn </span>address(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#239">self</a>, <span class="string">&quot;address&quot;</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#239">self</a>, <span class="string">"address"</span>)
     }
 
     <span class="doccomment">/// A [`DBusAuthObserver`][crate::DBusAuthObserver] object to assist in the authentication process or [`None`].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;authentication-observer&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"authentication-observer"</span>)]
     </span><span class="kw">pub fn </span>authentication_observer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_auth_observer.rs.html#13-109">DBusAuthObserver</a>&gt; {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#245">self</a>, <span class="string">&quot;authentication-observer&quot;</span>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#245">self</a>, <span class="string">"authentication-observer"</span>)
     }
 
     <span class="doccomment">/// Emitted when a new authenticated connection has been made. Use
@@ -688,7 +690,7 @@
     ///
     /// You are guaranteed that signal handlers for this signal runs
     /// before incoming messages on `connection` are processed. This means
-    /// that it&#39;s suitable to call `g_dbus_connection_register_object()` or
+    /// that it's suitable to call `g_dbus_connection_register_object()` or
     /// similar from the signal handler.
     /// ## `connection`
     /// A [`DBusConnection`][crate::DBusConnection] for the new connection.
@@ -697,18 +699,18 @@
     ///
     /// [`true`] to claim `connection`, [`false`] to let other handlers
     /// run.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;new-connection&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_new_connection&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-195">DBusConnection</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"new-connection"</span>)]
+    </span><span class="kw">pub fn </span>connect_new_connection&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-195">DBusConnection</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>new_connection_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span><a href="#13-110">DBusServer</a>, <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-195">DBusConnection</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>new_connection_trampoline&lt;
+            F: Fn(<span class="kw-2">&amp;</span><a href="#13-110">DBusServer</a>, <span class="kw-2">&amp;</span><a href="dbus_connection.rs.html#20-195">DBusConnection</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GDBusServer,
-            connection: <span class="kw-2">*mut </span>ffi::GDBusConnection,
-            f: glib::ffi::gpointer,
-        ) -&gt; glib::ffi::gboolean {
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusServer.html">ffi::GDBusServer</a>,
+            connection: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusConnection.html">ffi::GDBusConnection</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+        ) -&gt; <a href="../../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a> {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#287">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#289">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#285">this</a>), <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#286">connection</a>)).<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>()
         }
@@ -716,8 +718,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#280">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#279">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;new-connection\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"new-connection\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     new_connection_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#293">f</a>),
@@ -725,12 +727,12 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;active&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_active_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_active_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-110">DBusServer</a>) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GDBusServer,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+    <span class="attr">#[doc(alias = <span class="string">"active"</span>)]
+    </span><span class="kw">pub fn </span>connect_active_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_active_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-110">DBusServer</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusServer.html">ffi::GDBusServer</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#310">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#312">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#308">this</a>))
@@ -739,8 +741,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#306">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#306">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::active\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::active\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_active_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#316">f</a>),
@@ -748,12 +750,12 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;client-address&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_client_address_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_client_address_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-110">DBusServer</a>) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GDBusServer,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+    <span class="attr">#[doc(alias = <span class="string">"client-address"</span>)]
+    </span><span class="kw">pub fn </span>connect_client_address_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_client_address_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-110">DBusServer</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GDBusServer.html">ffi::GDBusServer</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#333">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#335">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#331">this</a>))
@@ -762,8 +764,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#329">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#329">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::client-address\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::client-address\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_client_address_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#339">f</a>),

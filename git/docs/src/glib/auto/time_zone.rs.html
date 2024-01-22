@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/time_zone.rs`."><title>time_zone.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/time_zone.rs`."><title>time_zone.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -369,7 +371,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="enums.rs.html#985-997">TimeType</a>};
+</span><span class="kw">use crate</span>::{<a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="enums.rs.html#857-869">TimeType</a>};
 
 <a class="macro" href="../wrapper.rs.html#277-445">crate::wrapper! </a>{
     <span class="doccomment">/// [`TimeZone`][crate::TimeZone] is an opaque structure whose members cannot be accessed
@@ -402,9 +404,9 @@
     /// # Returns
     ///
     /// the requested timezone
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v2_68&quot;</span>, deprecated = <span class="string">&quot;Since 2.68&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"v2_68"</span>, deprecated = <span class="string">"Since 2.68"</span>)]
     #[allow(deprecated)]
-    #[doc(alias = <span class="string">&quot;g_time_zone_new&quot;</span>)]
+    #[doc(alias = <span class="string">"g_time_zone_new"</span>)]
     </span><span class="kw">pub fn </span>new(identifier: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; <a href="#7-18">TimeZone</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_time_zone_new(<a href="#41">identifier</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -417,31 +419,31 @@
     /// variable (including [`None`]).
     ///
     /// In Windows, `identifier` can also be the unlocalized name of a time
-    /// zone for standard time, for example &quot;Pacific Standard Time&quot;.
+    /// zone for standard time, for example "Pacific Standard Time".
     ///
-    /// Valid RFC3339 time offsets are `&quot;Z&quot;` (for UTC) or
-    /// `&quot;±hh:mm&quot;`. ISO 8601 additionally specifies
-    /// `&quot;±hhmm&quot;` and `&quot;±hh&quot;`. Offsets are
+    /// Valid RFC3339 time offsets are `"Z"` (for UTC) or
+    /// `"±hh:mm"`. ISO 8601 additionally specifies
+    /// `"±hhmm"` and `"±hh"`. Offsets are
     /// time values to be added to Coordinated Universal Time (UTC) to get
     /// the local time.
     ///
     /// In UNIX, the `TZ` environment variable typically corresponds
     /// to the name of a file in the zoneinfo database, an absolute path to a file
     /// somewhere else, or a string in
-    /// &quot;std offset [dst [offset],start[/time],end[/time]]&quot; (POSIX) format.
+    /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
     /// There are no spaces in the specification. The name of standard
     /// and daylight savings time zone must be three or more alphabetic
     /// characters. Offsets are time values to be added to local time to
     /// get Coordinated Universal Time (UTC) and should be
-    /// `&quot;[±]hh[[:]mm[:ss]]&quot;`. Dates are either
-    /// `&quot;Jn&quot;` (Julian day with n between 1 and 365, leap
-    /// years not counted), `&quot;n&quot;` (zero-based Julian day
-    /// with n between 0 and 365) or `&quot;Mm.w.d&quot;` (day d
+    /// `"[±]hh[[:]mm[:ss]]"`. Dates are either
+    /// `"Jn"` (Julian day with n between 1 and 365, leap
+    /// years not counted), `"n"` (zero-based Julian day
+    /// with n between 0 and 365) or `"Mm.w.d"` (day d
     /// (0 &lt;= d &lt;= 6) of week w (1 &lt;= w &lt;= 5) of month m (1 &lt;= m &lt;= 12), day
     /// 0 is a Sunday). Times are in local wall clock time, the default is
     /// 02:00:00.
     ///
-    /// In Windows, the &quot;tzn[+|–]hh[:mm[:ss]][dzn]&quot; format is used, but also
+    /// In Windows, the "tzn[+|–]hh[:mm[:ss]][dzn]" format is used, but also
     /// accepts POSIX format. The Windows format uses US rules for all time
     /// zones; daylight savings time is 60 minutes behind the standard time
     /// with date and time of change taken from Pacific Standard Time.
@@ -481,10 +483,10 @@
     ///
     /// the requested timezone, or [`None`] on
     ///  failure
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_68&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_68&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_time_zone_new_identifier&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_identifier&quot;</span>)]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_68"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_68"</span>)))]
+    #[doc(alias = <span class="string">"g_time_zone_new_identifier"</span>)]
+    #[doc(alias = <span class="string">"new_identifier"</span>)]
     </span><span class="kw">pub fn </span>from_identifier(identifier: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#7-18">TimeZone</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_time_zone_new_identifier(<a href="#121">identifier</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -502,8 +504,8 @@
     /// # Returns
     ///
     /// the local timezone
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_time_zone_new_local&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_local&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_time_zone_new_local"</span>)]
+    #[doc(alias = <span class="string">"new_local"</span>)]
     </span><span class="kw">pub fn </span>local() -&gt; <a href="#7-18">TimeZone</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_time_zone_new_local()) }
     }
@@ -525,10 +527,10 @@
     ///
     /// a timezone at the given offset from UTC, or UTC on
     ///  failure
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_58&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_58&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_time_zone_new_offset&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_offset&quot;</span>)]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_58"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_58"</span>)))]
+    #[doc(alias = <span class="string">"g_time_zone_new_offset"</span>)]
+    #[doc(alias = <span class="string">"new_offset"</span>)]
     </span><span class="kw">pub fn </span>from_offset(seconds: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="#7-18">TimeZone</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_time_zone_new_offset(<a href="#165">seconds</a>)) }
     }
@@ -536,7 +538,7 @@
     <span class="doccomment">/// Creates a [`TimeZone`][crate::TimeZone] corresponding to UTC.
     ///
     /// This is equivalent to calling [`new()`][Self::new()] with a value like
-    /// &quot;Z&quot;, &quot;UTC&quot;, &quot;+00&quot;, etc.
+    /// "Z", "UTC", "+00", etc.
     ///
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
@@ -544,8 +546,8 @@
     /// # Returns
     ///
     /// the universal timezone
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_time_zone_new_utc&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_utc&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_time_zone_new_utc"</span>)]
+    #[doc(alias = <span class="string">"new_utc"</span>)]
     </span><span class="kw">pub fn </span>utc() -&gt; <a href="#7-18">TimeZone</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1630-1632">from_glib_full</a>(ffi::g_time_zone_new_utc()) }
     }
@@ -576,16 +578,16 @@
     /// # Returns
     ///
     /// the interval containing `time_`, or -1 in case of failure
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_time_zone_find_interval&quot;</span>)]
-    </span><span class="kw">pub fn </span>find_interval(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="enums.rs.html#985-997">TimeType</a>, time_: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_time_zone_find_interval"</span>)]
+    </span><span class="kw">pub fn </span>find_interval(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="enums.rs.html#857-869">TimeType</a>, time_: <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_time_zone_find_interval(<a class="self" href="#213">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#213">type_</a>.<a href="../translate.rs.html#330">into_glib</a>(), <a href="#213">time_</a>) }
     }
 
     <span class="doccomment">/// Determines the time zone abbreviation to be used during a particular
     /// `interval` of time in the time zone `self`.
     ///
-    /// For example, in Toronto this is currently &quot;EST&quot; during the winter
-    /// months and &quot;EDT&quot; during the summer months when daylight savings time
+    /// For example, in Toronto this is currently "EST" during the winter
+    /// months and "EDT" during the summer months when daylight savings time
     /// is in effect.
     /// ## `interval`
     /// an interval within the timezone
@@ -593,8 +595,8 @@
     /// # Returns
     ///
     /// the time zone abbreviation, which belongs to `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_time_zone_get_abbreviation&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_abbreviation&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_time_zone_get_abbreviation"</span>)]
+    #[doc(alias = <span class="string">"get_abbreviation"</span>)]
     </span><span class="kw">pub fn </span>abbreviation(<span class="kw-2">&amp;</span><span class="self">self</span>, interval: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{
             <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_time_zone_get_abbreviation(
@@ -616,10 +618,10 @@
     /// # Returns
     ///
     /// identifier for this timezone
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_58&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_58&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_time_zone_get_identifier&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_identifier&quot;</span>)]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_58"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_58"</span>)))]
+    #[doc(alias = <span class="string">"g_time_zone_get_identifier"</span>)]
+    #[doc(alias = <span class="string">"get_identifier"</span>)]
     </span><span class="kw">pub fn </span>identifier(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_time_zone_get_identifier(<a class="self" href="#256">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -637,8 +639,8 @@
     ///
     /// the number of seconds that should be added to UTC to get the
     ///  local time in `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_time_zone_get_offset&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_time_zone_get_offset"</span>)]
+    #[doc(alias = <span class="string">"get_offset"</span>)]
     </span><span class="kw">pub fn </span>offset(<span class="kw-2">&amp;</span><span class="self">self</span>, interval: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_time_zone_get_offset(<a class="self" href="#275">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#275">interval</a>) }
     }
@@ -651,7 +653,7 @@
     /// # Returns
     ///
     /// [`true`] if daylight savings time is in effect
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_time_zone_is_dst&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_time_zone_is_dst"</span>)]
     </span><span class="kw">pub fn </span>is_dst(<span class="kw-2">&amp;</span><span class="self">self</span>, interval: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_time_zone_is_dst(<a class="self" href="#288">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#288">interval</a>)) }
     }

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/collections/list.rs`."><title>list.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/collections/list.rs`."><title>list.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1000,7 +1002,7 @@
     </span><span class="kw">pub unsafe fn </span>from_glib_none(list: <span class="kw-2">*const </span>ffi::GList) -&gt; List&lt;T&gt; {
         <span class="comment">// Need to copy the whole list
         </span><span class="kw">let </span>list = <span class="kw">if </span>mem::needs_drop::&lt;T&gt;() {
-            <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>copy_item&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt;(
+            <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>copy_item&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt;(
                 ptr: ffi::gconstpointer,
                 _user_data: ffi::gpointer,
             ) -&gt; ffi::gpointer {
@@ -1028,7 +1030,7 @@
     </span><span class="kw">pub unsafe fn </span>from_glib_container(list: <span class="kw-2">*mut </span>ffi::GList) -&gt; List&lt;T&gt; {
         <span class="comment">// Need to copy all items as we only own the container
         </span><span class="kw">if </span>mem::needs_drop::&lt;T&gt;() {
-            <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>copy_item&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt;(
+            <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>copy_item&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt;(
                 ptr: ffi::gpointer,
                 _user_data: ffi::gpointer,
             ) {
@@ -1069,14 +1071,14 @@
     </span><span class="doccomment">/// Create a non-destructive iterator over the `List`.
     </span><span class="attr">#[inline]
     </span><span class="kw">pub fn </span>iter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Iter&lt;T&gt; {
-        Iter::new(<a class="self" href="#104">self</a>)
+        <a href="#619-629">Iter::new</a>(<a class="self" href="#104">self</a>)
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create a non-destructive mutable iterator over the `List`.
     </span><span class="attr">#[inline]
     </span><span class="kw">pub fn </span>iter_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; IterMut&lt;T&gt; {
-        IterMut::new(<a class="self" href="#111">self</a>)
+        <a href="#661-671">IterMut::new</a>(<a class="self" href="#111">self</a>)
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -1093,7 +1095,7 @@
     ///
     /// This operation is `O(n)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_length&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_length"</span>)]
     </span><span class="kw">pub fn </span>len(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a> {
         <a class="self" href="#130">self</a>.<a href="#104-106">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">count</a>()
     }
@@ -1103,7 +1105,7 @@
     ///
     /// This operation is `O(1)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_first&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_first"</span>)]
     </span><span class="kw">pub fn </span>front(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt; {
         <span class="kw">match </span><a class="self" href="#140">self</a>.ptr {
             <span class="prelude-val">None </span>=&gt; <span class="prelude-val">None</span>,
@@ -1119,7 +1121,7 @@
     ///
     /// This operation is `O(1)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_first&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_first"</span>)]
     </span><span class="kw">pub fn </span>front_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;mut </span>T&gt; {
         <span class="kw">match </span><a class="self" href="#156">self</a>.ptr {
             <span class="prelude-val">None </span>=&gt; <span class="prelude-val">None</span>,
@@ -1158,7 +1160,7 @@
     ///
     /// This operation is `O(1)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_prepend&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_prepend"</span>)]
     </span><span class="kw">pub fn </span>push_front(<span class="kw-2">&amp;mut </span><span class="self">self</span>, item: T) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ptr = <a class="self" href="#195">self</a>.ptr.map(|p| <a href="#197">p</a>.as_ptr()).unwrap_or(ptr::null_mut());
@@ -1175,7 +1177,7 @@
     ///
     /// This operation is `O(n)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_last&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_last"</span>)]
     </span><span class="kw">pub fn </span>back(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ptr = <span class="kw">match </span><a class="self" href="#212">self</a>.ptr {
@@ -1193,7 +1195,7 @@
     ///
     /// This operation is `O(n)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_last&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_last"</span>)]
     </span><span class="kw">pub fn </span>back_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;mut </span>T&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ptr = <span class="kw">match </span><a class="self" href="#230">self</a>.ptr {
@@ -1230,7 +1232,7 @@
     ///
     /// this operation is `O(n)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_append&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_append"</span>)]
     </span><span class="kw">pub fn </span>push_back(<span class="kw-2">&amp;mut </span><span class="self">self</span>, item: T) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ptr = <a class="self" href="#267">self</a>.ptr.map(|p| <a href="#269">p</a>.as_ptr()).unwrap_or(ptr::null_mut());
@@ -1247,7 +1249,7 @@
     ///
     /// This operation is `O(n)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_reverse&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_reverse"</span>)]
     </span><span class="kw">pub fn </span>reverse(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ptr = <span class="kw">match </span><a class="self" href="#284">self</a>.ptr {
@@ -1264,7 +1266,7 @@
     ///
     /// This operation is `O(n * log n)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_sort&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_sort"</span>)]
     </span><span class="kw">pub fn </span>sort(<span class="kw-2">&amp;mut </span><span class="self">self</span>)
     <span class="kw">where
         </span>T: <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html">Ord</a>,
@@ -1277,7 +1279,7 @@
     ///
     /// This operation is `O(n * log n)`.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;g_list_sort&quot;</span>)]
+    #[doc(alias = <span class="string">"g_list_sort"</span>)]
     </span><span class="kw">pub fn </span>sort_by&lt;F: FnMut(<span class="kw-2">&amp;</span>T, <span class="kw-2">&amp;</span>T) -&gt; <a href="https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html">std::cmp::Ordering</a>&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, <span class="kw-2">mut </span>f: F) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ptr = <span class="kw">match </span><a class="self" href="#314">self</a>.ptr {
@@ -1285,7 +1287,7 @@
                 <span class="prelude-val">Some</span>(ptr) =&gt; <a href="#318">ptr</a>.as_ptr(),
             };
 
-            <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>func&lt;
+            <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>func&lt;
                 T: <a href="../translate.rs.html#2636">TransparentPtrType</a>,
                 F: FnMut(<span class="kw-2">&amp;</span>T, <span class="kw-2">&amp;</span>T) -&gt; <a href="https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html">std::cmp::Ordering</a>,
             &gt;(
@@ -1311,7 +1313,7 @@
     </span><span class="doccomment">/// Removes all items from the list.
     </span><span class="attr">#[inline]
     </span><span class="kw">pub fn </span>clear(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
-        <span class="kw-2">*</span><span class="self"><a href="#346">self</a> </span>= <span class="self">Self</span>::new();
+        <span class="kw-2">*</span><span class="self"><a href="#346">self</a> </span>= <a href="#94-99"><span class="self">Self</span>::new</a>();
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -1361,13 +1363,13 @@
 
 <span class="kw">impl</span>&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span>List&lt;T&gt; {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <a href="#94-99"><span class="self">Self</span>::new</a>()
     }
 }
 
 <span class="kw">impl</span>&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> <span class="kw">for </span>List&lt;T&gt; {
     <span class="kw">fn </span>clone(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
-        <span class="kw">unsafe </span>{ <span class="self">Self</span>::from_glib_none(<a class="self" href="#402">self</a>.ptr.map(|p| <a href="#403">p</a>.as_ptr()).unwrap_or(ptr::null_mut())) }
+        <span class="kw">unsafe </span>{ <a href="#33-56"><span class="self">Self</span>::from_glib_none</a>(<a class="self" href="#402">self</a>.ptr.map(|p| <a href="#403">p</a>.as_ptr()).unwrap_or(ptr::null_mut())) }
     }
 }
 
@@ -1377,7 +1379,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(ptr) = <a class="self" href="#409">self</a>.ptr {
             <span class="kw">unsafe </span>{
                 <span class="kw">if </span>mem::needs_drop::&lt;T&gt;() {
-                    <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>drop_item&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt;(<span class="kw-2">mut </span>ptr: ffi::gpointer) {
+                    <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>drop_item&lt;T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt;(<span class="kw-2">mut </span>ptr: ffi::gpointer) {
                         <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.drop_in_place.html">ptr::drop_in_place</a>(<span class="kw-2">&amp;mut </span><a href="#413">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>ffi::gpointer <span class="kw">as </span><span class="kw-2">*mut </span>T);
                     }
 
@@ -1397,7 +1399,7 @@
             <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="#428">iter</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html">into_iter</a>();
 
             <span class="kw">let </span>first = <span class="kw">match </span><a href="#430">iter</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">next</a>() {
-                <span class="prelude-val">None </span>=&gt; <span class="kw">return </span><span class="self">Self</span>::new(),
+                <span class="prelude-val">None </span>=&gt; <span class="kw">return </span><a href="#94-99"><span class="self">Self</span>::new</a>(),
                 <span class="prelude-val">Some</span>(first) =&gt; <a href="#434">first</a>,
             };
 
@@ -1418,14 +1420,14 @@
                 tail = new_tail;
             }
 
-            <span class="self">Self</span>::from_glib_full(<a href="#437">list</a>)
+            <a href="#84-89"><span class="self">Self</span>::from_glib_full</a>(<a href="#437">list</a>)
         }
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html">std::iter::IntoIterator</a> <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>List&lt;T&gt; {
-    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T;
-    <span class="kw">type </span>IntoIter = Iter&lt;<span class="lifetime">&#39;a</span>, T&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html">std::iter::IntoIterator</a> <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span>List&lt;T&gt; {
+    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">'a </span>T;
+    <span class="kw">type </span>IntoIter = Iter&lt;<span class="lifetime">'a</span>, T&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_iter(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
@@ -1433,9 +1435,9 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html">std::iter::IntoIterator</a> <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>List&lt;T&gt; {
-    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>T;
-    <span class="kw">type </span>IntoIter = IterMut&lt;<span class="lifetime">&#39;a</span>, T&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html">std::iter::IntoIterator</a> <span class="kw">for </span><span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span>List&lt;T&gt; {
+    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span>T;
+    <span class="kw">type </span>IntoIter = IterMut&lt;<span class="lifetime">'a</span>, T&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_iter(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
@@ -1449,7 +1451,7 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>into_iter(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
-        IntoIter::new(<a class="self" href="#484">self</a>)
+        <a href="#702-709">IntoIter::new</a>(<a class="self" href="#484">self</a>)
     }
 }
 
@@ -1458,17 +1460,17 @@
 {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_none_num(ptr: <span class="kw-2">*mut </span>ffi::GList, _num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_none(<a href="#493">ptr</a>)
+        <a href="#33-56"><span class="self">Self</span>::from_glib_none</a>(<a href="#493">ptr</a>)
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_container_num(ptr: <span class="kw-2">*mut </span>ffi::GList, _num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_container(<a href="#498">ptr</a>)
+        <a href="#61-79"><span class="self">Self</span>::from_glib_container</a>(<a href="#498">ptr</a>)
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_full_num(ptr: <span class="kw-2">*mut </span>ffi::GList, _num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_full(<a href="#503">ptr</a>)
+        <a href="#84-89"><span class="self">Self</span>::from_glib_full</a>(<a href="#503">ptr</a>)
     }
 }
 
@@ -1477,7 +1479,7 @@
 {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_none_num(ptr: <span class="kw-2">*const </span>ffi::GList, _num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_none(<a href="#512">ptr</a>)
+        <a href="#33-56"><span class="self">Self</span>::from_glib_none</a>(<a href="#512">ptr</a>)
     }
 
     <span class="kw">unsafe fn </span>from_glib_container_num(_ptr: <span class="kw-2">*const </span>ffi::GList, _num: <a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <span class="self">Self </span>{
@@ -1494,17 +1496,17 @@
 {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_none(ptr: <span class="kw-2">*mut </span>ffi::GList) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_none(<a href="#529">ptr</a>)
+        <a href="#33-56"><span class="self">Self</span>::from_glib_none</a>(<a href="#529">ptr</a>)
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_container(ptr: <span class="kw-2">*mut </span>ffi::GList) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_container(<a href="#534">ptr</a>)
+        <a href="#61-79"><span class="self">Self</span>::from_glib_container</a>(<a href="#534">ptr</a>)
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_full(ptr: <span class="kw-2">*mut </span>ffi::GList) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_full(<a href="#539">ptr</a>)
+        <a href="#84-89"><span class="self">Self</span>::from_glib_full</a>(<a href="#539">ptr</a>)
     }
 }
 
@@ -1513,7 +1515,7 @@
 {
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_glib_none(ptr: <span class="kw-2">*const </span>ffi::GList) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::from_glib_none(<a href="#548">ptr</a>)
+        <a href="#33-56"><span class="self">Self</span>::from_glib_none</a>(<a href="#548">ptr</a>)
     }
 
     <span class="kw">unsafe fn </span>from_glib_container(_ptr: <span class="kw-2">*const </span>ffi::GList) -&gt; <span class="self">Self </span>{
@@ -1525,16 +1527,16 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a> + <span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GList&gt; <span class="kw">for </span>List&lt;T&gt; {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">Self</span>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a> + <span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GList&gt; <span class="kw">for </span>List&lt;T&gt; {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>&gt; {
         <a href="../translate.rs.html#255-258">Stash</a>(<a class="self" href="#565">self</a>.<a href="#373-375">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, PhantomData)
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_container(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_container(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>ptr = ffi::g_malloc(mem::size_of::&lt;T&gt;().checked_mul(<a class="self" href="#570">self</a>.<a href="#130-132">len</a>() + <span class="number">1</span>).unwrap())
                 <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GList;
@@ -1549,20 +1551,20 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a> + <span class="lifetime">&#39;a</span>&gt; ToGlibPtr&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>ffi::GList&gt; <span class="kw">for </span>List&lt;T&gt; {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">Self</span>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a> + <span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>ffi::GList&gt; <span class="kw">for </span>List&lt;T&gt; {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*const </span>ffi::GList, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Stash&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>ffi::GList, <span class="self">Self</span>&gt; {
         <a href="../translate.rs.html#255-258">Stash</a>(<a class="self" href="#589">self</a>.<a href="#373-375">as_ptr</a>(), PhantomData)
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a> + <span class="lifetime">&#39;a</span>&gt; ToGlibPtrMut&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GList&gt; <span class="kw">for </span>List&lt;T&gt; {
-    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span><span class="self">Self</span>&gt;;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a> + <span class="lifetime">'a</span>&gt; ToGlibPtrMut&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GList&gt; <span class="kw">for </span>List&lt;T&gt; {
+    <span class="kw">type </span>Storage = PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span><span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>to_glib_none_mut(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span><span class="self">self</span>) -&gt; StashMut&lt;<span class="lifetime">&#39;a</span>, <span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>&gt; {
+    </span><span class="kw">fn </span>to_glib_none_mut(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span><span class="self">self</span>) -&gt; StashMut&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GList, <span class="self">Self</span>&gt; {
         <a href="../translate.rs.html#260-262">StashMut</a>(<a class="self" href="#598">self</a>.<a href="#380-382">as_mut_ptr</a>(), PhantomData)
     }
 }
@@ -1576,14 +1578,14 @@
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A non-destructive iterator over a [`List`].
-</span><span class="kw">pub struct </span><a href="../../../glib/collections/list/struct.Iter.html">Iter</a>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; {
+</span><span class="kw">pub struct </span><a href="../../../glib/collections/list/struct.Iter.html">Iter</a>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; {
     ptr: <span class="prelude-ty">Option</span>&lt;ptr::NonNull&lt;ffi::GList&gt;&gt;,
-    phantom: PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T&gt;,
+    phantom: PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T&gt;,
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; Iter&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; Iter&lt;<span class="lifetime">'a</span>, T&gt; {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>new(list: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>List&lt;T&gt;) -&gt; Iter&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+    </span><span class="kw">fn </span>new(list: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>List&lt;T&gt;) -&gt; Iter&lt;<span class="lifetime">'a</span>, T&gt; {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_eq.html">debug_assert_eq!</a>(
             mem::size_of::&lt;T&gt;(),
             mem::size_of::&lt;&lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;()
@@ -1596,11 +1598,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">Iterator</a> <span class="kw">for </span>Iter&lt;<span class="lifetime">&#39;a</span>, T&gt; {
-    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">Iterator</a> <span class="kw">for </span>Iter&lt;<span class="lifetime">'a</span>, T&gt; {
+    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">'a </span>T;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T&gt; {
+    </span><span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span>T&gt; {
         <span class="kw">match </span><a class="self" href="#636">self</a>.ptr {
             <span class="prelude-val">None </span>=&gt; <span class="prelude-val">None</span>,
             <span class="prelude-val">Some</span>(cur) =&gt; <span class="kw">unsafe </span>{
@@ -1614,18 +1616,18 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/marker/trait.FusedIterator.html">FusedIterator</a> <span class="kw">for </span>Iter&lt;<span class="lifetime">&#39;a</span>, T&gt; {}
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/marker/trait.FusedIterator.html">FusedIterator</a> <span class="kw">for </span>Iter&lt;<span class="lifetime">'a</span>, T&gt; {}
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A non-destructive iterator over a [`List`].
-</span><span class="kw">pub struct </span><a href="../../../glib/collections/list/struct.IterMut.html">IterMut</a>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; {
+</span><span class="kw">pub struct </span><a href="../../../glib/collections/list/struct.IterMut.html">IterMut</a>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; {
     ptr: <span class="prelude-ty">Option</span>&lt;ptr::NonNull&lt;ffi::GList&gt;&gt;,
-    phantom: PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>T&gt;,
+    phantom: PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span>T&gt;,
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; IterMut&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; IterMut&lt;<span class="lifetime">'a</span>, T&gt; {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>new(list: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>List&lt;T&gt;) -&gt; IterMut&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+    </span><span class="kw">fn </span>new(list: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span>List&lt;T&gt;) -&gt; IterMut&lt;<span class="lifetime">'a</span>, T&gt; {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_eq.html">debug_assert_eq!</a>(
             mem::size_of::&lt;T&gt;(),
             mem::size_of::&lt;&lt;T <span class="kw">as </span>GlibPtrDefault&gt;::GlibType&gt;()
@@ -1638,11 +1640,11 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">Iterator</a> <span class="kw">for </span>IterMut&lt;<span class="lifetime">&#39;a</span>, T&gt; {
-    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>T;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">Iterator</a> <span class="kw">for </span>IterMut&lt;<span class="lifetime">'a</span>, T&gt; {
+    <span class="kw">type </span>Item = <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span>T;
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>T&gt; {
+    </span><span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span>T&gt; {
         <span class="kw">match </span><a class="self" href="#678">self</a>.ptr {
             <span class="prelude-val">None </span>=&gt; <span class="prelude-val">None</span>,
             <span class="prelude-val">Some</span>(<span class="kw-2">mut </span>cur) =&gt; <span class="kw">unsafe </span>{
@@ -1656,7 +1658,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/marker/trait.FusedIterator.html">FusedIterator</a> <span class="kw">for </span>IterMut&lt;<span class="lifetime">&#39;a</span>, T&gt; {}
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, T: <a href="../translate.rs.html#2636">TransparentPtrType</a>&gt; <a href="https://doc.rust-lang.org/nightly/core/iter/traits/marker/trait.FusedIterator.html">FusedIterator</a> <span class="kw">for </span>IterMut&lt;<span class="lifetime">'a</span>, T&gt; {}
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A destructive iterator over a [`List`].

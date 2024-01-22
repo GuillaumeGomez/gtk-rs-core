@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/read_input_stream.rs`."><title>read_input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/read_input_stream.rs`."><title>read_input_stream.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -451,7 +453,7 @@
     io::{<a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a>, <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">Seek</a>},
 };
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#117">prelude</a>::<span class="kw-2">*</span>, <a href="subclass/mod.rs.html#17-34">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="auto/input_stream.rs.html#9-33">InputStream</a>};
+<span class="kw">use crate</span>::{<a href="lib.rs.html#118">prelude</a>::<span class="kw-2">*</span>, <a href="subclass/mod.rs.html#17-34">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="auto/input_stream.rs.html#9-33">InputStream</a>};
 
 <span class="kw">mod </span>imp {
     <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html">std::cell::RefCell</a>;
@@ -470,7 +472,7 @@
 
     <span class="attr">#[glib::object_subclass]
     </span><span class="kw">impl </span><a href="../../glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> <span class="kw">for </span><a href="#21-23">ReadInputStream</a> {
-        <span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">&quot;ReadInputStream&quot;</span>;
+        <span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> = <span class="string">"ReadInputStream"</span>;
         <span class="kw">type </span>Type = <a href="#143-145"><span class="kw">super</span>::ReadInputStream</a>;
         <span class="kw">type </span>ParentType = <a href="auto/input_stream.rs.html#9-33">InputStream</a>;
         <span class="kw">type </span>Interfaces = (<a href="auto/seekable.rs.html#8-33"><span class="kw">crate</span>::Seekable</a>,);
@@ -489,7 +491,7 @@
                 <span class="prelude-val">None </span>=&gt; {
                     <span class="kw">return </span><span class="prelude-val">Err</span>(glib::Error::new(
                         <a href="auto/enums.rs.html#1712"><span class="kw">crate</span>::IOErrorEnum::Closed</a>,
-                        <span class="string">&quot;Already closed&quot;</span>,
+                        <span class="string">"Already closed"</span>,
                     ));
                 }
                 <span class="prelude-val">Some</span>(<a href="#16">Reader::Read</a>(<span class="kw-2">ref mut </span>read)) =&gt; <a href="#49">read</a>,
@@ -545,7 +547,7 @@
                             <span class="kw">if </span>offset &lt; <span class="number">0 </span>{
                                 <span class="kw">return </span><span class="prelude-val">Err</span>(glib::Error::new(
                                     <a href="auto/enums.rs.html#1697"><span class="kw">crate</span>::IOErrorEnum::InvalidArgument</a>,
-                                    <span class="string">&quot;Invalid Argument&quot;</span>,
+                                    <span class="string">"Invalid Argument"</span>,
                                 ));
                             } <span class="kw">else </span>{
                                 SeekFrom::Start(<a href="#87">offset</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>)
@@ -564,7 +566,7 @@
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1703"><span class="kw">crate</span>::IOErrorEnum::NotSupported</a>,
-                    <span class="string">&quot;Truncating not supported&quot;</span>,
+                    <span class="string">"Truncating not supported"</span>,
                 )),
             }
         }
@@ -580,7 +582,7 @@
         ) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../glib/error/struct.Error.html">glib::Error</a>&gt; {
             <span class="prelude-val">Err</span>(glib::Error::new(
                 <a href="auto/enums.rs.html#1703"><span class="kw">crate</span>::IOErrorEnum::NotSupported</a>,
-                <span class="string">&quot;Truncating not supported&quot;</span>,
+                <span class="string">"Truncating not supported"</span>,
             ))
         }
     }
@@ -591,28 +593,28 @@
 }
 
 <span class="kw">impl </span><a href="#143-145">ReadInputStream</a> {
-    <span class="kw">pub fn </span>new&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;(read: R) -&gt; <a href="#143-145">ReadInputStream</a> {
+    <span class="kw">pub fn </span>new&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;(read: R) -&gt; <a href="#143-145">ReadInputStream</a> {
         <span class="kw">let </span>obj: <span class="self">Self </span>= glib::Object::new();
 
-        <span class="kw-2">*</span><a href="#149">obj</a>.<a href="../../glib/subclass/types/trait.ObjectSubclassIsExt.html">imp</a>().read.borrow_mut() = <span class="prelude-val">Some</span>(<a href="#16">imp::Reader::Read</a>(AnyReader::new(<a href="#148">read</a>)));
+        <span class="kw-2">*</span><a href="#149">obj</a>.<a href="../../glib/subclass/types/trait.ObjectSubclassIsExt.html">imp</a>().read.borrow_mut() = <span class="prelude-val">Some</span>(<a href="#16">imp::Reader::Read</a>(<a href="#198-204">AnyReader::new</a>(<a href="#148">read</a>)));
 
         <a href="#149">obj</a>
     }
 
-    <span class="kw">pub fn </span>new_seekable&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">Seek</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;(read: R) -&gt; <a href="#143-145">ReadInputStream</a> {
+    <span class="kw">pub fn </span>new_seekable&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">Seek</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;(read: R) -&gt; <a href="#143-145">ReadInputStream</a> {
         <span class="kw">let </span>obj: <span class="self">Self </span>= glib::Object::new();
 
-        <span class="kw-2">*</span><a href="#157">obj</a>.<a href="../../glib/subclass/types/trait.ObjectSubclassIsExt.html">imp</a>().read.borrow_mut() = <span class="prelude-val">Some</span>(<a href="#17">imp::Reader::ReadSeek</a>(AnyReader::new_seekable(<a href="#156">read</a>)));
+        <span class="kw-2">*</span><a href="#157">obj</a>.<a href="../../glib/subclass/types/trait.ObjectSubclassIsExt.html">imp</a>().read.borrow_mut() = <span class="prelude-val">Some</span>(<a href="#17">imp::Reader::ReadSeek</a>(<a href="#206-212">AnyReader::new_seekable</a>(<a href="#156">read</a>)));
 
         <a href="#157">obj</a>
     }
 
-    <span class="kw">pub fn </span>close_and_take(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Box&lt;<span class="kw">dyn </span><a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt; {
+    <span class="kw">pub fn </span>close_and_take(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Box&lt;<span class="kw">dyn </span><a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt; {
         <span class="kw">let </span>inner = <a class="self" href="#164">self</a>.<a href="../../glib/subclass/types/trait.ObjectSubclassIsExt.html">imp</a>().read.take();
 
         <span class="kw">let </span>ret = <span class="kw">match </span><a href="#165">inner</a> {
             <span class="prelude-val">None </span>=&gt; {
-                <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">&quot;Stream already closed or inner taken&quot;</span>);
+                <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"Stream already closed or inner taken"</span>);
             }
             <span class="prelude-val">Some</span>(<a href="#16">imp::Reader::Read</a>(read)) =&gt; <a href="#171">read</a>.reader,
             <span class="prelude-val">Some</span>(<a href="#17">imp::Reader::ReadSeek</a>(read)) =&gt; <a href="#172">read</a>.reader,
@@ -628,8 +630,8 @@
 }
 
 <span class="kw">enum </span>AnyOrPanic {
-    Any(Box&lt;<span class="kw">dyn </span><a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;),
-    Panic(Box&lt;<span class="kw">dyn </span><a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;),
+    Any(Box&lt;<span class="kw">dyn </span><a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;),
+    Panic(Box&lt;<span class="kw">dyn </span><a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;),
 }
 
 <span class="comment">// Helper struct for dynamically dispatching to any kind of Reader and
@@ -641,7 +643,7 @@
 }
 
 <span class="kw">impl </span><a href="#191-195">AnyReader</a> {
-    <span class="kw">fn </span>new&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;(r: R) -&gt; <span class="self">Self </span>{
+    <span class="kw">fn </span>new&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;(r: R) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             reader: <a href="#185">AnyOrPanic::Any</a>(Box::new(<a href="#198">r</a>)),
             read_fn: <span class="self">Self</span>::read_fn::&lt;R&gt;,
@@ -649,7 +651,7 @@
         }
     }
 
-    <span class="kw">fn </span>new_seekable&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">Seek</a> + <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;(r: R) -&gt; <span class="self">Self </span>{
+    <span class="kw">fn </span>new_seekable&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">Seek</a> + <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;(r: R) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             reader: <a href="#185">AnyOrPanic::Any</a>(Box::new(<a href="#206">r</a>)),
             read_fn: <span class="self">Self</span>::read_fn::&lt;R&gt;,
@@ -657,18 +659,18 @@
         }
     }
 
-    <span class="kw">fn </span>read_fn&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <span class="lifetime">&#39;static</span>&gt;(s: <span class="kw-2">&amp;mut </span><a href="#191-195">AnyReader</a>, buffer: <span class="kw-2">&amp;mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]) -&gt; std::io::Result&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt; {
+    <span class="kw">fn </span>read_fn&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">Read</a> + <span class="lifetime">'static</span>&gt;(s: <span class="kw-2">&amp;mut </span><a href="#191-195">AnyReader</a>, buffer: <span class="kw-2">&amp;mut </span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>]) -&gt; std::io::Result&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt; {
         <a href="#214">s</a>.<a href="#225-245">with_inner</a>(|r: <span class="kw-2">&amp;mut </span>R| <a href="#215">r</a>.<a href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html">read</a>(<a href="#214">buffer</a>))
     }
 
-    <span class="kw">fn </span>seek_fn&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">Seek</a> + <span class="lifetime">&#39;static</span>&gt;(
+    <span class="kw">fn </span>seek_fn&lt;R: <a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">Seek</a> + <span class="lifetime">'static</span>&gt;(
         s: <span class="kw-2">&amp;mut </span><a href="#191-195">AnyReader</a>,
         pos: <a href="https://doc.rust-lang.org/nightly/std/io/enum.SeekFrom.html">std::io::SeekFrom</a>,
     ) -&gt; std::io::Result&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt; {
         <a href="#219">s</a>.<a href="#225-245">with_inner</a>(|r: <span class="kw-2">&amp;mut </span>R| <a href="#222">r</a>.<a href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html">seek</a>(<a href="#220">pos</a>))
     }
 
-    <span class="kw">fn </span>with_inner&lt;R: <span class="lifetime">&#39;static</span>, T, F: FnOnce(<span class="kw-2">&amp;mut </span>R) -&gt; std::io::Result&lt;T&gt;&gt;(
+    <span class="kw">fn </span>with_inner&lt;R: <span class="lifetime">'static</span>, T, F: FnOnce(<span class="kw-2">&amp;mut </span>R) -&gt; std::io::Result&lt;T&gt;&gt;(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         func: F,
     ) -&gt; std::io::Result&lt;T&gt; {
@@ -679,13 +681,13 @@
                     <span class="prelude-val">Ok</span>(res) =&gt; <a href="#233">res</a>,
                     <span class="prelude-val">Err</span>(panic) =&gt; {
                         <a class="self" href="#226">self</a>.reader = <a href="#186">AnyOrPanic::Panic</a>(<a href="#234">panic</a>);
-                        <span class="prelude-val">Err</span>(std::io::Error::new(std::io::ErrorKind::Other, <span class="string">&quot;Panicked&quot;</span>))
+                        <span class="prelude-val">Err</span>(std::io::Error::new(std::io::ErrorKind::Other, <span class="string">"Panicked"</span>))
                     }
                 }
             }
             <a href="#186">AnyOrPanic::Panic</a>(<span class="kw">_</span>) =&gt; <span class="prelude-val">Err</span>(std::io::Error::new(
                 std::io::ErrorKind::Other,
-                <span class="string">&quot;Panicked before&quot;</span>,
+                <span class="string">"Panicked before"</span>,
             )),
         }
     }
@@ -715,54 +717,54 @@
             </span><span class="kw">match </span><a href="#265">err</a>.kind() {
                 ErrorKind::NotFound =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1661"><span class="kw">crate</span>::IOErrorEnum::NotFound</a>,
-                    <span class="string">&quot;Not Found&quot;</span>,
+                    <span class="string">"Not Found"</span>,
                 ))),
                 ErrorKind::PermissionDenied =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1700"><span class="kw">crate</span>::IOErrorEnum::PermissionDenied</a>,
-                    <span class="string">&quot;Permission Denied&quot;</span>,
+                    <span class="string">"Permission Denied"</span>,
                 ))),
                 ErrorKind::ConnectionRefused =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1782"><span class="kw">crate</span>::IOErrorEnum::ConnectionRefused</a>,
-                    <span class="string">&quot;Connection Refused&quot;</span>,
+                    <span class="string">"Connection Refused"</span>,
                 ))),
                 ErrorKind::ConnectionReset
                 | ErrorKind::ConnectionAborted
                 | ErrorKind::NotConnected =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1801"><span class="kw">crate</span>::IOErrorEnum::NotConnected</a>,
-                    <span class="string">&quot;Connection Reset&quot;</span>,
+                    <span class="string">"Connection Reset"</span>,
                 ))),
                 ErrorKind::AddrInUse | ErrorKind::AddrNotAvailable =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1760"><span class="kw">crate</span>::IOErrorEnum::AddressInUse</a>,
-                    <span class="string">&quot;Address In Use&quot;</span>,
+                    <span class="string">"Address In Use"</span>,
                 ))),
                 ErrorKind::BrokenPipe =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1798"><span class="kw">crate</span>::IOErrorEnum::BrokenPipe</a>,
-                    <span class="string">&quot;Broken Pipe&quot;</span>,
+                    <span class="string">"Broken Pipe"</span>,
                 ))),
                 ErrorKind::AlreadyExists =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1664"><span class="kw">crate</span>::IOErrorEnum::Exists</a>,
-                    <span class="string">&quot;Already Exists&quot;</span>,
+                    <span class="string">"Already Exists"</span>,
                 ))),
                 ErrorKind::WouldBlock =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1739"><span class="kw">crate</span>::IOErrorEnum::WouldBlock</a>,
-                    <span class="string">&quot;Would Block&quot;</span>,
+                    <span class="string">"Would Block"</span>,
                 ))),
                 ErrorKind::InvalidInput | ErrorKind::InvalidData =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1766"><span class="kw">crate</span>::IOErrorEnum::InvalidData</a>,
-                    <span class="string">&quot;Invalid Input&quot;</span>,
+                    <span class="string">"Invalid Input"</span>,
                 ))),
                 ErrorKind::TimedOut =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1730"><span class="kw">crate</span>::IOErrorEnum::TimedOut</a>,
-                    <span class="string">&quot;Timed Out&quot;</span>,
+                    <span class="string">"Timed Out"</span>,
                 ))),
                 ErrorKind::Interrupted =&gt; <span class="prelude-val">None</span>,
                 ErrorKind::UnexpectedEof =&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1712"><span class="kw">crate</span>::IOErrorEnum::Closed</a>,
-                    <span class="string">&quot;Unexpected Eof&quot;</span>,
+                    <span class="string">"Unexpected Eof"</span>,
                 ))),
                 ErrorKind::WriteZero | <span class="kw">_ </span>=&gt; <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(glib::Error::new(
                     <a href="auto/enums.rs.html#1658"><span class="kw">crate</span>::IOErrorEnum::Failed</a>,
-                    <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;Unknown error: {err:?}&quot;</span>).as_str(),
+                    <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"Unknown error: {err:?}"</span>).as_str(),
                 ))),
             }
         }

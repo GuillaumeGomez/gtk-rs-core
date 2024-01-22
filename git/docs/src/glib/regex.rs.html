@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/regex.rs`."><title>regex.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/regex.rs`."><title>regex.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -774,10 +776,6 @@
 <a href="#701" id="701">701</a>
 <a href="#702" id="702">702</a>
 <a href="#703" id="703">703</a>
-<a href="#704" id="704">704</a>
-<a href="#705" id="705">705</a>
-<a href="#706" id="706">706</a>
-<a href="#707" id="707">707</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
@@ -785,8 +783,8 @@
 //! compatibility with GLib.Regex based APIs.
 
 </span><span class="kw">use crate</span>::{
-    <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#676">GStringPtr</a>, <a href="gstring.rs.html#2301-2303">IntoGStr</a>, <a href="auto/match_info.rs.html#7-18">MatchInfo</a>, <a href="collections/ptr_slice.rs.html#18-26">PtrSlice</a>, <a href="auto/regex.rs.html#7-69">Regex</a>, <a href="auto/flags.rs.html#475-594">RegexCompileFlags</a>,
-    <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+    <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="gstring.rs.html#24">GStr</a>, <a href="gstring.rs.html#676">GStringPtr</a>, <a href="gstring.rs.html#2301-2303">IntoGStr</a>, <a href="match_info.rs.html#10-13">MatchInfo</a>, <a href="collections/ptr_slice.rs.html#18-26">PtrSlice</a>, <a href="auto/regex.rs.html#7-69">Regex</a>, <a href="auto/flags.rs.html#423-542">RegexCompileFlags</a>,
+    <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
 };
 <span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/core/mem/index.html">mem</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>};
 
@@ -799,15 +797,15 @@
     ///
     /// The number of the subexpression or -1 if `name`
     ///  does not exists
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_string_number&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_string_number&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_string_number"</span>)]
+    #[doc(alias = <span class="string">"get_string_number"</span>)]
     </span><span class="kw">pub fn </span>string_number(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <a href="#24">name</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|name| <span class="kw">unsafe </span>{
             ffi::g_regex_get_string_number(<a class="self" href="#24">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>, <a href="#25">name</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)
         })
     }
 
-    <span class="doccomment">/// Escapes the nul characters in `string` to &quot;\x00&quot;. It can be used
+    <span class="doccomment">/// Escapes the nul characters in `string` to "\x00". It can be used
     /// to compile a regex with embedded nul characters.
     ///
     /// For completeness, `length` can be -1 for a nul-terminated string.
@@ -820,7 +818,7 @@
     /// # Returns
     ///
     /// a newly-allocated escaped string
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_escape_nul&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_escape_nul"</span>)]
     </span><span class="kw">pub fn </span>escape_nul(string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{
             <a href="#44">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
@@ -833,10 +831,10 @@
     }
 
     <span class="doccomment">/// Escapes the special characters used for regular expressions
-    /// in `string`, for instance &quot;a.b*c&quot; becomes &quot;a\.b\*c&quot;. This
+    /// in `string`, for instance "a.b*c" becomes "a\.b\*c". This
     /// function is useful to dynamically generate regular expressions.
     ///
-    /// `string` can contain nul characters that are replaced with &quot;\0&quot;,
+    /// `string` can contain nul characters that are replaced with "\0",
     /// in this case remember to specify the correct length of `string`
     /// in `length`.
     /// ## `string`
@@ -847,7 +845,7 @@
     /// # Returns
     ///
     /// a newly-allocated escaped string
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_escape_string&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_escape_string"</span>)]
     </span><span class="kw">pub fn </span>escape_string(string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{
             <a href="#71">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
@@ -864,9 +862,9 @@
     /// it are valid.
     ///
     /// If `has_references` is not [`None`] then `replacement` is checked
-    /// for pattern references. For instance, replacement text &#39;foo\n&#39;
+    /// for pattern references. For instance, replacement text 'foo\n'
     /// does not contain references and may be evaluated without information
-    /// about actual match, but &#39;\0\1&#39; (whole match followed by first
+    /// about actual match, but '\0\1' (whole match followed by first
     /// subpattern) requires valid [`MatchInfo`][crate::MatchInfo] object.
     /// ## `replacement`
     /// the replacement string
@@ -878,8 +876,8 @@
     /// ## `has_references`
     /// location to store information about
     ///  references in `replacement` or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_check_replacement&quot;</span>)]
-    </span><span class="kw">pub fn </span>check_replacement(replacement: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_check_replacement"</span>)]
+    </span><span class="kw">pub fn </span>check_replacement(replacement: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <a href="#102">replacement</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|replacement| <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>has_references = mem::MaybeUninit::uninit();
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
@@ -905,7 +903,7 @@
     /// substrings, capture counts, and so on.
     ///
     /// If this function is to be called on the same `pattern` more than
-    /// once, it&#39;s more efficient to compile the pattern once with
+    /// once, it's more efficient to compile the pattern once with
     /// [`new()`][Self::new()] and then use [`match_()`][Self::match_()].
     /// ## `pattern`
     /// the regular expression
@@ -919,12 +917,12 @@
     /// # Returns
     ///
     /// [`true`] if the string matched, [`false`] otherwise
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_match_simple&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_match_simple"</span>)]
     </span><span class="kw">pub fn </span>match_simple(
         pattern: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        compile_options: <a href="auto/flags.rs.html#475-594">RegexCompileFlags</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        compile_options: <a href="auto/flags.rs.html#423-542">RegexCompileFlags</a>,
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
     ) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <a href="#144">pattern</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|pattern| {
             <a href="#145">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| <span class="kw">unsafe </span>{
@@ -939,13 +937,13 @@
     }
 
     <span class="doccomment">/// Replaces all occurrences of the pattern in `self` with the
-    /// replacement text. Backreferences of the form &#39;\number&#39; or
-    /// &#39;\g`&lt;number&gt;`&#39; in the replacement text are interpolated by the
-    /// number-th captured subexpression of the match, &#39;\g`&lt;name&gt;`&#39; refers
-    /// to the captured subexpression with the given name. &#39;\0&#39; refers
-    /// to the complete match, but &#39;\0&#39; followed by a number is the octal
-    /// representation of a character. To include a literal &#39;\&#39; in the
-    /// replacement, write &#39;\\\\&#39;.
+    /// replacement text. Backreferences of the form '\number' or
+    /// '\g`&lt;number&gt;`' in the replacement text are interpolated by the
+    /// number-th captured subexpression of the match, '\g`&lt;name&gt;`' refers
+    /// to the captured subexpression with the given name. '\0' refers
+    /// to the complete match, but '\0' followed by a number is the octal
+    /// representation of a character. To include a literal '\' in the
+    /// replacement, write '\\\\'.
     ///
     /// There are also escapes that changes the case of the following text:
     ///
@@ -963,7 +961,7 @@
     ///
     /// Setting `start_position` differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern that
-    /// begins with any kind of lookbehind assertion, such as &quot;\b&quot;.
+    /// begins with any kind of lookbehind assertion, such as "\b".
     /// ## `string`
     /// the string to perform matches against
     /// ## `start_position`
@@ -976,14 +974,14 @@
     /// # Returns
     ///
     /// a newly allocated string containing the replacements
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_replace&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_replace"</span>)]
     </span><span class="kw">pub fn </span>replace(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
         replacement: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="#202">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
                 <a href="#204">replacement</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|replacement| {
@@ -1033,27 +1031,27 @@
     /// ## `match_info`
     /// pointer to location where to store
     ///  the [`MatchInfo`][crate::MatchInfo], or [`None`] if you do not need it
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_match_all&quot;</span>)]
-    </span><span class="kw">pub fn </span>match_all(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_match_all"</span>)]
+    </span><span class="kw">pub fn </span>match_all&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="auto/match_info.rs.html#7-18">MatchInfo</a>&gt; {
-        <a class="self" href="#258">self</a>.<a href="#318-345">match_all_full</a>(<a href="#259">string</a>, <span class="number">0</span>, <a href="#260">match_options</a>).ok()
+        string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;&gt; {
+        <a class="self" href="#258">self</a>.<a href="#318-343">match_all_full</a>(<a href="#259">string</a>, <span class="number">0</span>, <a href="#260">match_options</a>).ok()
     }
 
     <span class="doccomment">/// Using the standard algorithm for regular expression matching only
     /// the longest match in the `string` is retrieved, it is not possible
     /// to obtain all the available matches. For instance matching
-    /// &quot;`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`&quot; against the pattern &quot;&lt;.*&gt;&quot;
-    /// you get &quot;`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`&quot;.
+    /// "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`" against the pattern "&lt;.*&gt;"
+    /// you get "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`".
     ///
     /// This function uses a different algorithm (called DFA, i.e. deterministic
     /// finite automaton), so it can retrieve all the possible matches, all
     /// starting at the same point in the string. For instance matching
-    /// &quot;`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`&quot; against the pattern &quot;&lt;.*&gt;;&quot;
-    /// you would obtain three matches: &quot;`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`&quot;,
-    /// &quot;`&lt;a&gt;` `&lt;b&gt;`&quot; and &quot;`&lt;a&gt;`&quot;.
+    /// "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`" against the pattern "&lt;.*&gt;;"
+    /// you would obtain three matches: "`&lt;a&gt;` `&lt;b&gt;` `&lt;c&gt;`",
+    /// "`&lt;a&gt;` `&lt;b&gt;`" and "`&lt;a&gt;`".
     ///
     /// The number of matched strings is retrieved using
     /// [`MatchInfo::match_count()`][crate::MatchInfo::match_count()]. To obtain the matched strings and
@@ -1067,7 +1065,7 @@
     ///
     /// Setting `start_position` differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern
-    /// that begins with any kind of lookbehind assertion, such as &quot;\b&quot;.
+    /// that begins with any kind of lookbehind assertion, such as "\b".
     ///
     /// Unless [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] is specified in the options, `string` must be valid UTF-8.
     ///
@@ -1094,43 +1092,41 @@
     /// ## `match_info`
     /// pointer to location where to store
     ///  the [`MatchInfo`][crate::MatchInfo], or [`None`] if you do not need it
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_match_all_full&quot;</span>)]
-    </span><span class="kw">pub fn </span>match_all_full(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_match_all_full"</span>)]
+    </span><span class="kw">pub fn </span>match_all_full&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
+        string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="auto/match_info.rs.html#7-18">MatchInfo</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
-            <a href="#320">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
-                <span class="kw">let </span><span class="kw-2">mut </span>match_info = ptr::null_mut();
-                <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-                <span class="kw">let </span>is_ok = ffi::g_regex_match_all_full(
-                    <a class="self" href="#319">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#325">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#325">string</a>.len() <span class="kw">as _</span>,
-                    <a href="#321">start_position</a>,
-                    <a href="#322">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
-                    <span class="kw-2">&amp;mut </span><a href="#326">match_info</a>,
-                    <span class="kw-2">&amp;mut </span><a href="#327">error</a>,
-                );
-                <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_eq.html">debug_assert_eq!</a>(is_ok == <span class="kw">crate</span>::ffi::GFALSE, !error.is_null());
-                <span class="kw">if </span>error.is_null() {
-                    <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#326">match_info</a>))
-                } <span class="kw">else </span>{
-                    <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#327">error</a>))
-                }
-            })
+            <span class="kw">let </span><span class="kw-2">mut </span>match_info = ptr::null_mut();
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>is_ok = ffi::g_regex_match_all_full(
+                <a class="self" href="#319">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#320">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#320">string</a>.len() <span class="kw">as _</span>,
+                <a href="#321">start_position</a>,
+                <a href="#322">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
+                <span class="kw-2">&amp;mut </span><a href="#325">match_info</a>,
+                <span class="kw-2">&amp;mut </span><a href="#326">error</a>,
+            );
+            <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_eq.html">debug_assert_eq!</a>(is_ok == <span class="kw">crate</span>::ffi::GFALSE, !error.is_null());
+            <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#325">match_info</a>))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#326">error</a>))
+            }
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_regex_match&quot;</span>)]
-    </span><span class="kw">pub fn </span>match_(
+    <span class="attr">#[doc(alias = <span class="string">"g_regex_match"</span>)]
+    </span><span class="kw">pub fn </span>match_&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="auto/match_info.rs.html#7-18">MatchInfo</a>&gt; {
-        <a class="self" href="#349">self</a>.<a href="#426-453">match_full</a>(<a href="#350">string</a>, <span class="number">0</span>, <a href="#351">match_options</a>).ok()
+        string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;&gt; {
+        <a class="self" href="#347">self</a>.<a href="#424-449">match_full</a>(<a href="#348">string</a>, <span class="number">0</span>, <a href="#349">match_options</a>).ok()
     }
 
     <span class="doccomment">/// Scans for a match in `string` for the pattern in `self`.
@@ -1140,7 +1136,7 @@
     ///
     /// Setting `start_position` differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern
-    /// that begins with any kind of lookbehind assertion, such as &quot;\b&quot;.
+    /// that begins with any kind of lookbehind assertion, such as "\b".
     ///
     /// Unless [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] is specified in the options, `string` must be valid UTF-8.
     ///
@@ -1170,12 +1166,12 @@
     ///   GMatchInfo *match_info;
     ///   GError *error = NULL;
     ///
-    ///   regex = g_regex_new (&quot;[A-Z]+&quot;, G_REGEX_DEFAULT, G_REGEX_MATCH_DEFAULT, NULL);
+    ///   regex = g_regex_new ("[A-Z]+", G_REGEX_DEFAULT, G_REGEX_MATCH_DEFAULT, NULL);
     ///   g_regex_match_full (regex, string, -1, 0, 0, &amp;match_info, &amp;error);
     ///   while (g_match_info_matches (match_info))
     ///     {
     ///       gchar *word = g_match_info_fetch (match_info, 0);
-    ///       g_print (&quot;Found: %s\n&quot;, word);
+    ///       g_print ("Found: %s\n", word);
     ///       g_free (word);
     ///       g_match_info_next (match_info, &amp;error);
     ///     }
@@ -1183,7 +1179,7 @@
     ///   g_regex_unref (regex);
     ///   if (error != NULL)
     ///     {
-    ///       g_printerr (&quot;Error while matching: %s\n&quot;, error-&gt;message);
+    ///       g_printerr ("Error while matching: %s\n", error-&gt;message);
     ///       g_error_free (error);
     ///     }
     /// }
@@ -1202,33 +1198,31 @@
     /// ## `match_info`
     /// pointer to location where to store
     ///  the [`MatchInfo`][crate::MatchInfo], or [`None`] if you do not need it
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_match_full&quot;</span>)]
-    </span><span class="kw">pub fn </span>match_full(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_match_full"</span>)]
+    </span><span class="kw">pub fn </span>match_full&lt;<span class="lifetime">'input</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
+        string: <span class="kw-2">&amp;</span><span class="lifetime">'input </span><a href="gstring.rs.html#24">GStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="auto/match_info.rs.html#7-18">MatchInfo</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;MatchInfo&lt;<span class="lifetime">'input</span>&gt;, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
-            <a href="#428">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
-                <span class="kw">let </span><span class="kw-2">mut </span>match_info = ptr::null_mut();
-                <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-                <span class="kw">let </span>is_ok = ffi::g_regex_match_full(
-                    <a class="self" href="#427">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#433">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#433">string</a>.len() <span class="kw">as _</span>,
-                    <a href="#429">start_position</a>,
-                    <a href="#430">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
-                    <span class="kw-2">&amp;mut </span><a href="#434">match_info</a>,
-                    <span class="kw-2">&amp;mut </span><a href="#435">error</a>,
-                );
-                <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_eq.html">debug_assert_eq!</a>(is_ok == <span class="kw">crate</span>::ffi::GFALSE, !error.is_null());
-                <span class="kw">if </span>error.is_null() {
-                    <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#434">match_info</a>))
-                } <span class="kw">else </span>{
-                    <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#435">error</a>))
-                }
-            })
+            <span class="kw">let </span><span class="kw-2">mut </span>match_info = ptr::null_mut();
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>is_ok = ffi::g_regex_match_full(
+                <a class="self" href="#425">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#426">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#426">string</a>.len() <span class="kw">as _</span>,
+                <a href="#427">start_position</a>,
+                <a href="#428">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
+                <span class="kw-2">&amp;mut </span><a href="#431">match_info</a>,
+                <span class="kw-2">&amp;mut </span><a href="#432">error</a>,
+            );
+            <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_eq.html">debug_assert_eq!</a>(is_ok == <span class="kw">crate</span>::ffi::GFALSE, !error.is_null());
+            <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#431">match_info</a>))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#432">error</a>))
+            }
         }
     }
 
@@ -1239,7 +1233,7 @@
     /// Setting `start_position` differs from just passing over a
     /// shortened string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the
     /// case of a pattern that begins with any kind of lookbehind
-    /// assertion, such as &quot;\b&quot;.
+    /// assertion, such as "\b".
     /// ## `string`
     /// the string to perform matches against
     /// ## `start_position`
@@ -1252,31 +1246,31 @@
     /// # Returns
     ///
     /// a newly allocated string containing the replacements
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_replace_literal&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_replace_literal"</span>)]
     </span><span class="kw">pub fn </span>replace_literal(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
         replacement: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="gstring.rs.html#996"><span class="kw">crate</span>::GString</a>, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
-            <a href="#478">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
-                <a href="#480">replacement</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|replacement| {
+            <a href="#474">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
+                <a href="#476">replacement</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|replacement| {
                     <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
                     <span class="kw">let </span>ret = ffi::g_regex_replace_literal(
-                        <a class="self" href="#477">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                        <a href="#484">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                        <a href="#484">string</a>.len() <span class="kw">as _</span>,
-                        <a href="#479">start_position</a>,
-                        <a href="#485">replacement</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                        <a href="#481">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
-                        <span class="kw-2">&amp;mut </span><a href="#486">error</a>,
+                        <a class="self" href="#473">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                        <a href="#480">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                        <a href="#480">string</a>.len() <span class="kw">as _</span>,
+                        <a href="#475">start_position</a>,
+                        <a href="#481">replacement</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                        <a href="#477">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
+                        <span class="kw-2">&amp;mut </span><a href="#482">error</a>,
                     );
                     <span class="kw">if </span>error.is_null() {
-                        <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#487">ret</a>))
+                        <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#483">ret</a>))
                     } <span class="kw">else </span>{
-                        <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#486">error</a>))
+                        <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#482">error</a>))
                     }
                 })
             })
@@ -1289,17 +1283,17 @@
     /// anywhere in the string, then the whole string is returned as the first
     /// token.
     ///
-    /// As a special case, the result of splitting the empty string &quot;&quot; is an
+    /// As a special case, the result of splitting the empty string "" is an
     /// empty vector, not a vector containing a single string. The reason for
     /// this special case is that being able to represent an empty vector is
     /// typically more useful than consistent handling of empty elements. If
-    /// you do need to represent empty elements, you&#39;ll need to check for the
+    /// you do need to represent empty elements, you'll need to check for the
     /// empty string before calling this function.
     ///
     /// A pattern that can match empty strings splits `string` into separate
     /// characters wherever it matches the empty string between characters.
-    /// For example splitting &quot;ab c&quot; using as a separator &quot;\s*&quot;, you will get
-    /// &quot;a&quot;, &quot;b&quot; and &quot;c&quot;.
+    /// For example splitting "ab c" using as a separator "\s*", you will get
+    /// "a", "b" and "c".
     /// ## `string`
     /// the string to split with the pattern
     /// ## `match_options`
@@ -1309,13 +1303,13 @@
     ///
     /// a [`None`]-terminated gchar ** array. Free
     /// it using `g_strfreev()`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_split&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_split"</span>)]
     </span><span class="kw">pub fn </span>split(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
     ) -&gt; PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt; {
-        <a class="self" href="#534">self</a>.<a href="#578-604">split_full</a>(<a href="#535">string</a>, <span class="number">0</span>, <a href="#536">match_options</a>, <span class="number">0</span>)
+        <a class="self" href="#530">self</a>.<a href="#574-600">split_full</a>(<a href="#531">string</a>, <span class="number">0</span>, <a href="#532">match_options</a>, <span class="number">0</span>)
             .unwrap_or_default()
     }
 
@@ -1325,21 +1319,21 @@
     /// anywhere in the string, then the whole string is returned as the first
     /// token.
     ///
-    /// As a special case, the result of splitting the empty string &quot;&quot; is an
+    /// As a special case, the result of splitting the empty string "" is an
     /// empty vector, not a vector containing a single string. The reason for
     /// this special case is that being able to represent an empty vector is
     /// typically more useful than consistent handling of empty elements. If
-    /// you do need to represent empty elements, you&#39;ll need to check for the
+    /// you do need to represent empty elements, you'll need to check for the
     /// empty string before calling this function.
     ///
     /// A pattern that can match empty strings splits `string` into separate
     /// characters wherever it matches the empty string between characters.
-    /// For example splitting &quot;ab c&quot; using as a separator &quot;\s*&quot;, you will get
-    /// &quot;a&quot;, &quot;b&quot; and &quot;c&quot;.
+    /// For example splitting "ab c" using as a separator "\s*", you will get
+    /// "a", "b" and "c".
     ///
     /// Setting `start_position` differs from just passing over a shortened
     /// string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL] in the case of a pattern
-    /// that begins with any kind of lookbehind assertion, such as &quot;\b&quot;.
+    /// that begins with any kind of lookbehind assertion, such as "\b".
     /// ## `string`
     /// the string to split with the pattern
     /// ## `start_position`
@@ -1354,30 +1348,30 @@
     ///
     /// a [`None`]-terminated gchar ** array. Free
     /// it using `g_strfreev()`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_split_full&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_split_full"</span>)]
     </span><span class="kw">pub fn </span>split_full(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         start_position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
         max_tokens: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt;, <a href="error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt;, <a href="error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-            <a href="#580">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
+            <a href="#576">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| {
                 <span class="kw">let </span>ret = ffi::g_regex_split_full(
-                    <a class="self" href="#579">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#587">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#587">string</a>.len() <span class="kw">as _</span>,
-                    <a href="#581">start_position</a>,
-                    <a href="#582">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
-                    <a href="#583">max_tokens</a>,
-                    <span class="kw-2">&amp;mut </span><a href="#586">error</a>,
+                    <a class="self" href="#575">self</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#583">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#583">string</a>.len() <span class="kw">as _</span>,
+                    <a href="#577">start_position</a>,
+                    <a href="#578">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
+                    <a href="#579">max_tokens</a>,
+                    <span class="kw-2">&amp;mut </span><a href="#582">error</a>,
                 );
                 <span class="kw">if </span>error.is_null() {
-                    <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1934">FromGlibPtrContainer::from_glib_full</a>(<a href="#588">ret</a>))
+                    <span class="prelude-val">Ok</span>(<a href="translate.rs.html#1934">FromGlibPtrContainer::from_glib_full</a>(<a href="#584">ret</a>))
                 } <span class="kw">else </span>{
-                    <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#586">error</a>))
+                    <span class="prelude-val">Err</span>(<a href="translate.rs.html#1630-1632">from_glib_full</a>(<a href="#582">error</a>))
                 }
             })
         }
@@ -1395,21 +1389,21 @@
     /// extracting substrings, capture counts, and so on.
     ///
     /// If this function is to be called on the same `pattern` more than
-    /// once, it&#39;s more efficient to compile the pattern once with
+    /// once, it's more efficient to compile the pattern once with
     /// [`new()`][Self::new()] and then use [`split()`][Self::split()].
     ///
-    /// As a special case, the result of splitting the empty string &quot;&quot;
+    /// As a special case, the result of splitting the empty string ""
     /// is an empty vector, not a vector containing a single string.
     /// The reason for this special case is that being able to represent
     /// an empty vector is typically more useful than consistent handling
     /// of empty elements. If you do need to represent empty elements,
-    /// you&#39;ll need to check for the empty string before calling this
+    /// you'll need to check for the empty string before calling this
     /// function.
     ///
     /// A pattern that can match empty strings splits `string` into
     /// separate characters wherever it matches the empty string between
-    /// characters. For example splitting &quot;ab c&quot; using as a separator
-    /// &quot;\s*&quot;, you will get &quot;a&quot;, &quot;b&quot; and &quot;c&quot;.
+    /// characters. For example splitting "ab c" using as a separator
+    /// "\s*", you will get "a", "b" and "c".
     /// ## `pattern`
     /// the regular expression
     /// ## `string`
@@ -1423,20 +1417,20 @@
     ///
     /// a [`None`]-terminated array of strings. Free
     /// it using `g_strfreev()`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_split_simple&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_split_simple"</span>)]
     </span><span class="kw">pub fn </span>split_simple(
         pattern: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
         string: <span class="kw">impl </span><a href="gstring.rs.html#2301-2303">IntoGStr</a>,
-        compile_options: <a href="auto/flags.rs.html#475-594">RegexCompileFlags</a>,
-        match_options: <a href="auto/flags.rs.html#614-712">RegexMatchFlags</a>,
+        compile_options: <a href="auto/flags.rs.html#423-542">RegexCompileFlags</a>,
+        match_options: <a href="auto/flags.rs.html#562-660">RegexMatchFlags</a>,
     ) -&gt; PtrSlice&lt;<a href="gstring.rs.html#676">GStringPtr</a>&gt; {
-        <a href="#648">pattern</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|pattern| {
-            <a href="#649">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| <span class="kw">unsafe </span>{
+        <a href="#644">pattern</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|pattern| {
+            <a href="#645">string</a>.<a href="gstring.rs.html#2302">run_with_gstr</a>(|string| <span class="kw">unsafe </span>{
                 <a href="translate.rs.html#1934">FromGlibPtrContainer::from_glib_full</a>(ffi::g_regex_split_simple(
-                    <a href="#653">pattern</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#654">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#650">compile_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
-                    <a href="#651">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
+                    <a href="#649">pattern</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#650">string</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#646">compile_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
+                    <a href="#647">match_options</a>.<a href="translate.rs.html#330">into_glib</a>(),
                 ))
             })
         })
@@ -1451,38 +1445,38 @@
     <span class="attr">#[test]
     </span><span class="kw">fn </span>test_replace_literal() {
         <span class="kw">let </span>regex = Regex::new(
-            <span class="string">&quot;s[ai]mple&quot;</span>,
+            <span class="string">"s[ai]mple"</span>,
             RegexCompileFlags::OPTIMIZE,
             RegexMatchFlags::DEFAULT,
         )
-        .expect(<span class="string">&quot;Regex new&quot;</span>)
-        .expect(<span class="string">&quot;Null regex&quot;</span>);
+        .expect(<span class="string">"Regex new"</span>)
+        .expect(<span class="string">"Null regex"</span>);
 
-        <span class="kw">let </span>quote = <span class="string">&quot;This is a simple sample.&quot;</span>;
+        <span class="kw">let </span>quote = <span class="string">"This is a simple sample."</span>;
         <span class="kw">let </span>result = regex
-            .replace_literal(quote, <span class="number">0</span>, <span class="string">&quot;XXX&quot;</span>, RegexMatchFlags::DEFAULT)
-            .expect(<span class="string">&quot;regex replace&quot;</span>);
+            .replace_literal(quote, <span class="number">0</span>, <span class="string">"XXX"</span>, RegexMatchFlags::DEFAULT)
+            .expect(<span class="string">"regex replace"</span>);
 
-        <span class="macro">assert_eq!</span>(result, <span class="string">&quot;This is a XXX XXX.&quot;</span>);
+        <span class="macro">assert_eq!</span>(result, <span class="string">"This is a XXX XXX."</span>);
     }
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>test_split() {
         <span class="kw">let </span>regex = Regex::new(
-            <span class="string">&quot;s[ai]mple&quot;</span>,
+            <span class="string">"s[ai]mple"</span>,
             RegexCompileFlags::OPTIMIZE,
             RegexMatchFlags::DEFAULT,
         )
-        .expect(<span class="string">&quot;Regex new&quot;</span>)
-        .expect(<span class="string">&quot;Null regex&quot;</span>);
+        .expect(<span class="string">"Regex new"</span>)
+        .expect(<span class="string">"Null regex"</span>);
 
-        <span class="kw">let </span>quote = <span class="string">&quot;This is a simple sample.&quot;</span>;
+        <span class="kw">let </span>quote = <span class="string">"This is a simple sample."</span>;
         <span class="kw">let </span>result = regex.split(quote, RegexMatchFlags::DEFAULT);
 
         <span class="macro">assert_eq!</span>(result.len(), <span class="number">3</span>);
-        <span class="macro">assert_eq!</span>(result[<span class="number">0</span>], <span class="string">&quot;This is a &quot;</span>);
-        <span class="macro">assert_eq!</span>(result[<span class="number">1</span>], <span class="string">&quot; &quot;</span>);
-        <span class="macro">assert_eq!</span>(result[<span class="number">2</span>], <span class="string">&quot;.&quot;</span>);
+        <span class="macro">assert_eq!</span>(result[<span class="number">0</span>], <span class="string">"This is a "</span>);
+        <span class="macro">assert_eq!</span>(result[<span class="number">1</span>], <span class="string">" "</span>);
+        <span class="macro">assert_eq!</span>(result[<span class="number">2</span>], <span class="string">"."</span>);
     }
 }
 </code></pre></div></section></main></body></html>

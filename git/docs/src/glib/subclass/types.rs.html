@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/types.rs`."><title>types.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/types.rs`."><title>types.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1311,11 +1313,11 @@
 
 <span class="kw">use </span><a href="signal.rs.html#172"><span class="kw">super</span>::SignalId</a>;
 <span class="kw">use crate</span>::{
-    <a href="../gobject/dynamic_object.rs.html#13-28">gobject::traits::DynamicObjectRegisterExt</a>,
+    <a href="../gobject/dynamic_object.rs.html#15-42">gobject::traits::DynamicObjectRegisterExt</a>,
     object::{<a href="../object.rs.html#4061">IsClass</a>, <a href="../object.rs.html#4293">IsInterface</a>, <a href="../object.rs.html#4033-4035">ObjectSubclassIs</a>, <a href="../object.rs.html#4026-4028">ParentClassIs</a>},
     <a href="../lib.rs.html#146">prelude</a>::<span class="kw-2">*</span>,
     <a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>,
-    <a href="../closure.rs.html#11-24">Closure</a>, <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a>, <a href="../object.rs.html#1351-1354">Object</a>, <a href="../types.rs.html#22">Type</a>, <a href="../gobject/auto/flags.rs.html#239-284">TypeFlags</a>, <a href="../gobject/type_info.rs.html#25">TypeInfo</a>, <a href="../value.rs.html#476-521">Value</a>,
+    <a href="../closure.rs.html#11-24">Closure</a>, <a href="../gobject/interface_info.rs.html#6">InterfaceInfo</a>, <a href="../object.rs.html#1351-1354">Object</a>, <a href="../types.rs.html#22">Type</a>, <a href="../gobject/auto/flags.rs.html#141-156">TypeFlags</a>, <a href="../gobject/type_info.rs.html#6">TypeInfo</a>, <a href="../value.rs.html#476-510">Value</a>,
 };
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -1344,7 +1346,7 @@
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Trait implemented by structs that implement a `GObject` C instance struct.
 ///
-/// The struct must be `#[repr(C)]` and have the parent type&#39;s instance struct
+/// The struct must be `#[repr(C)]` and have the parent type's instance struct
 /// as the first field.
 ///
 /// See [`basic::InstanceStruct`] for a basic implementation of this that can
@@ -1352,7 +1354,7 @@
 /// required in the instance struct.
 ///
 /// [`basic::InstanceStruct`]: ../basic/struct.InstanceStruct.html
-</span><span class="kw">pub unsafe trait </span><a href="../../../glib/subclass/types/trait.InstanceStruct.html">InstanceStruct</a>: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub unsafe trait </span><a href="../../../glib/subclass/types/trait.InstanceStruct.html">InstanceStruct</a>: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <span class="lifetime">'static </span>{
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Corresponding object subclass type for this instance struct.
     </span><span class="kw">type </span>Type: <a href="#584-701">ObjectSubclass</a>;
@@ -1366,7 +1368,7 @@
     </span><span class="kw">fn </span>instance_init(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>obj = from_glib_borrow::&lt;<span class="kw">_</span>, <a href="../object.rs.html#1351-1354">Object</a>&gt;(<span class="self"><a href="#62">self</a> </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_ as </span><span class="kw-2">*mut </span>gobject_ffi::GObject);
-            <span class="kw">let </span>obj = Borrowed::new(<a href="#64">obj</a>.<a href="../translate.rs.html#291-293">into_inner</a>().<a href="../object.rs.html#254-257">unsafe_cast</a>());
+            <span class="kw">let </span>obj = <a href="../translate.rs.html#279-281">Borrowed::new</a>(<a href="#64">obj</a>.<a href="../translate.rs.html#291-293">into_inner</a>().<a href="../object.rs.html#254-257">unsafe_cast</a>());
             <span class="kw">let </span><span class="kw-2">mut </span>obj = <a href="#817">InitializingObject</a>(<a href="#65">obj</a>);
 
             &lt;&lt;<span class="self">Self</span>::Type <span class="kw">as </span>ObjectSubclass&gt;::ParentType <span class="kw">as </span>IsSubclassable&lt;<span class="self">Self</span>::Type&gt;&gt;::instance_init(
@@ -1384,12 +1386,12 @@
     /// is the implementor of [`ObjectImpl`] or subtraits.
     ///
     /// [`ObjectImpl`]: ../object/trait.ObjectImpl.html
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_impl&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_impl"</span>)]
     </span><span class="kw">fn </span>imp(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="self">Self</span>::Type;
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the class struct for this specific instance.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_class&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_class"</span>)]
     </span><span class="kw">fn </span>class(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>&lt;<span class="self">Self</span>::Type <span class="kw">as </span>ObjectSubclass&gt;::Class;
 }
 
@@ -1441,7 +1443,7 @@
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>imp(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="self">Self</span>::Type {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <span class="self">Self</span>::Type::type_data();
+            <span class="kw">let </span>data = <a href="#554"><span class="self">Self</span>::Type::type_data</a>();
             <span class="kw">let </span>private_offset = <a href="#140">data</a>.as_ref().<a href="#542-544">impl_offset</a>();
             <span class="kw">let </span>imp = offset_ptr_by_bytes::&lt;T, <span class="self">Self</span>::Type&gt;(<a class="self" href="#138">self</a>, <a href="#141">private_offset</a>);
             <span class="kw-2">&amp;*</span><a href="#142">imp</a>
@@ -1465,14 +1467,14 @@
 <span class="kw">impl</span>&lt;T: ObjectSubclassIs&lt;Subclass = S&gt;, S: ObjectSubclass&lt;Type = <span class="self">Self</span>&gt;&gt; <a href="#155-159">ObjectSubclassIsExt</a> <span class="kw">for </span>T {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>imp(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>T::Subclass {
-        T::Subclass::from_obj(<a class="self" href="#163">self</a>)
+        <a href="#728">T::Subclass::from_obj</a>(<a class="self" href="#163">self</a>)
     }
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Trait implemented by structs that implement a `GObject` C class struct.
 ///
-/// The struct must be `#[repr(C)]` and have the parent type&#39;s class struct
+/// The struct must be `#[repr(C)]` and have the parent type's class struct
 /// as the first field.
 ///
 /// See [`basic::ClassStruct`] for a basic implementation of this that can
@@ -1480,7 +1482,7 @@
 /// required in the class struct, e.g. for declaring new virtual methods.
 ///
 /// [`basic::ClassStruct`]: ../basic/struct.ClassStruct.html
-</span><span class="kw">pub unsafe trait </span><a href="../../../glib/subclass/types/trait.ClassStruct.html">ClassStruct</a>: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub unsafe trait </span><a href="../../../glib/subclass/types/trait.ClassStruct.html">ClassStruct</a>: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <span class="lifetime">'static </span>{
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Corresponding object subclass type for this class struct.
     </span><span class="kw">type </span>Type: <a href="#584-701">ObjectSubclass</a>;
@@ -1512,7 +1514,7 @@
     /// parent class.
     </span><span class="attr">#[inline]
     </span><span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span><span class="kw">crate</span>::Class&lt;<span class="self">Self</span>&gt;) {
-        <span class="self">Self</span>::default_class_init(<a href="#210">class</a>);
+        <a href="#229"><span class="self">Self</span>::default_class_init</a>(<a href="#210">class</a>);
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -1522,7 +1524,7 @@
     /// of the parent class.
     </span><span class="attr">#[inline]
     </span><span class="kw">fn </span>instance_init(instance: <span class="kw-2">&amp;mut </span>InitializingObject&lt;T&gt;) {
-        <span class="self">Self</span>::default_instance_init(<a href="#220">instance</a>);
+        <a href="#230"><span class="self">Self</span>::default_instance_init</a>(<a href="#220">instance</a>);
     }
 }
 
@@ -1540,12 +1542,12 @@
 {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>default_class_init(class: <span class="kw-2">&amp;mut </span><span class="kw">crate</span>::Class&lt;<span class="self">Self</span>&gt;) {
-        U::Parent::class_init(<a href="#238">class</a>);
+        <a href="#210-212">U::Parent::class_init</a>(<a href="#238">class</a>);
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>default_instance_init(instance: <span class="kw-2">&amp;mut </span>InitializingObject&lt;T&gt;) {
-        U::Parent::instance_init(<a href="#243">instance</a>);
+        <a href="#220-222">U::Parent::instance_init</a>(<a href="#243">instance</a>);
     }
 }
 
@@ -1572,7 +1574,7 @@
     <span class="kw">where
         </span>U::Parent: IsSubclassable&lt;T&gt;,
     {
-        <span class="self">Self</span>::Parent::class_init(<a href="#267">class</a>);
+        <a href="#210-212"><span class="self">Self</span>::Parent::class_init</a>(<a href="#267">class</a>);
     }
 
     <span class="attr">#[inline]
@@ -1580,7 +1582,7 @@
     <span class="kw">where
         </span>U::Parent: IsSubclassable&lt;T&gt;,
     {
-        <span class="self">Self</span>::Parent::instance_init(<a href="#275">instance</a>);
+        <a href="#220-222"><span class="self">Self</span>::Parent::instance_init</a>(<a href="#275">instance</a>);
     }
 }
 
@@ -1604,7 +1606,7 @@
     </span><span class="kw">fn </span>instance_init(_instance: <span class="kw-2">&amp;mut </span>InitializingObject&lt;T&gt;) {}
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>interface_init&lt;T: <a href="#584-701">ObjectSubclass</a>, A: IsImplementable&lt;T&gt;&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>interface_init&lt;T: <a href="#584-701">ObjectSubclass</a>, A: IsImplementable&lt;T&gt;&gt;(
     iface: ffi::gpointer,
     _iface_data: ffi::gpointer,
 ) <span class="kw">where
@@ -1612,9 +1614,9 @@
 {
     <span class="kw">let </span>iface = <span class="kw-2">&amp;mut *</span>(<a href="#304">iface</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">crate</span>::Interface&lt;A&gt;);
 
-    <span class="kw">let </span><span class="kw-2">mut </span>data = T::type_data();
+    <span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
     <span class="kw">if </span>data.as_ref().parent_ifaces.is_none() {
-        <a href="#311">data</a>.as_mut().parent_ifaces = <span class="prelude-val">Some</span>(BTreeMap::default());
+        <a href="#311">data</a>.as_mut().parent_ifaces = <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">BTreeMap::default</a>());
     }
     {
         <span class="kw">let </span>copy = Box::new(<span class="kw-2">*</span><a href="#309">iface</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>());
@@ -1622,10 +1624,10 @@
             .parent_ifaces
             .as_mut()
             .unwrap()
-            .insert(A::static_type(), Box::into_raw(<a href="#316">copy</a>) <span class="kw">as </span>ffi::gpointer);
+            .insert(<a href="../types.rs.html#293">A::static_type</a>(), Box::into_raw(<a href="#316">copy</a>) <span class="kw">as </span>ffi::gpointer);
     }
 
-    A::interface_init(<a href="#309">iface</a>);
+    <a href="#294">A::interface_init</a>(<a href="#309">iface</a>);
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -1633,7 +1635,7 @@
 </span><span class="kw">pub trait </span><a href="../../../glib/subclass/types/trait.InterfaceList.html">InterfaceList</a>&lt;T: <a href="#584-701">ObjectSubclass</a>&gt; {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the list of types and corresponding interface infos for this list.
-    </span><span class="kw">fn </span>iface_infos() -&gt; Vec&lt;(<a href="../types.rs.html#22">Type</a>, <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a>)&gt;;
+    </span><span class="kw">fn </span>iface_infos() -&gt; Vec&lt;(<a href="../types.rs.html#22">Type</a>, <a href="../gobject/interface_info.rs.html#6">InterfaceInfo</a>)&gt;;
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Runs `instance_init` on each of the `IsImplementable` items.
@@ -1641,7 +1643,7 @@
 }
 
 <span class="kw">impl</span>&lt;T: <a href="#584-701">ObjectSubclass</a>&gt; InterfaceList&lt;T&gt; <span class="kw">for </span>() {
-    <span class="kw">fn </span>iface_infos() -&gt; Vec&lt;(<a href="../types.rs.html#22">Type</a>, <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a>)&gt; {
+    <span class="kw">fn </span>iface_infos() -&gt; Vec&lt;(<a href="../types.rs.html#22">Type</a>, <a href="../gobject/interface_info.rs.html#6">InterfaceInfo</a>)&gt; {
         <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.vec.html">vec!</a>[]
     }
 
@@ -1653,7 +1655,7 @@
 <span class="kw">where
     </span>&lt;A <span class="kw">as </span>ObjectType&gt;::GlibClassType: <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html">Copy</a>,
 {
-    <span class="kw">fn </span>iface_infos() -&gt; Vec&lt;(<a href="../types.rs.html#22">Type</a>, <a href="../gobject/interface_info.rs.html#11">InterfaceInfo</a>)&gt; {
+    <span class="kw">fn </span>iface_infos() -&gt; Vec&lt;(<a href="../types.rs.html#22">Type</a>, <a href="../gobject/interface_info.rs.html#6">InterfaceInfo</a>)&gt; {
         <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.vec.html">vec!</a>[(
             A::static_type(),
             InterfaceInfo(gobject_ffi::GInterfaceInfo {
@@ -1665,7 +1667,7 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>instance_init(instance: <span class="kw-2">&amp;mut </span>InitializingObject&lt;T&gt;) {
-        A::instance_init(<a href="#363">instance</a>);
+        <a href="#300">A::instance_init</a>(<a href="#363">instance</a>);
     }
 }
 
@@ -1747,7 +1749,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the type ID.
     </span><span class="attr">#[inline]
-    #[doc(alias = <span class="string">&quot;get_type&quot;</span>)]
+    #[doc(alias = <span class="string">"get_type"</span>)]
     </span><span class="kw">pub fn </span>type_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../types.rs.html#22">Type</a> {
         <a class="self" href="#447">self</a>.type_
     }
@@ -1755,9 +1757,9 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns a pointer to the native parent class.
     ///
-    /// This is used for chaining up to the parent class&#39; implementation
+    /// This is used for chaining up to the parent class' implementation
     /// of virtual methods.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_parent_class&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_parent_class"</span>)]
     #[inline]
     </span><span class="kw">pub fn </span>parent_class(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ffi::gpointer {
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!<span class="self">self</span>.parent_class.is_null());
@@ -1767,20 +1769,20 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns a pointer to the native parent interface struct for interface `type_`.
     ///
-    /// This is used for chaining up to the parent interface&#39;s implementation
+    /// This is used for chaining up to the parent interface's implementation
     /// of virtual methods.
     ///
     /// # Panics
     ///
     /// This function panics if the type to which the `TypeData` belongs does not implement the
     /// given interface or was not registered yet.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_parent_interface&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_parent_interface"</span>)]
     </span><span class="kw">pub fn </span>parent_interface&lt;I: <a href="../object.rs.html#4293"><span class="kw">crate</span>::object::IsInterface</a>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ffi::gpointer {
         <span class="kw">match </span><a class="self" href="#474">self</a>.parent_ifaces {
-            <span class="prelude-val">None </span>=&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unreachable.html">unreachable!</a>(<span class="string">&quot;No parent interfaces&quot;</span>),
+            <span class="prelude-val">None </span>=&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.unreachable.html">unreachable!</a>(<span class="string">"No parent interfaces"</span>),
             <span class="prelude-val">Some</span>(<span class="kw-2">ref </span>parent_ifaces) =&gt; <span class="kw-2">*</span><a href="#477">parent_ifaces</a>
-                .get(<span class="kw-2">&amp;</span>I::static_type())
-                .expect(<span class="string">&quot;Parent interface not found&quot;</span>),
+                .get(<span class="kw-2">&amp;</span><a href="../types.rs.html#293">I::static_type</a>())
+                .expect(<span class="string">"Parent interface not found"</span>),
         }
     }
 
@@ -1788,8 +1790,8 @@
     </span><span class="doccomment">/// Returns a pointer to the class implementation specific data.
     ///
     /// This is used for class implementations to store additional data.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_class_data&quot;</span>)]
-    </span><span class="kw">pub fn </span>class_data&lt;T: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"get_class_data"</span>)]
+    </span><span class="kw">pub fn </span>class_data&lt;T: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt; {
         <span class="kw">match </span><a class="self" href="#488">self</a>.class_data {
             <span class="prelude-val">None </span>=&gt; <span class="prelude-val">None</span>,
             <span class="prelude-val">Some</span>(<span class="kw-2">ref </span>data) =&gt; <a href="#491">data</a>.get(<span class="kw-2">&amp;</span><a href="#488">type_</a>).and_then(|ptr| <a href="#491">ptr</a>.downcast_ref()),
@@ -1802,8 +1804,8 @@
     /// # Safety
     ///
     /// This can only be used while the type is being initialized.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_class_data_mut&quot;</span>)]
-    </span><span class="kw">pub unsafe fn </span>class_data_mut&lt;T: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"get_class_data_mut"</span>)]
+    </span><span class="kw">pub unsafe fn </span>class_data_mut&lt;T: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         type_: <a href="../types.rs.html#22">Type</a>,
     ) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;mut </span>T&gt; {
@@ -1823,15 +1825,15 @@
     /// # Panics
     ///
     /// If the class_data already contains a data for the specified `type_`.
-    </span><span class="kw">pub unsafe fn </span>set_class_data&lt;T: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>, data: T) {
+    </span><span class="kw">pub unsafe fn </span>set_class_data&lt;T: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>, data: T) {
         <span class="kw">if </span><span class="self">self</span>.class_data.is_none() {
-            <a class="self" href="#522">self</a>.class_data = <span class="prelude-val">Some</span>(BTreeMap::default());
+            <a class="self" href="#522">self</a>.class_data = <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">BTreeMap::default</a>());
         }
 
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref mut </span>class_data) = <a class="self" href="#522">self</a>.class_data {
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                 class_data.get(<span class="kw-2">&amp;</span>type_).is_none(),
-                <span class="string">&quot;The class_data already contains a key for {type_}&quot;</span>,
+                <span class="string">"The class_data already contains a key for {type_}"</span>,
             );
 
             <a href="#527">class_data</a>.insert(<a href="#522">type_</a>, Box::new(<a href="#522">data</a>));
@@ -1841,7 +1843,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the offset of the private implementation struct in bytes relative to the beginning
     /// of the instance struct.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_impl_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_impl_offset"</span>)]
     #[inline]
     </span><span class="kw">pub fn </span>impl_offset(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a> {
         <a class="self" href="#542">self</a>.private_offset + <a class="self" href="#542">self</a>.private_imp_offset
@@ -1861,7 +1863,7 @@
     </span><span class="doccomment">/// Returns the `glib::Type` ID of the subclass.
     ///
     /// This will register the type with the type system on the first call.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_type"</span>)]
     </span><span class="kw">fn </span>type_() -&gt; <a href="../types.rs.html#22">Type</a>;
 }
 
@@ -1885,12 +1887,12 @@
 /// with the type system.
 ///
 /// [`register_type`]: fn.register_type.html
-</span><span class="kw">pub trait </span><a href="../../../glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a>: <a href="#551-562">ObjectSubclassType</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../../glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a>: <a href="#551-562">ObjectSubclassType</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html">Sized</a> + <span class="lifetime">'static </span>{
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// `GObject` type name.
     ///
     /// This must be unique in the whole process.
-    </span><span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>;
+    </span><span class="kw">const </span>NAME: <span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>;
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// If this subclass is an abstract class or not.
@@ -1898,7 +1900,7 @@
     /// By default, all subclasses are non-abstract types but setting this to `true` will create an
     /// abstract class instead.
     ///
-    /// Abstract classes can&#39;t be instantiated and require a non-abstract subclass.
+    /// Abstract classes can't be instantiated and require a non-abstract subclass.
     ///
     /// Optional.
     </span><span class="kw">const </span>ABSTRACT: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> = <span class="bool-val">false</span>;
@@ -1992,7 +1994,7 @@
     /// Optional, either implement this or `new()`.
     </span><span class="attr">#[inline]
     </span><span class="kw">fn </span>with_class(_klass: <span class="kw-2">&amp;</span><span class="self">Self</span>::Class) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <a href="#674-676"><span class="self">Self</span>::new</a>()
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -2009,20 +2011,20 @@
 </span><span class="kw">pub trait </span><a href="../../../glib/subclass/types/trait.ObjectSubclassExt.html">ObjectSubclassExt</a>: <a href="#584-701">ObjectSubclass</a> {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the corresponding object instance.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_instance&quot;</span>)]
-    #[deprecated = <span class="string">&quot;Use obj() instead&quot;</span>]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_instance"</span>)]
+    #[deprecated = <span class="string">"Use obj() instead"</span>]
     </span><span class="kw">fn </span>instance(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw">crate</span>::BorrowedObject&lt;<span class="self">Self</span>::Type&gt;;
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the implementation from an instance.
-    </span><span class="attr">#[deprecated = <span class="string">&quot;Use from_obj() instead&quot;</span>]
+    </span><span class="attr">#[deprecated = <span class="string">"Use from_obj() instead"</span>]
     </span><span class="kw">fn </span>from_instance(obj: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="kw-2">&amp;</span><span class="self">Self</span>;
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Returns the corresponding object instance.
     ///
     /// Shorter alias for `instance()`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_instance&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"get_instance"</span>)]
     </span><span class="kw">fn </span>obj(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw">crate</span>::BorrowedObject&lt;<span class="self">Self</span>::Type&gt;;
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -2039,8 +2041,8 @@
     </span><span class="doccomment">/// Returns a pointer to the instance implementation specific data.
     ///
     /// This is used for the subclassing infrastructure to store additional instance data.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;get_instance_data&quot;</span>)]
-    </span><span class="kw">fn </span>instance_data&lt;U: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>U&gt;;
+    </span><span class="attr">#[doc(alias = <span class="string">"get_instance_data"</span>)]
+    </span><span class="kw">fn </span>instance_data&lt;U: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>U&gt;;
 }
 
 <span class="kw">impl</span>&lt;T: <a href="#584-701">ObjectSubclass</a>&gt; <a href="#705-740">ObjectSubclassExt</a> <span class="kw">for </span>T {
@@ -2051,13 +2053,13 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>from_instance(obj: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="kw-2">&amp;</span><span class="self">Self </span>{
-        <span class="self">Self</span>::from_obj(<a href="#749">obj</a>)
+        <a href="#728"><span class="self">Self</span>::from_obj</a>(<a href="#749">obj</a>)
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>obj(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw">crate</span>::BorrowedObject&lt;<span class="self">Self</span>::Type&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>data = <a href="#554"><span class="self">Self</span>::type_data</a>();
             <span class="kw">let </span>type_ = <a href="#756">data</a>.as_ref().<a href="#447-449">type_</a>();
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(type_.is_valid());
 
@@ -2065,12 +2067,12 @@
             <span class="kw">let </span>ptr =
                 offset_ptr_by_bytes::&lt;<span class="self">Self</span>, &lt;<span class="self">Self</span>::Type <span class="kw">as </span>ObjectType&gt;::GlibType&gt;(<a class="self" href="#754">self</a>, <a href="#760">offset</a>);
 
-            <span class="comment">// The object might just be finalized, and in that case it&#39;s unsafe to access
+            <span class="comment">// The object might just be finalized, and in that case it's unsafe to access
             // it and use any API on it. This can only happen from inside the Drop impl
             // of Self.
             </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert_ne.html">debug_assert_ne!</a>((<span class="kw-2">*</span>(ptr <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GObject)).ref_count, <span class="number">0</span>);
 
-            <span class="kw">crate</span>::BorrowedObject::new(<a href="../translate.rs.html#198-200">mut_override</a>(<a href="#761">ptr</a>))
+            <a href="../object.rs.html#4375-4380"><span class="kw">crate</span>::BorrowedObject::new</a>(<a href="../translate.rs.html#198-200">mut_override</a>(<a href="#761">ptr</a>))
         }
     }
 
@@ -2084,13 +2086,13 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>ref_counted(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw">super</span>::ObjectImplRef&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">super</span>::ObjectImplRef::new(<a class="self" href="#782">self</a>)
+        <a href="object_impl_ref.rs.html#26-28"><span class="kw">super</span>::ObjectImplRef::new</a>(<a class="self" href="#782">self</a>)
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>instance_data&lt;U: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>U&gt; {
+    </span><span class="kw">fn </span>instance_data&lt;U: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>U&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>type_data = <a href="#554"><span class="self">Self</span>::type_data</a>();
             <span class="kw">let </span>self_type_ = <a href="#789">type_data</a>.as_ref().<a href="#447-449">type_</a>();
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(self_type_.is_valid());
 
@@ -2153,9 +2155,9 @@
     /// # Panics
     ///
     /// If the instance_data already contains a data for the specified `type_`.
-    </span><span class="kw">pub fn </span>set_instance_data&lt;U: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>, data: U) {
+    </span><span class="kw">pub fn </span>set_instance_data&lt;U: <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html">Any</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, type_: <a href="../types.rs.html#22">Type</a>, data: U) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>type_data = T::type_data();
+            <span class="kw">let </span>type_data = <a href="#554">T::type_data</a>();
             <span class="kw">let </span>self_type_ = <a href="#854">type_data</a>.as_ref().<a href="#447-449">type_</a>();
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(self_type_.is_valid());
 
@@ -2168,13 +2170,13 @@
             <span class="kw">let </span>priv_ = <span class="kw-2">&amp;mut *</span><a href="#860">ptr</a>;
 
             <span class="kw">if </span>priv_.instance_data.is_none() {
-                <a href="#864">priv_</a>.instance_data = <span class="prelude-val">Some</span>(BTreeMap::default());
+                <a href="#864">priv_</a>.instance_data = <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">BTreeMap::default</a>());
             }
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref mut </span>instance_data) = <a href="#864">priv_</a>.instance_data {
                 <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                     instance_data.get(<span class="kw-2">&amp;</span>type_).is_none(),
-                    <span class="string">&quot;The class_data already contains a key for {type_}&quot;</span>,
+                    <span class="string">"The class_data already contains a key for {type_}"</span>,
                 );
 
                 <a href="#870">instance_data</a>.insert(<a href="#852">type_</a>, Box::new(<a href="#852">data</a>));
@@ -2183,11 +2185,11 @@
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>class_init&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>class_init&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(
     klass: ffi::gpointer,
     _klass_data: ffi::gpointer,
 ) {
-    <span class="kw">let </span><span class="kw-2">mut </span>data = T::type_data();
+    <span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
 
     <span class="comment">// We have to update the private struct offset once the class is actually
     // being initialized.
@@ -2202,8 +2204,8 @@
         <a href="#896">gobject_klass</a>.finalize = <span class="prelude-val">Some</span>(finalize::&lt;T&gt;);
     }
 
-    <span class="comment">// And finally peek the parent class struct (containing the parent class&#39;
-    // implementations of virtual methods for chaining up), and call the subclass&#39;
+    <span class="comment">// And finally peek the parent class struct (containing the parent class'
+    // implementations of virtual methods for chaining up), and call the subclass'
     // class initialization function.
     </span>{
         <span class="kw">let </span>klass = <span class="kw-2">&amp;mut *</span>(<a href="#883">klass</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Class);
@@ -2214,17 +2216,17 @@
         <a href="#886">data</a>.as_mut().parent_class = <a href="#906">parent_class</a> <span class="kw">as </span>ffi::gpointer;
 
         <a href="#905">klass</a>.<a href="#189-197">class_init</a>();
-        T::class_init(<a href="#905">klass</a>);
+        <a href="#664">T::class_init</a>(<a href="#905">klass</a>);
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>instance_init&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>instance_init&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(
     obj: <span class="kw-2">*mut </span>gobject_ffi::GTypeInstance,
     klass: ffi::gpointer,
 ) {
     <span class="comment">// Get offset to the storage of our private struct, create it
     // and actually store it in that place.
-    </span><span class="kw">let </span><span class="kw-2">mut </span>data = T::type_data();
+    </span><span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
     <span class="kw">let </span>private_offset = <a href="#923">data</a>.as_mut().private_offset;
     <span class="kw">let </span>priv_ptr = offset_ptr_by_bytes_mut::&lt;gobject_ffi::GTypeInstance, PrivateStruct&lt;T&gt;&gt;(
         <a href="#918">obj</a>,
@@ -2233,16 +2235,16 @@
 
     <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
         priv_ptr <span class="kw">as </span>usize &amp; (mem::align_of::&lt;PrivateStruct&lt;T&gt;&gt;() - <span class="number">1</span>) == <span class="number">0</span>,
-        <span class="string">&quot;Private instance data has higher alignment requirements ({}) than \
+        <span class="string">"Private instance data has higher alignment requirements ({}) than \
          the allocation from GLib. If alignment of more than {} bytes \
-         is required, store the corresponding data separately on the heap.&quot;</span>,
+         is required, store the corresponding data separately on the heap."</span>,
         mem::align_of::&lt;PrivateStruct&lt;T&gt;&gt;(),
         <span class="number">2 </span>* mem::size_of::&lt;usize&gt;(),
     );
 
     <span class="kw">let </span>klass = <span class="kw-2">&amp;*</span>(<a href="#919">klass</a> <span class="kw">as </span><span class="kw-2">*const </span>T::Class);
 
-    <span class="kw">let </span>imp = T::with_class(<a href="#939">klass</a>);
+    <span class="kw">let </span>imp = <a href="#690-692">T::with_class</a>(<a href="#939">klass</a>);
     ptr::write(
         <a href="#925">priv_ptr</a>,
         <a href="#35-38">PrivateStruct</a> {
@@ -2252,26 +2254,26 @@
     );
 
     <span class="comment">// Any additional instance initialization.
-    </span>T::Instance::instance_init(<span class="kw-2">&amp;mut *</span>(<a href="#918">obj</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>));
+    </span><a href="#62-72">T::Instance::instance_init</a>(<span class="kw-2">&amp;mut *</span>(<a href="#918">obj</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>));
 
     <span class="kw">let </span>obj = from_glib_borrow::&lt;<span class="kw">_</span>, <a href="../object.rs.html#1351-1354">Object</a>&gt;(<a href="#918">obj</a>.cast());
-    <span class="kw">let </span>obj = Borrowed::new(<a href="#953">obj</a>.<a href="../translate.rs.html#291-293">into_inner</a>().<a href="../object.rs.html#254-257">unsafe_cast</a>());
+    <span class="kw">let </span>obj = <a href="../translate.rs.html#279-281">Borrowed::new</a>(<a href="#953">obj</a>.<a href="../translate.rs.html#291-293">into_inner</a>().<a href="../object.rs.html#254-257">unsafe_cast</a>());
     <span class="kw">let </span><span class="kw-2">mut </span>obj = <a href="#817">InitializingObject</a>(<a href="#954">obj</a>);
 
-    T::Interfaces::instance_init(<span class="kw-2">&amp;mut </span><a href="#955">obj</a>);
-    T::instance_init(<span class="kw-2">&amp;</span><a href="#955">obj</a>);
+    <a href="#336">T::Interfaces::instance_init</a>(<span class="kw-2">&amp;mut </span><a href="#955">obj</a>);
+    <a href="#700">T::instance_init</a>(<span class="kw-2">&amp;</span><a href="#955">obj</a>);
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>finalize&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(obj: <span class="kw-2">*mut </span>gobject_ffi::GObject) {
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>finalize&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;(obj: <span class="kw-2">*mut </span>gobject_ffi::GObject) {
     <span class="comment">// Retrieve the private struct and drop it for freeing all associated memory.
-    </span><span class="kw">let </span><span class="kw-2">mut </span>data = T::type_data();
+    </span><span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
     <span class="kw">let </span>private_offset = <a href="#963">data</a>.as_mut().private_offset;
     <span class="kw">let </span>priv_ptr =
         offset_ptr_by_bytes_mut::&lt;gobject_ffi::GObject, PrivateStruct&lt;T&gt;&gt;(<a href="#961">obj</a>, <a href="#964">private_offset</a>);
     <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.drop_in_place.html">ptr::drop_in_place</a>(<a class="macro" href="https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of_mut.html">ptr::addr_of_mut!</a>((<span class="kw-2">*</span>priv_ptr).imp));
     <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.drop_in_place.html">ptr::drop_in_place</a>(<a class="macro" href="https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of_mut.html">ptr::addr_of_mut!</a>((<span class="kw-2">*</span>priv_ptr).instance_data));
 
-    <span class="comment">// Chain up to the parent class&#39; finalize implementation, if any.
+    <span class="comment">// Chain up to the parent class' finalize implementation, if any.
     </span><span class="kw">let </span>parent_class = <span class="kw-2">&amp;*</span>(<a href="#963">data</a>.as_ref().<a href="#458-461">parent_class</a>() <span class="kw">as </span><span class="kw-2">*const </span>gobject_ffi::GObjectClass);
     <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>func) = <a href="#971">parent_class</a>.finalize {
         <a href="#972">func</a>(<a href="#961">obj</a>);
@@ -2284,15 +2286,15 @@
 /// This must be called only once and will panic on a second call.
 ///
 /// The [`object_subclass!`] macro will create a `type_()` function around this, which will
-/// ensure that it&#39;s only ever called once.
+/// ensure that it's only ever called once.
 ///
 /// [`object_subclass!`]: ../../macro.object_subclass.html
 </span><span class="kw">pub fn </span><a href="../../../glib/subclass/types/fn.register_type.html">register_type</a>&lt;T: <a href="#584-701">ObjectSubclass</a>&gt;() -&gt; <a href="../types.rs.html#22">Type</a> {
-    <span class="comment">// GLib aligns the type private data to two gsizes, so we can&#39;t safely store any type there that
+    <span class="comment">// GLib aligns the type private data to two gsizes, so we can't safely store any type there that
     // requires a bigger alignment.
     </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
         mem::align_of::&lt;T&gt;() &lt;= <span class="number">2 </span>* mem::size_of::&lt;usize&gt;(),
-        <span class="string">&quot;Alignment {} of type not supported, bigger than {}&quot;</span>,
+        <span class="string">"Alignment {} of type not supported, bigger than {}"</span>,
         mem::align_of::&lt;T&gt;(),
         <span class="number">2 </span>* mem::size_of::&lt;usize&gt;(),
     );
@@ -2304,11 +2306,11 @@
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert_eq.html">assert_eq!</a>(
             gobject_ffi::g_type_from_name(type_name.as_ptr()),
             gobject_ffi::G_TYPE_INVALID,
-            <span class="string">&quot;Type {} has already been registered&quot;</span>,
+            <span class="string">"Type {} has already been registered"</span>,
             type_name.to_str().unwrap()
         );
 
-        <span class="kw">let </span>type_ = Type::from_glib(gobject_ffi::g_type_register_static_simple(
+        <span class="kw">let </span>type_ = <a href="../translate.rs.html#1407">Type::from_glib</a>(gobject_ffi::g_type_register_static_simple(
             &lt;T::ParentType <span class="kw">as </span>StaticType&gt;::static_type().<a href="../translate.rs.html#330">into_glib</a>(),
             <a href="#999">type_name</a>.as_ptr(),
             mem::size_of::&lt;T::Class&gt;() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
@@ -2323,7 +2325,7 @@
         ));
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(type_.is_valid());
 
-        <span class="kw">let </span><span class="kw-2">mut </span>data = T::type_data();
+        <span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
         <a href="#1022">data</a>.as_mut().type_ = <a href="#1007">type_</a>;
 
         <span class="kw">let </span>private_offset = gobject_ffi::g_type_add_instance_private(
@@ -2333,16 +2335,16 @@
         <a href="#1022">data</a>.as_mut().private_offset = <a href="#1025">private_offset</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>;
 
         <span class="comment">// Get the offset from PrivateStruct&lt;T&gt; to the imp field in it. This has to go through
-        // some hoops because Rust doesn&#39;t have an offsetof operator yet.
+        // some hoops because Rust doesn't have an offsetof operator yet.
         </span><a href="#1022">data</a>.as_mut().private_imp_offset = {
-            <span class="comment">// Must not be a dangling pointer so let&#39;s create some uninitialized memory
+            <span class="comment">// Must not be a dangling pointer so let's create some uninitialized memory
             </span><span class="kw">let </span>priv_ = mem::MaybeUninit::&lt;PrivateStruct&lt;T&gt;&gt;::uninit();
             <span class="kw">let </span>ptr = <a href="#1035">priv_</a>.as_ptr();
             <span class="kw">let </span>imp_ptr = <a class="macro" href="https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of.html">ptr::addr_of!</a>((<span class="kw-2">*</span>ptr).imp);
             (<a href="#1037">imp_ptr</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>) - (<a href="#1036">ptr</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>)
         };
 
-        <span class="kw">let </span>iface_types = T::Interfaces::iface_infos();
+        <span class="kw">let </span>iface_types = <a href="#332">T::Interfaces::iface_infos</a>();
         <span class="kw">for </span>(iface_type, iface_info) <span class="kw">in </span>iface_types {
             gobject_ffi::g_type_add_interface_static(
                 type_.into_glib(),
@@ -2351,7 +2353,7 @@
             );
         }
 
-        T::type_init(<span class="kw-2">&amp;mut </span>InitializingType::&lt;T&gt;(<a href="#1007">type_</a>, marker::PhantomData));
+        <a href="#652">T::type_init</a>(<span class="kw-2">&amp;mut </span>InitializingType::&lt;T&gt;(<a href="#1007">type_</a>, marker::PhantomData));
 
         <a href="#1007">type_</a>
     }
@@ -2360,27 +2362,27 @@
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Registers a `glib::Type` ID for `T` as a dynamic type.
 ///
-/// An object subclass must be explicitly registered as a  ynamic type when the
+/// An object subclass must be explicitly registered as a dynamic type when the
 /// system loads the implementation by calling [`TypePluginImpl::use_`] or more
 /// specifically [`TypeModuleImpl::load`]. Therefore, unlike for object
 /// subclasses registered as static types, object subclasses registered as
 /// dynamic types can be registered several times.
 ///
-/// The [`dynamic_object_subclass!`] macro will create `register_type()` and
-/// `on_implementation_load()` functions around this, which will ensure that
-/// the function is called when necessary.
+/// The [`object_subclass_dynamic!`] macro helper attribute will create
+/// `register_type()` and `on_implementation_load()` functions around this,
+/// which will ensure that the function is called when necessary.
 ///
-/// [`dynamic_object_subclass!`]: ../../../glib_macros/attr.dynamic_object_subclass.html
+/// [`object_subclass_dynamic!`]: ../../../glib_macros/attr.object_subclass.html
 /// [`TypePluginImpl::use_`]: ../type_plugin/trait.TypePluginImpl.html#method.use_
 /// [`TypeModuleImpl::load`]: ../type_module/trait.TypeModuleImpl.html#method.load
-</span><span class="kw">pub fn </span><a href="../../../glib/subclass/types/fn.register_dynamic_type.html">register_dynamic_type</a>&lt;P: <a href="../gobject/dynamic_object.rs.html#13-28">DynamicObjectRegisterExt</a>, T: <a href="#584-701">ObjectSubclass</a>&gt;(
+</span><span class="kw">pub fn </span><a href="../../../glib/subclass/types/fn.register_dynamic_type.html">register_dynamic_type</a>&lt;P: <a href="../gobject/dynamic_object.rs.html#15-42">DynamicObjectRegisterExt</a>, T: <a href="#584-701">ObjectSubclass</a>&gt;(
     type_plugin: <span class="kw-2">&amp;</span>P,
 ) -&gt; <a href="../types.rs.html#22">Type</a> {
-    <span class="comment">// GLib aligns the type private data to two gsizes, so we can&#39;t safely store any type there that
+    <span class="comment">// GLib aligns the type private data to two gsizes, so we can't safely store any type there that
     // requires a bigger alignment.
     </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
         mem::align_of::&lt;T&gt;() &lt;= <span class="number">2 </span>* mem::size_of::&lt;usize&gt;(),
-        <span class="string">&quot;Alignment {} of type not supported, bigger than {}&quot;</span>,
+        <span class="string">"Alignment {} of type not supported, bigger than {}"</span>,
         mem::align_of::&lt;T&gt;(),
         <span class="number">2 </span>* mem::size_of::&lt;usize&gt;(),
     );
@@ -2393,16 +2395,16 @@
         <span class="kw">let </span>already_registered =
             gobject_ffi::g_type_from_name(<a href="#1087">type_name</a>.as_ptr()) != gobject_ffi::G_TYPE_INVALID;
 
-        <span class="kw">let </span>type_info = <a href="../gobject/type_info.rs.html#25">TypeInfo</a>(gobject_ffi::GTypeInfo {
+        <span class="kw">let </span>type_info = <a href="../gobject/type_info.rs.html#6">TypeInfo</a>(gobject_ffi::GTypeInfo {
             class_size: mem::size_of::&lt;T::Class&gt;() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>,
             class_init: <span class="prelude-val">Some</span>(class_init::&lt;T&gt;),
             instance_size: mem::size_of::&lt;T::Instance&gt;() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>,
             instance_init: <span class="prelude-val">Some</span>(instance_init::&lt;T&gt;),
-            ..TypeInfo::default().<span class="number">0
+            ..<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">TypeInfo::default</a>().<span class="number">0
         </span>});
 
         <span class="comment">// registers the type within the `type_plugin`
-        </span><span class="kw">let </span>type_ = <a href="#1073">type_plugin</a>.<a href="../gobject/dynamic_object.rs.html#21-27">register_dynamic_type</a>(
+        </span><span class="kw">let </span>type_ = <a href="#1073">type_plugin</a>.<a href="../gobject/dynamic_object.rs.html#35-41">register_dynamic_type</a>(
             &lt;T::ParentType <span class="kw">as </span>StaticType&gt;::static_type(),
             <a href="#1087">type_name</a>.to_str().unwrap(),
             <span class="kw-2">&amp;</span><a href="#1092">type_info</a>,
@@ -2414,16 +2416,16 @@
         );
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(type_.is_valid());
 
-        <span class="kw">let </span><span class="kw-2">mut </span>data = T::type_data();
+        <span class="kw">let </span><span class="kw-2">mut </span>data = <a href="#554">T::type_data</a>();
         <a href="#1113">data</a>.as_mut().type_ = <a href="#1101">type_</a>;
 
         <span class="kw">let </span>private_offset = mem::size_of::&lt;PrivateStruct&lt;T&gt;&gt;();
         <a href="#1113">data</a>.as_mut().private_offset = <a href="#1116">private_offset</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>;
 
         <span class="comment">// gets the offset from PrivateStruct&lt;T&gt; to the imp field in it. This has to go through
-        // some hoops because Rust doesn&#39;t have an offsetof operator yet.
+        // some hoops because Rust doesn't have an offsetof operator yet.
         </span><a href="#1113">data</a>.as_mut().private_imp_offset = {
-            <span class="comment">// Must not be a dangling pointer so let&#39;s create some uninitialized memory
+            <span class="comment">// Must not be a dangling pointer so let's create some uninitialized memory
             </span><span class="kw">let </span>priv_ = mem::MaybeUninit::&lt;PrivateStruct&lt;T&gt;&gt;::uninit();
             <span class="kw">let </span>ptr = <a href="#1123">priv_</a>.as_ptr();
             <span class="kw">let </span>imp_ptr = <a class="macro" href="https://doc.rust-lang.org/nightly/core/ptr/macro.addr_of.html">ptr::addr_of!</a>((<span class="kw-2">*</span>ptr).imp);
@@ -2431,10 +2433,10 @@
         };
 
         <span class="kw">let </span>plugin_ptr = <a href="#1073">type_plugin</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>;
-        <span class="kw">let </span>iface_types = T::Interfaces::iface_infos();
+        <span class="kw">let </span>iface_types = <a href="#332">T::Interfaces::iface_infos</a>();
         <span class="kw">for </span>(iface_type, iface_info) <span class="kw">in </span>iface_types {
             <span class="kw">match </span>gobject_ffi::g_type_get_plugin(iface_type.into_glib()) {
-                <span class="comment">// if interface type&#39;s plugin is null or is different to the `type_plugin`,
+                <span class="comment">// if interface type's plugin is null or is different to the `type_plugin`,
                 // then interface can only be added as if the type was static
                 </span>iface_plugin <span class="kw">if </span>iface_plugin != plugin_ptr =&gt; {
                     <span class="comment">// but adding interface to a static type can be done only once
@@ -2451,7 +2453,7 @@
             }
         }
 
-        T::type_init(<span class="kw-2">&amp;mut </span>InitializingType::&lt;T&gt;(<a href="#1101">type_</a>, marker::PhantomData));
+        <a href="#652">T::type_init</a>(<span class="kw-2">&amp;mut </span>InitializingType::&lt;T&gt;(<a href="#1101">type_</a>, marker::PhantomData));
 
         <a href="#1101">type_</a>
     }
@@ -2462,15 +2464,15 @@
     type_: ffi::GType,
     class_handler: F,
 ) <span class="kw">where
-    </span>F: Fn(<span class="kw-2">&amp;</span><a href="signal.rs.html#39-49"><span class="kw">super</span>::SignalClassHandlerToken</a>, <span class="kw-2">&amp;</span>[<a href="../value.rs.html#476-521">Value</a>]) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../value.rs.html#476-521">Value</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">&#39;static</span>,
+    </span>F: Fn(<span class="kw-2">&amp;</span><a href="signal.rs.html#39-49"><span class="kw">super</span>::SignalClassHandlerToken</a>, <span class="kw-2">&amp;</span>[<a href="../value.rs.html#476-510">Value</a>]) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../value.rs.html#476-510">Value</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> + <span class="lifetime">'static</span>,
 {
-    <span class="kw">let </span>(signal_id, <span class="kw">_</span>) = SignalId::parse_name(<a href="#1157">name</a>, <a href="../translate.rs.html#1413-1415">from_glib</a>(<a href="#1158">type_</a>), <span class="bool-val">false</span>)
-        .unwrap_or_else(|| <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">&quot;Signal &#39;{name}&#39; not found&quot;</span>));
+    <span class="kw">let </span>(signal_id, <span class="kw">_</span>) = <a href="signal.rs.html#188-215">SignalId::parse_name</a>(<a href="#1157">name</a>, <a href="../translate.rs.html#1413-1415">from_glib</a>(<a href="#1158">type_</a>), <span class="bool-val">false</span>)
+        .unwrap_or_else(|| <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"Signal '{name}' not found"</span>));
 
     <span class="kw">let </span>query = <a href="#1163">signal_id</a>.<a href="signal.rs.html#238-246">query</a>();
     <span class="kw">let </span>return_type = <a href="#1166">query</a>.<a href="signal.rs.html#129-131">return_type</a>();
 
-    <span class="kw">let </span>class_handler = Closure::new(<span class="kw">move </span>|values| {
+    <span class="kw">let </span>class_handler = <a href="../closure.rs.html#181-183">Closure::new</a>(<span class="kw">move </span>|values| {
         <span class="kw">let </span>instance = gobject_ffi::g_value_get_object(<a href="#1169">values</a>[<span class="number">0</span>].<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>);
         <span class="kw">let </span>res = <a href="#1159">class_handler</a>(
             <span class="kw-2">&amp;</span><a href="signal.rs.html#39-49"><span class="kw">super</span>::SignalClassHandlerToken</a>(
@@ -2484,19 +2486,19 @@
         <span class="kw">if </span>return_type == Type::UNIT {
             <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>v) = <a href="#1171">res</a> {
                 <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(
-                    <span class="string">&quot;Signal has no return value but class handler returned a value of type {}&quot;</span>,
+                    <span class="string">"Signal has no return value but class handler returned a value of type {}"</span>,
                     v.type_()
                 );
             }
         } <span class="kw">else </span>{
             <span class="kw">match </span><a href="#1171">res</a> {
                 <span class="prelude-val">None </span>=&gt; {
-                    <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">&quot;Signal has a return value but class handler returned none&quot;</span>);
+                    <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"Signal has a return value but class handler returned none"</span>);
                 }
                 <span class="prelude-val">Some</span>(<span class="kw-2">ref </span>v) =&gt; {
                     <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                         v.type_().is_a(return_type.into()),
-                        <span class="string">&quot;Signal has a return type of {} but class handler returned {}&quot;</span>,
+                        <span class="string">"Signal has a return type of {} but class handler returned {}"</span>,
                         Type::from(return_type),
                         v.type_()
                     );
@@ -2517,20 +2519,20 @@
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">unsafe fn </span>signal_chain_from_overridden(
     instance: <span class="kw-2">*mut </span>gobject_ffi::GTypeInstance,
     token: <span class="kw-2">&amp;</span><a href="signal.rs.html#39-49"><span class="kw">super</span>::SignalClassHandlerToken</a>,
-    values: <span class="kw-2">&amp;</span>[<a href="../value.rs.html#476-521">Value</a>],
-) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../value.rs.html#476-521">Value</a>&gt; {
+    values: <span class="kw-2">&amp;</span>[<a href="../value.rs.html#476-510">Value</a>],
+) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../value.rs.html#476-510">Value</a>&gt; {
     <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert_eq.html">assert_eq!</a>(instance, token.<span class="number">0</span>);
     <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert_eq.html">assert_eq!</a>(
         values.as_ptr(),
         token.<span class="number">2</span>,
-        <span class="string">&quot;Arguments must be forwarded without changes when chaining up&quot;
+        <span class="string">"Arguments must be forwarded without changes when chaining up"
     </span>);
 
-    <span class="kw">let </span><span class="kw-2">mut </span>result = Value::from_type_unchecked(<a href="#1215">token</a>.<span class="number">1</span>);
+    <span class="kw">let </span><span class="kw-2">mut </span>result = <a href="../value.rs.html#536-542">Value::from_type_unchecked</a>(<a href="#1215">token</a>.<span class="number">1</span>);
     gobject_ffi::g_signal_chain_from_overridden(
-        <a href="#1216">values</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../value.rs.html#476-521">Value</a> <span class="kw">as </span><span class="kw-2">*mut </span>gobject_ffi::GValue,
+        <a href="#1216">values</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../value.rs.html#476-510">Value</a> <span class="kw">as </span><span class="kw-2">*mut </span>gobject_ffi::GValue,
         <a href="#1225">result</a>.<a href="../translate.rs.html#467">to_glib_none_mut</a>().<span class="number">0</span>,
     );
-    <span class="prelude-val">Some</span>(<a href="#1225">result</a>).filter(|r| <a href="#1230">r</a>.<a href="../value.rs.html#609-611">type_</a>().<a href="../types.rs.html#271-273">is_valid</a>() &amp;&amp; <a href="#1230">r</a>.<a href="../value.rs.html#609-611">type_</a>() != Type::UNIT)
+    <span class="prelude-val">Some</span>(<a href="#1225">result</a>).filter(|r| <a href="#1230">r</a>.<a href="../value.rs.html#598-600">type_</a>().<a href="../types.rs.html#271-273">is_valid</a>() &amp;&amp; <a href="#1230">r</a>.<a href="../value.rs.html#598-600">type_</a>() != Type::UNIT)
 }
 </code></pre></div></section></main></body></html>

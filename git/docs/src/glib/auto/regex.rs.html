@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/regex.rs`."><title>regex.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/regex.rs`."><title>regex.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -272,7 +274,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="../error.rs.html#10-25">Error</a>, <a href="flags.rs.html#475-594">RegexCompileFlags</a>, <a href="flags.rs.html#614-712">RegexMatchFlags</a>};
+</span><span class="kw">use crate</span>::{<a href="../lib.rs.html#151">translate</a>::<span class="kw-2">*</span>, <a href="../error.rs.html#10-22">Error</a>, <a href="flags.rs.html#423-542">RegexCompileFlags</a>, <a href="flags.rs.html#562-660">RegexMatchFlags</a>};
 
 <a class="macro" href="../wrapper.rs.html#277-445">crate::wrapper! </a>{
     <span class="doccomment">/// The g_regex_*() functions implement regular
@@ -282,41 +284,41 @@
     /// Some functions accept a `start_position` argument, setting it differs
     /// from just passing over a shortened string and setting [`RegexMatchFlags::NOTBOL`][crate::RegexMatchFlags::NOTBOL]
     /// in the case of a pattern that begins with any kind of lookbehind assertion.
-    /// For example, consider the pattern &quot;\Biss\B&quot; which finds occurrences of &quot;iss&quot;
-    /// in the middle of words. (&quot;\B&quot; matches only if the current position in the
-    /// subject is not a word boundary.) When applied to the string &quot;Mississipi&quot;
-    /// from the fourth byte, namely &quot;issipi&quot;, it does not match, because &quot;\B&quot; is
+    /// For example, consider the pattern "\Biss\B" which finds occurrences of "iss"
+    /// in the middle of words. ("\B" matches only if the current position in the
+    /// subject is not a word boundary.) When applied to the string "Mississipi"
+    /// from the fourth byte, namely "issipi", it does not match, because "\B" is
     /// always false at the start of the subject, which is deemed to be a word
     /// boundary. However, if the entire string is passed , but with
-    /// `start_position` set to 4, it finds the second occurrence of &quot;iss&quot; because
+    /// `start_position` set to 4, it finds the second occurrence of "iss" because
     /// it is able to look behind the starting point to discover that it is
     /// preceded by a letter.
     ///
     /// Note that, unless you set the [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] flag, all the strings passed
     /// to these functions must be encoded in UTF-8. The lengths and the positions
     /// inside the strings are in bytes and not in characters, so, for instance,
-    /// &quot;\xc3\xa0&quot; (i.e. &quot;à&quot;) is two bytes long but it is treated as a
+    /// "\xc3\xa0" (i.e. "à") is two bytes long but it is treated as a
     /// single character. If you set [`RegexCompileFlags::RAW`][crate::RegexCompileFlags::RAW] the strings can be non-valid
-    /// UTF-8 strings and a byte is treated as a character, so &quot;\xc3\xa0&quot; is two
+    /// UTF-8 strings and a byte is treated as a character, so "\xc3\xa0" is two
     /// bytes and two characters long.
     ///
-    /// When matching a pattern, &quot;\n&quot; matches only against a &quot;\n&quot; character in
-    /// the string, and &quot;\r&quot; matches only a &quot;\r&quot; character. To match any newline
-    /// sequence use &quot;\R&quot;. This particular group matches either the two-character
-    /// sequence CR + LF (&quot;\r\n&quot;), or one of the single characters LF (linefeed,
-    /// U+000A, &quot;\n&quot;), VT vertical tab, U+000B, &quot;\v&quot;), FF (formfeed, U+000C, &quot;\f&quot;),
-    /// CR (carriage return, U+000D, &quot;\r&quot;), NEL (next line, U+0085), LS (line
+    /// When matching a pattern, "\n" matches only against a "\n" character in
+    /// the string, and "\r" matches only a "\r" character. To match any newline
+    /// sequence use "\R". This particular group matches either the two-character
+    /// sequence CR + LF ("\r\n"), or one of the single characters LF (linefeed,
+    /// U+000A, "\n"), VT vertical tab, U+000B, "\v"), FF (formfeed, U+000C, "\f"),
+    /// CR (carriage return, U+000D, "\r"), NEL (next line, U+0085), LS (line
     /// separator, U+2028), or PS (paragraph separator, U+2029).
     ///
     /// The behaviour of the dot, circumflex, and dollar metacharacters are
     /// affected by newline characters, the default is to recognize any newline
-    /// character (the same characters recognized by &quot;\R&quot;). This can be changed
+    /// character (the same characters recognized by "\R"). This can be changed
     /// with [`RegexCompileFlags::NEWLINE_CR`][crate::RegexCompileFlags::NEWLINE_CR], [`RegexCompileFlags::NEWLINE_LF`][crate::RegexCompileFlags::NEWLINE_LF] and [`RegexCompileFlags::NEWLINE_CRLF`][crate::RegexCompileFlags::NEWLINE_CRLF]
     /// compile options, and with [`RegexMatchFlags::NEWLINE_ANY`][crate::RegexMatchFlags::NEWLINE_ANY],
     /// [`RegexMatchFlags::NEWLINE_CR`][crate::RegexMatchFlags::NEWLINE_CR], [`RegexMatchFlags::NEWLINE_LF`][crate::RegexMatchFlags::NEWLINE_LF] and
     /// [`RegexMatchFlags::NEWLINE_CRLF`][crate::RegexMatchFlags::NEWLINE_CRLF] match options. These settings are also
     /// relevant when compiling a pattern if [`RegexCompileFlags::EXTENDED`][crate::RegexCompileFlags::EXTENDED] is set, and an
-    /// unescaped &quot;#&quot; outside a character class is encountered. This indicates
+    /// unescaped "#" outside a character class is encountered. This indicates
     /// a comment that lasts until after the next newline.
     ///
     /// Creating and manipulating the same [`Regex`][crate::Regex] structure from different
@@ -352,12 +354,12 @@
     ///
     /// a [`Regex`][crate::Regex] structure or [`None`] if an error occurred. Call
     ///  `g_regex_unref()` when you are done with it
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_new"</span>)]
     </span><span class="kw">pub fn </span>new(
         pattern: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-        compile_options: <a href="flags.rs.html#475-594">RegexCompileFlags</a>,
-        match_options: <a href="flags.rs.html#614-712">RegexMatchFlags</a>,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="#7-69">Regex</a>&gt;, <a href="../error.rs.html#10-25"><span class="kw">crate</span>::Error</a>&gt; {
+        compile_options: <a href="flags.rs.html#423-542">RegexCompileFlags</a>,
+        match_options: <a href="flags.rs.html#562-660">RegexMatchFlags</a>,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="#7-69">Regex</a>&gt;, <a href="../error.rs.html#10-22"><span class="kw">crate</span>::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_regex_new(
@@ -379,8 +381,8 @@
     /// # Returns
     ///
     /// the number of capturing subpatterns
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_capture_count&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_capture_count&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_capture_count"</span>)]
+    #[doc(alias = <span class="string">"get_capture_count"</span>)]
     </span><span class="kw">pub fn </span>capture_count(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_regex_get_capture_count(<a class="self" href="#114">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -394,9 +396,9 @@
     /// # Returns
     ///
     /// flags from [`RegexCompileFlags`][crate::RegexCompileFlags]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_compile_flags&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_compile_flags&quot;</span>)]
-    </span><span class="kw">pub fn </span>compile_flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#475-594">RegexCompileFlags</a> {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_compile_flags"</span>)]
+    #[doc(alias = <span class="string">"get_compile_flags"</span>)]
+    </span><span class="kw">pub fn </span>compile_flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#423-542">RegexCompileFlags</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_regex_get_compile_flags(<a class="self" href="#129">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
@@ -405,8 +407,8 @@
     /// # Returns
     ///
     /// [`true`] if the pattern contains explicit CR or LF references
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_has_cr_or_lf&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_has_cr_or_lf&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_has_cr_or_lf"</span>)]
+    #[doc(alias = <span class="string">"get_has_cr_or_lf"</span>)]
     </span><span class="kw">pub fn </span>has_cr_or_lf(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_regex_get_has_cr_or_lf(<a class="self" href="#140">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -416,9 +418,9 @@
     /// # Returns
     ///
     /// flags from [`RegexMatchFlags`][crate::RegexMatchFlags]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_match_flags&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_match_flags&quot;</span>)]
-    </span><span class="kw">pub fn </span>match_flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#614-712">RegexMatchFlags</a> {
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_match_flags"</span>)]
+    #[doc(alias = <span class="string">"get_match_flags"</span>)]
+    </span><span class="kw">pub fn </span>match_flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#562-660">RegexMatchFlags</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1413-1415">from_glib</a>(ffi::g_regex_get_match_flags(<a class="self" href="#151">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
@@ -429,8 +431,8 @@
     /// # Returns
     ///
     /// the number of the highest back reference
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_max_backref&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_max_backref&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_max_backref"</span>)]
+    #[doc(alias = <span class="string">"get_max_backref"</span>)]
     </span><span class="kw">pub fn </span>max_backref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_regex_get_max_backref(<a class="self" href="#164">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -442,8 +444,8 @@
     /// # Returns
     ///
     /// the number of characters in the longest lookbehind assertion.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_max_lookbehind&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_max_lookbehind&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_max_lookbehind"</span>)]
+    #[doc(alias = <span class="string">"get_max_lookbehind"</span>)]
     </span><span class="kw">pub fn </span>max_lookbehind(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_regex_get_max_lookbehind(<a class="self" href="#177">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -454,13 +456,13 @@
     /// # Returns
     ///
     /// the pattern of `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_regex_get_pattern&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_pattern&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_regex_get_pattern"</span>)]
+    #[doc(alias = <span class="string">"get_pattern"</span>)]
     </span><span class="kw">pub fn </span>pattern(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../gstring.rs.html#996"><span class="kw">crate</span>::GString</a> {
         <span class="kw">unsafe </span>{ <a href="../translate.rs.html#1621-1623">from_glib_none</a>(ffi::g_regex_get_pattern(<a class="self" href="#189">self</a>.<a href="../translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_regex_replace_eval&quot;)]
+    <span class="comment">//#[doc(alias = "g_regex_replace_eval")]
     //pub fn replace_eval(&amp;self, string: &amp;[&amp;str], start_position: i32, match_options: RegexMatchFlags, eval: /*Unimplemented*/Fn(&amp;MatchInfo, /*Ignored*/String) -&gt; bool, user_data: /*Unimplemented*/Option&lt;Basic: Pointer&gt;) -&gt; Result&lt;crate::GString, crate::Error&gt; {
     //    unsafe { TODO: call ffi:g_regex_replace_eval() }
     //}

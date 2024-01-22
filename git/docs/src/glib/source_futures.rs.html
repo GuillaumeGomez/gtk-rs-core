@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/source_futures.rs`."><title>source_futures.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/source_futures.rs`."><title>source_futures.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -575,9 +577,9 @@
     source: <span class="prelude-ty">Option</span>&lt;(<a href="auto/source.rs.html#7-18">Source</a>, oneshot::Receiver&lt;T&gt;)&gt;,
 }
 
-<span class="kw">impl</span>&lt;F, T: <span class="lifetime">&#39;static</span>&gt; SourceFuture&lt;F, T&gt;
+<span class="kw">impl</span>&lt;F, T: <span class="lifetime">'static</span>&gt; SourceFuture&lt;F, T&gt;
 <span class="kw">where
-    </span>F: FnOnce(oneshot::Sender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">&#39;static</span>,
+    </span>F: FnOnce(oneshot::Sender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">'static</span>,
 {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create a new `SourceFuture`
@@ -597,7 +599,7 @@
 
 <span class="kw">impl</span>&lt;F, T&gt; <a href="https://doc.rust-lang.org/nightly/core/future/future/trait.Future.html">Future</a> <span class="kw">for </span>SourceFuture&lt;F, T&gt;
 <span class="kw">where
-    </span>F: FnOnce(oneshot::Sender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">&#39;static</span>,
+    </span>F: FnOnce(oneshot::Sender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">'static</span>,
 {
     <span class="kw">type </span>Output = T;
 
@@ -609,10 +611,10 @@
         } = <span class="kw-2">*</span><a class="self" href="#49">self</a>;
 
         <span class="kw">if let </span><span class="prelude-val">Some</span>(create_source) = <a href="#51">create_source</a>.take() {
-            <span class="kw">let </span>main_context = MainContext::ref_thread_default();
+            <span class="kw">let </span>main_context = <a href="auto/main_context.rs.html#254-256">MainContext::ref_thread_default</a>();
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                 main_context.is_owner(),
-                <span class="string">&quot;Spawning futures only allowed if the thread is owning the MainContext&quot;
+                <span class="string">"Spawning futures only allowed if the thread is owning the MainContext"
             </span>);
 
             <span class="comment">// Channel for sending back the Source result to our future here.
@@ -636,7 +638,7 @@
         };
         <span class="attr">#[allow(clippy::match_wild_err_arm)]
         </span><span class="kw">match </span><a href="#78">res</a> {
-            Poll::Ready(<span class="prelude-val">Err</span>(<span class="kw">_</span>)) =&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">&quot;Source sender was unexpectedly closed&quot;</span>),
+            Poll::Ready(<span class="prelude-val">Err</span>(<span class="kw">_</span>)) =&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"Source sender was unexpectedly closed"</span>),
             Poll::Ready(<span class="prelude-val">Ok</span>(v)) =&gt; {
                 <span class="comment">// Get rid of the reference to the source, it triggered
                 </span><span class="kw">let _ </span>= <a href="#52">source</a>.take();
@@ -649,7 +651,7 @@
 
 <span class="kw">impl</span>&lt;F, T&gt; FusedFuture <span class="kw">for </span>SourceFuture&lt;F, T&gt;
 <span class="kw">where
-    </span>F: FnOnce(oneshot::Sender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">&#39;static</span>,
+    </span>F: FnOnce(oneshot::Sender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">'static</span>,
 {
     <span class="kw">fn </span>is_terminated(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <a class="self" href="#99">self</a>.create_source.is_none()
@@ -662,7 +664,7 @@
 
 <span class="kw">impl</span>&lt;T, F&gt; <a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span>SourceFuture&lt;T, F&gt; {
     <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
-        <span class="comment">// Get rid of the source, we don&#39;t care anymore if it still triggers
+        <span class="comment">// Get rid of the source, we don't care anymore if it still triggers
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>((source, <span class="kw">_</span>)) = <a class="self" href="#109">self</a>.source.take() {
             <a href="#111">source</a>.<a href="auto/source.rs.html#63-67">destroy</a>();
         }
@@ -673,8 +675,8 @@
 </span><span class="doccomment">/// Create a `Future` that will resolve after the given number of milliseconds.
 ///
 /// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.
-</span><span class="kw">pub fn </span><a href="../../glib/fn.timeout_future.html">timeout_future</a>(value: <a href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html">Duration</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    <a href="#129-140">timeout_future_with_priority</a>(<span class="kw">crate</span>::Priority::default(), <a href="#121">value</a>)
+</span><span class="kw">pub fn </span><a href="../../glib/fn.timeout_future.html">timeout_future</a>(value: <a href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html">Duration</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    <a href="#129-140">timeout_future_with_priority</a>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::Priority::default</a>(), <a href="#121">value</a>)
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -684,8 +686,8 @@
 </span><span class="kw">pub fn </span><a href="../../glib/fn.timeout_future_with_priority.html">timeout_future_with_priority</a>(
     priority: <a href="source.rs.html#932">Priority</a>,
     value: <a href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html">Duration</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    Box::pin(SourceFuture::new(<span class="kw">move </span>|send| {
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    Box::pin(<a href="#33-38">SourceFuture::new</a>(<span class="kw">move </span>|send| {
         <span class="kw">let </span><span class="kw-2">mut </span>send = <span class="prelude-val">Some</span>(<a href="#133">send</a>);
         <a href="source.rs.html#1013-1038"><span class="kw">crate</span>::timeout_source_new</a>(<a href="#131">value</a>, <span class="prelude-val">None</span>, <a href="#130">priority</a>, <span class="kw">move </span>|| {
             <span class="kw">let _ </span>= <a href="#134">send</a>.take().unwrap().send(());
@@ -698,8 +700,8 @@
 </span><span class="doccomment">/// Create a `Future` that will resolve after the given number of seconds.
 ///
 /// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.
-</span><span class="kw">pub fn </span><a href="../../glib/fn.timeout_future_seconds.html">timeout_future_seconds</a>(value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    <a href="#154-165">timeout_future_seconds_with_priority</a>(<span class="kw">crate</span>::Priority::default(), <a href="#146">value</a>)
+</span><span class="kw">pub fn </span><a href="../../glib/fn.timeout_future_seconds.html">timeout_future_seconds</a>(value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    <a href="#154-165">timeout_future_seconds_with_priority</a>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::Priority::default</a>(), <a href="#146">value</a>)
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -709,8 +711,8 @@
 </span><span class="kw">pub fn </span><a href="../../glib/fn.timeout_future_seconds_with_priority.html">timeout_future_seconds_with_priority</a>(
     priority: <a href="source.rs.html#932">Priority</a>,
     value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    Box::pin(SourceFuture::new(<span class="kw">move </span>|send| {
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    Box::pin(<a href="#33-38">SourceFuture::new</a>(<span class="kw">move </span>|send| {
         <span class="kw">let </span><span class="kw-2">mut </span>send = <span class="prelude-val">Some</span>(<a href="#158">send</a>);
         <a href="source.rs.html#1048-1073"><span class="kw">crate</span>::timeout_source_new_seconds</a>(<a href="#156">value</a>, <span class="prelude-val">None</span>, <a href="#155">priority</a>, <span class="kw">move </span>|| {
             <span class="kw">let _ </span>= <a href="#159">send</a>.take().unwrap().send(());
@@ -727,8 +729,8 @@
 /// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.
 </span><span class="kw">pub fn </span><a href="../../glib/fn.child_watch_future.html">child_watch_future</a>(
     pid: <a href="source.rs.html#59"><span class="kw">crate</span>::Pid</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = (<a href="source.rs.html#59"><span class="kw">crate</span>::Pid</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>)&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    <a href="#185-195">child_watch_future_with_priority</a>(<span class="kw">crate</span>::Priority::default(), <a href="#174">pid</a>)
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = (<a href="source.rs.html#59"><span class="kw">crate</span>::Pid</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>)&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    <a href="#185-195">child_watch_future_with_priority</a>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::Priority::default</a>(), <a href="#174">pid</a>)
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -740,8 +742,8 @@
 </span><span class="kw">pub fn </span><a href="../../glib/fn.child_watch_future_with_priority.html">child_watch_future_with_priority</a>(
     priority: <a href="source.rs.html#932">Priority</a>,
     pid: <a href="source.rs.html#59"><span class="kw">crate</span>::Pid</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = (<a href="source.rs.html#59"><span class="kw">crate</span>::Pid</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>)&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    Box::pin(SourceFuture::new(<span class="kw">move </span>|send| {
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = (<a href="source.rs.html#59"><span class="kw">crate</span>::Pid</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>)&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    Box::pin(<a href="#33-38">SourceFuture::new</a>(<span class="kw">move </span>|send| {
         <span class="kw">let </span><span class="kw-2">mut </span>send = <span class="prelude-val">Some</span>(<a href="#189">send</a>);
         <a href="source.rs.html#1081-1109"><span class="kw">crate</span>::child_watch_source_new</a>(<a href="#187">pid</a>, <span class="prelude-val">None</span>, <a href="#186">priority</a>, <span class="kw">move </span>|pid, code| {
             <span class="kw">let _ </span>= <a href="#190">send</a>.take().unwrap().send((<a href="#191">pid</a>, <a href="#191">code</a>));
@@ -755,8 +757,8 @@
 </span><span class="doccomment">/// Create a `Future` that will resolve once the given UNIX signal is raised
 ///
 /// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.
-</span><span class="kw">pub fn </span><a href="../../glib/fn.unix_signal_future.html">unix_signal_future</a>(signum: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    <a href="#213-224">unix_signal_future_with_priority</a>(<span class="kw">crate</span>::Priority::default(), <a href="#203">signum</a>)
+</span><span class="kw">pub fn </span><a href="../../glib/fn.unix_signal_future.html">unix_signal_future</a>(signum: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    <a href="#213-224">unix_signal_future_with_priority</a>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::Priority::default</a>(), <a href="#203">signum</a>)
 }
 
 <span class="attr">#[cfg(unix)]
@@ -768,8 +770,8 @@
 </span><span class="kw">pub fn </span><a href="../../glib/fn.unix_signal_future_with_priority.html">unix_signal_future_with_priority</a>(
     priority: <a href="source.rs.html#932">Priority</a>,
     signum: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    Box::pin(SourceFuture::new(<span class="kw">move </span>|send| {
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    Box::pin(<a href="#33-38">SourceFuture::new</a>(<span class="kw">move </span>|send| {
         <span class="kw">let </span><span class="kw-2">mut </span>send = <span class="prelude-val">Some</span>(<a href="#217">send</a>);
         <a href="source.rs.html#1120-1145"><span class="kw">crate</span>::unix_signal_source_new</a>(<a href="#215">signum</a>, <span class="prelude-val">None</span>, <a href="#214">priority</a>, <span class="kw">move </span>|| {
             <span class="kw">let _ </span>= <a href="#218">send</a>.take().unwrap().send(());
@@ -788,9 +790,9 @@
 
 <span class="kw">impl</span>&lt;F, T&gt; <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Unpin.html">Unpin</a> <span class="kw">for </span>SourceStream&lt;F, T&gt; {}
 
-<span class="kw">impl</span>&lt;F, T: <span class="lifetime">&#39;static</span>&gt; SourceStream&lt;F, T&gt;
+<span class="kw">impl</span>&lt;F, T: <span class="lifetime">'static</span>&gt; SourceStream&lt;F, T&gt;
 <span class="kw">where
-    </span>F: FnOnce(mpsc::UnboundedSender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">&#39;static</span>,
+    </span>F: FnOnce(mpsc::UnboundedSender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">'static</span>,
 {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create a new `SourceStream`
@@ -808,7 +810,7 @@
 
 <span class="kw">impl</span>&lt;F, T&gt; Stream <span class="kw">for </span>SourceStream&lt;F, T&gt;
 <span class="kw">where
-    </span>F: FnOnce(mpsc::UnboundedSender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">&#39;static</span>,
+    </span>F: FnOnce(mpsc::UnboundedSender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">'static</span>,
 {
     <span class="kw">type </span>Item = T;
 
@@ -820,10 +822,10 @@
         } = <span class="kw-2">*</span><a class="self" href="#260">self</a>;
 
         <span class="kw">if let </span><span class="prelude-val">Some</span>(create_source) = <a href="#262">create_source</a>.take() {
-            <span class="kw">let </span>main_context = MainContext::ref_thread_default();
+            <span class="kw">let </span>main_context = <a href="auto/main_context.rs.html#254-256">MainContext::ref_thread_default</a>();
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                 main_context.is_owner(),
-                <span class="string">&quot;Spawning futures only allowed if the thread is owning the MainContext&quot;
+                <span class="string">"Spawning futures only allowed if the thread is owning the MainContext"
             </span>);
 
             <span class="comment">// Channel for sending back the Source result to our future here.
@@ -861,7 +863,7 @@
 
 <span class="kw">impl</span>&lt;F, T&gt; FusedStream <span class="kw">for </span>SourceStream&lt;F, T&gt;
 <span class="kw">where
-    </span>F: FnOnce(mpsc::UnboundedSender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">&#39;static</span>,
+    </span>F: FnOnce(mpsc::UnboundedSender&lt;T&gt;) -&gt; <a href="auto/source.rs.html#7-18">Source</a> + <span class="lifetime">'static</span>,
 {
     <span class="kw">fn </span>is_terminated(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <a class="self" href="#311">self</a>.create_source.is_none()
@@ -874,7 +876,7 @@
 
 <span class="kw">impl</span>&lt;T, F&gt; <a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html">Drop</a> <span class="kw">for </span>SourceStream&lt;T, F&gt; {
     <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
-        <span class="comment">// Get rid of the source, we don&#39;t care anymore if it still triggers
+        <span class="comment">// Get rid of the source, we don't care anymore if it still triggers
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>((source, <span class="kw">_</span>)) = <a class="self" href="#321">self</a>.source.take() {
             <a href="#323">source</a>.<a href="auto/source.rs.html#63-67">destroy</a>();
         }
@@ -885,8 +887,8 @@
 </span><span class="doccomment">/// Create a `Stream` that will provide a value every given number of milliseconds.
 ///
 /// The `Future` must be spawned on an `Executor` backed by a `glib::MainContext`.
-</span><span class="kw">pub fn </span><a href="../../glib/fn.interval_stream.html">interval_stream</a>(value: <a href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html">Duration</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    <a href="#341-354">interval_stream_with_priority</a>(<span class="kw">crate</span>::Priority::default(), <a href="#333">value</a>)
+</span><span class="kw">pub fn </span><a href="../../glib/fn.interval_stream.html">interval_stream</a>(value: <a href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html">Duration</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    <a href="#341-354">interval_stream_with_priority</a>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::Priority::default</a>(), <a href="#333">value</a>)
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -896,8 +898,8 @@
 </span><span class="kw">pub fn </span><a href="../../glib/fn.interval_stream_with_priority.html">interval_stream_with_priority</a>(
     priority: <a href="source.rs.html#932">Priority</a>,
     value: <a href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html">Duration</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    Box::pin(SourceStream::new(<span class="kw">move </span>|send| {
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    Box::pin(<a href="#246-251">SourceStream::new</a>(<span class="kw">move </span>|send| {
         <a href="source.rs.html#1013-1038"><span class="kw">crate</span>::timeout_source_new</a>(<a href="#343">value</a>, <span class="prelude-val">None</span>, <a href="#342">priority</a>, <span class="kw">move </span>|| {
             <span class="kw">if </span>send.unbounded_send(()).is_err() {
                 <a href="control_flow.rs.html#16">ControlFlow::Break</a>
@@ -912,8 +914,8 @@
 </span><span class="doccomment">/// Create a `Stream` that will provide a value every given number of seconds.
 ///
 /// The `Stream` must be spawned on an `Executor` backed by a `glib::MainContext`.
-</span><span class="kw">pub fn </span><a href="../../glib/fn.interval_stream_seconds.html">interval_stream_seconds</a>(value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    <a href="#368-381">interval_stream_seconds_with_priority</a>(<span class="kw">crate</span>::Priority::default(), <a href="#360">value</a>)
+</span><span class="kw">pub fn </span><a href="../../glib/fn.interval_stream_seconds.html">interval_stream_seconds</a>(value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    <a href="#368-381">interval_stream_seconds_with_priority</a>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::Priority::default</a>(), <a href="#360">value</a>)
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -923,8 +925,8 @@
 </span><span class="kw">pub fn </span><a href="../../glib/fn.interval_stream_seconds_with_priority.html">interval_stream_seconds_with_priority</a>(
     priority: <a href="source.rs.html#932">Priority</a>,
     value: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    Box::pin(SourceStream::new(<span class="kw">move </span>|send| {
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    Box::pin(<a href="#246-251">SourceStream::new</a>(<span class="kw">move </span>|send| {
         <a href="source.rs.html#1048-1073"><span class="kw">crate</span>::timeout_source_new_seconds</a>(<a href="#370">value</a>, <span class="prelude-val">None</span>, <a href="#369">priority</a>, <span class="kw">move </span>|| {
             <span class="kw">if </span>send.unbounded_send(()).is_err() {
                 <a href="control_flow.rs.html#16">ControlFlow::Break</a>
@@ -941,8 +943,8 @@
 </span><span class="doccomment">/// Create a `Stream` that will provide a value whenever the given UNIX signal is raised
 ///
 /// The `Stream` must be spawned on an `Executor` backed by a `glib::MainContext`.
-</span><span class="kw">pub fn </span><a href="../../glib/fn.unix_signal_stream.html">unix_signal_stream</a>(signum: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    <a href="#399-412">unix_signal_stream_with_priority</a>(<span class="kw">crate</span>::Priority::default(), <a href="#389">signum</a>)
+</span><span class="kw">pub fn </span><a href="../../glib/fn.unix_signal_stream.html">unix_signal_stream</a>(signum: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    <a href="#399-412">unix_signal_stream_with_priority</a>(<a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::Priority::default</a>(), <a href="#389">signum</a>)
 }
 
 <span class="attr">#[cfg(unix)]
@@ -954,8 +956,8 @@
 </span><span class="kw">pub fn </span><a href="../../glib/fn.unix_signal_stream_with_priority.html">unix_signal_stream_with_priority</a>(
     priority: <a href="source.rs.html#932">Priority</a>,
     signum: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">&#39;static</span>&gt;&gt; {
-    Box::pin(SourceStream::new(<span class="kw">move </span>|send| {
+) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Stream&lt;Item = ()&gt; + <a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> + <span class="lifetime">'static</span>&gt;&gt; {
+    Box::pin(<a href="#246-251">SourceStream::new</a>(<span class="kw">move </span>|send| {
         <a href="source.rs.html#1120-1145"><span class="kw">crate</span>::unix_signal_source_new</a>(<a href="#401">signum</a>, <span class="prelude-val">None</span>, <a href="#400">priority</a>, <span class="kw">move </span>|| {
             <span class="kw">if </span>send.unbounded_send(()).is_err() {
                 <a href="control_flow.rs.html#16">ControlFlow::Break</a>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/application.rs`."><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/application.rs`."><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1654,7 +1656,7 @@
     /// this class outside of a higher level framework.
     ///
     /// GApplication provides convenient life cycle management by maintaining
-    /// a &quot;use count&quot; for the primary application instance. The use count can
+    /// a "use count" for the primary application instance. The use count can
     /// be changed using [`ApplicationExtManual::hold()`][crate::prelude::ApplicationExtManual::hold()] and [`ApplicationExtManual::release()`][crate::prelude::ApplicationExtManual::release()]. If
     /// it drops to zero, the application exits. Higher-level classes such as
     /// `GtkApplication` employ the use count to ensure that the application
@@ -1668,7 +1670,7 @@
     /// desktop login. When your application is launched again, its
     /// arguments are passed through platform communication to the already
     /// running program. The already running instance of the program is
-    /// called the &quot;primary instance&quot;; for non-unique applications this is
+    /// called the "primary instance"; for non-unique applications this is
     /// always the current instance. On Linux, the D-Bus session bus
     /// is used for communication.
     ///
@@ -1693,7 +1695,7 @@
     /// For details on valid application identifiers, see [`id_is_valid()`][Self::id_is_valid()].
     ///
     /// On Linux, the application identifier is claimed as a well-known bus name
-    /// on the user&#39;s session bus. This means that the uniqueness of your
+    /// on the user's session bus. This means that the uniqueness of your
     /// application is scoped to the current session. It also means that your
     /// application may provide additional services (through registration of other
     /// object paths) at that bus name. The registration of these object paths
@@ -1720,9 +1722,9 @@
     ///
     /// There is a number of different entry points into a GApplication:
     ///
-    /// - via &#39;Activate&#39; (i.e. just starting the application)
+    /// - via 'Activate' (i.e. just starting the application)
     ///
-    /// - via &#39;Open&#39; (i.e. opening some files)
+    /// - via 'Open' (i.e. opening some files)
     ///
     /// - by handling a command-line
     ///
@@ -1744,8 +1746,8 @@
     ///
     /// As the name indicates, the platform data may vary depending on the
     /// operating system, but it always includes the current directory (key
-    /// &quot;cwd&quot;), and optionally the environment (ie the set of environment
-    /// variables and their values) of the calling process (key &quot;environ&quot;).
+    /// "cwd"), and optionally the environment (ie the set of environment
+    /// variables and their values) of the calling process (key "environ").
     /// The environment is only added to the platform data if the
     /// [`ApplicationFlags::SEND_ENVIRONMENT`][crate::ApplicationFlags::SEND_ENVIRONMENT] flag is set. [`Application`][crate::Application] subclasses
     /// can add their own platform data by overriding the `add_platform_data`
@@ -1835,14 +1837,14 @@
     /// (which may be useful for options like --version).
     ///
     /// In the event that the application is marked
-    /// [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] the &quot;normal processing&quot; will
+    /// [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] the "normal processing" will
     /// send the `options` dictionary to the primary instance where it can be
     /// read with [`ApplicationCommandLineExt::options_dict()`][crate::prelude::ApplicationCommandLineExt::options_dict()]. The signal
     /// handler can modify the dictionary before returning, and the
     /// modified dictionary will be sent.
     ///
     /// In the event that [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] is not set,
-    /// &quot;normal processing&quot; will treat the remaining uncollected command
+    /// "normal processing" will treat the remaining uncollected command
     /// line arguments as filenames or URIs. If there are no arguments,
     /// the application is activated by [`ApplicationExt::activate()`][crate::prelude::ApplicationExt::activate()]. One or
     /// more arguments results in a call to [`ApplicationExt::open()`][crate::prelude::ApplicationExt::open()].
@@ -1857,7 +1859,7 @@
     /// in that case).
     ///
     /// Note that this signal is emitted from the default implementation of
-    /// `local_command_line()`. If you override that function and don&#39;t
+    /// `local_command_line()`. If you override that function and don't
     /// chain up then this signal will never be emitted.
     ///
     /// You can override `local_command_line()` if you need more powerful
@@ -1930,8 +1932,8 @@
     /// # Implements
     ///
     /// [`ApplicationExt`][trait@crate::prelude::ApplicationExt], [`trait@glib::ObjectExt`], [`ActionGroupExt`][trait@crate::prelude::ActionGroupExt], [`ActionMapExt`][trait@crate::prelude::ActionMapExt], [`ApplicationExtManual`][trait@crate::prelude::ApplicationExtManual], [`ActionMapExtManual`][trait@crate::prelude::ActionMapExtManual]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GApplication&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.Application.html">Application</a>(Object&lt;ffi::GApplication, ffi::GApplicationClass&gt;) @implements <a href="action_group.rs.html#12-98">ActionGroup</a>, <a href="action_map.rs.html#8-28">ActionMap</a>;
+    </span><span class="attr">#[doc(alias = <span class="string">"GApplication"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.Application.html">Application</a>(Object&lt;<a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>, <a href="../../../gio_sys/struct.GApplicationClass.html">ffi::GApplicationClass</a>&gt;) @implements <a href="action_group.rs.html#12-98">ActionGroup</a>, <a href="action_map.rs.html#8-28">ActionMap</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_application_get_type(),
@@ -1939,7 +1941,7 @@
 }
 
 <span class="kw">impl </span><a href="#16-306">Application</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="#16-306">Application</a>&gt; = <span class="prelude-val">None</span>;
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#16-306">Application</a>&gt; = <span class="prelude-val">None</span>;
 
     <span class="doccomment">/// Creates a new [`Application`][crate::Application] instance.
     ///
@@ -1956,7 +1958,7 @@
     /// # Returns
     ///
     /// a new [`Application`][crate::Application] instance
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_new"</span>)]
     </span><span class="kw">pub fn </span>new(application_id: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, flags: <a href="flags.rs.html#99-163">ApplicationFlags</a>) -&gt; <a href="#16-306">Application</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_application_new(
@@ -1971,7 +1973,7 @@
     ///
     /// This method returns an instance of [`ApplicationBuilder`](crate::builders::ApplicationBuilder) which can be used to create [`Application`] objects.
     </span><span class="kw">pub fn </span>builder() -&gt; <a href="#434-436">ApplicationBuilder</a> {
-        ApplicationBuilder::new()
+        <a href="#439-443">ApplicationBuilder::new</a>()
     }
 
     <span class="doccomment">/// Returns the default [`Application`][crate::Application] instance for this process.
@@ -1985,8 +1987,8 @@
     /// # Returns
     ///
     /// the default application for this process, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_default&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_default&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_default"</span>)]
+    #[doc(alias = <span class="string">"get_default"</span>)]
     #[allow(clippy::should_implement_trait)]
     </span><span class="kw">pub fn </span>default() -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#16-306">Application</a>&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::g_application_get_default()) }
@@ -2022,7 +2024,7 @@
     /// [Flatpak application IDs](http://docs.flatpak.org/en/latest/introduction.html`identifiers`),
     /// the
     /// [`DBusActivatable` interface in the Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html`dbus`),
-    /// and the convention that an application&#39;s &quot;main&quot; interface and object path
+    /// and the convention that an application's "main" interface and object path
     /// resemble its application identifier and bus name. To avoid situations that
     /// require special-case handling, it is recommended that new application
     /// identifiers consistently replace hyphens with underscores.
@@ -2032,7 +2034,7 @@
     /// it is conventional for the rest of the application identifier to consist of
     /// words run together, with initial capital letters.
     ///
-    /// As with D-Bus interface names, if the author&#39;s DNS domain name contains
+    /// As with D-Bus interface names, if the author's DNS domain name contains
     /// hyphen/minus characters they should be replaced by underscores, and if it
     /// contains leading digits they should be escaped by prepending an underscore.
     /// For example, if the owner of 7-zip.org used an application identifier for an
@@ -2043,7 +2045,7 @@
     /// # Returns
     ///
     /// [`true`] if `application_id` is valid
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_id_is_valid&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_id_is_valid"</span>)]
     </span><span class="kw">pub fn </span>id_is_valid(application_id: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_application_id_is_valid(
@@ -2063,9 +2065,9 @@
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`Application`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">"The builder must be built to be used"</span>]
 </span><span class="kw">pub struct </span><a href="../../../gio/builders/struct.ApplicationBuilder.html">ApplicationBuilder</a> {
-    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">&#39;static</span>, <a href="#16-306">Application</a>&gt;,
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#16-306">Application</a>&gt;,
 }
 
 <span class="kw">impl </span><a href="#434-436">ApplicationBuilder</a> {
@@ -2079,7 +2081,7 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#445">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;action-group&quot;</span>, <a href="#445">action_group</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="../../../glib/object/trait.Cast.html">upcast</a>()),
+                .property(<span class="string">"action-group"</span>, <a href="#445">action_group</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="../../../glib/object/trait.Cast.html">upcast</a>()),
         }
     }
 
@@ -2087,13 +2089,13 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#453">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;application-id&quot;</span>, <a href="#453">application_id</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+                .property(<span class="string">"application-id"</span>, <a href="#453">application_id</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="kw">pub fn </span>flags(<span class="self">self</span>, flags: <a href="flags.rs.html#99-163">ApplicationFlags</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#461">self</a>.builder.property(<span class="string">&quot;flags&quot;</span>, <a href="#461">flags</a>),
+            builder: <a class="self" href="#461">self</a>.builder.property(<span class="string">"flags"</span>, <a href="#461">flags</a>),
         }
     }
 
@@ -2101,7 +2103,7 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#467">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;inactivity-timeout&quot;</span>, <a href="#467">inactivity_timeout</a>),
+                .property(<span class="string">"inactivity-timeout"</span>, <a href="#467">inactivity_timeout</a>),
         }
     }
 
@@ -2109,13 +2111,13 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#475">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;resource-base-path&quot;</span>, <a href="#475">resource_base_path</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+                .property(<span class="string">"resource-base-path"</span>, <a href="#475">resource_base_path</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`Application`].
-    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#16-306">Application</a> {
         <a class="self" href="#486">self</a>.builder.build()
     }
@@ -2131,14 +2133,14 @@
 /// # Implementors
 ///
 /// [`Application`][struct@crate::Application]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ApplicationExt.html">ApplicationExt</a>: IsA&lt;<a href="#16-306">Application</a>&gt; + <a href="#492">sealed::Sealed</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ApplicationExt.html">ApplicationExt</a>: IsA&lt;<a href="#16-306">Application</a>&gt; + <a href="#492">sealed::Sealed</a> + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Activates the application.
     ///
     /// In essence, this results in the [`activate`][struct@crate::Application#activate] signal being
     /// emitted in the primary instance.
     ///
     /// The application must be registered before calling this function.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_activate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_activate"</span>)]
     </span><span class="kw">fn </span>activate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_activate(<a class="self" href="#509">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -2171,7 +2173,7 @@
     /// ## `arg_description`
     /// the placeholder to use for the extra argument
     ///  parsed by the option in `--help` output
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_add_main_option&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_add_main_option"</span>)]
     </span><span class="kw">fn </span>add_main_option(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         long_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -2194,12 +2196,12 @@
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_application_add_main_option_entries&quot;)]
+    <span class="comment">//#[doc(alias = "g_application_add_main_option_entries")]
     //fn add_main_option_entries(&amp;self, entries: /*Ignored*/&amp;[glib::OptionEntry]) {
     //    unsafe { TODO: call ffi:g_application_add_main_option_entries() }
     //}
 
-    //#[doc(alias = &quot;g_application_add_option_group&quot;)]
+    //#[doc(alias = "g_application_add_option_group")]
     //fn add_option_group(&amp;self, group: /*Ignored*/glib::OptionGroup) {
     //    unsafe { TODO: call ffi:g_application_add_option_group() }
     //}
@@ -2214,7 +2216,7 @@
     /// a [`glib::Object`][crate::glib::Object]
     /// ## `property`
     /// the name of a boolean property of `object`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_bind_busy_property&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_bind_busy_property"</span>)]
     </span><span class="kw">fn </span>bind_busy_property(<span class="kw-2">&amp;</span><span class="self">self</span>, object: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="../../../glib/object/struct.Object.html">glib::Object</a>&gt;, property: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_bind_busy_property(
@@ -2230,8 +2232,8 @@
     /// # Returns
     ///
     /// the identifier for `self`, owned by `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_application_id&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_application_id&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_application_id"</span>)]
+    #[doc(alias = <span class="string">"get_application_id"</span>)]
     </span><span class="kw">fn </span>application_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_application_get_application_id(
@@ -2257,8 +2259,8 @@
     /// # Returns
     ///
     /// a [`DBusConnection`][crate::DBusConnection], or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_dbus_connection&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_dbus_connection&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_dbus_connection"</span>)]
+    #[doc(alias = <span class="string">"get_dbus_connection"</span>)]
     </span><span class="kw">fn </span>dbus_connection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="dbus_connection.rs.html#20-195">DBusConnection</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_application_get_dbus_connection(
@@ -2285,8 +2287,8 @@
     /// # Returns
     ///
     /// the object path, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_dbus_object_path&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_dbus_object_path&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_dbus_object_path"</span>)]
+    #[doc(alias = <span class="string">"get_dbus_object_path"</span>)]
     </span><span class="kw">fn </span>dbus_object_path(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_application_get_dbus_object_path(
@@ -2302,8 +2304,8 @@
     /// # Returns
     ///
     /// the flags for `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_flags&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_flags&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_flags"</span>)]
+    #[doc(alias = <span class="string">"get_flags"</span>)]
     </span><span class="kw">fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#99-163">ApplicationFlags</a> {
         <span class="kw">unsafe </span>{ from_glib(ffi::g_application_get_flags(<a class="self" href="#674">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
@@ -2316,20 +2318,20 @@
     /// # Returns
     ///
     /// the timeout, in milliseconds
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_inactivity_timeout&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_inactivity_timeout&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_inactivity_timeout"</span>)]
+    #[doc(alias = <span class="string">"get_inactivity_timeout"</span>)]
     </span><span class="kw">fn </span>inactivity_timeout(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_application_get_inactivity_timeout(<a class="self" href="#688">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
-    <span class="doccomment">/// Gets the application&#39;s current busy state, as set through
+    <span class="doccomment">/// Gets the application's current busy state, as set through
     /// [`ApplicationExtManual::mark_busy()`][crate::prelude::ApplicationExtManual::mark_busy()] or [`bind_busy_property()`][Self::bind_busy_property()].
     ///
     /// # Returns
     ///
     /// [`true`] if `self` is currently marked as busy
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_is_busy&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_is_busy&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_is_busy"</span>)]
+    #[doc(alias = <span class="string">"get_is_busy"</span>)]
     </span><span class="kw">fn </span>is_busy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_application_get_is_busy(
@@ -2346,8 +2348,8 @@
     /// # Returns
     ///
     /// [`true`] if `self` is registered
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_is_registered&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_is_registered&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_is_registered"</span>)]
+    #[doc(alias = <span class="string">"get_is_registered"</span>)]
     </span><span class="kw">fn </span>is_registered(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_application_get_is_registered(
@@ -2359,7 +2361,7 @@
     <span class="doccomment">/// Checks if `self` is remote.
     ///
     /// If `self` is remote then it means that another instance of
-    /// application already exists (the &#39;primary&#39; instance). Calls to
+    /// application already exists (the 'primary' instance). Calls to
     /// perform actions on `self` will result in the actions being
     /// performed by the primary instance.
     ///
@@ -2370,8 +2372,8 @@
     /// # Returns
     ///
     /// [`true`] if `self` is remote
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_is_remote&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_is_remote&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_is_remote"</span>)]
+    #[doc(alias = <span class="string">"get_is_remote"</span>)]
     </span><span class="kw">fn </span>is_remote(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_application_get_is_remote(
@@ -2387,8 +2389,8 @@
     /// # Returns
     ///
     /// the base resource path, if one is set
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_get_resource_base_path&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_resource_base_path&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_get_resource_base_path"</span>)]
+    #[doc(alias = <span class="string">"get_resource_base_path"</span>)]
     </span><span class="kw">fn </span>resource_base_path(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_application_get_resource_base_path(
@@ -2406,16 +2408,16 @@
     ///
     /// `hint` is simply passed through to the ::open signal. It is
     /// intended to be used by applications that have multiple modes for
-    /// opening files (eg: &quot;view&quot; vs &quot;edit&quot;, etc). Unless you have a need
-    /// for this functionality, you should use &quot;&quot;.
+    /// opening files (eg: "view" vs "edit", etc). Unless you have a need
+    /// for this functionality, you should use "".
     ///
     /// The application must be registered before calling this function
     /// and it must have the [`ApplicationFlags::HANDLES_OPEN`][crate::ApplicationFlags::HANDLES_OPEN] flag set.
     /// ## `files`
     /// an array of `GFiles` to open
     /// ## `hint`
-    /// a hint (or &quot;&quot;), but never [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_open&quot;</span>)]
+    /// a hint (or ""), but never [`None`]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_open"</span>)]
     </span><span class="kw">fn </span>open(<span class="kw-2">&amp;</span><span class="self">self</span>, files: <span class="kw-2">&amp;</span>[<a href="file.rs.html#14-108">File</a>], hint: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">let </span>n_files = <a href="#786">files</a>.len() <span class="kw">as _</span>;
         <span class="kw">unsafe </span>{
@@ -2431,7 +2433,7 @@
     <span class="doccomment">/// Immediately quits the application.
     ///
     /// Upon return to the mainloop, [`ApplicationExtManual::run()`][crate::prelude::ApplicationExtManual::run()] will return,
-    /// calling only the &#39;shutdown&#39; function before doing so.
+    /// calling only the 'shutdown' function before doing so.
     ///
     /// The hold count is ignored.
     /// Take care if your code has called [`ApplicationExtManual::hold()`][crate::prelude::ApplicationExtManual::hold()] on the application and
@@ -2441,7 +2443,7 @@
     ///
     /// The result of calling [`ApplicationExtManual::run()`][crate::prelude::ApplicationExtManual::run()] again after it returns is
     /// unspecified.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_quit&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_quit"</span>)]
     </span><span class="kw">fn </span>quit(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_quit(<a class="self" href="#812">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -2484,7 +2486,7 @@
     /// # Returns
     ///
     /// [`true`] if registration succeeded
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_register&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_register"</span>)]
     </span><span class="kw">fn </span>register(<span class="kw-2">&amp;</span><span class="self">self</span>, cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
@@ -2515,7 +2517,7 @@
     ///
     /// `id` may be any string that uniquely identifies the event for the
     /// application. It does not need to be in any special format. For
-    /// example, &quot;new-message&quot; might be appropriate for a notification about
+    /// example, "new-message" might be appropriate for a notification about
     /// new messages.
     ///
     /// If a previous notification was sent with the same `id`, it will be
@@ -2532,7 +2534,7 @@
     /// id of the notification, or [`None`]
     /// ## `notification`
     /// the [`Notification`][crate::Notification] to send
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_send_notification&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_send_notification"</span>)]
     </span><span class="kw">fn </span>send_notification(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, notification: <span class="kw-2">&amp;</span><a href="notification.rs.html#8-64">Notification</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_send_notification(
@@ -2552,7 +2554,7 @@
     /// [`Application::id_is_valid()`][crate::Application::id_is_valid()].
     /// ## `application_id`
     /// the identifier for `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_application_id&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_application_id"</span>)]
     </span><span class="kw">fn </span>set_application_id(<span class="kw-2">&amp;</span><span class="self">self</span>, application_id: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_application_id(
@@ -2568,7 +2570,7 @@
     /// This function does not take its own reference on `self`. If
     /// `self` is destroyed then the default application will revert
     /// back to [`None`].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_default&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_default"</span>)]
     </span><span class="kw">fn </span>set_default(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_default(<a class="self" href="#939">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -2583,7 +2585,7 @@
     /// See [`ApplicationFlags`][crate::ApplicationFlags].
     /// ## `flags`
     /// the flags for `self`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_flags&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_flags"</span>)]
     </span><span class="kw">fn </span>set_flags(<span class="kw-2">&amp;</span><span class="self">self</span>, flags: <a href="flags.rs.html#99-163">ApplicationFlags</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_flags(<a class="self" href="#954">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#954">flags</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
@@ -2600,7 +2602,7 @@
     /// zero. Any timeouts currently in progress are not impacted.
     /// ## `inactivity_timeout`
     /// the timeout, in milliseconds
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_inactivity_timeout&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_inactivity_timeout"</span>)]
     </span><span class="kw">fn </span>set_inactivity_timeout(<span class="kw-2">&amp;</span><span class="self">self</span>, inactivity_timeout: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_inactivity_timeout(
@@ -2616,7 +2618,7 @@
     /// ## `description`
     /// a string to be shown in `--help` output
     ///  after the list of options, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_option_context_description&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_option_context_description"</span>)]
     </span><span class="kw">fn </span>set_option_context_description(<span class="kw-2">&amp;</span><span class="self">self</span>, description: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_option_context_description(
@@ -2635,7 +2637,7 @@
     /// ## `parameter_string`
     /// a string which is displayed
     ///  in the first line of `--help` output, after the usage summary `programname [OPTION...]`.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_option_context_parameter_string&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_option_context_parameter_string"</span>)]
     </span><span class="kw">fn </span>set_option_context_parameter_string(<span class="kw-2">&amp;</span><span class="self">self</span>, parameter_string: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_option_context_parameter_string(
@@ -2651,7 +2653,7 @@
     /// ## `summary`
     /// a string to be shown in `--help` output
     ///  before the list of options, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_option_context_summary&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_option_context_summary"</span>)]
     </span><span class="kw">fn </span>set_option_context_summary(<span class="kw-2">&amp;</span><span class="self">self</span>, summary: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_option_context_summary(
@@ -2669,16 +2671,16 @@
     /// to the given base path.
     ///
     /// By default, the resource base path is determined from the application
-    /// ID by prefixing &#39;/&#39; and replacing each &#39;.&#39; with &#39;/&#39;. This is done at
+    /// ID by prefixing '/' and replacing each '.' with '/'. This is done at
     /// the time that the [`Application`][crate::Application] object is constructed. Changes to
     /// the application ID after that point will not have an impact on the
     /// resource base path.
     ///
-    /// As an example, if the application has an ID of &quot;org.example.app&quot; then
-    /// the default resource base path will be &quot;/org/example/app&quot;. If this
+    /// As an example, if the application has an ID of "org.example.app" then
+    /// the default resource base path will be "/org/example/app". If this
     /// is a `GtkApplication` (and you have not manually changed the path)
     /// then Gtk will then search for the menus of the application at
-    /// &quot;/org/example/app/gtk/menus.ui&quot;.
+    /// "/org/example/app/gtk/menus.ui".
     ///
     /// See [`Resource`][crate::Resource] for more information about adding resources to your
     /// application.
@@ -2696,7 +2698,7 @@
     /// before chaining up to the parent implementation.
     /// ## `resource_path`
     /// the resource path to use
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_set_resource_base_path&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_set_resource_base_path"</span>)]
     </span><span class="kw">fn </span>set_resource_base_path(<span class="kw-2">&amp;</span><span class="self">self</span>, resource_path: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_application_set_resource_base_path(
@@ -2713,7 +2715,7 @@
     /// a [`glib::Object`][crate::glib::Object]
     /// ## `property`
     /// the name of a boolean property of `object`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_unbind_busy_property&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_unbind_busy_property"</span>)]
     </span><span class="kw">fn </span>unbind_busy_property(<span class="kw-2">&amp;</span><span class="self">self</span>, object: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="../../../glib/object/struct.Object.html">glib::Object</a>&gt;, property: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_unbind_busy_property(
@@ -2727,7 +2729,7 @@
     <span class="doccomment">/// Withdraws a notification that was sent with
     /// [`send_notification()`][Self::send_notification()].
     ///
-    /// This call does nothing if a notification with `id` doesn&#39;t exist or
+    /// This call does nothing if a notification with `id` doesn't exist or
     /// the notification was never sent.
     ///
     /// This function works even for notifications sent in previous
@@ -2739,7 +2741,7 @@
     /// there is no need to explicitly withdraw the notification in that case.
     /// ## `id`
     /// id of a previously sent notification
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_withdraw_notification&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_withdraw_notification"</span>)]
     </span><span class="kw">fn </span>withdraw_notification(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_withdraw_notification(
@@ -2749,28 +2751,28 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;action-group&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"action-group"</span>)]
     </span><span class="kw">fn </span>set_action_group&lt;P: IsA&lt;<a href="action_group.rs.html#12-98">ActionGroup</a>&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, action_group: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
-        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#1120">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">&quot;action-group&quot;</span>, <a href="#1120">action_group</a>)
+        <a href="../../../glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#1120">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"action-group"</span>, <a href="#1120">action_group</a>)
     }
 
     <span class="doccomment">/// The ::activate signal is emitted on the primary instance when an
     /// activation occurs. See [`activate()`][Self::activate()].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;activate&quot;</span>)]
-    </span><span class="kw">fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>activate_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            f: glib::ffi::gpointer,
+    </span><span class="attr">#[doc(alias = <span class="string">"activate"</span>)]
+    </span><span class="kw">fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>activate_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1130">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1132">f</a>(Application::from_glib_borrow(<a href="#1129">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1132">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1129">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1127">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1127">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;activate\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"activate\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     activate_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1136">f</a>),
@@ -2789,22 +2791,22 @@
     ///
     /// An integer that is set as the exit status for the calling
     ///  process. See [`ApplicationCommandLineExt::set_exit_status()`][crate::prelude::ApplicationCommandLineExt::set_exit_status()].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;command-line&quot;</span>)]
-    </span><span class="kw">fn </span>connect_command_line&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="application_command_line.rs.html#13-214">ApplicationCommandLine</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"command-line"</span>)]
+    </span><span class="kw">fn </span>connect_command_line&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="application_command_line.rs.html#13-214">ApplicationCommandLine</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>command_line_trampoline&lt;
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>command_line_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="application_command_line.rs.html#13-214">ApplicationCommandLine</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="application_command_line.rs.html#13-214">ApplicationCommandLine</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            command_line: <span class="kw-2">*mut </span>ffi::GApplicationCommandLine,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            command_line: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplicationCommandLine.html">ffi::GApplicationCommandLine</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) -&gt; libc::c_int {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1170">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#1172">f</a>(
-                Application::from_glib_borrow(<a href="#1168">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
+                <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1168">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
                 <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#1169">command_line</a>),
             )
         }
@@ -2812,8 +2814,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1162">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1161">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;command-line\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"command-line\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     command_line_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1179">f</a>),
@@ -2834,14 +2836,14 @@
     /// (which may be useful for options like --version).
     ///
     /// In the event that the application is marked
-    /// [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] the &quot;normal processing&quot; will
+    /// [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] the "normal processing" will
     /// send the `options` dictionary to the primary instance where it can be
     /// read with [`ApplicationCommandLineExt::options_dict()`][crate::prelude::ApplicationCommandLineExt::options_dict()]. The signal
     /// handler can modify the dictionary before returning, and the
     /// modified dictionary will be sent.
     ///
     /// In the event that [`ApplicationFlags::HANDLES_COMMAND_LINE`][crate::ApplicationFlags::HANDLES_COMMAND_LINE] is not set,
-    /// &quot;normal processing&quot; will treat the remaining uncollected command
+    /// "normal processing" will treat the remaining uncollected command
     /// line arguments as filenames or URIs. If there are no arguments,
     /// the application is activated by [`activate()`][Self::activate()]. One or
     /// more arguments results in a call to [`open()`][Self::open()].
@@ -2856,7 +2858,7 @@
     /// in that case).
     ///
     /// Note that this signal is emitted from the default implementation of
-    /// `local_command_line()`. If you override that function and don&#39;t
+    /// `local_command_line()`. If you override that function and don't
     /// chain up then this signal will never be emitted.
     ///
     /// You can override `local_command_line()` if you need more powerful
@@ -2871,22 +2873,22 @@
     /// to exit the process, return a non-negative option, 0 for success,
     /// and a positive value for failure. To continue, return -1 to let
     /// the default option processing continue.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;handle-local-options&quot;</span>)]
-    </span><span class="kw">fn </span>connect_handle_local_options&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../../../glib/variant_dict/struct.VariantDict.html">glib::VariantDict</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"handle-local-options"</span>)]
+    </span><span class="kw">fn </span>connect_handle_local_options&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="../../../glib/variant_dict/struct.VariantDict.html">glib::VariantDict</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>handle_local_options_trampoline&lt;
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>handle_local_options_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="../../../glib/variant_dict/struct.VariantDict.html">glib::VariantDict</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="../../../glib/variant_dict/struct.VariantDict.html">glib::VariantDict</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            options: <span class="kw-2">*mut </span>glib::ffi::GVariantDict,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            options: <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariantDict.html">glib::ffi::GVariantDict</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) -&gt; libc::c_int {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1252">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#1254">f</a>(
-                Application::from_glib_borrow(<a href="#1250">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
+                <a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1250">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
                 <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#1251">options</a>),
             )
         }
@@ -2894,8 +2896,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1244">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1243">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;handle-local-options\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"handle-local-options\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     handle_local_options_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1261">f</a>),
@@ -2912,26 +2914,26 @@
     /// # Returns
     ///
     /// [`true`] if the signal has been handled
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;name-lost&quot;</span>)]
-    </span><span class="kw">fn </span>connect_name_lost&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>name_lost_trampoline&lt;
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
+    #[doc(alias = <span class="string">"name-lost"</span>)]
+    </span><span class="kw">fn </span>connect_name_lost&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>name_lost_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            f: glib::ffi::gpointer,
-        ) -&gt; glib::ffi::gboolean {
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+        ) -&gt; <a href="../../../glib_sys/type.gboolean.html">glib::ffi::gboolean</a> {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1291">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1293">f</a>(Application::from_glib_borrow(<a href="#1290">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>()).<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>()
+            <a href="#1293">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1290">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>()).<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>()
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1285">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1285">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;name-lost\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"name-lost\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     name_lost_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1297">f</a>),
@@ -2941,21 +2943,21 @@
 
     <span class="doccomment">/// The ::shutdown signal is emitted only on the registered primary instance
     /// immediately after the main loop terminates.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;shutdown&quot;</span>)]
-    </span><span class="kw">fn </span>connect_shutdown&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>shutdown_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            f: glib::ffi::gpointer,
+    </span><span class="attr">#[doc(alias = <span class="string">"shutdown"</span>)]
+    </span><span class="kw">fn </span>connect_shutdown&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>shutdown_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1315">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1317">f</a>(Application::from_glib_borrow(<a href="#1314">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1317">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1314">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1312">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1312">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;shutdown\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"shutdown\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     shutdown_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1321">f</a>),
@@ -2965,21 +2967,21 @@
 
     <span class="doccomment">/// The ::startup signal is emitted on the primary instance immediately
     /// after registration. See [`register()`][Self::register()].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;startup&quot;</span>)]
-    </span><span class="kw">fn </span>connect_startup&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>startup_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            f: glib::ffi::gpointer,
+    </span><span class="attr">#[doc(alias = <span class="string">"startup"</span>)]
+    </span><span class="kw">fn </span>connect_startup&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>startup_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1339">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1341">f</a>(Application::from_glib_borrow(<a href="#1338">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1341">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1338">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1336">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1336">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;startup\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"startup\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     startup_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1345">f</a>),
@@ -2987,25 +2989,25 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;action-group&quot;</span>)]
-    </span><span class="kw">fn </span>connect_action_group_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_action_group_trampoline&lt;
+    <span class="attr">#[doc(alias = <span class="string">"action-group"</span>)]
+    </span><span class="kw">fn </span>connect_action_group_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_action_group_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1365">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1367">f</a>(Application::from_glib_borrow(<a href="#1363">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1367">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1363">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1358">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1358">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::action-group\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::action-group\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_action_group_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1371">f</a>),
@@ -3013,25 +3015,25 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;application-id&quot;</span>)]
-    </span><span class="kw">fn </span>connect_application_id_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_application_id_trampoline&lt;
+    <span class="attr">#[doc(alias = <span class="string">"application-id"</span>)]
+    </span><span class="kw">fn </span>connect_application_id_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_application_id_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1391">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1393">f</a>(Application::from_glib_borrow(<a href="#1389">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1393">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1389">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1384">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1384">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::application-id\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::application-id\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_application_id_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1397">f</a>),
@@ -3039,22 +3041,22 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;flags&quot;</span>)]
-    </span><span class="kw">fn </span>connect_flags_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_flags_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+    <span class="attr">#[doc(alias = <span class="string">"flags"</span>)]
+    </span><span class="kw">fn </span>connect_flags_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_flags_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1414">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1416">f</a>(Application::from_glib_borrow(<a href="#1412">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1416">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1412">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1410">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1410">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::flags\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::flags\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_flags_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1420">f</a>),
@@ -3062,25 +3064,25 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;inactivity-timeout&quot;</span>)]
-    </span><span class="kw">fn </span>connect_inactivity_timeout_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_inactivity_timeout_trampoline&lt;
+    <span class="attr">#[doc(alias = <span class="string">"inactivity-timeout"</span>)]
+    </span><span class="kw">fn </span>connect_inactivity_timeout_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_inactivity_timeout_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1440">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1442">f</a>(Application::from_glib_borrow(<a href="#1438">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1442">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1438">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1433">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1433">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::inactivity-timeout\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::inactivity-timeout\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_inactivity_timeout_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1446">f</a>),
@@ -3088,22 +3090,22 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;is-busy&quot;</span>)]
-    </span><span class="kw">fn </span>connect_is_busy_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_is_busy_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+    <span class="attr">#[doc(alias = <span class="string">"is-busy"</span>)]
+    </span><span class="kw">fn </span>connect_is_busy_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_is_busy_trampoline&lt;P: IsA&lt;<a href="#16-306">Application</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1463">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1465">f</a>(Application::from_glib_borrow(<a href="#1461">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1465">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1461">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1459">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1459">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::is-busy\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::is-busy\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_is_busy_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1469">f</a>),
@@ -3111,25 +3113,25 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;is-registered&quot;</span>)]
-    </span><span class="kw">fn </span>connect_is_registered_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_is_registered_trampoline&lt;
+    <span class="attr">#[doc(alias = <span class="string">"is-registered"</span>)]
+    </span><span class="kw">fn </span>connect_is_registered_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_is_registered_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1489">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1491">f</a>(Application::from_glib_borrow(<a href="#1487">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1491">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1487">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1482">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1482">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::is-registered\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::is-registered\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_is_registered_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1495">f</a>),
@@ -3137,25 +3139,25 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;is-remote&quot;</span>)]
-    </span><span class="kw">fn </span>connect_is_remote_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_is_remote_trampoline&lt;
+    <span class="attr">#[doc(alias = <span class="string">"is-remote"</span>)]
+    </span><span class="kw">fn </span>connect_is_remote_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_is_remote_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1515">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1517">f</a>(Application::from_glib_borrow(<a href="#1513">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1517">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1513">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1508">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1508">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::is-remote\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::is-remote\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_is_remote_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1521">f</a>),
@@ -3163,25 +3165,25 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;resource-base-path&quot;</span>)]
-    </span><span class="kw">fn </span>connect_resource_base_path_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_resource_base_path_trampoline&lt;
+    <span class="attr">#[doc(alias = <span class="string">"resource-base-path"</span>)]
+    </span><span class="kw">fn </span>connect_resource_base_path_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_resource_base_path_trampoline&lt;
             P: IsA&lt;<a href="#16-306">Application</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplication,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplication.html">ffi::GApplication</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1541">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1543">f</a>(Application::from_glib_borrow(<a href="#1539">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#1543">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Application::from_glib_borrow</a>(<a href="#1539">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1534">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#1534">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::resource-base-path\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::resource-base-path\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_resource_base_path_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#1547">f</a>),

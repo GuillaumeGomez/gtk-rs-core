@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/subclass/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -539,8 +541,6 @@
 <a href="#466" id="466">466</a>
 <a href="#467" id="467">467</a>
 <a href="#468" id="468">468</a>
-<a href="#469" id="469">469</a>
-<a href="#470" id="470">470</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#![allow(clippy::needless_doctest_main)]
@@ -550,7 +550,7 @@
 //! # Example for registering a `glib::Object` subclass
 //!
 //! The following code implements a subclass of `glib::Object` with a
-//! string-typed &quot;name&quot; property.
+//! string-typed "name" property.
 //!
 //! ```rust
 //! use glib::prelude::*;
@@ -563,14 +563,14 @@
 //! #[derive(Debug, Eq, PartialEq, Clone, Copy, glib::Enum)]
 //! #[repr(u32)]
 //! // type_name: GType name of the enum (mandatory)
-//! #[enum_type(name = &quot;SimpleObjectAnimal&quot;)]
+//! #[enum_type(name = "SimpleObjectAnimal")]
 //! enum Animal {
 //!     Goat = 0,
-//!     #[enum_value(name = &quot;The Dog&quot;)]
+//!     #[enum_value(name = "The Dog")]
 //!     Dog = 1,
 //!     // name: the name of the GEnumValue (optional), default to the enum name in CamelCase
 //!     // nick: the nick of the GEnumValue (optional), default to the enum name in kebab-case
-//!     #[enum_value(name = &quot;The Cat&quot;, nick = &quot;chat&quot;)]
+//!     #[enum_value(name = "The Cat", nick = "chat")]
 //!     Cat = 2,
 //! }
 //!
@@ -580,11 +580,11 @@
 //!     }
 //! }
 //!
-//! #[glib::flags(name = &quot;MyFlags&quot;)]
+//! #[glib::flags(name = "MyFlags")]
 //! enum MyFlags {
-//!     #[flags_value(name = &quot;Flag A&quot;, nick = &quot;nick-a&quot;)]
+//!     #[flags_value(name = "Flag A", nick = "nick-a")]
 //!     A = 0b00000001,
-//!     #[flags_value(name = &quot;Flag B&quot;)]
+//!     #[flags_value(name = "Flag B")]
 //!     B = 0b00000010,
 //!     #[flags_value(skip)]
 //!     AB = Self::A.bits() | Self::B.bits(),
@@ -615,13 +615,13 @@
 //!
 //!     // ObjectSubclass is the trait that defines the new type and
 //!     // contains all information needed by the GObject type system,
-//!     // including the new type&#39;s name, parent type, etc.
+//!     // including the new type's name, parent type, etc.
 //!     // If you do not want to implement `Default`, you can provide
 //!     // a `new()` method.
 //!     #[glib::object_subclass]
 //!     impl ObjectSubclass for SimpleObject {
 //!         // This type name must be unique per process.
-//!         const NAME: &amp;&#39;static str = &quot;SimpleObject&quot;;
+//!         const NAME: &amp;'static str = "SimpleObject";
 //!
 //!         type Type = super::SimpleObject;
 //!
@@ -637,17 +637,17 @@
 //!     // Trait that is used to override virtual methods of glib::Object.
 //!     impl ObjectImpl for SimpleObject {
 //!         // Called once in the very beginning to list all properties of this class.
-//!         fn properties() -&gt; &amp;&#39;static [glib::ParamSpec] {
+//!         fn properties() -&gt; &amp;'static [glib::ParamSpec] {
 //!             use once_cell::sync::Lazy;
 //!             static PROPERTIES: Lazy&lt;Vec&lt;glib::ParamSpec&gt;&gt; = Lazy::new(|| {
 //!                 vec![
-//!                     glib::ParamSpecString::builder(&quot;name&quot;)
+//!                     glib::ParamSpecString::builder("name")
 //!                         .build(),
-//!                     glib::ParamSpecEnum::builder::&lt;Animal&gt;(&quot;animal&quot;)
+//!                     glib::ParamSpecEnum::builder::&lt;Animal&gt;("animal")
 //!                         .build(),
-//!                     glib::ParamSpecFlags::builder::&lt;MyFlags&gt;(&quot;flags&quot;)
+//!                     glib::ParamSpecFlags::builder::&lt;MyFlags&gt;("flags")
 //!                         .build(),
-//!                     glib::ParamSpecVariant::builder(&quot;variant&quot;, glib::VariantTy::ANY)
+//!                     glib::ParamSpecVariant::builder("variant", glib::VariantTy::ANY)
 //!                         .build(),
 //!                 ]
 //!             });
@@ -659,28 +659,28 @@
 //!         // is the same as the index of the property in the PROPERTIES array.
 //!         fn set_property(&amp;self, _id: usize, value: &amp;glib::Value, pspec: &amp;glib::ParamSpec) {
 //!             match pspec.name() {
-//!                 &quot;name&quot; =&gt; {
+//!                 "name" =&gt; {
 //!                     let name = value
 //!                         .get()
-//!                         .expect(&quot;type conformity checked by `Object::set_property`&quot;);
+//!                         .expect("type conformity checked by `Object::set_property`");
 //!                     self.name.replace(name);
 //!                 },
-//!                 &quot;animal&quot; =&gt; {
+//!                 "animal" =&gt; {
 //!                     let animal = value
 //!                         .get()
-//!                         .expect(&quot;type conformity checked by `Object::set_property`&quot;);
+//!                         .expect("type conformity checked by `Object::set_property`");
 //!                     self.animal.replace(animal);
 //!                 },
-//!                 &quot;flags&quot; =&gt; {
+//!                 "flags" =&gt; {
 //!                     let flags = value
 //!                         .get()
-//!                         .expect(&quot;type conformity checked by `Object::set_property`&quot;);
+//!                         .expect("type conformity checked by `Object::set_property`");
 //!                     self.flags.replace(flags);
 //!                 },
-//!                 &quot;variant&quot; =&gt; {
+//!                 "variant" =&gt; {
 //!                     let variant = value
 //!                         .get()
-//!                         .expect(&quot;type conformity checked by `Object::set_property`&quot;);
+//!                         .expect("type conformity checked by `Object::set_property`");
 //!                     self.variant.replace(variant);
 //!                 },
 //!                 _ =&gt; unimplemented!(),
@@ -691,17 +691,17 @@
 //!         // is the same as the index of the property in the PROPERTIES array.
 //!         fn property(&amp;self, _id: usize, pspec: &amp;glib::ParamSpec) -&gt; glib::Value {
 //!             match pspec.name() {
-//!                 &quot;name&quot; =&gt; self.name.borrow().to_value(),
-//!                 &quot;animal&quot; =&gt; self.animal.get().to_value(),
-//!                 &quot;flags&quot; =&gt; self.flags.get().to_value(),
-//!                 &quot;variant&quot; =&gt; self.variant.borrow().to_value(),
+//!                 "name" =&gt; self.name.borrow().to_value(),
+//!                 "animal" =&gt; self.animal.get().to_value(),
+//!                 "flags" =&gt; self.flags.get().to_value(),
+//!                 "variant" =&gt; self.variant.borrow().to_value(),
 //!                 _ =&gt; unimplemented!(),
 //!             }
 //!         }
 //!
 //!         // Called right after construction of the instance.
 //!         fn constructed(&amp;self) {
-//!             // Chain up to the parent type&#39;s implementation of this virtual
+//!             // Chain up to the parent type's implementation of this virtual
 //!             // method.
 //!             self.parent_constructed();
 //!
@@ -726,17 +726,17 @@
 //!     let obj = SimpleObject::new();
 //!
 //!     // Get the name property and change its value.
-//!     assert_eq!(obj.property::&lt;Option&lt;String&gt;&gt;(&quot;name&quot;), None);
-//!     obj.set_property(&quot;name&quot;, &quot;test&quot;);
-//!     assert_eq!(&amp;obj.property::&lt;String&gt;(&quot;name&quot;), &quot;test&quot;);
+//!     assert_eq!(obj.property::&lt;Option&lt;String&gt;&gt;("name"), None);
+//!     obj.set_property("name", "test");
+//!     assert_eq!(&amp;obj.property::&lt;String&gt;("name"), "test");
 //!
-//!     assert_eq!(obj.property::&lt;Animal&gt;(&quot;animal&quot;), Animal::Goat);
-//!     obj.set_property(&quot;animal&quot;, Animal::Cat);
-//!     assert_eq!(obj.property::&lt;Animal&gt;(&quot;animal&quot;), Animal::Cat);
+//!     assert_eq!(obj.property::&lt;Animal&gt;("animal"), Animal::Goat);
+//!     obj.set_property("animal", Animal::Cat);
+//!     assert_eq!(obj.property::&lt;Animal&gt;("animal"), Animal::Cat);
 //!
-//!     assert_eq!(obj.property::&lt;MyFlags&gt;(&quot;flags&quot;), MyFlags::A);
-//!     obj.set_property(&quot;flags&quot;, MyFlags::B);
-//!     assert_eq!(obj.property::&lt;MyFlags&gt;(&quot;flags&quot;), MyFlags::B);
+//!     assert_eq!(obj.property::&lt;MyFlags&gt;("flags"), MyFlags::A);
+//!     obj.set_property("flags", MyFlags::B);
+//!     assert_eq!(obj.property::&lt;MyFlags&gt;("flags"), MyFlags::B);
 //! }
 //! ```
 //!
@@ -756,9 +756,10 @@
 //!     #[derive(Default)]
 //!     pub struct SimpleModuleObject;
 //!
-//!     #[glib::dynamic_object_subclass]
+//!     #[glib::object_subclass]
+//!     #[object_subclass_dynamic]
 //!     impl ObjectSubclass for SimpleModuleObject {
-//!         const NAME: &amp;&#39;static str = &quot;SimpleModuleObject&quot;;
+//!         const NAME: &amp;'static str = "SimpleModuleObject";
 //!         type Type = super::SimpleModuleObject;
 //!     }
 //!
@@ -770,7 +771,7 @@
 //!
 //!     #[glib::object_subclass]
 //!     impl ObjectSubclass for SimpleTypeModule {
-//!         const NAME: &amp;&#39;static str = &quot;SimpleTypeModule&quot;;
+//!         const NAME: &amp;'static str = "SimpleTypeModule";
 //!         type Type = super::SimpleTypeModule;
 //!         type ParentType = glib::TypeModule;
 //!         type Interfaces = (glib::TypePlugin,);
@@ -818,7 +819,7 @@
 //!     let simple_module_object_type = imp::SimpleModuleObject::type_();
 //!     assert!(!simple_module_object_type.is_valid());
 //!
-//!     // simulates the glib type system to load the module.
+//!     // simulates the GLib type system to load the module.
 //!     TypeModuleExt::use_(&amp;simple_type_module);
 //!
 //!     // at this step, SimpleModuleObject must have been registered.
@@ -843,9 +844,10 @@
 //!     #[derive(Default)]
 //!     pub struct SimplePluginObject;
 //!
-//!     #[glib::dynamic_object_subclass(plugin_type = super::SimpleTypePlugin)]
+//!     #[glib::object_subclass]
+//!     #[object_subclass_dynamic(plugin_type = super::SimpleTypePlugin)]
 //!     impl ObjectSubclass for SimplePluginObject {
-//!         const NAME: &amp;&#39;static str = &quot;SimplePluginObject&quot;;
+//!         const NAME: &amp;'static str = "SimplePluginObject";
 //!         type Type = super::SimplePluginObject;
 //!     }
 //!
@@ -859,7 +861,7 @@
 //!
 //!     #[glib::object_subclass]
 //!     impl ObjectSubclass for SimpleTypePlugin {
-//!         const NAME: &amp;&#39;static str = &quot;SimpleTypePlugin&quot;;
+//!         const NAME: &amp;'static str = "SimpleTypePlugin";
 //!         type Type = super::SimpleTypePlugin;
 //!         type Interfaces = (glib::TypePlugin,);
 //!     }
@@ -886,10 +888,6 @@
 //!     }
 //!
 //!     impl TypePluginRegisterImpl for SimpleTypePlugin {
-//!         fn add_dynamic_interface(&amp;self, _: glib::Type, _: glib::Type, _: &amp;glib::InterfaceInfo) {
-//!             unimplemented!()
-//!         }
-//!
 //!         fn register_dynamic_type(&amp;self, parent_type: glib::Type, type_name: &amp;str, type_info: &amp;glib::TypeInfo, flags: glib::TypeFlags) -&gt; glib::Type {
 //!             let type_ = glib::Type::from_name(type_name).unwrap_or_else(|| {
 //!                 glib::Type::register_dynamic(parent_type, type_name, self.obj().upcast_ref::&lt;glib::TypePlugin&gt;(), flags)
@@ -928,7 +926,7 @@
 //!     let simple_plugin_object_type = imp::SimplePluginObject::type_();
 //!     assert!(!simple_plugin_object_type.is_valid());
 //!
-//!     // simulates the glib type system to use the plugin.
+//!     // simulates the GLib type system to use the plugin.
 //!     TypePluginExt::use_(&amp;simple_type_plugin);
 //!
 //!     // at this step, SimplePluginObject must have been registered.
@@ -948,13 +946,13 @@
 //! use glib::subclass::prelude::*;
 //!
 //! #[derive(Clone, Debug, PartialEq, Eq, glib::Boxed)]
-//! #[boxed_type(name = &quot;MyBoxed&quot;)]
+//! #[boxed_type(name = "MyBoxed")]
 //! struct MyBoxed(String);
 //!
 //! pub fn main() {
 //!     assert!(MyBoxed::static_type().is_valid());
 //!
-//!     let b = MyBoxed(String::from(&quot;abc&quot;));
+//!     let b = MyBoxed(String::from("abc"));
 //!     let v = b.to_value();
 //!     let b2 = v.get::&lt;&amp;MyBoxed&gt;().unwrap();
 //!     assert_eq!(&amp;b, b2);
@@ -969,7 +967,7 @@
 </span><span class="kw">pub mod </span><a href="interface.rs.html#3-276">interface</a>;
 
 <span class="attr">#[macro_use]
-</span><span class="kw">pub mod </span><a href="object.rs.html#4-739">object</a>;
+</span><span class="kw">pub mod </span><a href="object.rs.html#4-717">object</a>;
 
 <span class="attr">#[macro_use]
 </span><span class="kw">pub mod </span><a href="boxed.rs.html#4-109">boxed</a>;
@@ -981,9 +979,9 @@
 <span class="kw">mod </span><a href="object_impl_ref.rs.html#3-163">object_impl_ref</a>;
 <span class="kw">pub use </span>object_impl_ref::{<a href="object_impl_ref.rs.html#17">ObjectImplRef</a>, <a href="object_impl_ref.rs.html#126">ObjectImplWeakRef</a>};
 
-<span class="kw">pub mod </span><a href="type_module.rs.html#3-164">type_module</a>;
+<span class="kw">pub mod </span><a href="type_module.rs.html#3-165">type_module</a>;
 
-<span class="kw">pub mod </span><a href="type_plugin.rs.html#3-301">type_plugin</a>;
+<span class="kw">pub mod </span><a href="type_plugin.rs.html#3-310">type_plugin</a>;
 
 <span class="kw">pub mod </span><a href="../../../glib/subclass/prelude/index.html">prelude</a> {
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -991,10 +989,10 @@
     </span><span class="kw">pub use super</span>::{
         <a href="boxed.rs.html#17-23">boxed::BoxedType</a>,
         interface::{<a href="interface.rs.html#82-123">ObjectInterface</a>, <a href="interface.rs.html#125-150">ObjectInterfaceExt</a>, <a href="interface.rs.html#62-68">ObjectInterfaceType</a>},
-        object::{<a href="object.rs.html#190-210">DerivedObjectProperties</a>, <a href="object.rs.html#216-229">ObjectClassSubclassExt</a>, <a href="object.rs.html#17-104">ObjectImpl</a>, <a href="object.rs.html#278-339">ObjectImplExt</a>},
+        object::{<a href="object.rs.html#168-188">DerivedObjectProperties</a>, <a href="object.rs.html#194-207">ObjectClassSubclassExt</a>, <a href="object.rs.html#17-82">ObjectImpl</a>, <a href="object.rs.html#256-317">ObjectImplExt</a>},
         shared::{<a href="shared.rs.html#8-28">RefCounted</a>, <a href="shared.rs.html#96-114">SharedType</a>},
         type_module::{<a href="type_module.rs.html#5-20">TypeModuleImpl</a>, <a href="type_module.rs.html#22-25">TypeModuleImplExt</a>},
-        type_plugin::{<a href="type_plugin.rs.html#11-27">TypePluginImpl</a>, <a href="type_plugin.rs.html#29-38">TypePluginImplExt</a>, <a href="type_plugin.rs.html#180-195">TypePluginRegisterImpl</a>},
+        type_plugin::{<a href="type_plugin.rs.html#11-27">TypePluginImpl</a>, <a href="type_plugin.rs.html#29-38">TypePluginImplExt</a>, <a href="type_plugin.rs.html#180-212">TypePluginRegisterImpl</a>},
         types::{
             <a href="types.rs.html#179-198">ClassStruct</a>, <a href="types.rs.html#51-73">InstanceStruct</a>, <a href="types.rs.html#77-90">InstanceStructExt</a>, <a href="types.rs.html#285-301">IsImplementable</a>, <a href="types.rs.html#202-223">IsSubclassable</a>,
             <a href="types.rs.html#256-263">IsSubclassableExt</a>, <a href="types.rs.html#584-701">ObjectSubclass</a>, <a href="types.rs.html#705-740">ObjectSubclassExt</a>, <a href="types.rs.html#155-159">ObjectSubclassIsExt</a>,

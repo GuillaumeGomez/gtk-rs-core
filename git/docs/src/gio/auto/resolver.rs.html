@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/resolver.rs`."><title>resolver.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/resolver.rs`."><title>resolver.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -949,8 +951,8 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+</span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
 </span><span class="kw">use </span><a href="flags.rs.html#2587-2603"><span class="kw">crate</span>::ResolverNameLookupFlags</a>;
 <span class="kw">use crate</span>::{<a href="async_result.rs.html#7-106">AsyncResult</a>, <a href="cancellable.rs.html#7-83">Cancellable</a>, <a href="inet_address.rs.html#13-114">InetAddress</a>, <a href="enums.rs.html#2855-2873">ResolverRecordType</a>, <a href="srv_target.rs.html#7-30">SrvTarget</a>};
 <span class="kw">use </span>glib::{
@@ -1005,8 +1007,8 @@
     /// # Implements
     ///
     /// [`ResolverExt`][trait@crate::prelude::ResolverExt], [`trait@glib::ObjectExt`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GResolver&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.Resolver.html">Resolver</a>(Object&lt;ffi::GResolver, ffi::GResolverClass&gt;);
+    </span><span class="attr">#[doc(alias = <span class="string">"GResolver"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.Resolver.html">Resolver</a>(Object&lt;<a href="../../../gio_sys/struct.GResolver.html">ffi::GResolver</a>, <a href="../../../gio_sys/struct.GResolverClass.html">ffi::GResolverClass</a>&gt;);
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_resolver_get_type(),
@@ -1014,14 +1016,14 @@
 }
 
 <span class="kw">impl </span><a href="#16-67">Resolver</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="#16-67">Resolver</a>&gt; = <span class="prelude-val">None</span>;
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#16-67">Resolver</a>&gt; = <span class="prelude-val">None</span>;
 
-    <span class="comment">//#[doc(alias = &quot;g_resolver_free_addresses&quot;)]
+    <span class="comment">//#[doc(alias = "g_resolver_free_addresses")]
     //pub fn free_addresses(addresses: /*Unimplemented*/&amp;[&amp;Basic: Pointer]) {
     //    unsafe { TODO: call ffi:g_resolver_free_addresses() }
     //}
 
-    //#[doc(alias = &quot;g_resolver_free_targets&quot;)]
+    //#[doc(alias = "g_resolver_free_targets")]
     //pub fn free_targets(targets: /*Unimplemented*/&amp;[&amp;Basic: Pointer]) {
     //    unsafe { TODO: call ffi:g_resolver_free_targets() }
     //}
@@ -1033,8 +1035,8 @@
     /// # Returns
     ///
     /// the default [`Resolver`][crate::Resolver].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_get_default&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_default&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_get_default"</span>)]
+    #[doc(alias = <span class="string">"get_default"</span>)]
     #[allow(clippy::should_implement_trait)]
     </span><span class="kw">pub fn </span>default() -&gt; <a href="#16-67">Resolver</a> {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::g_resolver_get_default()) }
@@ -1051,16 +1053,16 @@
 /// # Implementors
 ///
 /// [`Resolver`][struct@crate::Resolver]
-</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ResolverExt.html">ResolverExt</a>: IsA&lt;<a href="#16-67">Resolver</a>&gt; + <a href="#98">sealed::Sealed</a> + <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ResolverExt.html">ResolverExt</a>: IsA&lt;<a href="#16-67">Resolver</a>&gt; + <a href="#98">sealed::Sealed</a> + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Get the timeout applied to all resolver lookups. See [`timeout`][struct@crate::Resolver#timeout].
     ///
     /// # Returns
     ///
     /// the resolver timeout, in milliseconds, or `0` for no timeout
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_78&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_78&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_resolver_get_timeout&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_timeout&quot;</span>)]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_78"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_78"</span>)))]
+    #[doc(alias = <span class="string">"g_resolver_get_timeout"</span>)]
+    #[doc(alias = <span class="string">"get_timeout"</span>)]
     </span><span class="kw">fn </span>timeout(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
         <span class="kw">unsafe </span>{ ffi::g_resolver_get_timeout(<a class="self" href="#117">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -1083,7 +1085,7 @@
     ///
     /// a hostname (either ASCII-only, or in ASCII-encoded
     ///  form), or [`None`] on error.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_by_address&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_by_address"</span>)]
     </span><span class="kw">fn </span>lookup_by_address(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         address: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;,
@@ -1114,8 +1116,8 @@
     /// a [`Cancellable`][crate::Cancellable], or [`None`]
     /// ## `callback`
     /// callback to call after resolution completes
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_by_address_async&quot;</span>)]
-    </span><span class="kw">fn </span>lookup_by_address_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_by_address_async"</span>)]
+    </span><span class="kw">fn </span>lookup_by_address_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         address: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
@@ -1128,17 +1130,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#175">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>lookup_by_address_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>lookup_by_address_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret =
@@ -1167,11 +1169,11 @@
 
     <span class="kw">fn </span>lookup_by_address_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        address: <span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">&#39;static</span>),
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;
+        address: <span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>),
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
         <span class="kw">let </span>address = <a href="#223">address</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <a class="self" href="#222">self</a>,
             <span class="kw">move </span>|obj, cancellable, send| {
                 <a href="#229">obj</a>.<a href="#171-219">lookup_by_address_async</a>(<span class="kw-2">&amp;</span><a href="#226">address</a>, <span class="prelude-val">Some</span>(<a href="#229">cancellable</a>), <span class="kw">move </span>|res| {
@@ -1215,7 +1217,7 @@
     /// of [`InetAddress`][crate::InetAddress], or [`None`] on error. You
     /// must unref each of the addresses and free the list when you are
     /// done with it. (You can use `g_resolver_free_addresses()` to do this.)
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_by_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_by_name"</span>)]
     </span><span class="kw">fn </span>lookup_by_name(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         hostname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -1247,8 +1249,8 @@
     /// a [`Cancellable`][crate::Cancellable], or [`None`]
     /// ## `callback`
     /// callback to call after resolution completes
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_by_name_async&quot;</span>)]
-    </span><span class="kw">fn </span>lookup_by_name_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_by_name_async"</span>)]
+    </span><span class="kw">fn </span>lookup_by_name_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         hostname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="cancellable.rs.html#7-83">Cancellable</a>&gt;&gt;,
@@ -1261,17 +1263,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#308">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>lookup_by_name_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>lookup_by_name_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret =
@@ -1301,10 +1303,10 @@
     <span class="kw">fn </span>lookup_by_name_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         hostname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
-        <span class="kw">let </span>hostname = String::from(<a href="#356">hostname</a>);
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+        <span class="kw">let </span>hostname = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#356">hostname</a>);
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <a class="self" href="#355">self</a>,
             <span class="kw">move </span>|obj, cancellable, send| {
                 <a href="#362">obj</a>.<a href="#304-352">lookup_by_name_async</a>(<span class="kw-2">&amp;</span><a href="#359">hostname</a>, <span class="prelude-val">Some</span>(<a href="#362">cancellable</a>), <span class="kw">move </span>|res| {
@@ -1330,9 +1332,9 @@
     /// of [`InetAddress`][crate::InetAddress], or [`None`] on error. You
     /// must unref each of the addresses and free the list when you are
     /// done with it. (You can use `g_resolver_free_addresses()` to do this.)
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_resolver_lookup_by_name_with_flags&quot;</span>)]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
+    #[doc(alias = <span class="string">"g_resolver_lookup_by_name_with_flags"</span>)]
     </span><span class="kw">fn </span>lookup_by_name_with_flags(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         hostname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -1368,11 +1370,11 @@
     /// a [`Cancellable`][crate::Cancellable], or [`None`]
     /// ## `callback`
     /// callback to call after resolution completes
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_resolver_lookup_by_name_with_flags_async&quot;</span>)]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
+    #[doc(alias = <span class="string">"g_resolver_lookup_by_name_with_flags_async"</span>)]
     </span><span class="kw">fn </span>lookup_by_name_with_flags_async&lt;
-        P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         hostname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -1387,17 +1389,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#434">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>lookup_by_name_with_flags_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>lookup_by_name_with_flags_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::g_resolver_lookup_by_name_with_flags_finish(
@@ -1428,16 +1430,16 @@
         }
     }
 
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_60&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_60&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
     </span><span class="kw">fn </span>lookup_by_name_with_flags_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         hostname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         flags: <a href="flags.rs.html#2587-2603">ResolverNameLookupFlags</a>,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="inet_address.rs.html#13-114">InetAddress</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
-        <span class="kw">let </span>hostname = String::from(<a href="#488">hostname</a>);
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+        <span class="kw">let </span>hostname = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#488">hostname</a>);
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <a class="self" href="#487">self</a>,
             <span class="kw">move </span>|obj, cancellable, send| {
                 <a href="#495">obj</a>.<a href="#427-482">lookup_by_name_with_flags_async</a>(
@@ -1475,7 +1477,7 @@
     /// [`glib::Variant`][struct@crate::glib::Variant], or [`None`] on error. You must free each of the records and the list
     /// when you are done with it. (You can use `g_list_free_full()` with
     /// `g_variant_unref()` to do this.)
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_records&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_records"</span>)]
     </span><span class="kw">fn </span>lookup_records(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         rrname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -1511,8 +1513,8 @@
     /// a [`Cancellable`][crate::Cancellable], or [`None`]
     /// ## `callback`
     /// callback to call after resolution completes
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_records_async&quot;</span>)]
-    </span><span class="kw">fn </span>lookup_records_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_records_async"</span>)]
+    </span><span class="kw">fn </span>lookup_records_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         rrname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         record_type: <a href="enums.rs.html#2855-2873">ResolverRecordType</a>,
@@ -1526,17 +1528,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#573">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>lookup_records_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>lookup_records_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret =
@@ -1569,10 +1571,10 @@
         rrname: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         record_type: <a href="enums.rs.html#2855-2873">ResolverRecordType</a>,
     ) -&gt; Pin&lt;
-        Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;,
+        Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;,
     &gt; {
-        <span class="kw">let </span>rrname = String::from(<a href="#622">rrname</a>);
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+        <span class="kw">let </span>rrname = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#622">rrname</a>);
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <a class="self" href="#621">self</a>,
             <span class="kw">move </span>|obj, cancellable, send| {
                 <a href="#630">obj</a>.<a href="#568-618">lookup_records_async</a>(<span class="kw-2">&amp;</span><a href="#627">rrname</a>, <a href="#623">record_type</a>, <span class="prelude-val">Some</span>(<a href="#630">cancellable</a>), <span class="kw">move </span>|res| {
@@ -1604,9 +1606,9 @@
     /// to create a [`NetworkService`][crate::NetworkService] and use its [`SocketConnectable`][crate::SocketConnectable]
     /// interface.
     /// ## `service`
-    /// the service type to look up (eg, &quot;ldap&quot;)
+    /// the service type to look up (eg, "ldap")
     /// ## `protocol`
-    /// the networking protocol to use for `service` (eg, &quot;tcp&quot;)
+    /// the networking protocol to use for `service` (eg, "tcp")
     /// ## `domain`
     /// the DNS domain to look up the service in
     /// ## `cancellable`
@@ -1618,7 +1620,7 @@
     /// [`SrvTarget`][crate::SrvTarget], or [`None`] on error. You must free each of the targets and the
     /// list when you are done with it. (You can use `g_resolver_free_targets()` to do
     /// this.)
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_service&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_service"</span>)]
     </span><span class="kw">fn </span>lookup_service(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         service: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -1650,17 +1652,17 @@
     /// get the final result. See [`lookup_service()`][Self::lookup_service()] for more
     /// details.
     /// ## `service`
-    /// the service type to look up (eg, &quot;ldap&quot;)
+    /// the service type to look up (eg, "ldap")
     /// ## `protocol`
-    /// the networking protocol to use for `service` (eg, &quot;tcp&quot;)
+    /// the networking protocol to use for `service` (eg, "tcp")
     /// ## `domain`
     /// the DNS domain to look up the service in
     /// ## `cancellable`
     /// a [`Cancellable`][crate::Cancellable], or [`None`]
     /// ## `callback`
     /// callback to call after resolution completes
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_lookup_service_async&quot;</span>)]
-    </span><span class="kw">fn </span>lookup_service_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="srv_target.rs.html#7-30">SrvTarget</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_lookup_service_async"</span>)]
+    </span><span class="kw">fn </span>lookup_service_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="srv_target.rs.html#7-30">SrvTarget</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         service: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         protocol: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -1675,17 +1677,17 @@
             .flatten();
         <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
             Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#722">callback</a>));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>lookup_service_async_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="srv_target.rs.html#7-30">SrvTarget</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>lookup_service_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="srv_target.rs.html#7-30">SrvTarget</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
-            res: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GAsyncResult,
-            user_data: glib::ffi::gpointer,
+            _source_object: <span class="kw-2">*mut </span><a href="../../../gobject_sys/struct.GObject.html">glib::gobject_ffi::GObject</a>,
+            res: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GAsyncResult.html"><span class="kw">crate</span>::ffi::GAsyncResult</a>,
+            user_data: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret =
@@ -1719,12 +1721,12 @@
         service: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         protocol: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         domain: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="srv_target.rs.html#7-30">SrvTarget</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="srv_target.rs.html#7-30">SrvTarget</a>&gt;, <a href="../../../glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
-        <span class="kw">let </span>service = String::from(<a href="#772">service</a>);
-        <span class="kw">let </span>protocol = String::from(<a href="#773">protocol</a>);
-        <span class="kw">let </span>domain = String::from(<a href="#774">domain</a>);
-        Box_::pin(<span class="kw">crate</span>::GioFuture::new(
+        <span class="kw">let </span>service = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#772">service</a>);
+        <span class="kw">let </span>protocol = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#773">protocol</a>);
+        <span class="kw">let </span>domain = <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">String::from</a>(<a href="#774">domain</a>);
+        Box_::pin(<a href="../gio_future.rs.html#38-45"><span class="kw">crate</span>::GioFuture::new</a>(
             <a class="self" href="#771">self</a>,
             <span class="kw">move </span>|obj, cancellable, send| {
                 <a href="#782">obj</a>.<a href="#716-768">lookup_service_async</a>(
@@ -1740,16 +1742,16 @@
         ))
     }
 
-    <span class="doccomment">/// Sets `self` to be the application&#39;s default resolver (reffing
+    <span class="doccomment">/// Sets `self` to be the application's default resolver (reffing
     /// `self`, and unreffing the previous default resolver, if any).
     /// Future calls to [`Resolver::default()`][crate::Resolver::default()] will return this resolver.
     ///
     /// This can be used if an application wants to perform any sort of DNS
-    /// caching or &quot;pinning&quot;; it can implement its own [`Resolver`][crate::Resolver] that
+    /// caching or "pinning"; it can implement its own [`Resolver`][crate::Resolver] that
     /// calls the original default resolver for DNS operations, and
     /// implements its own cache policies on top of that, and then set
     /// itself as the default resolver for all later code to use.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_resolver_set_default&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_resolver_set_default"</span>)]
     </span><span class="kw">fn </span>set_default(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::g_resolver_set_default(<a class="self" href="#806">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -1759,9 +1761,9 @@
     <span class="doccomment">/// Set the timeout applied to all resolver lookups. See [`timeout`][struct@crate::Resolver#timeout].
     /// ## `timeout_ms`
     /// timeout in milliseconds, or `0` for no timeouts
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;v2_78&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_78&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;g_resolver_set_timeout&quot;</span>)]
+    </span><span class="attr">#[cfg(feature = <span class="string">"v2_78"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_78"</span>)))]
+    #[doc(alias = <span class="string">"g_resolver_set_timeout"</span>)]
     </span><span class="kw">fn </span>set_timeout(<span class="kw-2">&amp;</span><span class="self">self</span>, timeout_ms: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_resolver_set_timeout(<a class="self" href="#818">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#818">timeout_ms</a>);
@@ -1770,21 +1772,21 @@
 
     <span class="doccomment">/// Emitted when the resolver notices that the system resolver
     /// configuration has changed.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;reload&quot;</span>)]
-    </span><span class="kw">fn </span>connect_reload&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>reload_trampoline&lt;P: IsA&lt;<a href="#16-67">Resolver</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GResolver,
-            f: glib::ffi::gpointer,
+    </span><span class="attr">#[doc(alias = <span class="string">"reload"</span>)]
+    </span><span class="kw">fn </span>connect_reload&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>reload_trampoline&lt;P: IsA&lt;<a href="#16-67">Resolver</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GResolver.html">ffi::GResolver</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#830">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#832">f</a>(Resolver::from_glib_borrow(<a href="#829">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#832">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Resolver::from_glib_borrow</a>(<a href="#829">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#827">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#827">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;reload\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"reload\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     reload_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#836">f</a>),
@@ -1792,24 +1794,24 @@
         }
     }
 
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_78&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_78&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;timeout&quot;</span>)]
-    </span><span class="kw">fn </span>connect_timeout_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_timeout_trampoline&lt;P: IsA&lt;<a href="#16-67">Resolver</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GResolver,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+    <span class="attr">#[cfg(feature = <span class="string">"v2_78"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_78"</span>)))]
+    #[doc(alias = <span class="string">"timeout"</span>)]
+    </span><span class="kw">fn </span>connect_timeout_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_timeout_trampoline&lt;P: IsA&lt;<a href="#16-67">Resolver</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GResolver.html">ffi::GResolver</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#855">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#857">f</a>(Resolver::from_glib_borrow(<a href="#853">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#857">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">Resolver::from_glib_borrow</a>(<a href="#853">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#851">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#851">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::timeout\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::timeout\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_timeout_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#861">f</a>),

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk-pixbuf/sys/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk_pixbuf_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk-pixbuf/sys/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk_pixbuf_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk_pixbuf_sys/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1029,9 +1031,9 @@
 <span class="kw">pub const </span><a href="../../gdk_pixbuf_sys/constant.GDK_PIXBUF_FORMAT_THREADSAFE.html">GDK_PIXBUF_FORMAT_THREADSAFE</a>: <a href="#55">GdkPixbufFormatFlags</a> = <span class="number">4</span>;
 
 <span class="comment">// Callbacks
-</span><span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufDestroyNotify.html">GdkPixbufDestroyNotify</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, gpointer)&gt;;
+</span><span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufDestroyNotify.html">GdkPixbufDestroyNotify</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, gpointer)&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleBeginLoadFunc.html">GdkPixbufModuleBeginLoadFunc</a> = <span class="prelude-ty">Option</span>&lt;
-    <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(
+    <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
         <a href="#104">GdkPixbufModuleSizeFunc</a>,
         <a href="#81-82">GdkPixbufModulePreparedFunc</a>,
         <a href="#107-108">GdkPixbufModuleUpdatedFunc</a>,
@@ -1039,20 +1041,20 @@
         <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; gpointer,
 &gt;;
-<span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleFillInfoFunc.html">GdkPixbufModuleFillInfoFunc</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#170-180">GdkPixbufFormat</a>)&gt;;
-<span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleFillVtableFunc.html">GdkPixbufModuleFillVtableFunc</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#223-241">GdkPixbufModule</a>)&gt;;
+<span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleFillInfoFunc.html">GdkPixbufModuleFillInfoFunc</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#170-180">GdkPixbufFormat</a>)&gt;;
+<span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleFillVtableFunc.html">GdkPixbufModuleFillVtableFunc</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#223-241">GdkPixbufModule</a>)&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleIncrementLoadFunc.html">GdkPixbufModuleIncrementLoadFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(gpointer, <span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, c_uint, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; gboolean&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(gpointer, <span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, c_uint, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleLoadAnimationFunc.html">GdkPixbufModuleLoadAnimationFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>FILE, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; <span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>FILE, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; <span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleLoadFunc.html">GdkPixbufModuleLoadFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>FILE, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>FILE, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleLoadXpmDataFunc.html">GdkPixbufModuleLoadXpmDataFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut *const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut *const </span>c_char) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModulePreparedFunc.html">GdkPixbufModulePreparedFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>, <span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>, gpointer)&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>, <span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>, gpointer)&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleSaveCallbackFunc.html">GdkPixbufModuleSaveCallbackFunc</a> = <span class="prelude-ty">Option</span>&lt;
-    <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(
+    <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
         <a href="#109-110">GdkPixbufSaveFunc</a>,
         gpointer,
         <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>,
@@ -1062,7 +1064,7 @@
     ) -&gt; gboolean,
 &gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleSaveFunc.html">GdkPixbufModuleSaveFunc</a> = <span class="prelude-ty">Option</span>&lt;
-    <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(
+    <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
         <span class="kw-2">*mut </span>FILE,
         <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>,
         <span class="kw-2">*mut *mut </span>c_char,
@@ -1071,25 +1073,25 @@
     ) -&gt; gboolean,
 &gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleSaveOptionSupportedFunc.html">GdkPixbufModuleSaveOptionSupportedFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*const </span>c_char) -&gt; gboolean&gt;;
-<span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleSizeFunc.html">GdkPixbufModuleSizeFunc</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>c_int, <span class="kw-2">*mut </span>c_int, gpointer)&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*const </span>c_char) -&gt; gboolean&gt;;
+<span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleSizeFunc.html">GdkPixbufModuleSizeFunc</a> = <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span>c_int, <span class="kw-2">*mut </span>c_int, gpointer)&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleStopLoadFunc.html">GdkPixbufModuleStopLoadFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(gpointer, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; gboolean&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(gpointer, <span class="kw-2">*mut *mut </span>glib::GError) -&gt; gboolean&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufModuleUpdatedFunc.html">GdkPixbufModuleUpdatedFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>, c_int, c_int, c_int, c_int, gpointer)&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>, c_int, c_int, c_int, c_int, gpointer)&gt;;
 <span class="kw">pub type </span><a href="../../gdk_pixbuf_sys/type.GdkPixbufSaveFunc.html">GdkPixbufSaveFunc</a> =
-    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, size_t, <span class="kw-2">*mut *mut </span>glib::GError, gpointer) -&gt; gboolean&gt;;
+    <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, size_t, <span class="kw-2">*mut *mut </span>glib::GError, gpointer) -&gt; gboolean&gt;;
 
 <span class="comment">// Records
 </span><span class="attr">#[derive(Copy, Clone)]
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk_pixbuf_sys/struct.GdkPixbufAnimationClass.html">GdkPixbufAnimationClass</a> {
     <span class="kw">pub </span>parent_class: gobject::GObjectClass,
-    <span class="kw">pub </span>is_static_image: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>) -&gt; gboolean&gt;,
-    <span class="kw">pub </span>get_static_image: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;,
-    <span class="kw">pub </span>get_size: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>, <span class="kw-2">*mut </span>c_int, <span class="kw-2">*mut </span>c_int)&gt;,
+    <span class="kw">pub </span>is_static_image: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>) -&gt; gboolean&gt;,
+    <span class="kw">pub </span>get_static_image: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;,
+    <span class="kw">pub </span>get_size: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>, <span class="kw-2">*mut </span>c_int, <span class="kw-2">*mut </span>c_int)&gt;,
     <span class="kw">pub </span>get_iter: <span class="prelude-ty">Option</span>&lt;
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
             <span class="kw-2">*mut </span><a href="#308-310">GdkPixbufAnimation</a>,
             <span class="kw-2">*const </span>glib::GTimeVal,
         ) -&gt; <span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>,
@@ -1098,12 +1100,12 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#115-126">GdkPixbufAnimationClass</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#129">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufAnimationClass @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;parent_class&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.parent_class)
-            .field(<span class="string">&quot;is_static_image&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.is_static_image)
-            .field(<span class="string">&quot;get_static_image&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.get_static_image)
-            .field(<span class="string">&quot;get_size&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.get_size)
-            .field(<span class="string">&quot;get_iter&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.get_iter)
+        <a href="#129">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufAnimationClass @ {self:p}"</span>))
+            .field(<span class="string">"parent_class"</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.parent_class)
+            .field(<span class="string">"is_static_image"</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.is_static_image)
+            .field(<span class="string">"get_static_image"</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.get_static_image)
+            .field(<span class="string">"get_size"</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.get_size)
+            .field(<span class="string">"get_iter"</span>, <span class="kw-2">&amp;</span><a class="self" href="#129">self</a>.get_iter)
             .finish()
     }
 }
@@ -1112,26 +1114,26 @@
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk_pixbuf_sys/struct.GdkPixbufAnimationIterClass.html">GdkPixbufAnimationIterClass</a> {
     <span class="kw">pub </span>parent_class: gobject::GObjectClass,
-    <span class="kw">pub </span>get_delay_time: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>) -&gt; c_int&gt;,
-    <span class="kw">pub </span>get_pixbuf: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;,
+    <span class="kw">pub </span>get_delay_time: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>) -&gt; c_int&gt;,
+    <span class="kw">pub </span>get_pixbuf: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>) -&gt; <span class="kw-2">*mut </span><a href="#295-298">GdkPixbuf</a>&gt;,
     <span class="kw">pub </span>on_currently_loading_frame:
-        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>) -&gt; gboolean&gt;,
+        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>) -&gt; gboolean&gt;,
     <span class="kw">pub </span>advance: <span class="prelude-ty">Option</span>&lt;
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>, <span class="kw-2">*const </span>glib::GTimeVal) -&gt; gboolean,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#322-324">GdkPixbufAnimationIter</a>, <span class="kw-2">*const </span>glib::GTimeVal) -&gt; gboolean,
     &gt;,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#142-151">GdkPixbufAnimationIterClass</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#154">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufAnimationIterClass @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;parent_class&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.parent_class)
-            .field(<span class="string">&quot;get_delay_time&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.get_delay_time)
-            .field(<span class="string">&quot;get_pixbuf&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.get_pixbuf)
+        <a href="#154">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufAnimationIterClass @ {self:p}"</span>))
+            .field(<span class="string">"parent_class"</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.parent_class)
+            .field(<span class="string">"get_delay_time"</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.get_delay_time)
+            .field(<span class="string">"get_pixbuf"</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.get_pixbuf)
             .field(
-                <span class="string">&quot;on_currently_loading_frame&quot;</span>,
+                <span class="string">"on_currently_loading_frame"</span>,
                 <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.on_currently_loading_frame,
             )
-            .field(<span class="string">&quot;advance&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.advance)
+            .field(<span class="string">"advance"</span>, <span class="kw-2">&amp;</span><a class="self" href="#154">self</a>.advance)
             .finish()
     }
 }
@@ -1152,16 +1154,16 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#170-180">GdkPixbufFormat</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#183">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufFormat @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;name&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.name)
-            .field(<span class="string">&quot;signature&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.signature)
-            .field(<span class="string">&quot;domain&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.domain)
-            .field(<span class="string">&quot;description&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.description)
-            .field(<span class="string">&quot;mime_types&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.mime_types)
-            .field(<span class="string">&quot;extensions&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.extensions)
-            .field(<span class="string">&quot;flags&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.flags)
-            .field(<span class="string">&quot;disabled&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.disabled)
-            .field(<span class="string">&quot;license&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.license)
+        <a href="#183">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufFormat @ {self:p}"</span>))
+            .field(<span class="string">"name"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.name)
+            .field(<span class="string">"signature"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.signature)
+            .field(<span class="string">"domain"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.domain)
+            .field(<span class="string">"description"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.description)
+            .field(<span class="string">"mime_types"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.mime_types)
+            .field(<span class="string">"extensions"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.extensions)
+            .field(<span class="string">"flags"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.flags)
+            .field(<span class="string">"disabled"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.disabled)
+            .field(<span class="string">"license"</span>, <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.license)
             .finish()
     }
 }
@@ -1170,21 +1172,21 @@
 #[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk_pixbuf_sys/struct.GdkPixbufLoaderClass.html">GdkPixbufLoaderClass</a> {
     <span class="kw">pub </span>parent_class: gobject::GObjectClass,
-    <span class="kw">pub </span>size_prepared: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>, c_int, c_int)&gt;,
-    <span class="kw">pub </span>area_prepared: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>)&gt;,
+    <span class="kw">pub </span>size_prepared: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>, c_int, c_int)&gt;,
+    <span class="kw">pub </span>area_prepared: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>)&gt;,
     <span class="kw">pub </span>area_updated:
-        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>, c_int, c_int, c_int, c_int)&gt;,
-    <span class="kw">pub </span>closed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>)&gt;,
+        <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>, c_int, c_int, c_int, c_int)&gt;,
+    <span class="kw">pub </span>closed: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(<span class="kw-2">*mut </span><a href="#336-339">GdkPixbufLoader</a>)&gt;,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#200-207">GdkPixbufLoaderClass</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#210">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufLoaderClass @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;parent_class&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.parent_class)
-            .field(<span class="string">&quot;size_prepared&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.size_prepared)
-            .field(<span class="string">&quot;area_prepared&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.area_prepared)
-            .field(<span class="string">&quot;area_updated&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.area_updated)
-            .field(<span class="string">&quot;closed&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.closed)
+        <a href="#210">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufLoaderClass @ {self:p}"</span>))
+            .field(<span class="string">"parent_class"</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.parent_class)
+            .field(<span class="string">"size_prepared"</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.size_prepared)
+            .field(<span class="string">"area_prepared"</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.area_prepared)
+            .field(<span class="string">"area_updated"</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.area_updated)
+            .field(<span class="string">"closed"</span>, <span class="kw-2">&amp;</span><a class="self" href="#210">self</a>.closed)
             .finish()
     }
 }
@@ -1205,32 +1207,32 @@
     <span class="kw">pub </span>save: <a href="#93-101">GdkPixbufModuleSaveFunc</a>,
     <span class="kw">pub </span>save_to_callback: <a href="#83-92">GdkPixbufModuleSaveCallbackFunc</a>,
     <span class="kw">pub </span>is_save_option_supported: <a href="#102-103">GdkPixbufModuleSaveOptionSupportedFunc</a>,
-    <span class="kw">pub </span>_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;,
-    <span class="kw">pub </span>_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;,
-    <span class="kw">pub </span>_reserved3: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;,
-    <span class="kw">pub </span>_reserved4: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;,
+    <span class="kw">pub </span>_reserved1: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
+    <span class="kw">pub </span>_reserved2: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
+    <span class="kw">pub </span>_reserved3: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
+    <span class="kw">pub </span>_reserved4: <span class="prelude-ty">Option</span>&lt;<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;,
 }
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#223-241">GdkPixbufModule</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#244">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufModule @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;module_name&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.module_name)
-            .field(<span class="string">&quot;module_path&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.module_path)
-            .field(<span class="string">&quot;module&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.module)
-            .field(<span class="string">&quot;info&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.info)
-            .field(<span class="string">&quot;load&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load)
-            .field(<span class="string">&quot;load_xpm_data&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load_xpm_data)
-            .field(<span class="string">&quot;begin_load&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.begin_load)
-            .field(<span class="string">&quot;stop_load&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.stop_load)
-            .field(<span class="string">&quot;load_increment&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load_increment)
-            .field(<span class="string">&quot;load_animation&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load_animation)
-            .field(<span class="string">&quot;save&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.save)
-            .field(<span class="string">&quot;save_to_callback&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.save_to_callback)
-            .field(<span class="string">&quot;is_save_option_supported&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.is_save_option_supported)
-            .field(<span class="string">&quot;_reserved1&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved1)
-            .field(<span class="string">&quot;_reserved2&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved2)
-            .field(<span class="string">&quot;_reserved3&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved3)
-            .field(<span class="string">&quot;_reserved4&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved4)
+        <a href="#244">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufModule @ {self:p}"</span>))
+            .field(<span class="string">"module_name"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.module_name)
+            .field(<span class="string">"module_path"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.module_path)
+            .field(<span class="string">"module"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.module)
+            .field(<span class="string">"info"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.info)
+            .field(<span class="string">"load"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load)
+            .field(<span class="string">"load_xpm_data"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load_xpm_data)
+            .field(<span class="string">"begin_load"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.begin_load)
+            .field(<span class="string">"stop_load"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.stop_load)
+            .field(<span class="string">"load_increment"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load_increment)
+            .field(<span class="string">"load_animation"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.load_animation)
+            .field(<span class="string">"save"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.save)
+            .field(<span class="string">"save_to_callback"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.save_to_callback)
+            .field(<span class="string">"is_save_option_supported"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>.is_save_option_supported)
+            .field(<span class="string">"_reserved1"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved1)
+            .field(<span class="string">"_reserved2"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved2)
+            .field(<span class="string">"_reserved3"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved3)
+            .field(<span class="string">"_reserved4"</span>, <span class="kw-2">&amp;</span><a class="self" href="#244">self</a>._reserved4)
             .finish()
     }
 }
@@ -1245,10 +1247,10 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#269-273">GdkPixbufModulePattern</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#276">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufModulePattern @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;prefix&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#276">self</a>.prefix)
-            .field(<span class="string">&quot;mask&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#276">self</a>.mask)
-            .field(<span class="string">&quot;relevance&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#276">self</a>.relevance)
+        <a href="#276">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufModulePattern @ {self:p}"</span>))
+            .field(<span class="string">"prefix"</span>, <span class="kw-2">&amp;</span><a class="self" href="#276">self</a>.prefix)
+            .field(<span class="string">"mask"</span>, <span class="kw-2">&amp;</span><a class="self" href="#276">self</a>.mask)
+            .field(<span class="string">"relevance"</span>, <span class="kw-2">&amp;</span><a class="self" href="#276">self</a>.relevance)
             .finish()
     }
 }
@@ -1270,7 +1272,7 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#295-298">GdkPixbuf</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#301">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbuf @ {self:p}&quot;</span>)).finish()
+        <a href="#301">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbuf @ {self:p}"</span>)).finish()
     }
 }
 
@@ -1282,8 +1284,8 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#308-310">GdkPixbufAnimation</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#313">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufAnimation @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;parent_instance&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#313">self</a>.parent_instance)
+        <a href="#313">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufAnimation @ {self:p}"</span>))
+            .field(<span class="string">"parent_instance"</span>, <span class="kw-2">&amp;</span><a class="self" href="#313">self</a>.parent_instance)
             .finish()
     }
 }
@@ -1296,8 +1298,8 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#322-324">GdkPixbufAnimationIter</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#327">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufAnimationIter @ {self:p}&quot;</span>))
-            .field(<span class="string">&quot;parent_instance&quot;</span>, <span class="kw-2">&amp;</span><a class="self" href="#327">self</a>.parent_instance)
+        <a href="#327">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufAnimationIter @ {self:p}"</span>))
+            .field(<span class="string">"parent_instance"</span>, <span class="kw-2">&amp;</span><a class="self" href="#327">self</a>.parent_instance)
             .finish()
     }
 }
@@ -1311,7 +1313,7 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#336-339">GdkPixbufLoader</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#342">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufLoader @ {self:p}&quot;</span>))
+        <a href="#342">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufLoader @ {self:p}"</span>))
             .finish()
     }
 }
@@ -1324,7 +1326,7 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#349-352">GdkPixbufNonAnim</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#355">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufNonAnim @ {self:p}&quot;</span>))
+        <a href="#355">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufNonAnim @ {self:p}"</span>))
             .finish()
     }
 }
@@ -1337,7 +1339,7 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#362-365">GdkPixbufSimpleAnim</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#368">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufSimpleAnim @ {self:p}&quot;</span>))
+        <a href="#368">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufSimpleAnim @ {self:p}"</span>))
             .finish()
     }
 }
@@ -1350,13 +1352,13 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#375-378">GdkPixbufSimpleAnimIter</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#381">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">&quot;GdkPixbufSimpleAnimIter @ {self:p}&quot;</span>))
+        <a href="#381">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkPixbufSimpleAnimIter @ {self:p}"</span>))
             .finish()
     }
 }
 
-<span class="attr">#[link(name = <span class="string">&quot;gdk_pixbuf-2.0&quot;</span>)]
-</span><span class="kw">extern </span><span class="string">&quot;C&quot; </span>{
+<span class="attr">#[link(name = <span class="string">"gdk_pixbuf-2.0"</span>)]
+</span><span class="kw">extern </span><span class="string">"C" </span>{
 
     <span class="comment">//=========================================================================
     // GdkColorspace
@@ -1512,8 +1514,8 @@
         error: <span class="kw-2">*mut *mut </span>glib::GError,
     ) -&gt; <span class="kw-2">*mut </span><a href="#170-180">GdkPixbufFormat</a>;
     <span class="kw">pub fn </span>gdk_pixbuf_get_formats() -&gt; <span class="kw-2">*mut </span>glib::GSList;
-    <span class="attr">#[cfg(feature = <span class="string">&quot;v2_40&quot;</span>)]
-    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;v2_40&quot;</span>)))]
+    <span class="attr">#[cfg(feature = <span class="string">"v2_40"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_40"</span>)))]
     </span><span class="kw">pub fn </span>gdk_pixbuf_init_modules(path: <span class="kw-2">*const </span>c_char, error: <span class="kw-2">*mut *mut </span>glib::GError) -&gt; gboolean;
     <span class="kw">pub fn </span>gdk_pixbuf_new_from_stream_async(
         stream: <span class="kw-2">*mut </span>gio::GInputStream,

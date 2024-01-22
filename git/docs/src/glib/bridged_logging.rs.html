@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/bridged_logging.rs`."><title>bridged_logging.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/bridged_logging.rs`."><title>bridged_logging.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../glib/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -458,7 +460,7 @@
 <a href="#385" id="385">385</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use crate</span>::{<a href="lib.rs.html#187">log</a> <span class="kw">as </span>glib_log, <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>};
+</span><span class="kw">use crate</span>::{<a href="lib.rs.html#188">log</a> <span class="kw">as </span>glib_log, <a href="lib.rs.html#151">translate</a>::<span class="kw-2">*</span>};
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Enumeration of the possible formatting behaviours for a
@@ -492,7 +494,7 @@
     </span><span class="prelude-val">None</span>,
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Logs will use the `target` of the log crate as a domain; this allows
-    /// Rust code, like `warn!(target: &quot;my-domain&quot;, &quot;...&quot;);` to log to the glib
+    /// Rust code, like `warn!(target: "my-domain", "...");` to log to the glib
     /// logger using the specified domain.
     </span>CrateTarget,
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -528,7 +530,7 @@
 /// log::set_logger(&amp;glib_logger);
 /// log::set_max_level(log::LevelFilter::Debug);
 ///
-/// log::info!(&quot;This line will get logged by glib&quot;);
+/// log::info!("This line will get logged by glib");
 /// ```
 </span><span class="attr">#[derive(Debug)]
 </span><span class="kw">pub struct </span><a href="../../glib/struct.GlibLogger.html">GlibLogger</a> {
@@ -553,7 +555,7 @@
     /// log::set_logger(&amp;glib_logger);
     /// log::set_max_level(log::LevelFilter::Debug);
     ///
-    /// log::info!(&quot;This line will get logged by glib&quot;);
+    /// log::info!("This line will get logged by glib");
     /// ```
     </span><span class="kw">pub const fn </span>new(format: <a href="#12-22">GlibLoggerFormat</a>, domain: <a href="#31-43">GlibLoggerDomain</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{ <a href="#100">format</a>, <a href="#100">domain</a> }
@@ -571,21 +573,21 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;g_log&quot;</span>)]
-    </span><span class="kw">fn </span>write_log(domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, level: <a href="https://docs.rs/log/0.4.20/log/enum.Level.html">rs_log::Level</a>, message: <span class="kw-2">&amp;</span>std::fmt::Arguments&lt;<span class="lifetime">&#39;_</span>&gt;) {
+    <span class="attr">#[doc(alias = <span class="string">"g_log"</span>)]
+    </span><span class="kw">fn </span>write_log(domain: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, level: <a href="https://docs.rs/log/0.4.20/log/enum.Level.html">rs_log::Level</a>, message: <span class="kw-2">&amp;</span>std::fmt::Arguments&lt;<span class="lifetime">'_</span>&gt;) {
         <span class="kw">unsafe </span>{
             <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Write.html">std::fmt::Write</a>;
 
-            <span class="kw">let </span><span class="kw-2">mut </span>message_builder = <span class="kw">crate</span>::GStringBuilder::default();
-            <span class="kw">if </span><span class="macro">write!</span>(<span class="kw-2">&amp;mut </span>message_builder, <span class="string">&quot;{}&quot;</span>, message).is_err() {
+            <span class="kw">let </span><span class="kw-2">mut </span>message_builder = <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html"><span class="kw">crate</span>::GStringBuilder::default</a>();
+            <span class="kw">if </span><span class="macro">write!</span>(<span class="kw-2">&amp;mut </span>message_builder, <span class="string">"{}"</span>, message).is_err() {
                 <span class="kw">return</span>;
             }
             <span class="kw">let </span>message = <a href="#121">message_builder</a>.<a href="gstring_builder.rs.html#152-157">into_string</a>();
 
             <span class="kw">crate</span>::ffi::g_log(
                 <a href="#117">domain</a>.<a href="translate.rs.html#437">to_glib_none</a>().<span class="number">0</span>,
-                GlibLogger::level_to_glib(<a href="#117">level</a>).<a href="translate.rs.html#330">into_glib</a>(),
-                <span class="string">b&quot;%s\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <a href="#104-114">GlibLogger::level_to_glib</a>(<a href="#117">level</a>).<a href="translate.rs.html#330">into_glib</a>(),
+                <span class="string">b"%s\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
                 ToGlibPtr::&lt;<span class="kw-2">*const </span><a href="https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html">std::os::raw::c_char</a>&gt;::to_glib_none(<span class="kw-2">&amp;</span><a href="#125">message</a>).<span class="number">0</span>,
             );
         }
@@ -603,13 +605,13 @@
         <span class="kw">let </span>line = <a href="#144">line</a>.as_deref();
 
         <a class="macro" href="log.rs.html#869-921">crate::log_structured!</a>(
-            domain.unwrap_or(<span class="string">&quot;default&quot;</span>),
+            domain.unwrap_or(<span class="string">"default"</span>),
             GlibLogger::level_to_glib(level),
             {
-                <span class="string">&quot;CODE_FILE&quot; </span>=&gt; file.unwrap_or(<span class="string">&quot;&lt;unknown file&gt;&quot;</span>);
-                <span class="string">&quot;CODE_LINE&quot; </span>=&gt; line.unwrap_or(<span class="string">&quot;&lt;unknown line&gt;&quot;</span>);
-                <span class="string">&quot;CODE_FUNC&quot; </span>=&gt; func.unwrap_or(<span class="string">&quot;&lt;unknown module path&gt;&quot;</span>);
-                <span class="string">&quot;MESSAGE&quot; </span>=&gt; message;
+                <span class="string">"CODE_FILE" </span>=&gt; file.unwrap_or(<span class="string">"&lt;unknown file&gt;"</span>);
+                <span class="string">"CODE_LINE" </span>=&gt; line.unwrap_or(<span class="string">"&lt;unknown line&gt;"</span>);
+                <span class="string">"CODE_FUNC" </span>=&gt; func.unwrap_or(<span class="string">"&lt;unknown module path&gt;"</span>);
+                <span class="string">"MESSAGE" </span>=&gt; message;
             }
         );
     }
@@ -633,33 +635,33 @@
 
         <span class="kw">match </span><a class="self" href="#165">self</a>.format {
             <a href="#15">GlibLoggerFormat::Plain</a> =&gt; {
-                GlibLogger::write_log(<a href="#170">domain</a>, <a href="#165">record</a>.level(), <a href="#165">record</a>.args());
+                <a href="#117-134">GlibLogger::write_log</a>(<a href="#170">domain</a>, <a href="#165">record</a>.level(), <a href="#165">record</a>.args());
             }
             <a href="#18">GlibLoggerFormat::LineAndFile</a> =&gt; {
                 <span class="kw">match </span>(<a href="#165">record</a>.file(), <a href="#165">record</a>.line()) {
                     (<span class="prelude-val">Some</span>(file), <span class="prelude-val">Some</span>(line)) =&gt; {
-                        GlibLogger::write_log(
+                        <a href="#117-134">GlibLogger::write_log</a>(
                             <a href="#170">domain</a>,
                             <a href="#165">record</a>.level(),
-                            <span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.format_args.html">format_args!</a>(<span class="string">&quot;{}:{}: {}&quot;</span>, file, line, record.args()),
+                            <span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.format_args.html">format_args!</a>(<span class="string">"{}:{}: {}"</span>, file, line, record.args()),
                         );
                     }
                     (<span class="prelude-val">Some</span>(file), <span class="prelude-val">None</span>) =&gt; {
-                        GlibLogger::write_log(
+                        <a href="#117-134">GlibLogger::write_log</a>(
                             <a href="#170">domain</a>,
                             <a href="#165">record</a>.level(),
-                            <span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.format_args.html">format_args!</a>(<span class="string">&quot;{}: {}&quot;</span>, file, record.args()),
+                            <span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.format_args.html">format_args!</a>(<span class="string">"{}: {}"</span>, file, record.args()),
                         );
                     }
                     <span class="kw">_ </span>=&gt; {
-                        GlibLogger::write_log(<a href="#170">domain</a>, <a href="#165">record</a>.level(), <a href="#165">record</a>.args());
+                        <a href="#117-134">GlibLogger::write_log</a>(<a href="#170">domain</a>, <a href="#165">record</a>.level(), <a href="#165">record</a>.args());
                     }
                 };
             }
             <a href="#21">GlibLoggerFormat::Structured</a> =&gt; {
                 <span class="kw">let </span>args = <a href="#165">record</a>.args();
                 <span class="kw">if let </span><span class="prelude-val">Some</span>(s) = <a href="#202">args</a>.as_str() {
-                    GlibLogger::write_log_structured(
+                    <a href="#136-157">GlibLogger::write_log_structured</a>(
                         <a href="#170">domain</a>,
                         <a href="#165">record</a>.level(),
                         <a href="#165">record</a>.file(),
@@ -668,7 +670,7 @@
                         <a href="#203">s</a>,
                     );
                 } <span class="kw">else </span>{
-                    GlibLogger::write_log_structured(
+                    <a href="#136-157">GlibLogger::write_log_structured</a>(
                         <a href="#170">domain</a>,
                         <a href="#165">record</a>.level(),
                         <a href="#165">record</a>.file(),
@@ -709,7 +711,7 @@
         <a href="log.rs.html#48">glib_log::LogLevel::Debug</a> =&gt; rs_log::Level::Debug,
     };
 
-    <a class="macro" href="https://docs.rs/log/0.4.20/log/macro.log.html">rs_log::log!</a>(target: domain.unwrap_or(<span class="string">&quot;&lt;null&gt;&quot;</span>), level, <span class="string">&quot;{}&quot;</span>, message);
+    <a class="macro" href="https://docs.rs/log/0.4.20/log/macro.log.html">rs_log::log!</a>(target: domain.unwrap_or(<span class="string">"&lt;null&gt;"</span>), level, <span class="string">"{}"</span>, message);
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
@@ -722,13 +724,13 @@
 /// initialized using [`GlibLoggerDomain::CrateTarget`](enum.GlibLoggerDomain.html).
 ///
 /// ```no_run
-/// static G_LOG_DOMAIN: &amp;str = &quot;my-domain&quot;;
+/// static G_LOG_DOMAIN: &amp;str = "my-domain";
 ///
-/// glib::error!(&quot;This will be logged under &#39;my-domain&#39;&quot;);
+/// glib::error!("This will be logged under 'my-domain'");
 /// ```
 </span><span class="attr">#[macro_export]
-#[cfg(any(docsrs, feature = <span class="string">&quot;log_macros&quot;</span>))]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log_macros&quot;</span>)))]
+#[cfg(any(docsrs, feature = <span class="string">"log_macros"</span>))]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log_macros"</span>)))]
 </span><span class="macro">macro_rules! </span><a href="../../glib/macro.error.html">error</a> {
     (target: <span class="macro-nonterminal">$target</span>:expr, $(<span class="macro-nonterminal">$arg</span>:tt)+) =&gt; (
         <span class="macro-nonterminal">$</span><span class="macro">crate::rs_log::log!</span>(<span class="macro-nonterminal">target</span>: <span class="macro-nonterminal">$target</span>, <span class="macro-nonterminal">$crate::rs_log::Level::Error</span>, $(<span class="macro-nonterminal">$arg</span>)+);
@@ -748,13 +750,13 @@
 /// initialized using [`GlibLoggerDomain::CrateTarget`](enum.GlibLoggerDomain.html).
 ///
 /// ```no_run
-/// static G_LOG_DOMAIN: &amp;str = &quot;my-domain&quot;;
+/// static G_LOG_DOMAIN: &amp;str = "my-domain";
 ///
-/// glib::warn!(&quot;This will be logged under &#39;my-domain&#39;&quot;);
+/// glib::warn!("This will be logged under 'my-domain'");
 /// ```
 </span><span class="attr">#[macro_export]
-#[cfg(any(docsrs, feature = <span class="string">&quot;log_macros&quot;</span>))]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log_macros&quot;</span>)))]
+#[cfg(any(docsrs, feature = <span class="string">"log_macros"</span>))]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log_macros"</span>)))]
 </span><span class="macro">macro_rules! </span><a href="../../glib/macro.warn.html">warn</a> {
     (target: <span class="macro-nonterminal">$target</span>:expr, $(<span class="macro-nonterminal">$arg</span>:tt)+) =&gt; (
         <span class="macro-nonterminal">$</span><span class="macro">crate::rs_log::log!</span>(<span class="macro-nonterminal">target</span>: <span class="macro-nonterminal">$target</span>, <span class="macro-nonterminal">$crate::rs_log::Level::Warn</span>, $(<span class="macro-nonterminal">$arg</span>)+);
@@ -774,13 +776,13 @@
 /// initialized using [`GlibLoggerDomain::CrateTarget`](enum.GlibLoggerDomain.html).
 ///
 /// ```no_run
-/// static G_LOG_DOMAIN: &amp;str = &quot;my-domain&quot;;
+/// static G_LOG_DOMAIN: &amp;str = "my-domain";
 ///
-/// glib::info!(&quot;This will be logged under &#39;my-domain&#39;&quot;);
+/// glib::info!("This will be logged under 'my-domain'");
 /// ```
 </span><span class="attr">#[macro_export]
-#[cfg(any(docsrs, feature = <span class="string">&quot;log_macros&quot;</span>))]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log_macros&quot;</span>)))]
+#[cfg(any(docsrs, feature = <span class="string">"log_macros"</span>))]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log_macros"</span>)))]
 </span><span class="macro">macro_rules! </span><a href="../../glib/macro.info.html">info</a> {
     (target: <span class="macro-nonterminal">$target</span>:expr, $(<span class="macro-nonterminal">$arg</span>:tt)+) =&gt; (
         <span class="macro-nonterminal">$</span><span class="macro">crate::rs_log::log!</span>(<span class="macro-nonterminal">target</span>: <span class="macro-nonterminal">$target</span>, <span class="macro-nonterminal">$crate::rs_log::Level::Info</span>, $(<span class="macro-nonterminal">$arg</span>)+);
@@ -800,13 +802,13 @@
 /// initialized using [`GlibLoggerDomain::CrateTarget`](enum.GlibLoggerDomain.html).
 ///
 /// ```no_run
-/// static G_LOG_DOMAIN: &amp;str = &quot;my-domain&quot;;
+/// static G_LOG_DOMAIN: &amp;str = "my-domain";
 ///
-/// glib::debug!(&quot;This will be logged under &#39;my-domain&#39;&quot;);
+/// glib::debug!("This will be logged under 'my-domain'");
 /// ```
 </span><span class="attr">#[macro_export]
-#[cfg(any(docsrs, feature = <span class="string">&quot;log_macros&quot;</span>))]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log_macros&quot;</span>)))]
+#[cfg(any(docsrs, feature = <span class="string">"log_macros"</span>))]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log_macros"</span>)))]
 </span><span class="macro">macro_rules! </span><a href="../../glib/macro.debug.html">debug</a> {
     (target: <span class="macro-nonterminal">$target</span>:expr, $(<span class="macro-nonterminal">$arg</span>:tt)+) =&gt; (
         <span class="macro-nonterminal">$</span><span class="macro">crate::rs_log::log!</span>(<span class="macro-nonterminal">target</span>: <span class="macro-nonterminal">$target</span>, <span class="macro-nonterminal">$crate::rs_log::Level::Debug</span>, $(<span class="macro-nonterminal">$arg</span>)+);
@@ -826,13 +828,13 @@
 /// initialized using [`GlibLoggerDomain::CrateTarget`](enum.GlibLoggerDomain.html).
 ///
 /// ```no_run
-/// static G_LOG_DOMAIN: &amp;str = &quot;my-domain&quot;;
+/// static G_LOG_DOMAIN: &amp;str = "my-domain";
 ///
-/// glib::trace!(&quot;This will be logged under &#39;my-domain&#39;&quot;);
+/// glib::trace!("This will be logged under 'my-domain'");
 /// ```
 </span><span class="attr">#[macro_export]
-#[cfg(any(docsrs, feature = <span class="string">&quot;log_macros&quot;</span>))]
-#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;log_macros&quot;</span>)))]
+#[cfg(any(docsrs, feature = <span class="string">"log_macros"</span>))]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"log_macros"</span>)))]
 </span><span class="macro">macro_rules! </span><a href="../../glib/macro.trace.html">trace</a> {
     (target: <span class="macro-nonterminal">$target</span>:expr, $(<span class="macro-nonterminal">$arg</span>:tt)+) =&gt; (
         <span class="macro-nonterminal">$</span><span class="macro">crate::rs_log::log!</span>(<span class="macro-nonterminal">target</span>: <span class="macro-nonterminal">$target</span>, <span class="macro-nonterminal">$crate::rs_log::Level::Trace</span>, $(<span class="macro-nonterminal">$arg</span>)+);

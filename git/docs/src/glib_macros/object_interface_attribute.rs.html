@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib-macros/src/object_interface_attribute.rs`."><title>object_interface_attribute.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib-macros/src/object_interface_attribute.rs`."><title>object_interface_attribute.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="glib_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../glib_macros/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -331,31 +333,114 @@
 <a href="#258" id="258">258</a>
 <a href="#259" id="259">259</a>
 <a href="#260" id="260">260</a>
-<a href="#261" id="261">261</a>
-<a href="#262" id="262">262</a>
-<a href="#263" id="263">263</a>
-<a href="#264" id="264">264</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span><a href="https://docs.rs/proc-macro2/1.0.69/proc_macro2/struct.TokenStream.html">proc_macro2::TokenStream</a>;
-<span class="kw">use </span>proc_macro_error::abort_call_site;
-<span class="kw">use </span>quote::{<a href="https://docs.rs/quote/1.0.33/quote/macro.quote.html">quote</a>, <a href="https://docs.rs/quote/1.0.33/quote/to_tokens/trait.ToTokens.html">ToTokens</a>};
+</span><span class="kw">use </span>heck::ToShoutySnakeCase;
+<span class="kw">use </span>proc_macro2::{<a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.Span.html">Span</a>, <a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.TokenStream.html">TokenStream</a>};
+<span class="kw">use </span>quote::{<a href="https://docs.rs/quote/1.0.35/quote/macro.format_ident.html">format_ident</a>, <a href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote</a>, <a href="https://docs.rs/quote/1.0.35/quote/to_tokens/trait.ToTokens.html">ToTokens</a>};
 
-<span class="kw">pub const </span>WRONG_EXPRESSION_MSG: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> =
-    <span class="string">&quot;This macro&#39;s attributes should be a sequence of assign expressions punctuated by comma&quot;</span>;
-
-<span class="kw">pub const </span>UNSUPPORTED_EXPRESSION_MSG: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> =
-    <span class="string">&quot;This macro&#39;s supported attributes are: `plugin_type = &lt;subclass_of_glib::TypePlugin&gt;, lazy_registration = true|false`&quot;</span>;
+<span class="kw">use </span><span class="kw">crate</span>::utils::{<a href="utils.rs.html#167-186">parse_optional_nested_meta_items</a>, <a href="utils.rs.html#19-25">NestedMetaItem</a>};
 
 <span class="kw">pub const </span>WRONG_PLACE_MSG: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> =
-    <span class="string">&quot;This macro should be used on `impl` block for `glib::ObjectInterface` trait&quot;</span>;
+    <span class="string">"This macro should be used on `impl` block for `glib::ObjectInterface` trait"</span>;
 
-<span class="kw">pub fn </span>impl_object_interface(input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.39/syn/item/struct.ItemImpl.html">syn::ItemImpl</a>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.69/proc_macro2/struct.TokenStream.html">TokenStream</a> {
-    <span class="kw">let </span>crate_ident = <a href="utils.rs.html#167-194"><span class="kw">crate</span>::utils::crate_ident_new</a>();
-    <span class="kw">let </span><a href="https://docs.rs/syn/2.0.39/syn/item/struct.ItemImpl.html">syn::ItemImpl</a> { self_ty, .. } = <span class="kw-2">&amp;</span><a href="#16">input</a>;
+<span class="kw">pub fn </span>impl_object_interface(input: <span class="kw-2">&amp;mut </span><a href="https://docs.rs/syn/2.0.48/syn/item/struct.ItemImpl.html">syn::ItemImpl</a>) -&gt; syn::Result&lt;<a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.TokenStream.html">TokenStream</a>&gt; {
+    <span class="kw">let </span>crate_ident = <a href="utils.rs.html#188-215"><span class="kw">crate</span>::utils::crate_ident_new</a>();
+    <span class="kw">let </span><a href="https://docs.rs/syn/2.0.48/syn/item/struct.ItemImpl.html">syn::ItemImpl</a> {
+        attrs,
+        generics,
+        trait_,
+        self_ty,
+        unsafety,
+        items,
+        ..
+    } = <a href="#12">input</a>;
 
+    <span class="kw">let </span>self_ty_as_ident = <span class="kw">match </span><span class="kw-2">&amp;**</span><a href="#18">self_ty</a> {
+        syn::Type::Path(<a href="https://docs.rs/syn/2.0.48/syn/ty/struct.TypePath.html">syn::TypePath</a> { path, .. }) =&gt; <a href="#25">path</a>.require_ident(),
+        <span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(syn::Error::new_spanned(
+            <span class="kw-2">&amp;</span><a href="#18">self_ty</a>,
+            <span class="string">"expected this path to be an identifier"</span>,
+        )),
+    }<span class="question-mark">?</span>;
+
+    <span class="kw">let </span><span class="kw-2">mut </span>plugin_type = NestedMetaItem::&lt;<a href="https://docs.rs/syn/2.0.48/syn/path/struct.Path.html">syn::Path</a>&gt;::new(<span class="string">"plugin_type"</span>).<a href="utils.rs.html#55-58">value_required</a>();
+    <span class="kw">let </span><span class="kw-2">mut </span>lazy_registration =
+        NestedMetaItem::&lt;<a href="https://docs.rs/syn/2.0.48/syn/lit/struct.LitBool.html">syn::LitBool</a>&gt;::new(<span class="string">"lazy_registration"</span>).<a href="utils.rs.html#55-58">value_required</a>();
+
+    <span class="kw">let </span>found = <a href="utils.rs.html#167-186">parse_optional_nested_meta_items</a>(
+        <span class="kw-2">&amp;*</span><a href="#15">attrs</a>,
+        <span class="string">"object_interface_dynamic"</span>,
+        <span class="kw-2">&amp;mut </span>[<span class="kw-2">&amp;mut </span><a href="#32">plugin_type</a>, <span class="kw-2">&amp;mut </span><a href="#33">lazy_registration</a>],
+    )<span class="question-mark">?</span>;
+
+    <span class="kw">let </span>register_object_interface = <span class="kw">match </span><a href="#36">found</a> {
+        <span class="prelude-val">None </span>=&gt; <a href="#103-126">register_object_interface_as_static</a>(<span class="kw-2">&amp;</span><a href="#13">crate_ident</a>, <a href="#24">self_ty_as_ident</a>),
+        <span class="prelude-val">Some</span>(<span class="kw">_</span>) =&gt; {
+            <span class="comment">// remove attribute 'object_interface_dynamic' from the attribute list because it is not a real proc_macro_attribute
+            </span><a href="#15">attrs</a>.retain(|attr| !<a href="#46">attr</a>.path().is_ident(<span class="string">"object_interface_dynamic"</span>));
+            <span class="kw">let </span>plugin_ty = <a href="#32">plugin_type</a>
+                .value
+                .map(|p| <a href="#49">p</a>.<a href="https://docs.rs/quote/1.0.35/quote/to_tokens/trait.ToTokens.html">into_token_stream</a>())
+                .unwrap_or(<a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a>(#crate_ident::TypeModule));
+            <span class="kw">let </span>lazy_registration = <a href="#33">lazy_registration</a>.value.map(|b| <a href="#51">b</a>.value).unwrap_or_default();
+            <a href="#130-260">register_object_interface_as_dynamic</a>(
+                <span class="kw-2">&amp;</span><a href="#13">crate_ident</a>,
+                <a href="#24">self_ty_as_ident</a>,
+                <a href="#47">plugin_ty</a>,
+                <a href="#51">lazy_registration</a>,
+            )
+        }
+    };
+
+    <span class="kw">let </span><span class="kw-2">mut </span>has_prerequisites = <span class="bool-val">false</span>;
+    <span class="kw">for </span>item <span class="kw">in </span>items.iter() {
+        <span class="kw">if let </span>syn::ImplItem::Type(type_) = item {
+            <span class="kw">let </span>name = type_.ident.to_string();
+            <span class="kw">if </span>name == <span class="string">"Prerequisites" </span>{
+                has_prerequisites = <span class="bool-val">true</span>;
+            }
+        }
+    }
+
+    <span class="kw">let </span>prerequisites_opt = <span class="kw">if </span>has_prerequisites {
+        <span class="prelude-val">None
+    </span>} <span class="kw">else </span>{
+        <span class="prelude-val">Some</span>(<a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote!</a>(
+            <span class="kw">type </span>Prerequisites = ();
+        ))
+    };
+
+    <span class="kw">let </span>trait_path = <span class="kw-2">&amp;</span><a href="#17">trait_</a>
+        .as_ref()
+        .ok_or_else(|| syn::Error::new(Span::call_site(), <a href="#9-10">WRONG_PLACE_MSG</a>))<span class="question-mark">?
+        </span>.<span class="number">1</span>;
+
+    <span class="prelude-val">Ok</span>(<a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+        #(#attrs)*
+        #unsafety <span class="kw">impl </span>#generics #trait_path <span class="kw">for </span>#self_ty {
+            #prerequisites_opt
+            #(#items)*
+        }
+
+        <span class="kw">unsafe impl </span>#crate_ident::subclass::interface::ObjectInterfaceType <span class="kw">for </span>#self_ty {
+            <span class="attr">#[inline]
+            </span><span class="kw">fn </span>type_() -&gt; #crate_ident::Type {
+                <span class="self">Self</span>::register_interface()
+            }
+        }
+
+        #register_object_interface
+    })
+}
+
+<span class="comment">// Registers the object interface as a static type.
+</span><span class="kw">fn </span>register_object_interface_as_static(
+    crate_ident: <span class="kw-2">&amp;</span><a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.TokenStream.html">TokenStream</a>,
+    self_ty: <span class="kw-2">&amp;</span><a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.Ident.html">syn::Ident</a>,
+) -&gt; <a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.TokenStream.html">TokenStream</a> {
     <span class="comment">// registers the interface on first use (lazy registration).
-    </span><span class="kw">let </span>register_interface = <a class="macro" href="https://docs.rs/quote/1.0.33/quote/macro.quote.html">quote! </a>{
+    </span><a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
         <span class="kw">impl </span>#self_ty {
             <span class="doccomment">/// Registers the interface only once.
             </span><span class="attr">#[inline]
@@ -372,89 +457,57 @@
                 }
             }
         }
-    };
-
-    <a href="#209-264">impl_object_interface_</a>(<a href="#21">register_interface</a>, <a href="#16">input</a>)
+    }
 }
 
-<span class="kw">pub fn </span>impl_dynamic_object_interface(
-    attrs: <span class="kw-2">&amp;</span>syn::punctuated::Punctuated&lt;<a href="https://docs.rs/syn/2.0.39/syn/expr/enum.Expr.html">syn::Expr</a>, <a class="macro" href="https://docs.rs/syn/2.0.39/syn/macro.Token.html">syn::Token!</a>[,]&gt;,
-    input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.39/syn/item/struct.ItemImpl.html">syn::ItemImpl</a>,
-) -&gt; <a href="https://docs.rs/proc-macro2/1.0.69/proc_macro2/struct.TokenStream.html">TokenStream</a> {
-    <span class="kw">let </span>crate_ident = <a href="utils.rs.html#167-194"><span class="kw">crate</span>::utils::crate_ident_new</a>();
-    <span class="kw">let </span><a href="https://docs.rs/syn/2.0.39/syn/item/struct.ItemImpl.html">syn::ItemImpl</a> { self_ty, .. } = <span class="kw-2">&amp;</span><a href="#45">input</a>;
-
-    <span class="kw">let </span><span class="kw-2">mut </span>plugin_type_opt: <span class="prelude-ty">Option</span>&lt;<a href="https://docs.rs/syn/2.0.39/syn/path/struct.Path.html">syn::Path</a>&gt; = <span class="prelude-val">None</span>;
-    <span class="kw">let </span><span class="kw-2">mut </span>lazy_registration_opt: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt; = <span class="prelude-val">None</span>;
-
-    <span class="kw">for </span>attr <span class="kw">in </span>attrs {
-        <span class="kw">match </span>attr {
-            <span class="comment">// attribute must be one of supported assign expressions.
-            </span>syn::Expr::Assign(syn::ExprAssign { left, right, .. }) =&gt; {
-                <span class="kw">match </span>(<span class="kw-2">*</span>left.to_owned(), <span class="kw-2">*</span>right.to_owned()) {
-                    <span class="comment">// `plugin_type = &lt;subclass_of_TypePlugin&gt;`
-                    </span>(
-                        syn::Expr::Path(syn::ExprPath { path: path1, .. }),
-                        syn::Expr::Path(syn::ExprPath { path: path2, .. }),
-                    ) <span class="kw">if </span>path1.is_ident(<span class="kw-2">&amp;</span><span class="string">&quot;plugin_type&quot;</span>) =&gt; plugin_type_opt = <span class="prelude-val">Some</span>(path2),
-                    <span class="comment">// `lazy_registration = true|false`
-                    </span>(
-                        syn::Expr::Path(syn::ExprPath { path, .. }),
-                        syn::Expr::Lit(syn::ExprLit {
-                            lit: syn::Lit::Bool(syn::LitBool { value, .. }),
-                            ..
-                        }),
-                    ) <span class="kw">if </span>path.is_ident(<span class="kw-2">&amp;</span><span class="string">&quot;lazy_registration&quot;</span>) =&gt; lazy_registration_opt = <span class="prelude-val">Some</span>(value),
-                    <span class="kw">_ </span>=&gt; <span class="macro">abort_call_site!</span>(UNSUPPORTED_EXPRESSION_MSG),
-                };
-            }
-            <span class="kw">_ </span>=&gt; <span class="macro">abort_call_site!</span>(WRONG_EXPRESSION_MSG),
-        };
-    }
-
-    <span class="kw">let </span>(plugin_ty, lazy_registration) = <span class="kw">match </span>(<a href="#50">plugin_type_opt</a>, <a href="#51">lazy_registration_opt</a>) {
-        (<span class="prelude-val">Some</span>(type_plugin), lazy_registration_opt) =&gt; (
-            <a href="#79">type_plugin</a>.<a href="https://docs.rs/quote/1.0.33/quote/to_tokens/trait.ToTokens.html">into_token_stream</a>(),
-            <a href="#79">lazy_registration_opt</a>.unwrap_or_default(),
-        ),
-        (<span class="prelude-val">None</span>, lazy_registration_opt) =&gt; (
-            <a class="macro" href="https://docs.rs/quote/1.0.33/quote/macro.quote.html">quote!</a>(#crate_ident::TypeModule),
-            <a href="#83">lazy_registration_opt</a>.unwrap_or_default(),
-        ),
-    };
-
-    <span class="comment">// The following implementations follows the lifecycle of plugins and of dynamic types (see [`TypePluginExt::unuse`]).
-    // An object interface can be reregistered as a dynamic type (see [`TypePluginExt::register_type`]).
-    </span><span class="kw">let </span>register_interface = <span class="kw">if </span>lazy_registration {
+<span class="comment">// The following implementations follows the lifecycle of plugins and of dynamic types (see [`TypePluginExt`] and [`TypeModuleExt`]).
+// An object interface can be reregistered as a dynamic type.
+</span><span class="kw">fn </span>register_object_interface_as_dynamic(
+    crate_ident: <span class="kw-2">&amp;</span><a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.TokenStream.html">TokenStream</a>,
+    self_ty: <span class="kw-2">&amp;</span><a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.Ident.html">syn::Ident</a>,
+    plugin_ty: <a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.TokenStream.html">TokenStream</a>,
+    lazy_registration: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
+) -&gt; <a href="https://docs.rs/proc-macro2/1.0.76/proc_macro2/struct.TokenStream.html">TokenStream</a> {
+    <span class="comment">// The following implementations follows the lifecycle of plugins and of dynamic types (see [`TypePluginExt`] and [`TypeModuleExt`]).
+    // An object interface can be reregistered as a dynamic type.
+    </span><span class="kw">if </span>lazy_registration {
         <span class="comment">// registers the object interface as a dynamic type on the first use (lazy registration).
         // a weak reference on the plugin is stored and will be used later on the first use of the object interface.
-        // this implementation relies on a static storage of a weak reference on the plugin and of the glib type to know if the object interface has been registered.
-        </span><a class="macro" href="https://docs.rs/quote/1.0.33/quote/macro.quote.html">quote! </a>{
-            <span class="kw">impl </span>#self_ty {
-                <span class="doccomment">/// Returns a mutable reference to the registration status: a tuple of the weak reference on the plugin and of the glib type.
-                /// This is safe because the mutable reference guarantees that no other threads are concurrently accessing the data.
-                </span><span class="attr">#[inline]
-                </span><span class="kw">fn </span>get_registration_status_ref_mut() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><span class="kw-2">mut </span><span class="prelude-ty">Option</span>&lt;(&lt;#plugin_ty <span class="kw">as </span>#crate_ident::clone::Downgrade&gt;::Weak, #crate_ident::Type)&gt; {
-                    <span class="kw">static </span><span class="kw-2">mut </span>REGISTRATION_STATUS: ::std::sync::Mutex&lt;<span class="prelude-ty">Option</span>&lt;(&lt;#plugin_ty <span class="kw">as </span>#crate_ident::clone::Downgrade&gt;::Weak, #crate_ident::Type)&gt;&gt; = ::std::sync::Mutex::new(<span class="prelude-val">None</span>);
-                    <span class="kw">unsafe </span>{ REGISTRATION_STATUS.get_mut().unwrap() }
-                }
+        // this implementation relies on a static storage of a weak reference on the plugin and of the GLib type to know if the object interface has been registered.
 
+        // the registration status type.
+        </span><span class="kw">let </span>registration_status_type = <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.format_ident.html">format_ident!</a>(<span class="string">"{}RegistrationStatus"</span>, self_ty);
+        <span class="comment">// name of the static variable to store the registration status.
+        </span><span class="kw">let </span>registration_status = <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.format_ident.html">format_ident!</a>(
+            <span class="string">"{}"</span>,
+            registration_status_type.to_string().to_shouty_snake_case()
+        );
+
+        <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <span class="doccomment">/// The registration status type: a tuple of the weak reference on the plugin and of the GLib type.
+            </span><span class="kw">struct </span>#registration_status_type(&lt;#plugin_ty <span class="kw">as </span>#crate_ident::clone::Downgrade&gt;::Weak, #crate_ident::Type);
+            <span class="kw">unsafe impl </span>Send <span class="kw">for </span>#registration_status_type {}
+
+            <span class="doccomment">/// The registration status protected by a mutex guarantees so that no other threads are concurrently accessing the data.
+            </span><span class="kw">static </span>#registration_status: ::std::sync::Mutex&lt;<span class="prelude-ty">Option</span>&lt;#registration_status_type&gt;&gt; = ::std::sync::Mutex::new(<span class="prelude-val">None</span>);
+
+            <span class="kw">impl </span>#self_ty {
                 <span class="doccomment">/// Registers the object interface as a dynamic type within the plugin only once.
                 /// Plugin must have been used at least once.
                 /// Do nothing if plugin has never been used or if the object interface is already registered as a dynamic type.
                 </span><span class="attr">#[inline]
                 </span><span class="kw">fn </span>register_interface() -&gt; #crate_ident::Type {
-                    <span class="kw">let </span>registration_status_ref_mut = <span class="self">Self</span>::get_registration_status_ref_mut();
-                    <span class="kw">match </span>registration_status_ref_mut {
+                    <span class="kw">let </span><span class="kw-2">mut </span>registration_status = #registration_status.lock().unwrap();
+                    <span class="kw">match </span>::std::ops::DerefMut::deref_mut(<span class="kw-2">&amp;mut </span>registration_status) {
                         <span class="comment">// plugin has never been used, so the object interface cannot be registered as a dynamic type.
                         </span><span class="prelude-val">None </span>=&gt; #crate_ident::Type::INVALID,
                         <span class="comment">// plugin has been used and the object interface has not been registered yet, so registers it as a dynamic type.
-                        </span><span class="prelude-val">Some</span>((type_plugin, type_)) <span class="kw">if </span>!type_.is_valid() =&gt; {
+                        </span><span class="prelude-val">Some</span>(#registration_status_type(type_plugin, type_)) <span class="kw">if </span>!type_.is_valid() =&gt; {
                             <span class="kw-2">*</span>type_ = #crate_ident::subclass::register_dynamic_interface::&lt;#plugin_ty, <span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>(type_plugin.upgrade().unwrap()));
                             <span class="kw-2">*</span>type_
                         },
                         <span class="comment">// plugin has been used and the object interface has already been registered as a dynamic type.
-                        </span><span class="prelude-val">Some</span>((<span class="kw">_</span>, type_)) =&gt; <span class="kw-2">*</span>type_
+                        </span><span class="prelude-val">Some</span>(#registration_status_type(<span class="kw">_</span>, type_)) =&gt; <span class="kw-2">*</span>type_
                     }
                 }
 
@@ -465,15 +518,15 @@
                 /// If plugin is reused (and has reloaded the implementation) and the object interface has not been registered yet as a dynamic type, do nothing.
                 </span><span class="attr">#[inline]
                 </span><span class="kw">pub fn </span>on_implementation_load(type_plugin: <span class="kw-2">&amp;</span>#plugin_ty) -&gt; bool {
-                    <span class="kw">let </span>registration_status_ref_mut = <span class="self">Self</span>::get_registration_status_ref_mut();
-                    <span class="kw">match </span>registration_status_ref_mut {
+                    <span class="kw">let </span><span class="kw-2">mut </span>registration_status = #registration_status.lock().unwrap();
+                    <span class="kw">match </span>::std::ops::DerefMut::deref_mut(<span class="kw-2">&amp;mut </span>registration_status) {
                         <span class="comment">// plugin has never been used (this is the first time), so postpones registration of the object interface as a dynamic type on the first use.
                         </span><span class="prelude-val">None </span>=&gt; {
-                            <span class="kw-2">*</span>registration_status_ref_mut = <span class="prelude-val">Some</span>((#crate_ident::clone::Downgrade::downgrade(type_plugin), #crate_ident::Type::INVALID));
+                            <span class="kw-2">*</span>registration_status = <span class="prelude-val">Some</span>(#registration_status_type(#crate_ident::clone::Downgrade::downgrade(type_plugin), #crate_ident::Type::INVALID));
                             <span class="bool-val">true
                         </span>},
                         <span class="comment">// plugin has been used at least one time and the object interface has been registered as a dynamic type at least one time, so re-registers it.
-                        </span><span class="prelude-val">Some</span>((<span class="kw">_</span>, type_)) <span class="kw">if </span>type_.is_valid() =&gt; {
+                        </span><span class="prelude-val">Some</span>(#registration_status_type(<span class="kw">_</span>, type_)) <span class="kw">if </span>type_.is_valid() =&gt; {
                             <span class="kw-2">*</span>type_ = #crate_ident::subclass::register_dynamic_interface::&lt;#plugin_ty, <span class="self">Self</span>&gt;(type_plugin);
                             type_.is_valid()
                         },
@@ -489,15 +542,15 @@
                 /// Else do nothing.
                 </span><span class="attr">#[inline]
                 </span><span class="kw">pub fn </span>on_implementation_unload(type_plugin_: <span class="kw-2">&amp;</span>#plugin_ty) -&gt; bool {
-                    <span class="kw">let </span>registration_status_ref_mut = <span class="self">Self</span>::get_registration_status_ref_mut();
-                    <span class="kw">match </span>registration_status_ref_mut {
+                    <span class="kw">let </span><span class="kw-2">mut </span>registration_status = #registration_status.lock().unwrap();
+                    <span class="kw">match </span>::std::ops::DerefMut::deref_mut(<span class="kw-2">&amp;mut </span>registration_status) {
                         <span class="comment">// plugin has never been used, so unload implementation is unexpected.
                         </span><span class="prelude-val">None </span>=&gt; <span class="bool-val">false</span>,
                         <span class="comment">// plugin has been used at least one time and the object interface has been registered as a dynamic type at least one time.
-                        </span><span class="prelude-val">Some</span>((<span class="kw">_</span>, type_)) <span class="kw">if </span>type_.is_valid() =&gt; <span class="bool-val">true</span>,
+                        </span><span class="prelude-val">Some</span>(#registration_status_type(<span class="kw">_</span>, type_)) <span class="kw">if </span>type_.is_valid() =&gt; <span class="bool-val">true</span>,
                         <span class="comment">// plugin has been used at least one time but the object interface has not been registered yet as a dynamic type, so cancels the postponed registration.
                         </span><span class="prelude-val">Some</span>(<span class="kw">_</span>) =&gt; {
-                            <span class="kw-2">*</span>registration_status_ref_mut = <span class="prelude-val">None</span>;
+                            <span class="kw-2">*</span>registration_status = <span class="prelude-val">None</span>;
                             <span class="bool-val">true
                         </span>}
                     }
@@ -506,29 +559,29 @@
         }
     } <span class="kw">else </span>{
         <span class="comment">// registers immediately the object interface as a dynamic type.
-        </span><a class="macro" href="https://docs.rs/quote/1.0.33/quote/macro.quote.html">quote! </a>{
-            <span class="kw">impl </span>#self_ty {
-                <span class="doccomment">/// Returns a mutable reference to the glib type.
-                /// This is safe because the mutable reference guarantees that no other threads are concurrently accessing the atomic data.
-                </span><span class="attr">#[inline]
-                </span><span class="kw">fn </span>get_type_mut() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><span class="kw-2">mut </span>#crate_ident::ffi::GType {
-                    <span class="kw">static </span><span class="kw-2">mut </span>TYPE: ::std::sync::atomic::AtomicUsize = ::std::sync::atomic::AtomicUsize::new(#crate_ident::gobject_ffi::G_TYPE_INVALID);
-                    <span class="kw">unsafe </span>{ TYPE.get_mut() }
-                }
 
+        // name of the static variable to store the GLib type.
+        </span><span class="kw">let </span>gtype_status = <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.format_ident.html">format_ident!</a>(<span class="string">"{}_G_TYPE"</span>, self_ty.to_string().to_shouty_snake_case());
+
+        <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <span class="doccomment">/// The GLib type which can be safely shared between threads.
+            </span><span class="kw">static </span>#gtype_status: ::std::sync::atomic::AtomicUsize = ::std::sync::atomic::AtomicUsize::new(#crate_ident::gobject_ffi::G_TYPE_INVALID);
+
+            <span class="kw">impl </span>#self_ty {
                 <span class="doccomment">/// Do nothing as the object interface has been registered on implementation load.
                 </span><span class="attr">#[inline]
                 </span><span class="kw">fn </span>register_interface() -&gt; #crate_ident::Type {
-                    <span class="kw">unsafe </span>{ &lt;#crate_ident::Type <span class="kw">as </span>#crate_ident::translate::FromGlib&lt;#crate_ident::ffi::GType&gt;&gt;::from_glib(<span class="kw-2">*</span><span class="self">Self</span>::get_type_mut()) }
+                    <span class="kw">let </span>gtype = #gtype_status.load(::std::sync::atomic::Ordering::Acquire);
+                    <span class="kw">unsafe </span>{ &lt;#crate_ident::Type <span class="kw">as </span>#crate_ident::translate::FromGlib&lt;#crate_ident::ffi::GType&gt;&gt;::from_glib(gtype) }
                 }
 
                 <span class="doccomment">/// Registers the object interface as a dynamic type within the plugin.
                 /// The object interface can be registered several times as a dynamic type.
                 </span><span class="attr">#[inline]
                 </span><span class="kw">pub fn </span>on_implementation_load(type_plugin: <span class="kw-2">&amp;</span>#plugin_ty) -&gt; bool {
-                    <span class="kw">let </span>type_mut = <span class="self">Self</span>::get_type_mut();
-                    <span class="kw-2">*</span>type_mut = #crate_ident::translate::IntoGlib::into_glib(#crate_ident::subclass::register_dynamic_interface::&lt;#plugin_ty, <span class="self">Self</span>&gt;(type_plugin));
-                    <span class="kw-2">*</span>type_mut != #crate_ident::gobject_ffi::G_TYPE_INVALID
+                    <span class="kw">let </span>gtype = #crate_ident::translate::IntoGlib::into_glib(#crate_ident::subclass::register_dynamic_interface::&lt;#plugin_ty, <span class="self">Self</span>&gt;(type_plugin));
+                    #gtype_status.store(gtype, ::std::sync::atomic::Ordering::Release);
+                    gtype != #crate_ident::gobject_ffi::G_TYPE_INVALID
                 }
 
                 <span class="doccomment">/// Do nothing as object interfaces registered as dynamic types are never unregistered.
@@ -538,65 +591,6 @@
                 </span>}
             }
         }
-    };
-
-    <a href="#209-264">impl_object_interface_</a>(<a href="#91">register_interface</a>, <a href="#45">input</a>)
-}
-
-<span class="kw">pub fn </span>impl_object_interface_(
-    register_interface: <a href="https://docs.rs/proc-macro2/1.0.69/proc_macro2/struct.TokenStream.html">TokenStream</a>,
-    input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.39/syn/item/struct.ItemImpl.html">syn::ItemImpl</a>,
-) -&gt; <a href="https://docs.rs/proc-macro2/1.0.69/proc_macro2/struct.TokenStream.html">TokenStream</a> {
-    <span class="kw">let </span><span class="kw-2">mut </span>has_prerequisites = <span class="bool-val">false</span>;
-    <span class="kw">for </span>item <span class="kw">in </span><span class="kw-2">&amp;</span>input.items {
-        <span class="kw">if let </span>syn::ImplItem::Type(type_) = item {
-            <span class="kw">let </span>name = type_.ident.to_string();
-            <span class="kw">if </span>name == <span class="string">&quot;Prerequisites&quot; </span>{
-                has_prerequisites = <span class="bool-val">true</span>;
-            }
-        }
-    }
-
-    <span class="kw">let </span><a href="https://docs.rs/syn/2.0.39/syn/item/struct.ItemImpl.html">syn::ItemImpl</a> {
-        attrs,
-        generics,
-        trait_,
-        self_ty,
-        unsafety,
-        items,
-        ..
-    } = <span class="kw-2">&amp;</span><a href="#211">input</a>;
-
-    <span class="kw">let </span>prerequisites_opt = <span class="kw">if </span>has_prerequisites {
-        <span class="prelude-val">None
-    </span>} <span class="kw">else </span>{
-        <span class="prelude-val">Some</span>(<a class="macro" href="https://docs.rs/quote/1.0.33/quote/macro.quote.html">quote!</a>(
-            <span class="kw">type </span>Prerequisites = ();
-        ))
-    };
-
-    <span class="kw">let </span>crate_ident = <a href="utils.rs.html#167-194"><span class="kw">crate</span>::utils::crate_ident_new</a>();
-
-    <span class="kw">let </span>trait_path = <span class="kw">match </span><span class="kw-2">&amp;</span><a href="#226">trait_</a> {
-        <span class="prelude-val">Some</span>(path) =&gt; <span class="kw-2">&amp;</span><a href="#244">path</a>.<span class="number">1</span>,
-        <span class="prelude-val">None </span>=&gt; <span class="macro">abort_call_site!</span>(WRONG_PLACE_MSG),
-    };
-
-    <a class="macro" href="https://docs.rs/quote/1.0.33/quote/macro.quote.html">quote! </a>{
-        #(#attrs)*
-        #unsafety <span class="kw">impl </span>#generics #trait_path <span class="kw">for </span>#self_ty {
-            #prerequisites_opt
-            #(#items)*
-        }
-
-        <span class="kw">unsafe impl </span>#crate_ident::subclass::interface::ObjectInterfaceType <span class="kw">for </span>#self_ty {
-            <span class="attr">#[inline]
-            </span><span class="kw">fn </span>type_() -&gt; #crate_ident::Type {
-                <span class="self">Self</span>::register_interface()
-            }
-        }
-
-        #register_interface
     }
 }
 </code></pre></div></section></main></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `cairo/src/pdf.rs`."><title>pdf.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="cairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `cairo/src/pdf.rs`."><title>pdf.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="cairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../cairo/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -375,15 +377,15 @@
     <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>,
 };
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;use_glib&quot;</span>)]
-</span><span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
+<span class="attr">#[cfg(feature = <span class="string">"use_glib"</span>)]
+</span><span class="kw">use </span><a href="../../glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
 <span class="kw">use crate</span>::{<a href="error.rs.html#10-150">Error</a>, <a href="enums.rs.html#1345-1360">PdfVersion</a>, <a href="surface.rs.html#19">Surface</a>, <a href="enums.rs.html#951-1004">SurfaceType</a>};
-<span class="attr">#[cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))]
+<span class="attr">#[cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))]
 </span><span class="kw">use crate</span>::{<a href="enums.rs.html#1285-1302">PdfMetadata</a>, <a href="enums.rs.html#1268-1278">PdfOutline</a>};
 
 <span class="kw">impl </span><a href="enums.rs.html#1345-1360">PdfVersion</a> {
-    <span class="kw">pub fn </span>as_str(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; {
+    <span class="kw">pub fn </span>as_str(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>res = ffi::cairo_pdf_version_to_string(<a class="self" href="#20">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>());
             <a href="#22">res</a>.as_ref()
@@ -395,18 +397,18 @@
 <a class="macro" href="surface_macros.rs.html#4-125">declare_surface!</a>(<a href="../../cairo/struct.PdfSurface.html">PdfSurface</a>, SurfaceType::Pdf);
 
 <span class="kw">impl </span><a href="#29">PdfSurface</a> {
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pdf_surface_create&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pdf_surface_create"</span>)]
     </span><span class="kw">pub fn </span>new&lt;P: AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html">Path</a>&gt;&gt;(width: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, height: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, path: P) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span>path = <a href="#33">path</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().to_string_lossy().into_owned();
         <span class="kw">let </span>path = CString::new(<a href="#34">path</a>).unwrap();
 
-        <span class="kw">unsafe </span>{ <span class="self">Self</span>::from_raw_full(ffi::cairo_pdf_surface_create(<a href="#35">path</a>.as_ptr(), <a href="#33">width</a>, <a href="#33">height</a>)) }
+        <span class="kw">unsafe </span>{ <a href="#29"><span class="self">Self</span>::from_raw_full</a>(ffi::cairo_pdf_surface_create(<a href="#35">path</a>.as_ptr(), <a href="#33">width</a>, <a href="#33">height</a>)) }
     }
 
     <a class="macro" href="stream.rs.html#17-63">for_stream_constructors!</a>(cairo_pdf_surface_create_for_stream);
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pdf_get_versions&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_versions&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pdf_get_versions"</span>)]
+    #[doc(alias = <span class="string">"get_versions"</span>)]
     </span><span class="kw">pub fn </span>versions() -&gt; <span class="kw">impl </span>Iterator&lt;Item = <a href="enums.rs.html#1345-1360">PdfVersion</a>&gt; {
         <span class="kw">let </span>vers_slice = <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>vers_ptr = ptr::null_mut();
@@ -420,10 +422,10 @@
                 <a href="https://doc.rust-lang.org/nightly/core/slice/raw/fn.from_raw_parts.html">std::slice::from_raw_parts</a>(<a href="#46">vers_ptr</a>, <a href="#50">num_vers</a> <span class="kw">as _</span>)
             }
         };
-        <a href="#45">vers_slice</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|v| PdfVersion::from(<span class="kw-2">*</span><a href="#57">v</a>))
+        <a href="#45">vers_slice</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|v| <a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html">PdfVersion::from</a>(<span class="kw-2">*</span><a href="#57">v</a>))
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pdf_surface_restrict_to_version&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pdf_surface_restrict_to_version"</span>)]
     </span><span class="kw">pub fn </span>restrict(<span class="kw-2">&amp;</span><span class="self">self</span>, version: <a href="enums.rs.html#1345-1360">PdfVersion</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             ffi::cairo_pdf_surface_restrict_to_version(<a class="self" href="#61">self</a>.<span class="number">0</span>.<a href="surface.rs.html#44-46">to_raw_none</a>(), <a href="#61">version</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>());
@@ -431,7 +433,7 @@
         <a class="self" href="#61">self</a>.<a href="surface.rs.html#281-284">status</a>()
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;cairo_pdf_surface_set_size&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">"cairo_pdf_surface_set_size"</span>)]
     </span><span class="kw">pub fn </span>set_size(<span class="kw-2">&amp;</span><span class="self">self</span>, width: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, height: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             ffi::cairo_pdf_surface_set_size(<a class="self" href="#69">self</a>.<span class="number">0</span>.<a href="surface.rs.html#44-46">to_raw_none</a>(), <a href="#69">width</a>, <a href="#69">height</a>);
@@ -439,9 +441,9 @@
         <a class="self" href="#69">self</a>.<a href="surface.rs.html#281-284">status</a>()
     }
 
-    <span class="attr">#[cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))]
-    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))))]
-    #[doc(alias = <span class="string">&quot;cairo_pdf_surface_set_metadata&quot;</span>)]
+    <span class="attr">#[cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))]
+    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))))]
+    #[doc(alias = <span class="string">"cairo_pdf_surface_set_metadata"</span>)]
     </span><span class="kw">pub fn </span>set_metadata(<span class="kw-2">&amp;</span><span class="self">self</span>, metadata: <a href="enums.rs.html#1285-1302">PdfMetadata</a>, value: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span>value = CString::new(<a href="#79">value</a>).unwrap();
         <span class="kw">unsafe </span>{
@@ -454,9 +456,9 @@
         <a class="self" href="#79">self</a>.<a href="surface.rs.html#281-284">status</a>()
     }
 
-    <span class="attr">#[cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_18&quot;</span>))]
-    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_18&quot;</span>))))]
-    #[doc(alias = <span class="string">&quot;cairo_pdf_surface_set_custom_metadata&quot;</span>)]
+    <span class="attr">#[cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_18"</span>))]
+    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_18"</span>))))]
+    #[doc(alias = <span class="string">"cairo_pdf_surface_set_custom_metadata"</span>)]
     </span><span class="kw">pub fn </span>set_custom_metadata(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, value: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span>name = CString::new(<a href="#94">name</a>).unwrap();
         <span class="kw">let </span>value = CString::new(<a href="#94">value</a>).unwrap();
@@ -470,9 +472,9 @@
         <a class="self" href="#94">self</a>.<a href="surface.rs.html#281-284">status</a>()
     }
 
-    <span class="attr">#[cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))]
-    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))))]
-    #[doc(alias = <span class="string">&quot;cairo_pdf_surface_set_page_label&quot;</span>)]
+    <span class="attr">#[cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))]
+    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))))]
+    #[doc(alias = <span class="string">"cairo_pdf_surface_set_page_label"</span>)]
     </span><span class="kw">pub fn </span>set_page_label(<span class="kw-2">&amp;</span><span class="self">self</span>, label: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">let </span>label = CString::new(<a href="#110">label</a>).unwrap();
         <span class="kw">unsafe </span>{
@@ -481,9 +483,9 @@
         <a class="self" href="#110">self</a>.<a href="surface.rs.html#281-284">status</a>()
     }
 
-    <span class="attr">#[cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))]
-    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))))]
-    #[doc(alias = <span class="string">&quot;cairo_pdf_surface_set_thumbnail_size&quot;</span>)]
+    <span class="attr">#[cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))]
+    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))))]
+    #[doc(alias = <span class="string">"cairo_pdf_surface_set_thumbnail_size"</span>)]
     </span><span class="kw">pub fn </span>set_thumbnail_size(<span class="kw-2">&amp;</span><span class="self">self</span>, width: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, height: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="prelude-ty">Result</span>&lt;(), <a href="error.rs.html#10-150">Error</a>&gt; {
         <span class="kw">unsafe </span>{
             ffi::cairo_pdf_surface_set_thumbnail_size(
@@ -495,9 +497,9 @@
         <a class="self" href="#121">self</a>.<a href="surface.rs.html#281-284">status</a>()
     }
 
-    <span class="attr">#[cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))]
-    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">&quot;pdf&quot;</span>, feature = <span class="string">&quot;v1_16&quot;</span>))))]
-    #[doc(alias = <span class="string">&quot;cairo_pdf_surface_add_outline&quot;</span>)]
+    <span class="attr">#[cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))]
+    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">"pdf"</span>, feature = <span class="string">"v1_16"</span>))))]
+    #[doc(alias = <span class="string">"cairo_pdf_surface_add_outline"</span>)]
     </span><span class="kw">pub fn </span>add_outline(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         parent_id: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
@@ -518,7 +520,7 @@
             ) <span class="kw">as _
         </span>};
 
-        <span class="self">self</span>.status()<span class="question-mark">?</span>;
+        <a class="self" href="#136">self</a>.<a href="surface.rs.html#281-284">status</a>()<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<a href="#145">res</a>)
     }
 }
@@ -531,19 +533,19 @@
     <span class="kw">use </span><span class="kw">crate</span>::context::<span class="kw-2">*</span>;
 
     <span class="kw">fn </span>draw(surface: <span class="kw-2">&amp;</span>Surface) {
-        <span class="kw">let </span>cr = Context::new(surface).expect(<span class="string">&quot;Can&#39;t create a Cairo context&quot;</span>);
+        <span class="kw">let </span>cr = Context::new(surface).expect(<span class="string">"Can't create a Cairo context"</span>);
 
         cr.set_line_width(<span class="number">25.0</span>);
 
         cr.set_source_rgba(<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.5</span>);
         cr.line_to(<span class="number">0.</span>, <span class="number">0.</span>);
         cr.line_to(<span class="number">100.</span>, <span class="number">100.</span>);
-        cr.stroke().expect(<span class="string">&quot;Surface on an invalid state&quot;</span>);
+        cr.stroke().expect(<span class="string">"Surface on an invalid state"</span>);
 
         cr.set_source_rgba(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">0.5</span>);
         cr.line_to(<span class="number">0.</span>, <span class="number">100.</span>);
         cr.line_to(<span class="number">100.</span>, <span class="number">0.</span>);
-        cr.stroke().expect(<span class="string">&quot;Surface on an invalid state&quot;</span>);
+        cr.stroke().expect(<span class="string">"Surface on an invalid state"</span>);
     }
 
     <span class="kw">fn </span>draw_in_buffer() -&gt; Vec&lt;u8&gt; {
@@ -563,20 +565,20 @@
     <span class="attr">#[test]
     </span><span class="kw">fn </span>version_string() {
         <span class="kw">let </span>ver_str = PdfVersion::_1_4.as_str().unwrap();
-        <span class="macro">assert_eq!</span>(ver_str, <span class="string">&quot;PDF 1.4&quot;</span>);
+        <span class="macro">assert_eq!</span>(ver_str, <span class="string">"PDF 1.4"</span>);
     }
 
     <span class="attr">#[test]
     #[cfg(unix)]
     </span><span class="kw">fn </span>file() {
-        <span class="kw">let </span>surface = PdfSurface::new(<span class="number">100.</span>, <span class="number">100.</span>, <span class="string">&quot;/dev/null&quot;</span>).unwrap();
+        <span class="kw">let </span>surface = PdfSurface::new(<span class="number">100.</span>, <span class="number">100.</span>, <span class="string">"/dev/null"</span>).unwrap();
         draw(<span class="kw-2">&amp;</span>surface);
         surface.finish();
     }
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>writer() {
-        <span class="kw">let </span>file = tempfile().expect(<span class="string">&quot;tempfile failed&quot;</span>);
+        <span class="kw">let </span>file = tempfile().expect(<span class="string">"tempfile failed"</span>);
         <span class="kw">let </span>surface = PdfSurface::for_stream(<span class="number">100.</span>, <span class="number">100.</span>, file).unwrap();
 
         draw(<span class="kw-2">&amp;</span>surface);
@@ -590,7 +592,7 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>ref_writer() {
-        <span class="kw">let </span><span class="kw-2">mut </span>file = tempfile().expect(<span class="string">&quot;tempfile failed&quot;</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>file = tempfile().expect(<span class="string">"tempfile failed"</span>);
         <span class="kw">let </span>surface = <span class="kw">unsafe </span>{ PdfSurface::for_raw_stream(<span class="number">100.</span>, <span class="number">100.</span>, <span class="kw-2">&amp;mut </span>file).unwrap() };
 
         draw(<span class="kw-2">&amp;</span>surface);
@@ -602,7 +604,7 @@
     </span><span class="kw">fn </span>buffer() {
         <span class="kw">let </span>buffer = draw_in_buffer();
 
-        <span class="kw">let </span>header = <span class="string">b&quot;%PDF-1.5&quot;</span>;
+        <span class="kw">let </span>header = <span class="string">b"%PDF-1.5"</span>;
         <span class="macro">assert_eq!</span>(<span class="kw-2">&amp;</span>buffer[..header.len()], header);
     }
 
@@ -639,7 +641,7 @@
 
         <span class="kw">impl </span>io::Write <span class="kw">for </span>PanicWriter {
             <span class="kw">fn </span>write(<span class="kw-2">&amp;mut </span><span class="self">self</span>, _buf: <span class="kw-2">&amp;</span>[u8]) -&gt; io::Result&lt;usize&gt; {
-                <span class="macro">panic!</span>(<span class="string">&quot;panic in writer&quot;</span>);
+                <span class="macro">panic!</span>(<span class="string">"panic in writer"</span>);
             }
             <span class="kw">fn </span>flush(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; io::Result&lt;()&gt; {
                 <span class="prelude-val">Ok</span>(())

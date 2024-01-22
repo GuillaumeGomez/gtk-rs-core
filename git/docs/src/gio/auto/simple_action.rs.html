@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/simple_action.rs`."><title>simple_action.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/simple_action.rs`."><title>simple_action.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -597,7 +599,7 @@
     /// default action is taken. If the state should change then you must
     /// call [`SimpleAction::set_state()`][crate::SimpleAction::set_state()] from the handler.
     ///
-    /// An example of a &#39;change-state&#39; handler:
+    /// An example of a 'change-state' handler:
     ///
     ///
     /// **⚠️ The following code is in C ⚠️**
@@ -626,8 +628,8 @@
     /// # Implements
     ///
     /// [`trait@glib::ObjectExt`], [`ActionExt`][trait@crate::prelude::ActionExt]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GSimpleAction&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.SimpleAction.html">SimpleAction</a>(Object&lt;ffi::GSimpleAction&gt;) @implements <a href="action.rs.html#12-91">Action</a>;
+    </span><span class="attr">#[doc(alias = <span class="string">"GSimpleAction"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.SimpleAction.html">SimpleAction</a>(Object&lt;<a href="../../../gio_sys/struct.GSimpleAction.html">ffi::GSimpleAction</a>&gt;) @implements <a href="action.rs.html#12-91">Action</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_simple_action_get_type(),
@@ -648,7 +650,7 @@
     /// # Returns
     ///
     /// a new [`SimpleAction`][crate::SimpleAction]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_simple_action_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_new"</span>)]
     </span><span class="kw">pub fn </span>new(name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, parameter_type: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant_type/struct.VariantTy.html">glib::VariantTy</a>&gt;) -&gt; <a href="#13-168">SimpleAction</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_simple_action_new(
@@ -675,7 +677,7 @@
     /// # Returns
     ///
     /// a new [`SimpleAction`][crate::SimpleAction]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_simple_action_new_stateful&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_new_stateful"</span>)]
     </span><span class="kw">pub fn </span>new_stateful(
         name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
         parameter_type: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant_type/struct.VariantTy.html">glib::VariantTy</a>&gt;,
@@ -699,7 +701,7 @@
     /// of the action should not attempt to modify its enabled flag.
     /// ## `enabled`
     /// whether the action is enabled
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_simple_action_set_enabled&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_set_enabled"</span>)]
     </span><span class="kw">pub fn </span>set_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>, enabled: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_simple_action_set_enabled(<a class="self" href="#236">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#236">enabled</a>.<a href="../../../glib/translate/trait.IntoGlib.html">into_glib</a>());
@@ -708,17 +710,17 @@
 
     <span class="doccomment">/// Sets the state of the action.
     ///
-    /// This directly updates the &#39;state&#39; property to the given value.
+    /// This directly updates the 'state' property to the given value.
     ///
     /// This should only be called by the implementor of the action. Users
-    /// of the action should not attempt to directly modify the &#39;state&#39;
+    /// of the action should not attempt to directly modify the 'state'
     /// property. Instead, they should call [`ActionExt::change_state()`][crate::prelude::ActionExt::change_state()] to
     /// request the change.
     ///
     /// If the `value` GVariant is floating, it is consumed.
     /// ## `value`
     /// the new [`glib::Variant`][struct@crate::glib::Variant] for the state
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_simple_action_set_state&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_set_state"</span>)]
     </span><span class="kw">pub fn </span>set_state(<span class="kw-2">&amp;</span><span class="self">self</span>, value: <span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_simple_action_set_state(<a class="self" href="#255">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#255">value</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -731,7 +733,7 @@
     /// action state hints.
     /// ## `state_hint`
     /// a [`glib::Variant`][struct@crate::glib::Variant] representing the state hint
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_simple_action_set_state_hint&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_simple_action_set_state_hint"</span>)]
     </span><span class="kw">pub fn </span>set_state_hint(<span class="kw-2">&amp;</span><span class="self">self</span>, state_hint: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_simple_action_set_state_hint(<a class="self" href="#268">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#268">state_hint</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -754,17 +756,17 @@
     /// ## `parameter`
     /// the parameter to the activation, or [`None`] if it has
     ///  no parameter
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;activate&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"activate"</span>)]
+    </span><span class="kw">pub fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>activate_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span><a href="#13-168">SimpleAction</a>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>activate_trampoline&lt;
+            F: Fn(<span class="kw-2">&amp;</span><a href="#13-168">SimpleAction</a>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GSimpleAction,
-            parameter: <span class="kw-2">*mut </span>glib::ffi::GVariant,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GSimpleAction.html">ffi::GSimpleAction</a>,
+            parameter: <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#300">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#302">f</a>(
@@ -778,8 +780,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#293">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#292">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;activate\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"activate\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     activate_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#311">f</a>),
@@ -801,7 +803,7 @@
     /// default action is taken. If the state should change then you must
     /// call [`set_state()`][Self::set_state()] from the handler.
     ///
-    /// An example of a &#39;change-state&#39; handler:
+    /// An example of a 'change-state' handler:
     ///
     ///
     /// **⚠️ The following code is in C ⚠️**
@@ -826,17 +828,17 @@
     /// It could set it to any value at all, or take some other action.
     /// ## `value`
     /// the requested value for the state
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;change-state&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_change_state&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"change-state"</span>)]
+    </span><span class="kw">pub fn </span>connect_change_state&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>change_state_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span><a href="#13-168">SimpleAction</a>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">&#39;static</span>,
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>change_state_trampoline&lt;
+            F: Fn(<span class="kw-2">&amp;</span><a href="#13-168">SimpleAction</a>, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GSimpleAction,
-            value: <span class="kw-2">*mut </span>glib::ffi::GVariant,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GSimpleAction.html">ffi::GSimpleAction</a>,
+            value: <span class="kw-2">*mut </span><a href="../../../glib_sys/struct.GVariant.html">glib::ffi::GVariant</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#372">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#374">f</a>(
@@ -850,8 +852,8 @@
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#365">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#364">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;change-state\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"change-state\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     change_state_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#383">f</a>),

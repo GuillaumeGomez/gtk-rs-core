@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/application_command_line.rs`."><title>application_command_line.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/application_command_line.rs`."><title>application_command_line.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -645,7 +647,7 @@
     /// dropped).
     ///
     /// The main use for [`ApplicationCommandLine`][crate::ApplicationCommandLine] (and the
-    /// [`command-line`][struct@crate::Application#command-line] signal) is &#39;Emacs server&#39; like use cases:
+    /// [`command-line`][struct@crate::Application#command-line] signal) is 'Emacs server' like use cases:
     /// You can set the `EDITOR` environment variable to have e.g. git use
     /// your favourite editor to edit commit messages, and if you already
     /// have an instance of the editor running, the editing will happen
@@ -674,11 +676,11 @@
     ///   argv = g_application_command_line_get_arguments (cmdline, &amp;argc);
     ///
     ///   g_application_command_line_print (cmdline,
-    ///                                     &quot;This text is written back\n&quot;
-    ///                                     &quot;to stdout of the caller\n&quot;);
+    ///                                     "This text is written back\n"
+    ///                                     "to stdout of the caller\n");
     ///
     ///   for (i = 0; i &lt; argc; i++)
-    ///     g_print (&quot;argument %d: %s\n&quot;, i, argv[i]);
+    ///     g_print ("argument %d: %s\n", i, argv[i]);
     ///
     ///   g_strfreev (argv);
     ///
@@ -714,16 +716,16 @@
     ///   i = 1;
     ///   while (argv[i])
     ///     {
-    ///       if (g_str_has_prefix (argv[i], &quot;--local-&quot;))
+    ///       if (g_str_has_prefix (argv[i], "--local-"))
     ///         {
-    ///           g_print (&quot;handling argument %s locally\n&quot;, argv[i]);
+    ///           g_print ("handling argument %s locally\n", argv[i]);
     ///           g_free (argv[i]);
     ///           for (j = i; argv[j]; j++)
     ///             argv[j] = argv[j + 1];
     ///         }
     ///       else
     ///         {
-    ///           g_print (&quot;not handling argument %s locally\n&quot;, argv[i]);
+    ///           g_print ("not handling argument %s locally\n", argv[i]);
     ///           i++;
     ///         }
     ///     }
@@ -777,7 +779,7 @@
     ///   g_application_hold (application);
     ///
     ///   g_object_set_data_full (G_OBJECT (cmdline),
-    ///                           &quot;application&quot;, application,
+    ///                           "application", application,
     ///                           (GDestroyNotify)g_application_release);
     ///
     ///   g_object_ref (cmdline);
@@ -816,8 +818,8 @@
     /// # Implements
     ///
     /// [`ApplicationCommandLineExt`][trait@crate::prelude::ApplicationCommandLineExt], [`trait@glib::ObjectExt`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GApplicationCommandLine&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.ApplicationCommandLine.html">ApplicationCommandLine</a>(Object&lt;ffi::GApplicationCommandLine, ffi::GApplicationCommandLineClass&gt;);
+    </span><span class="attr">#[doc(alias = <span class="string">"GApplicationCommandLine"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.ApplicationCommandLine.html">ApplicationCommandLine</a>(Object&lt;<a href="../../../gio_sys/struct.GApplicationCommandLine.html">ffi::GApplicationCommandLine</a>, <a href="../../../gio_sys/struct.GApplicationCommandLineClass.html">ffi::GApplicationCommandLineClass</a>&gt;);
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_application_command_line_get_type(),
@@ -825,7 +827,7 @@
 }
 
 <span class="kw">impl </span><a href="#13-214">ApplicationCommandLine</a> {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span><a href="#13-214">ApplicationCommandLine</a>&gt; = <span class="prelude-val">None</span>;
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#13-214">ApplicationCommandLine</a>&gt; = <span class="prelude-val">None</span>;
 }
 
 <span class="kw">mod </span>sealed {
@@ -839,7 +841,7 @@
 ///
 /// [`ApplicationCommandLine`][struct@crate::ApplicationCommandLine]
 </span><span class="kw">pub trait </span><a href="../../../gio/prelude/trait.ApplicationCommandLineExt.html">ApplicationCommandLineExt</a>:
-    IsA&lt;<a href="#13-214">ApplicationCommandLine</a>&gt; + <a href="#221">sealed::Sealed</a> + <span class="lifetime">&#39;static
+    IsA&lt;<a href="#13-214">ApplicationCommandLine</a>&gt; + <a href="#221">sealed::Sealed</a> + <span class="lifetime">'static
 </span>{
     <span class="doccomment">/// Creates a [`File`][crate::File] corresponding to a filename that was given as part
     /// of the invocation of `self`.
@@ -853,7 +855,7 @@
     /// # Returns
     ///
     /// a new [`File`][crate::File]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_create_file_for_arg&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_create_file_for_arg"</span>)]
     </span><span class="kw">fn </span>create_file_for_arg(<span class="kw-2">&amp;</span><span class="self">self</span>, arg: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">std::ffi::OsStr</a>&gt;) -&gt; <a href="file.rs.html#14-108">File</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_application_command_line_create_file_for_arg(
@@ -879,8 +881,8 @@
     ///
     ///
     ///  the string array containing the arguments (the argv)
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_arguments&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_arguments&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_arguments"</span>)]
+    #[doc(alias = <span class="string">"get_arguments"</span>)]
     </span><span class="kw">fn </span>arguments(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">std::ffi::OsString</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>argc = std::mem::MaybeUninit::uninit();
@@ -907,8 +909,8 @@
     /// # Returns
     ///
     /// the current directory, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_cwd&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_cwd&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_cwd"</span>)]
+    #[doc(alias = <span class="string">"get_cwd"</span>)]
     </span><span class="kw">fn </span>cwd(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html">std::path::PathBuf</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_application_command_line_get_cwd(
@@ -917,9 +919,9 @@
         }
     }
 
-    <span class="doccomment">/// Gets the contents of the &#39;environ&#39; variable of the command line
+    <span class="doccomment">/// Gets the contents of the 'environ' variable of the command line
     /// invocation, as would be returned by `g_get_environ()`, ie as a
-    /// [`None`]-terminated list of strings in the form &#39;NAME=VALUE&#39;.
+    /// [`None`]-terminated list of strings in the form 'NAME=VALUE'.
     /// The strings may contain non-utf8 data.
     ///
     /// The remote application usually does not send an environment. Use
@@ -937,8 +939,8 @@
     ///
     ///
     ///  the environment strings, or [`None`] if they were not sent
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_environ&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_environ&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_environ"</span>)]
+    #[doc(alias = <span class="string">"get_environ"</span>)]
     </span><span class="kw">fn </span>environ(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsString.html">std::ffi::OsString</a>&gt; {
         <span class="kw">unsafe </span>{
             <a href="../../../glib/translate/trait.FromGlibPtrContainer.html">FromGlibPtrContainer::from_glib_none</a>(ffi::g_application_command_line_get_environ(
@@ -953,8 +955,8 @@
     /// # Returns
     ///
     /// the exit status
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_exit_status&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_exit_status&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_exit_status"</span>)]
+    #[doc(alias = <span class="string">"get_exit_status"</span>)]
     </span><span class="kw">fn </span>exit_status(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{ ffi::g_application_command_line_get_exit_status(<a class="self" href="#347">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
@@ -964,8 +966,8 @@
     /// # Returns
     ///
     /// [`true`] if the invocation was remote
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_is_remote&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_is_remote&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_is_remote"</span>)]
+    #[doc(alias = <span class="string">"get_is_remote"</span>)]
     </span><span class="kw">fn </span>is_remote(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::g_application_command_line_get_is_remote(
@@ -982,7 +984,7 @@
     /// modified from your GApplication::handle-local-options handler.
     ///
     /// If no options were sent then an empty dictionary is returned so that
-    /// you don&#39;t need to check for [`None`].
+    /// you don't need to check for [`None`].
     ///
     /// The data has been passed via an untrusted external process, so the types of
     /// all values must be checked before being used.
@@ -990,8 +992,8 @@
     /// # Returns
     ///
     /// a [`glib::VariantDict`][crate::glib::VariantDict] with the options
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_options_dict&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_options_dict&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_options_dict"</span>)]
+    #[doc(alias = <span class="string">"get_options_dict"</span>)]
     </span><span class="kw">fn </span>options_dict(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../../../glib/variant_dict/struct.VariantDict.html">glib::VariantDict</a> {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_application_command_line_get_options_dict(
@@ -1015,8 +1017,8 @@
     /// # Returns
     ///
     /// the platform data, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_platform_data&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_platform_data&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_platform_data"</span>)]
+    #[doc(alias = <span class="string">"get_platform_data"</span>)]
     </span><span class="kw">fn </span>platform_data(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_application_command_line_get_platform_data(
@@ -1029,7 +1031,7 @@
     ///
     /// The [`InputStream`][crate::InputStream] can be used to read data passed to the standard
     /// input of the invoking process.
-    /// This doesn&#39;t work on all platforms. Presently, it is only available
+    /// This doesn't work on all platforms. Presently, it is only available
     /// on UNIX when using a D-Bus daemon capable of passing file descriptors.
     /// If stdin is not available then [`None`] will be returned. In the
     /// future, support may be expanded to other platforms.
@@ -1039,8 +1041,8 @@
     /// # Returns
     ///
     /// a [`InputStream`][crate::InputStream] for stdin
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_get_stdin&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_stdin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_get_stdin"</span>)]
+    #[doc(alias = <span class="string">"get_stdin"</span>)]
     </span><span class="kw">fn </span>stdin(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="input_stream.rs.html#9-33">InputStream</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_application_command_line_get_stdin(
@@ -1066,7 +1068,7 @@
     /// # Returns
     ///
     /// the value of the variable, or [`None`] if unset or unsent
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_getenv&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_getenv"</span>)]
     </span><span class="kw">fn </span>getenv(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span>AsRef&lt;<a href="https://doc.rust-lang.org/nightly/std/ffi/os_str/struct.OsStr.html">std::ffi::OsStr</a>&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="../../../glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::g_application_command_line_getenv(
@@ -1076,12 +1078,12 @@
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_application_command_line_print&quot;)]
+    <span class="comment">//#[doc(alias = "g_application_command_line_print")]
     //fn print(&amp;self, format: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
     //    unsafe { TODO: call ffi:g_application_command_line_print() }
     //}
 
-    //#[doc(alias = &quot;g_application_command_line_printerr&quot;)]
+    //#[doc(alias = "g_application_command_line_printerr")]
     //fn printerr(&amp;self, format: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
     //    unsafe { TODO: call ffi:g_application_command_line_printerr() }
     //}
@@ -1104,12 +1106,12 @@
     /// is slightly more complicated. If the commandline invocation results
     /// in the mainloop running (ie: because the use-count of the application
     /// increased to a non-zero value) then the application is considered to
-    /// have been &#39;successful&#39; in a certain sense, and the exit status is
+    /// have been 'successful' in a certain sense, and the exit status is
     /// always zero. If the application use count is zero, though, the exit
     /// status of the local [`ApplicationCommandLine`][crate::ApplicationCommandLine] is used.
     /// ## `exit_status`
     /// the exit status
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_application_command_line_set_exit_status&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_application_command_line_set_exit_status"</span>)]
     </span><span class="kw">fn </span>set_exit_status(<span class="kw-2">&amp;</span><span class="self">self</span>, exit_status: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_application_command_line_set_exit_status(
@@ -1119,25 +1121,25 @@
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;is-remote&quot;</span>)]
-    </span><span class="kw">fn </span>connect_is_remote_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_is_remote_trampoline&lt;
+    <span class="attr">#[doc(alias = <span class="string">"is-remote"</span>)]
+    </span><span class="kw">fn </span>connect_is_remote_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="../../../glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_is_remote_trampoline&lt;
             P: IsA&lt;<a href="#13-214">ApplicationCommandLine</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GApplicationCommandLine,
-            _param_spec: glib::ffi::gpointer,
-            f: glib::ffi::gpointer,
+            this: <span class="kw-2">*mut </span><a href="../../../gio_sys/struct.GApplicationCommandLine.html">ffi::GApplicationCommandLine</a>,
+            _param_spec: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
+            f: <a href="../../../glib_sys/type.gpointer.html">glib::ffi::gpointer</a>,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#519">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#521">f</a>(ApplicationCommandLine::from_glib_borrow(<a href="#517">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+            <a href="#521">f</a>(<a href="../../../glib/translate/trait.FromGlibPtrBorrow.html">ApplicationCommandLine::from_glib_borrow</a>(<a href="#517">this</a>).<a href="../../../glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#512">f</a>);
             <a href="../../../glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#512">self</a>.<a href="../../../glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::is-remote\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                <span class="string">b"notify::is-remote\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_is_remote_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
                 Box_::into_raw(<a href="#525">f</a>),

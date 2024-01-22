@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/menu_item.rs`."><title>menu_item.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (7adc89b69 2023-11-07)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gio/src/auto/menu_item.rs`."><title>menu_item.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gio/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -532,8 +534,8 @@
     /// # Implements
     ///
     /// [`trait@glib::ObjectExt`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GMenuItem&quot;</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gio/struct.MenuItem.html">MenuItem</a>(Object&lt;ffi::GMenuItem&gt;);
+    </span><span class="attr">#[doc(alias = <span class="string">"GMenuItem"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gio/struct.MenuItem.html">MenuItem</a>(Object&lt;<a href="../../../gio_sys/struct.GMenuItem.html">ffi::GMenuItem</a>&gt;);
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::g_menu_item_get_type(),
@@ -543,11 +545,11 @@
 <span class="kw">impl </span><a href="#8-21">MenuItem</a> {
     <span class="doccomment">/// Creates a new [`MenuItem`][crate::MenuItem].
     ///
-    /// If `label` is non-[`None`] it is used to set the &quot;label&quot; attribute of the
+    /// If `label` is non-[`None`] it is used to set the "label" attribute of the
     /// new item.
     ///
-    /// If `detailed_action` is non-[`None`] it is used to set the &quot;action&quot; and
-    /// possibly the &quot;target&quot; attribute of the new item. See
+    /// If `detailed_action` is non-[`None`] it is used to set the "action" and
+    /// possibly the "target" attribute of the new item. See
     /// [`set_detailed_action()`][Self::set_detailed_action()] for more information.
     /// ## `label`
     /// the section label, or [`None`]
@@ -557,7 +559,7 @@
     /// # Returns
     ///
     /// a new [`MenuItem`][crate::MenuItem]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_new"</span>)]
     </span><span class="kw">pub fn </span>new(label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, detailed_action: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; <a href="#8-21">MenuItem</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_menu_item_new(
@@ -580,8 +582,8 @@
     /// # Returns
     ///
     /// a new [`MenuItem`][crate::MenuItem].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_new_from_model&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_from_model&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_new_from_model"</span>)]
+    #[doc(alias = <span class="string">"new_from_model"</span>)]
     </span><span class="kw">pub fn </span>from_model(model: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;, item_index: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="#8-21">MenuItem</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_menu_item_new_from_model(
@@ -605,50 +607,50 @@
     /// this visual indication. This allows for labeled subsections of a
     /// menu.
     ///
-    /// As a simple example, consider a typical &quot;Edit&quot; menu from a simple
-    /// program. It probably contains an &quot;Undo&quot; and &quot;Redo&quot; item, followed by
-    /// a separator, followed by &quot;Cut&quot;, &quot;Copy&quot; and &quot;Paste&quot;.
+    /// As a simple example, consider a typical "Edit" menu from a simple
+    /// program. It probably contains an "Undo" and "Redo" item, followed by
+    /// a separator, followed by "Cut", "Copy" and "Paste".
     ///
     /// This would be accomplished by creating three [`Menu`][crate::Menu] instances. The
-    /// first would be populated with the &quot;Undo&quot; and &quot;Redo&quot; items, and the
-    /// second with the &quot;Cut&quot;, &quot;Copy&quot; and &quot;Paste&quot; items. The first and
+    /// first would be populated with the "Undo" and "Redo" items, and the
+    /// second with the "Cut", "Copy" and "Paste" items. The first and
     /// second menus would then be added as submenus of the third. In XML
     /// format, this would look something like the following:
     ///
     /// ```text
-    /// &lt;menu id=&#39;edit-menu&#39;&gt;
+    /// &lt;menu id='edit-menu'&gt;
     ///   &lt;section&gt;
-    ///     &lt;item label=&#39;Undo&#39;/&gt;
-    ///     &lt;item label=&#39;Redo&#39;/&gt;
+    ///     &lt;item label='Undo'/&gt;
+    ///     &lt;item label='Redo'/&gt;
     ///   &lt;/section&gt;
     ///   &lt;section&gt;
-    ///     &lt;item label=&#39;Cut&#39;/&gt;
-    ///     &lt;item label=&#39;Copy&#39;/&gt;
-    ///     &lt;item label=&#39;Paste&#39;/&gt;
+    ///     &lt;item label='Cut'/&gt;
+    ///     &lt;item label='Copy'/&gt;
+    ///     &lt;item label='Paste'/&gt;
     ///   &lt;/section&gt;
     /// &lt;/menu&gt;
     /// ```
     ///
     /// The following example is exactly equivalent. It is more illustrative
     /// of the exact relationship between the menus and items (keeping in
-    /// mind that the &#39;link&#39; element defines a new menu that is linked to the
+    /// mind that the 'link' element defines a new menu that is linked to the
     /// containing one). The style of the second example is more verbose and
     /// difficult to read (and therefore not recommended except for the
     /// purpose of understanding what is really going on).
     ///
     /// ```text
-    /// &lt;menu id=&#39;edit-menu&#39;&gt;
+    /// &lt;menu id='edit-menu'&gt;
     ///   &lt;item&gt;
-    ///     &lt;link name=&#39;section&#39;&gt;
-    ///       &lt;item label=&#39;Undo&#39;/&gt;
-    ///       &lt;item label=&#39;Redo&#39;/&gt;
+    ///     &lt;link name='section'&gt;
+    ///       &lt;item label='Undo'/&gt;
+    ///       &lt;item label='Redo'/&gt;
     ///     &lt;/link&gt;
     ///   &lt;/item&gt;
     ///   &lt;item&gt;
-    ///     &lt;link name=&#39;section&#39;&gt;
-    ///       &lt;item label=&#39;Cut&#39;/&gt;
-    ///       &lt;item label=&#39;Copy&#39;/&gt;
-    ///       &lt;item label=&#39;Paste&#39;/&gt;
+    ///     &lt;link name='section'&gt;
+    ///       &lt;item label='Cut'/&gt;
+    ///       &lt;item label='Copy'/&gt;
+    ///       &lt;item label='Paste'/&gt;
     ///     &lt;/link&gt;
     ///   &lt;/item&gt;
     /// &lt;/menu&gt;
@@ -661,7 +663,7 @@
     /// # Returns
     ///
     /// a new [`MenuItem`][crate::MenuItem]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_new_section&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_new_section"</span>)]
     </span><span class="kw">pub fn </span>new_section(label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, section: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;) -&gt; <a href="#8-21">MenuItem</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_menu_item_new_section(
@@ -683,7 +685,7 @@
     /// # Returns
     ///
     /// a new [`MenuItem`][crate::MenuItem]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_new_submenu&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_new_submenu"</span>)]
     </span><span class="kw">pub fn </span>new_submenu(label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, submenu: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;) -&gt; <a href="#8-21">MenuItem</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_menu_item_new_submenu(
@@ -693,8 +695,8 @@
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_menu_item_get_attribute&quot;)]
-    //#[doc(alias = &quot;get_attribute&quot;)]
+    <span class="comment">//#[doc(alias = "g_menu_item_get_attribute")]
+    //#[doc(alias = "get_attribute")]
     //pub fn is_attribute(&amp;self, attribute: &amp;str, format_string: &amp;str, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) -&gt; bool {
     //    unsafe { TODO: call ffi:g_menu_item_get_attribute() }
     //}
@@ -712,8 +714,8 @@
     /// # Returns
     ///
     /// the attribute value, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_get_attribute_value&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_attribute_value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_get_attribute_value"</span>)]
+    #[doc(alias = <span class="string">"get_attribute_value"</span>)]
     </span><span class="kw">pub fn </span>attribute_value(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
@@ -735,8 +737,8 @@
     /// # Returns
     ///
     /// the link, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_get_link&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_link&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_get_link"</span>)]
+    #[doc(alias = <span class="string">"get_link"</span>)]
     </span><span class="kw">pub fn </span>link(<span class="kw-2">&amp;</span><span class="self">self</span>, link: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::g_menu_item_get_link(
@@ -746,29 +748,29 @@
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_menu_item_set_action_and_target&quot;)]
+    <span class="comment">//#[doc(alias = "g_menu_item_set_action_and_target")]
     //pub fn set_action_and_target(&amp;self, action: Option&lt;&amp;str&gt;, format_string: Option&lt;&amp;str&gt;, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
     //    unsafe { TODO: call ffi:g_menu_item_set_action_and_target() }
     //}
 
-    </span><span class="doccomment">/// Sets or unsets the &quot;action&quot; and &quot;target&quot; attributes of `self`.
+    </span><span class="doccomment">/// Sets or unsets the "action" and "target" attributes of `self`.
     ///
-    /// If `action` is [`None`] then both the &quot;action&quot; and &quot;target&quot; attributes
+    /// If `action` is [`None`] then both the "action" and "target" attributes
     /// are unset (and `target_value` is ignored).
     ///
-    /// If `action` is non-[`None`] then the &quot;action&quot; attribute is set. The
-    /// &quot;target&quot; attribute is then set to the value of `target_value` if it is
+    /// If `action` is non-[`None`] then the "action" attribute is set. The
+    /// "target" attribute is then set to the value of `target_value` if it is
     /// non-[`None`] or unset otherwise.
     ///
     /// Normal menu items (ie: not submenu, section or other custom item
-    /// types) are expected to have the &quot;action&quot; attribute set to identify
+    /// types) are expected to have the "action" attribute set to identify
     /// the action that they are associated with. The state type of the
     /// action help to determine the disposition of the menu item. See
     /// [`Action`][crate::Action] and [`ActionGroup`][crate::ActionGroup] for an overview of actions.
     ///
     /// In general, clicking on the menu item will result in activation of
-    /// the named action with the &quot;target&quot; attribute given as the parameter
-    /// to the action invocation. If the &quot;target&quot; attribute is not set then
+    /// the named action with the "target" attribute given as the parameter
+    /// to the action invocation. If the "target" attribute is not set then
     /// the action is invoked with no parameter.
     ///
     /// If the action has no state then the menu item is usually drawn as a
@@ -776,12 +778,12 @@
     ///
     /// If the action has a boolean state then the menu item is usually drawn
     /// as a toggle menu item (ie: with a checkmark or equivalent
-    /// indication). The item should be marked as &#39;toggled&#39; or &#39;checked&#39;
+    /// indication). The item should be marked as 'toggled' or 'checked'
     /// when the boolean state is [`true`].
     ///
     /// If the action has a string state then the menu item is usually drawn
     /// as a radio menu item (ie: with a radio bullet or equivalent
-    /// indication). The item should be marked as &#39;selected&#39; when the string
+    /// indication). The item should be marked as 'selected' when the string
     /// state is equal to the value of the `target` property.
     ///
     /// See `g_menu_item_set_action_and_target()` or
@@ -791,7 +793,7 @@
     /// the name of the action for this item
     /// ## `target_value`
     /// a [`glib::Variant`][struct@crate::glib::Variant] to use as the action target
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_action_and_target_value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_action_and_target_value"</span>)]
     </span><span class="kw">pub fn </span>set_action_and_target_value(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         action: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
@@ -806,7 +808,7 @@
         }
     }
 
-    <span class="comment">//#[doc(alias = &quot;g_menu_item_set_attribute&quot;)]
+    <span class="comment">//#[doc(alias = "g_menu_item_set_attribute")]
     //pub fn set_attribute(&amp;self, attribute: &amp;str, format_string: Option&lt;&amp;str&gt;, : /*Unknown conversion*//*Unimplemented*/Basic: VarArgs) {
     //    unsafe { TODO: call ffi:g_menu_item_set_attribute() }
     //}
@@ -818,11 +820,11 @@
     /// [`MENU_ATTRIBUTE_ACTION`][crate::MENU_ATTRIBUTE_ACTION], [`MENU_ATTRIBUTE_TARGET`][crate::MENU_ATTRIBUTE_TARGET], or a custom
     /// attribute name.
     /// Attribute names are restricted to lowercase characters, numbers
-    /// and &#39;-&#39;. Furthermore, the names must begin with a lowercase character,
-    /// must not end with a &#39;-&#39;, and must not contain consecutive dashes.
+    /// and '-'. Furthermore, the names must begin with a lowercase character,
+    /// must not end with a '-', and must not contain consecutive dashes.
     ///
     /// must consist only of lowercase
-    /// ASCII characters, digits and &#39;-&#39;.
+    /// ASCII characters, digits and '-'.
     ///
     /// If `value` is non-[`None`] then it is used as the new value for the
     /// attribute. If `value` is [`None`] then the attribute is unset. If
@@ -834,7 +836,7 @@
     /// the attribute to set
     /// ## `value`
     /// a [`glib::Variant`][struct@crate::glib::Variant] to use as the value, or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_attribute_value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_attribute_value"</span>)]
     </span><span class="kw">pub fn </span>set_attribute_value(<span class="kw-2">&amp;</span><span class="self">self</span>, attribute: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../glib/variant/struct.Variant.html">glib::Variant</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_menu_item_set_attribute_value(
@@ -845,7 +847,7 @@
         }
     }
 
-    <span class="doccomment">/// Sets the &quot;action&quot; and possibly the &quot;target&quot; attribute of `self`.
+    <span class="doccomment">/// Sets the "action" and possibly the "target" attribute of `self`.
     ///
     /// The format of `detailed_action` is the same format parsed by
     /// [`Action::parse_detailed_name()`][crate::Action::parse_detailed_name()].
@@ -857,8 +859,8 @@
     /// See also [`set_action_and_target_value()`][Self::set_action_and_target_value()] for a description of
     /// the semantics of the action and target attributes.
     /// ## `detailed_action`
-    /// the &quot;detailed&quot; action string
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_detailed_action&quot;</span>)]
+    /// the "detailed" action string
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_detailed_action"</span>)]
     </span><span class="kw">pub fn </span>set_detailed_action(<span class="kw-2">&amp;</span><span class="self">self</span>, detailed_action: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
             ffi::g_menu_item_set_detailed_action(
@@ -874,28 +876,28 @@
     /// result as the value to [`set_attribute_value()`][Self::set_attribute_value()] for
     /// [`MENU_ATTRIBUTE_ICON`][crate::MENU_ATTRIBUTE_ICON].
     ///
-    /// This API is only intended for use with &quot;noun&quot; menu items; things like
-    /// bookmarks or applications in an &quot;Open With&quot; menu. Don&#39;t use it on
-    /// menu items corresponding to verbs (eg: stock icons for &#39;Save&#39; or
-    /// &#39;Quit&#39;).
+    /// This API is only intended for use with "noun" menu items; things like
+    /// bookmarks or applications in an "Open With" menu. Don't use it on
+    /// menu items corresponding to verbs (eg: stock icons for 'Save' or
+    /// 'Quit').
     ///
     /// If `icon` is [`None`] then the icon is unset.
     /// ## `icon`
     /// a [`Icon`][crate::Icon], or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_icon&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_icon"</span>)]
     </span><span class="kw">pub fn </span>set_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, icon: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="icon.rs.html#7-46">Icon</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_menu_item_set_icon(<a class="self" href="#366">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#366">icon</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Sets or unsets the &quot;label&quot; attribute of `self`.
+    <span class="doccomment">/// Sets or unsets the "label" attribute of `self`.
     ///
     /// If `label` is non-[`None`] it is used as the label for the menu item. If
     /// it is [`None`] then the label attribute is unset.
     /// ## `label`
     /// the label to set, or [`None`] to unset
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_label&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_label"</span>)]
     </span><span class="kw">pub fn </span>set_label(<span class="kw-2">&amp;</span><span class="self">self</span>, label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_menu_item_set_label(<a class="self" href="#379">self</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#379">label</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
@@ -910,13 +912,13 @@
     /// is used to create a section. Other types of link can be used, but there
     /// is no guarantee that clients will be able to make sense of them.
     /// Link types are restricted to lowercase characters, numbers
-    /// and &#39;-&#39;. Furthermore, the names must begin with a lowercase character,
-    /// must not end with a &#39;-&#39;, and must not contain consecutive dashes.
+    /// and '-'. Furthermore, the names must begin with a lowercase character,
+    /// must not end with a '-', and must not contain consecutive dashes.
     /// ## `link`
     /// type of link to establish or unset
     /// ## `model`
     /// the [`MenuModel`][crate::MenuModel] to link to (or [`None`] to unset)
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_link&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_link"</span>)]
     </span><span class="kw">pub fn </span>set_link(<span class="kw-2">&amp;</span><span class="self">self</span>, link: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, model: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_menu_item_set_link(
@@ -927,7 +929,7 @@
         }
     }
 
-    <span class="doccomment">/// Sets or unsets the &quot;section&quot; link of `self` to `section`.
+    <span class="doccomment">/// Sets or unsets the "section" link of `self` to `section`.
     ///
     /// The effect of having one menu appear as a section of another is
     /// exactly as it sounds: the items from `section` become a direct part of
@@ -936,7 +938,7 @@
     /// section.
     /// ## `section`
     /// a [`MenuModel`][crate::MenuModel], or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_section&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_section"</span>)]
     </span><span class="kw">pub fn </span>set_section(<span class="kw-2">&amp;</span><span class="self">self</span>, section: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_menu_item_set_section(
@@ -946,7 +948,7 @@
         }
     }
 
-    <span class="doccomment">/// Sets or unsets the &quot;submenu&quot; link of `self` to `submenu`.
+    <span class="doccomment">/// Sets or unsets the "submenu" link of `self` to `submenu`.
     ///
     /// If `submenu` is non-[`None`], it is linked to. If it is [`None`] then the
     /// link is unset.
@@ -955,7 +957,7 @@
     /// exactly as it sounds.
     /// ## `submenu`
     /// a [`MenuModel`][crate::MenuModel], or [`None`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;g_menu_item_set_submenu&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"g_menu_item_set_submenu"</span>)]
     </span><span class="kw">pub fn </span>set_submenu(<span class="kw-2">&amp;</span><span class="self">self</span>, submenu: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="menu_model.rs.html#13-166">MenuModel</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::g_menu_item_set_submenu(
