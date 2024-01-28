@@ -129,24 +129,9 @@ name = "GLib.PollFD"
 status = "manual"
 
 [[object]]
-name = "GLib.UnixPipe"
-status = "generate"
-cfg_condition = "unix"
-
-[[object]]
-name = "GLib.UnixPipeEnd"
-status = "generate"
-cfg_condition = "unix"
-
-[[object]]
 name = "GLib.TestLogMsg"
 # layout is broken due to rust having no long double
 status = "ignore"
-
-[[object]]
-name = "GLib.Win32OSType"
-status = "generate"
-cfg_condition = "windows"
 
 [[object]]
 name = "GLib.macro__has_attribute___noreturn__"
