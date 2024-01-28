@@ -950,8 +950,6 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
             alignment: align_of::<GUnicodeType>(),
         },
     ),
-    #[cfg(unix)]
-    #[cfg_attr(docsrs, doc(cfg(unix)))]
     (
         "GUnixPipe",
         Layout {
@@ -959,8 +957,6 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
             alignment: align_of::<GUnixPipe>(),
         },
     ),
-    #[cfg(unix)]
-    #[cfg_attr(docsrs, doc(cfg(unix)))]
     (
         "GUnixPipeEnd",
         Layout {
@@ -1045,8 +1041,6 @@ const RUST_LAYOUTS: &[(&str, Layout)] = &[
             alignment: align_of::<GVariantParseError>(),
         },
     ),
-    #[cfg(windows)]
-    #[cfg_attr(docsrs, doc(cfg(windows)))]
     (
         "GWin32OSType",
         Layout {
