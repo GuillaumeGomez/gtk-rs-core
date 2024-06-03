@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pangocairo/src/auto/functions.rs`."><title>functions.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-b1a3e7f8283b8434.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="pangocairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (ef71f1047 2024-01-21)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `pangocairo/src/auto/functions.rs`."><title>functions.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="pangocairo" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../pangocairo/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -426,25 +424,27 @@
 <a href="#351" id="351">351</a>
 <a href="#352" id="352">352</a>
 <a href="#353" id="353">353</a>
+<a href="#354" id="354">354</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
+</span><span class="kw">use </span><a href="../../../pango_cairo_sys/index.html"><span class="kw">crate</span>::ffi</a>;
+<span class="kw">use </span>glib::{<a href="../../../glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="../../../glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
 <span class="doccomment">/// Gets the resolution for the context.
 ///
-/// See [func`PangoCairo`]
+/// See [`context_set_resolution()`][crate::context_set_resolution()]
 /// ## `context`
 /// a [`pango::Context`][crate::pango::Context], from a pangocairo font map
 ///
 /// # Returns
 ///
 /// the resolution in "dots per inch". A negative value will
-///  be returned if no resolution has previously been set.
+///   be returned if no resolution has previously been set.
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_context_get_resolution"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.context_get_resolution.html">context_get_resolution</a>(context: <span class="kw-2">&amp;</span><a href="../../../pango/auto/context/struct.Context.html">pango::Context</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a> {
-    <span class="kw">unsafe </span>{ ffi::pango_cairo_context_get_resolution(<a href="#18">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+    <span class="kw">unsafe </span>{ <a href="../../../pango_cairo_sys/fn.pango_cairo_context_get_resolution.html">ffi::pango_cairo_context_get_resolution</a>(<a href="#19">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>) }
 }
 
 <span class="comment">//#[doc(alias = "pango_cairo_context_get_shape_renderer")]
@@ -454,19 +454,19 @@
 
 </span><span class="doccomment">/// Sets the font options used when rendering text with this context.
 ///
-/// These options override any options that [func`update_context`]
+/// These options override any options that [`update_context()`][crate::update_context()]
 /// derives from the target surface.
 /// ## `context`
 /// a [`pango::Context`][crate::pango::Context], from a pangocairo font map
 /// ## `options`
 /// a [`cairo::FontOptions`][crate::cairo::FontOptions], or [`None`] to unset
-///  any previously set options. A copy is made.
+///   any previously set options. A copy is made.
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_context_set_font_options"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.context_set_font_options.html">context_set_font_options</a>(context: <span class="kw-2">&amp;</span><a href="../../../pango/auto/context/struct.Context.html">pango::Context</a>, options: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="../../../cairo/font/font_options/struct.FontOptions.html">cairo::FontOptions</a>&gt;) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_context_set_font_options(
-            <a href="#37">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#37">options</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_context_set_font_options.html">ffi::pango_cairo_context_set_font_options</a>(
+            <a href="#38">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#38">options</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
         );
     }
 }
@@ -480,12 +480,12 @@
 /// a [`pango::Context`][crate::pango::Context], from a pangocairo font map
 /// ## `dpi`
 /// the resolution in "dots per inch". (Physical inches aren't actually
-///  involved; the terminology is conventional.) A 0 or negative value
-///  means to use the resolution from the font map.
+///   involved; the terminology is conventional.) A 0 or negative value
+///   means to use the resolution from the font map.
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_context_set_resolution"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.context_set_resolution.html">context_set_resolution</a>(context: <span class="kw-2">&amp;</span><a href="../../../pango/auto/context/struct.Context.html">pango::Context</a>, dpi: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_context_set_resolution(<a href="#58">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#58">dpi</a>);
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_context_set_resolution.html">ffi::pango_cairo_context_set_resolution</a>(<a href="#59">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>, <a href="#59">dpi</a>);
     }
 }
 
@@ -498,12 +498,12 @@
 /// and target surface of the Cairo context.
 ///
 /// This context can then be
-/// used to create a layout using [ctor`Pango`.new].
+/// used to create a layout using [`pango::Layout::new()`][crate::pango::Layout::new()].
 ///
 /// This function is a convenience function that creates a context using
-/// the default font map, then updates it to `cr`. If you just need to
-/// create a layout for use with `cr` and do not need to access [`pango::Context`][crate::pango::Context]
-/// directly, you can use [func`create_layout`] instead.
+/// the default font map, then updates it to @cr. If you just need to
+/// create a layout for use with @cr and do not need to access [`pango::Context`][crate::pango::Context]
+/// directly, you can use [`create_layout()`][crate::create_layout()] instead.
 /// ## `cr`
 /// a Cairo context
 ///
@@ -513,8 +513,8 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_create_context"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.create_context.html">create_context</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>) -&gt; <a href="../../../pango/auto/context/struct.Context.html">pango::Context</a> {
     <span class="kw">unsafe </span>{
-        from_glib_full(ffi::pango_cairo_create_context(mut_override(
-            <a href="#86">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+        <a href="../../../glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../../pango_cairo_sys/fn.pango_cairo_create_context.html">ffi::pango_cairo_create_context</a>(<a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(
+            <a href="#87">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
         )))
     }
 }
@@ -523,9 +523,9 @@
 /// and target surface of the Cairo context.
 ///
 /// This layout can then be used for text measurement with functions
-/// like [method`Pango`.get_size] or drawing with functions like
-/// [func`show_layout`]. If you change the transformation or target
-/// surface for `cr`, you need to call [func`update_layout`].
+/// like [`Layout::size()`][crate::pango::Layout::size()] or drawing with functions like
+/// [`show_layout()`][crate::show_layout()]. If you change the transformation or target
+/// surface for @cr, you need to call [`update_layout()`][crate::update_layout()].
 ///
 /// This function is the most convenient way to use Cairo with Pango,
 /// however it is slightly inefficient since it creates a separate
@@ -540,8 +540,8 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_create_layout"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.create_layout.html">create_layout</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>) -&gt; <a href="../../../pango/auto/layout/struct.Layout.html">pango::Layout</a> {
     <span class="kw">unsafe </span>{
-        from_glib_full(ffi::pango_cairo_create_layout(mut_override(
-            <a href="#113">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+        <a href="../../../glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../../pango_cairo_sys/fn.pango_cairo_create_layout.html">ffi::pango_cairo_create_layout</a>(<a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(
+            <a href="#114">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
         )))
     }
 }
@@ -565,17 +565,17 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_error_underline_path"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.error_underline_path.html">error_underline_path</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, x: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, width: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, height: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_error_underline_path(
-            mut_override(<a href="#138">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-            <a href="#138">x</a>,
-            <a href="#138">y</a>,
-            <a href="#138">width</a>,
-            <a href="#138">height</a>,
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_error_underline_path.html">ffi::pango_cairo_error_underline_path</a>(
+            <a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#139">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+            <a href="#139">x</a>,
+            <a href="#139">y</a>,
+            <a href="#139">width</a>,
+            <a href="#139">height</a>,
         );
     }
 }
 
-<span class="doccomment">/// Adds the glyphs in `glyphs` to the current path in the specified
+<span class="doccomment">/// Adds the glyphs in @glyphs to the current path in the specified
 /// cairo context.
 ///
 /// The origin of the glyphs (the left edge of the baseline)
@@ -593,10 +593,10 @@
     glyphs: <span class="kw-2">&amp;mut </span><a href="../../../pango/auto/glyph_string/struct.GlyphString.html">pango::GlyphString</a>,
 ) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_glyph_string_path(
-            mut_override(<a href="#163">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-            <a href="#164">font</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#165">glyphs</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_glyph_string_path.html">ffi::pango_cairo_glyph_string_path</a>(
+            <a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#164">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+            <a href="#165">font</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#166">glyphs</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
         );
     }
 }
@@ -613,7 +613,7 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_layout_line_path"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.layout_line_path.html">layout_line_path</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, line: <span class="kw-2">&amp;</span><a href="../../../pango/auto/layout_line/struct.LayoutLine.html">pango::LayoutLine</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_layout_line_path(mut_override(<a href="#186">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>), <a href="#186">line</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_layout_line_path.html">ffi::pango_cairo_layout_line_path</a>(<a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#187">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>), <a href="#187">line</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
     }
 }
 
@@ -629,7 +629,7 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_layout_path"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.layout_path.html">layout_path</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, layout: <span class="kw-2">&amp;</span><a href="../../../pango/auto/layout/struct.Layout.html">pango::Layout</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_layout_path(mut_override(<a href="#202">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>), <a href="#202">layout</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_layout_path.html">ffi::pango_cairo_layout_path</a>(<a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#203">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>), <a href="#203">layout</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
     }
 }
 
@@ -653,45 +653,45 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_show_error_underline"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.show_error_underline.html">show_error_underline</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, x: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, width: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, height: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_show_error_underline(
-            mut_override(<a href="#226">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-            <a href="#226">x</a>,
-            <a href="#226">y</a>,
-            <a href="#226">width</a>,
-            <a href="#226">height</a>,
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_show_error_underline.html">ffi::pango_cairo_show_error_underline</a>(
+            <a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#227">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+            <a href="#227">x</a>,
+            <a href="#227">y</a>,
+            <a href="#227">width</a>,
+            <a href="#227">height</a>,
         );
     }
 }
 
-<span class="doccomment">/// Draws the glyphs in `glyph_item` in the specified cairo context,
+<span class="doccomment">/// Draws the glyphs in @glyph_item in the specified cairo context,
 ///
 /// embedding the text associated with the glyphs in the output if the
 /// output format supports it (PDF for example), otherwise it acts
-/// similar to [func`show_glyph_string`].
+/// similar to [`show_glyph_string()`][crate::show_glyph_string()].
 ///
 /// The origin of the glyphs (the left edge of the baseline) will
 /// be drawn at the current point of the cairo context.
 ///
-/// Note that `text` is the start of the text for layout, which is then
+/// Note that @text is the start of the text for layout, which is then
 /// indexed by `glyph_item-&gt;item-&gt;offset`.
 /// ## `cr`
 /// a Cairo context
 /// ## `text`
-/// the UTF-8 text that `glyph_item` refers to
+/// the UTF-8 text that @glyph_item refers to
 /// ## `glyph_item`
 /// a [`pango::GlyphItem`][crate::pango::GlyphItem]
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_show_glyph_item"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.show_glyph_item.html">show_glyph_item</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, glyph_item: <span class="kw-2">&amp;mut </span><a href="../../../pango/auto/glyph_item/struct.GlyphItem.html">pango::GlyphItem</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_show_glyph_item(
-            mut_override(<a href="#256">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-            <a href="#256">text</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#256">glyph_item</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_show_glyph_item.html">ffi::pango_cairo_show_glyph_item</a>(
+            <a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#257">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+            <a href="#257">text</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#257">glyph_item</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
         );
     }
 }
 
-<span class="doccomment">/// Draws the glyphs in `glyphs` in the specified cairo context.
+<span class="doccomment">/// Draws the glyphs in @glyphs in the specified cairo context.
 ///
 /// The origin of the glyphs (the left edge of the baseline) will
 /// be drawn at the current point of the cairo context.
@@ -708,10 +708,10 @@
     glyphs: <span class="kw-2">&amp;mut </span><a href="../../../pango/auto/glyph_string/struct.GlyphString.html">pango::GlyphString</a>,
 ) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_show_glyph_string(
-            mut_override(<a href="#278">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-            <a href="#279">font</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-            <a href="#280">glyphs</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_show_glyph_string.html">ffi::pango_cairo_show_glyph_string</a>(
+            <a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#279">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+            <a href="#280">font</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#281">glyphs</a>.<a href="../../../glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
         );
     }
 }
@@ -727,7 +727,7 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_show_layout"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.show_layout.html">show_layout</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, layout: <span class="kw-2">&amp;</span><a href="../../../pango/auto/layout/struct.Layout.html">pango::Layout</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_show_layout(mut_override(<a href="#300">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>), <a href="#300">layout</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_show_layout.html">ffi::pango_cairo_show_layout</a>(<a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#301">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>), <a href="#301">layout</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
     }
 }
 
@@ -742,7 +742,7 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_show_layout_line"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.show_layout_line.html">show_layout_line</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, line: <span class="kw-2">&amp;</span><a href="../../../pango/auto/layout_line/struct.LayoutLine.html">pango::LayoutLine</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_show_layout_line(mut_override(<a href="#315">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>), <a href="#315">line</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_show_layout_line.html">ffi::pango_cairo_show_layout_line</a>(<a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#316">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>), <a href="#316">line</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
     }
 }
 
@@ -751,7 +751,7 @@
 /// context.
 ///
 /// If any layouts have been created for the context, it's necessary
-/// to call [method`Pango`.context_changed] on those layouts.
+/// to call [`Layout::context_changed()`][crate::pango::Layout::context_changed()] on those layouts.
 /// ## `cr`
 /// a Cairo context
 /// ## `context`
@@ -759,24 +759,24 @@
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_update_context"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.update_context.html">update_context</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, context: <span class="kw-2">&amp;</span><a href="../../../pango/auto/context/struct.Context.html">pango::Context</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_update_context(
-            mut_override(<a href="#332">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-            <a href="#332">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_update_context.html">ffi::pango_cairo_update_context</a>(
+            <a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#333">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+            <a href="#333">context</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
         );
     }
 }
 
 <span class="doccomment">/// Updates the private [`pango::Context`][crate::pango::Context] of a [`pango::Layout`][crate::pango::Layout] created with
-/// [func`create_layout`] to match the current transformation and target
+/// [`create_layout()`][crate::create_layout()] to match the current transformation and target
 /// surface of a Cairo context.
 /// ## `cr`
 /// a Cairo context
 /// ## `layout`
-/// a [`pango::Layout`][crate::pango::Layout], from [func`create_layout`]
+/// a [`pango::Layout`][crate::pango::Layout], from [`create_layout()`][crate::create_layout()]
 </span><span class="attr">#[doc(alias = <span class="string">"pango_cairo_update_layout"</span>)]
 </span><span class="kw">pub fn </span><a href="../../../pangocairo/functions/fn.update_layout.html">update_layout</a>(cr: <span class="kw-2">&amp;</span><a href="../../../cairo/context/struct.Context.html">cairo::Context</a>, layout: <span class="kw-2">&amp;</span><a href="../../../pango/auto/layout/struct.Layout.html">pango::Layout</a>) {
     <span class="kw">unsafe </span>{
-        ffi::pango_cairo_update_layout(mut_override(<a href="#349">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>), <a href="#349">layout</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        <a href="../../../pango_cairo_sys/fn.pango_cairo_update_layout.html">ffi::pango_cairo_update_layout</a>(<a href="../../../glib/translate/fn.mut_override.html">mut_override</a>(<a href="#350">cr</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>), <a href="#350">layout</a>.<a href="../../../glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
     }
 }
 </code></pre></div></section></main></body></html>
