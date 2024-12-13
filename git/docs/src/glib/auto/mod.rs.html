@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/mod.rs`."><title>mod.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5ca6ca2a1f83705a.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (cefe1dcef 2024-07-22)" data-channel="nightly" data-search-js="search-d234aafac6c221dd.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-d2fab2bf619172d3.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `glib/src/auto/mod.rs`."><title>mod.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="glib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.0-nightly (d4025ee45 2024-12-12)" data-channel="nightly" data-search-js="search-92e6798f.js" data-settings-js="settings-0f613d39.js" ><script src="../../../static.files/storage-59e33391.js"></script><script defer src="../../../static.files/src-script-56102188.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -50,7 +50,7 @@
             </section>
         ` };
 
-        if ("master" == "master") {
+        if ("main" == "main") {
             document.body.insertAdjacentHTML(
                 'beforeend',
                 popup("This is the development version. Go to latest stable version.", "stable/latest")
@@ -59,7 +59,7 @@
             fetch('https://gtk-rs.org/gtk-rs-core/LATEST_RELEASE_BRANCH')
                 .then(response => response.text())
                 .then(latest_branch => {
-                    if (latest_branch.trim() != "master") {
+                    if (latest_branch.trim() != "main") {
                         document.body.insertAdjacentHTML(
                             'beforeend',
                             popup("This version is outdated. Go to latest version.", "stable/latest")
@@ -71,7 +71,8 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1><div class="sub-heading">glib/auto/</div>mod.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers">
+<a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -199,7 +200,12 @@
 <a href="#126" id="126">126</a>
 <a href="#127" id="127">127</a>
 <a href="#128" id="128">128</a>
-</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+<a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
+<a href="#131" id="131">131</a>
+<a href="#132" id="132">132</a>
+<a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a></pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
@@ -212,10 +218,10 @@
 <span class="kw">mod </span><a href="key_file.rs.html#5-953">key_file</a>;
 <span class="kw">pub use </span><a href="key_file.rs.html#7-153"><span class="self">self</span>::key_file::KeyFile</a>;
 
-<span class="kw">mod </span><a href="main_context.rs.html#5-266">main_context</a>;
+<span class="kw">mod </span><a href="main_context.rs.html#5-281">main_context</a>;
 <span class="kw">pub use </span><a href="main_context.rs.html#10-21"><span class="self">self</span>::main_context::MainContext</a>;
 
-<span class="kw">mod </span><a href="main_loop.rs.html#5-89">main_loop</a>;
+<span class="kw">mod </span><a href="main_loop.rs.html#5-90">main_loop</a>;
 <span class="kw">pub use </span><a href="main_loop.rs.html#7-18"><span class="self">self</span>::main_loop::MainLoop</a>;
 
 <span class="kw">mod </span><a href="markup_parse_context.rs.html#5-171">markup_parse_context</a>;
@@ -224,7 +230,7 @@
 <span class="kw">mod </span><a href="regex.rs.html#5-197">regex</a>;
 <span class="kw">pub use </span><a href="regex.rs.html#7-69"><span class="self">self</span>::regex::Regex</a>;
 
-<span class="kw">mod </span><a href="source.rs.html#5-297">source</a>;
+<span class="kw">mod </span><a href="source.rs.html#5-298">source</a>;
 <span class="kw">pub use </span><a href="source.rs.html#7-18"><span class="self">self</span>::source::Source</a>;
 
 <span class="kw">mod </span><a href="time_zone.rs.html#5-318">time_zone</a>;
@@ -237,7 +243,7 @@
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
 </span><span class="kw">pub use </span><a href="uri.rs.html#7-183"><span class="self">self</span>::uri::Uri</a>;
 
-<span class="kw">mod </span><a href="enums.rs.html#5-2859">enums</a>;
+<span class="kw">mod </span><a href="enums.rs.html#5-2922">enums</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#15-33"><span class="self">self</span>::enums::ChecksumType</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#71-103"><span class="self">self</span>::enums::ConvertError</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#169-211"><span class="self">self</span>::enums::DateMonth</a>;
@@ -251,47 +257,47 @@
 <span class="kw">pub use </span><a href="enums.rs.html#986-998"><span class="self">self</span>::enums::SeekType</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#1039-1051"><span class="self">self</span>::enums::TimeType</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#1090-1247"><span class="self">self</span>::enums::UnicodeBreakType</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#1440-1958"><span class="self">self</span>::enums::UnicodeScript</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#2400-2493"><span class="self">self</span>::enums::UnicodeType</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#1440-1993"><span class="self">self</span>::enums::UnicodeScript</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#2463-2556"><span class="self">self</span>::enums::UnicodeType</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
-</span><span class="kw">pub use </span><a href="enums.rs.html#2635-2669"><span class="self">self</span>::enums::UriError</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#2744-2803"><span class="self">self</span>::enums::VariantClass</a>;
+</span><span class="kw">pub use </span><a href="enums.rs.html#2698-2732"><span class="self">self</span>::enums::UriError</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#2807-2866"><span class="self">self</span>::enums::VariantClass</a>;
 
-<span class="kw">mod </span><a href="flags.rs.html#5-673">flags</a>;
+<span class="kw">mod </span><a href="flags.rs.html#5-998">flags</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
-</span><span class="kw">pub use </span><a href="flags.rs.html#8-22"><span class="self">self</span>::flags::FileSetContentsFlags</a>;
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">use </span><a href="flags.rs.html#46-61"><span class="self">self</span>::flags::FileTest</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#81-102"><span class="self">self</span>::flags::FormatSizeFlags</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#122-139"><span class="self">self</span>::flags::IOCondition</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#215-226"><span class="self">self</span>::flags::KeyFileFlags</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#246-269"><span class="self">self</span>::flags::LogLevelFlags</a>;
+</span><span class="kw">pub use </span><a href="flags.rs.html#8-40"><span class="self">self</span>::flags::FileSetContentsFlags</a>;
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">use </span><a href="flags.rs.html#64-88"><span class="self">self</span>::flags::FileTest</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#108-145"><span class="self">self</span>::flags::FormatSizeFlags</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#165-191"><span class="self">self</span>::flags::IOCondition</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#267-288"><span class="self">self</span>::flags::KeyFileFlags</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#308-347"><span class="self">self</span>::flags::LogLevelFlags</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_72"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_72"</span>)))]
-</span><span class="kw">pub use </span><a href="flags.rs.html#290-300"><span class="self">self</span>::flags::MainContextFlags</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#324-345"><span class="self">self</span>::flags::OptionFlags</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#365-408"><span class="self">self</span>::flags::RegexCompileFlags</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#428-465"><span class="self">self</span>::flags::RegexMatchFlags</a>;
-<span class="kw">pub use </span><a href="flags.rs.html#485-522"><span class="self">self</span>::flags::SpawnFlags</a>;
+</span><span class="kw">pub use </span><a href="flags.rs.html#368-385"><span class="self">self</span>::flags::MainContextFlags</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#409-454"><span class="self">self</span>::flags::OptionFlags</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#474-593"><span class="self">self</span>::flags::RegexCompileFlags</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#613-711"><span class="self">self</span>::flags::RegexMatchFlags</a>;
+<span class="kw">pub use </span><a href="flags.rs.html#731-795"><span class="self">self</span>::flags::SpawnFlags</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
-</span><span class="kw">pub use </span><a href="flags.rs.html#543-569"><span class="self">self</span>::flags::UriFlags</a>;
+</span><span class="kw">pub use </span><a href="flags.rs.html#816-877"><span class="self">self</span>::flags::UriFlags</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
-</span><span class="kw">pub use </span><a href="flags.rs.html#594-612"><span class="self">self</span>::flags::UriHideFlags</a>;
+</span><span class="kw">pub use </span><a href="flags.rs.html#902-930"><span class="self">self</span>::flags::UriHideFlags</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_66"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_66"</span>)))]
-</span><span class="kw">pub use </span><a href="flags.rs.html#637-651"><span class="self">self</span>::flags::UriParamsFlags</a>;
+</span><span class="kw">pub use </span><a href="flags.rs.html#955-976"><span class="self">self</span>::flags::UriParamsFlags</a>;
 
 <span class="kw">mod </span><a href="alias.rs.html#5-13">alias</a>;
 <span class="kw">pub use </span><a href="alias.rs.html#9"><span class="self">self</span>::alias::DateDay</a>;
 <span class="kw">pub use </span><a href="alias.rs.html#11"><span class="self">self</span>::alias::DateYear</a>;
 <span class="kw">pub use </span><a href="alias.rs.html#13"><span class="self">self</span>::alias::Time</a>;
 
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span><a href="functions.rs.html#5-2554">functions</a>;
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span><a href="functions.rs.html#5-2556">functions</a>;
 
-<span class="kw">mod </span><a href="constants.rs.html#5-223">constants</a>;
+<span class="kw">mod </span><a href="constants.rs.html#5-244">constants</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#21"><span class="self">self</span>::constants::CSET_a_2_z</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#11"><span class="self">self</span>::constants::CSET_A_2_Z</a>;
 <span class="kw">pub use </span><a href="constants.rs.html#16"><span class="self">self</span>::constants::CSET_DIGITS</a>;
@@ -324,7 +330,13 @@
 <span class="kw">pub use </span><a href="constants.rs.html#183-184"><span class="self">self</span>::constants::STR_DELIMITERS</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v2_60"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_60"</span>)))]
-</span><span class="kw">pub use </span><a href="constants.rs.html#211-212"><span class="self">self</span>::constants::TEST_OPTION_ISOLATE_DIRS</a>;
-<span class="kw">pub use </span><a href="constants.rs.html#216-217"><span class="self">self</span>::constants::URI_RESERVED_CHARS_GENERIC_DELIMITERS</a>;
-<span class="kw">pub use </span><a href="constants.rs.html#221-223"><span class="self">self</span>::constants::URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS</a>;
+</span><span class="kw">pub use </span><a href="constants.rs.html#215-216"><span class="self">self</span>::constants::TEST_OPTION_ISOLATE_DIRS</a>;
+<span class="attr">#[cfg(feature = <span class="string">"v2_84"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_84"</span>)))]
+</span><span class="kw">pub use </span><a href="constants.rs.html#224-225"><span class="self">self</span>::constants::TEST_OPTION_NONFATAL_ASSERTIONS</a>;
+<span class="attr">#[cfg(feature = <span class="string">"v2_84"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v2_84"</span>)))]
+</span><span class="kw">pub use </span><a href="constants.rs.html#232-233"><span class="self">self</span>::constants::TEST_OPTION_NO_PRGNAME</a>;
+<span class="kw">pub use </span><a href="constants.rs.html#237-238"><span class="self">self</span>::constants::URI_RESERVED_CHARS_GENERIC_DELIMITERS</a>;
+<span class="kw">pub use </span><a href="constants.rs.html#242-244"><span class="self">self</span>::constants::URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS</a>;
 </code></pre></div></section></main></body></html>
